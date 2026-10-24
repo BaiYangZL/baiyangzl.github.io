@@ -1,0 +1,125 @@
+{
+  "version": "room-network-packs-20261025",
+  "common": {
+    "filename": "common-701aa9133034.bin",
+    "sha256": "701aa9133034a19419629af5e61b7474616e2195245b7e331dc4a890a30f739a",
+    "files": 35,
+    "bytes": 8942906
+  },
+  "rooms": {
+    "upper": {
+      "filename": "upper-28694f8988b3.bin",
+      "sha256": "28694f8988b30e37a41210607a403648b84f5c036ca999a88c0b163f0288aa21",
+      "files": 202,
+      "bytes": 13411926
+    },
+    "room-storage": {
+      "filename": "room-storage-8e9c0b646394.bin",
+      "sha256": "8e9c0b646394ed7fe7b8dcba6a5afd5890caa71207a6c312991b187c618eca2a",
+      "files": 44,
+      "bytes": 1685717
+    },
+    "room-201": {
+      "filename": "room-201-142ac125f71c.bin",
+      "sha256": "142ac125f71ccfb462b77578ff70137bccd3778e3018b9f739a34dc308bf4ab2",
+      "files": 45,
+      "bytes": 2092499
+    },
+    "room-202": {
+      "filename": "room-202-72088680207d.bin",
+      "sha256": "72088680207df1de951d060d64540d8fc57d7b4feea9602505fe1cc86104f473",
+      "files": 53,
+      "bytes": 5328840
+    },
+    "room-203": {
+      "filename": "room-203-9c2ff90d07fa.bin",
+      "sha256": "9c2ff90d07fa4c9392fcab16e1723864539eb14f00c6ce4abbb34730603d1ba4",
+      "files": 56,
+      "bytes": 2961721
+    },
+    "room-210": {
+      "filename": "room-210-34e41d5cce6a.bin",
+      "sha256": "34e41d5cce6a1e4f3707e07e758cd6f532b9c81b607b93d9929ebaf412b3b46a",
+      "files": 48,
+      "bytes": 5355825
+    },
+    "room-204": {
+      "filename": "room-204-ece4a612ab73.bin",
+      "sha256": "ece4a612ab73a9627c38e3aa7ee9e8967760ce6a5d7a435962fbdbab6aaaf9ed",
+      "files": 41,
+      "bytes": 2034778
+    },
+    "room-205": {
+      "filename": "room-205-7e92e78264f4.bin",
+      "sha256": "7e92e78264f4bbea4891142e08752e551fd688a620c331423fac0fbd02512f26",
+      "files": 49,
+      "bytes": 3076451
+    },
+    "room-206": {
+      "filename": "room-206-1bf503fc8f0c.bin",
+      "sha256": "1bf503fc8f0c427ba4f8aa4fc68270f5258fe5b84132fb80bb4ce93e56de0935",
+      "files": 46,
+      "bytes": 2793442
+    },
+    "room-bar": {
+      "filename": "room-bar-6eb08d663e07.bin",
+      "sha256": "6eb08d663e07ae7567956ee9c3af0857a1a68f8fbf6692dfbdf085c75164abbe",
+      "files": 43,
+      "bytes": 3101270
+    },
+    "room-lady": {
+      "filename": "room-lady-65cbbc538a38.bin",
+      "sha256": "65cbbc538a38ee1b03178597c4aca21bc3f5e6ec03ab8e6eebd8a323cf778d30",
+      "files": 40,
+      "bytes": 2401663
+    },
+    "room-story": {
+      "filename": "room-story-8e9642a5648e.bin",
+      "sha256": "8e9642a5648e90ee76d942a12b38833d2b92c6406582a1bef703dc7cf83774fe",
+      "files": 42,
+      "bytes": 1417558
+    },
+    "room-207": {
+      "filename": "room-207-c9b123f43d22.bin",
+      "sha256": "c9b123f43d22586953a71d1a81a021840d9f6ad263c186dac9c22351c70b7535",
+      "files": 35,
+      "bytes": 4008507
+    },
+    "room-208": {
+      "filename": "room-208-dcca3884e913.bin",
+      "sha256": "dcca3884e9139f8a9414989ff703413d44797ac399861cbfef809f427ba5c391",
+      "files": 44,
+      "bytes": 3703667
+    },
+    "room-209": {
+      "filename": "room-209-228528fe3c26.bin",
+      "sha256": "228528fe3c26637d15dcc3b06068c22661fb970ecf85648e71d54d80d8b4521f",
+      "files": 49,
+      "bytes": 2641642
+    },
+    "lower": {
+      "filename": "lower-22835869ed32.bin",
+      "sha256": "22835869ed326adbec49341c2c79fa53fea31e9adc148d8485a4a74cec22b4d9",
+      "files": 199,
+      "bytes": 10061830
+    },
+    "room-hall": {
+      "filename": "room-hall-cadf983603ce.bin",
+      "sha256": "cadf983603ce2e2b1ce3b33fb2b20b91bbfb4bb8042a4749d9662690a3315569",
+      "files": 126,
+      "bytes": 8077719
+    },
+    "corridor-upper": {
+      "filename": "corridor-upper-46a1e64825c6.bin",
+      "sha256": "46a1e64825c62738ae76cb0a6f34929ce5c7b606008db62f0f2cdcd73a1bec56",
+      "files": 23,
+      "bytes": 621510
+    },
+    "corridor-lower": {
+      "filename": "corridor-lower-335b3ffc5c3d.bin",
+      "sha256": "335b3ffc5c3d5d3690d556602143af04dca3123d46b4646b76e8252af89f4d64",
+      "files": 54,
+      "bytes": 4568101
+    }
+  }
+}
