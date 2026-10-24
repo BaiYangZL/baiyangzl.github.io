@@ -1,0 +1,45 @@
+name: Migrate approved gate and tavern
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: migrate-approved-site
+  cancel-in-progress: false
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 1
+      - name: Verify backup and fetch pinned published version
+        run: |
+          test "$(git ls-remote origin refs/heads/codex/backup-before-tavern-20261024-105022 | cut -f1)" = fa931230a1c27730ff806c7969c32e466b8864d9
+          git fetch --depth=1 https://github.com/BaiYangZL/clocktower-restart-preview.git 04aedb996e977954d4a8a2accfe9b350f40e6c4e
+          test "$(git rev-parse FETCH_HEAD^{tree})" = 8376312438a62c0922207d60e131b6fc2ce4c3e4
+          git read-tree --reset -u FETCH_HEAD
+          git restore --source=HEAD --staged --worktree .github
+      - name: Verify runtime and isolate root cache from other projects
+        run: |
+          node <<'JS'
+          const fs=require('fs'),cp=require('child_process'),crypto=require('crypto'),assert=require('assert/strict');
+          const m=JSON.parse(fs.readFileSync('tavern/release-manifest.json'));
+          assert.equal(m.version,'walk-speed-20261024');
+          for(const e of m.entries){const b=fs.readFileSync('tavern/'+e.path);assert.equal(b.length,e.bytes);assert.equal(crypto.createHash('sha256').update(b).digest('hex'),e.sha256,e.path);}
+          let sw=fs.readFileSync('arrival-sw.js','utf8');
+          sw=sw.replace("'belvedere-tavern-'","'belvedere-domain-tavern-'").replace("'belvedere-gate-'","'belvedere-domain-gate-'");
+          const names=fs.readdirSync('.').filter(n=>!n.startsWith('.'));
+          sw='const siteRoots = new Set('+JSON.stringify(names)+');\n'+sw;
+          sw=sw.replace("const gateName =", "const isSitePath = pathname => pathname === rootPath || siteRoots.has(pathname.slice(rootPath.length).split('/')[0]);\nconst gateName =");
+          sw=sw.replaceAll('!url.pathname.startsWith(rootPath)', '(!url.pathname.startsWith(rootPath) || !isSitePath(url.pathname))');
+          fs.writeFileSync('arrival-sw.js',sw);
+          console.log('Verified runtime entries:',m.entries.length);
+          JS
+          node --check arrival-sw.js
+          git add arrival-sw.js
+          git config user.name Codex
+          git config user.email codex@users.noreply.github.com
+          git commit -m "Migrate published gate and complete tavern; preserve old site in backup branch"
+          git push origin HEAD:main
