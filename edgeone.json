@@ -1,0 +1,15 @@
+{
+  "buildCommand": "node tools/edgeone-prepare.cjs",
+  "outputDirectory": ".edgeone-dist",
+  "nodeVersion": "22.11.0",
+  "headers": [
+    {
+      "source": "/tavern/assets/*.bin",
+      "headers": [
+        { "key": "Content-Encoding", "value": "gzip" },
+        { "key": "Content-Type", "value": "application/octet-stream" }
+      ]
+    }
+  ]
+}
+
