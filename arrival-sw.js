@@ -1,3 +1,4 @@
+// These exact-URL, same-origin public static files have identical bytes across Origin headers.
 const siteRoots = new Set(["README.md","approach-road.js","arrival-sw.js","assets","dialog.js","gate-story.js","guard-review.js","index.html","invite.js","journey.js","map-art.js","mascot.js","painted-flora.js","painted-gate.js","pixel-guard.js","preview-api.js","sample.css","sample.js","tavern","tavern-transition.js","vendor","weather-fx.js"]);
 // Caches the tavern files actually requested by Cocos, scoped to this GitHub Pages project.
 const VERSION = 'walk-speed-20261024';
@@ -40,7 +41,7 @@ self.addEventListener('message', event => {
       const url = new URL(value, self.registration.scope);
       if (url.origin !== self.location.origin || (!url.pathname.startsWith(rootPath) || !isSitePath(url.pathname)) || url.pathname.startsWith(tavernPath)) return;
       const key = url.pathname === rootPath ? self.registration.scope : url.href;
-      if (await cache.match(key)) return;
+      if (await cache.match(key, {ignoreVary: true})) return;
       try {
         const response = await fetch(url.href, {cache: 'force-cache'});
         if (response.ok) await cache.put(key, response);
@@ -56,7 +57,7 @@ self.addEventListener('fetch', event => {
       const cache = await caches.open(await gateName());
       const key = request.mode === 'navigate' ? self.registration.scope : request;
       if (request.mode !== 'navigate') {
-        const saved = await cache.match(key);
+        const saved = await cache.match(key, {ignoreVary: true});
         if (saved) return saved;
       }
       try {
@@ -64,7 +65,7 @@ self.addEventListener('fetch', event => {
         if (response.ok) await cache.put(key, response.clone()).catch(() => {});
         return response;
       } catch {
-        const saved = await cache.match(key);
+        const saved = await cache.match(key, {ignoreVary: true});
         if (saved) return saved;
         throw new Error('城门页面不在缓存中');
       }
@@ -73,7 +74,7 @@ self.addEventListener('fetch', event => {
   }
   event.respondWith((async () => {
     const cache = await caches.open(await cacheName());
-    const saved = await cache.match(request);
+    const saved = await cache.match(request, {ignoreVary: true});
     if (saved) return saved;
     const response = await fetch(request);
     if (response.ok) await cache.put(request, response.clone()).catch(async () => {
@@ -84,4 +85,5 @@ self.addEventListener('fetch', event => {
     return response;
   })());
 });
+
 
