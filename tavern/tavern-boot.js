@@ -2,10 +2,14 @@
 (() => {
   const pending = new Map(), errors = [], started = performance.now();
   let installed = false, button, panel, lastProgress = started;
-  const record = error => { errors.push(String(error).slice(0, 500)); if (errors.length > 12) errors.shift(); };
+  const record = error => { errors.push(String(error?.stack || error).slice(0, 2400)); if (errors.length > 12) errors.shift(); };
+  // Tavern.start catches construction failures and only logs them. These do
+  // not dispatch window.error or unhandledrejection, so preserve that evidence.
+  const originalError = console.error;
+  console.error = function (...args) { args.forEach(record); return originalError.apply(console, args); };
   addEventListener('error', event => record(event.message || 'Resource failed'));
   addEventListener('unhandledrejection', event => record(event.reason));
-  const report = () => ({version: 'mobile-load-recovery-20261025', url: location.href,
+  const report = () => ({version: 'scene-error-D3-20261025', url: location.href,
     elapsedMs: Math.round(performance.now() - started), pending: [...pending.keys()], errors,
     status: document.querySelector('#tavern-ui .status')?.textContent,
     note: document.querySelector('#tavern-ui .note')?.textContent,
