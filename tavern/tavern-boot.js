@@ -9,7 +9,7 @@
   console.error = function (...args) { args.forEach(record); return originalError.apply(console, args); };
   addEventListener('error', event => record(event.message || 'Resource failed'));
   addEventListener('unhandledrejection', event => record(event.reason));
-  const report = () => ({version: 'mesh-integrity-20261025', url: location.href, repairs,
+  const report = () => ({version: 'mesh-integrity-D4-20261025', url: location.href, repairs,
     elapsedMs: Math.round(performance.now() - started), pending: [...pending.keys()], errors,
     status: document.querySelector('#tavern-ui .status')?.textContent,
     note: document.querySelector('#tavern-ui .note')?.textContent,
@@ -85,7 +85,7 @@
     }
     const checkedDownload = (url, options, complete) => {
       (async () => {
-        if (!manifestTask) manifestTask = fetch(new URL('mesh-integrity.json?v=mesh-integrity-20261025',base)).then(r => {if(!r.ok)throw Error('模型校验清单不可用');return r.json();}).catch(e => {manifestTask=null;throw e;});
+        if (!manifestTask) manifestTask = fetch(new URL('mesh-integrity.json?v=mesh-integrity-D4-20261025',base)).then(r => {if(!r.ok)throw Error('模型校验清单不可用');return r.json();}).catch(e => {manifestTask=null;throw e;});
         const manifest = await manifestTask, full = new URL(url,base), key = full.pathname.slice(base.pathname.length), expected = manifest[key];
         const bytes = await getBytes(full.href);
         if (!expected) return bytes;
