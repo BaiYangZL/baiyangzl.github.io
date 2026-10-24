@@ -27,7 +27,7 @@ self.addEventListener('message', event => {
     const current = await cacheName();
     const gateCurrent = await gateName();
     for (const key of await caches.keys()) if ((key.startsWith(PREFIX) && key !== current) || (key.startsWith(GATE_PREFIX) && key !== gateCurrent)) await caches.delete(key);
-  })());
+  })().catch(() => {}));
 });
 self.addEventListener('message', event => {
   if (event.data?.type !== 'CACHE_GATE') return;
@@ -44,7 +44,7 @@ self.addEventListener('message', event => {
         if (response.ok) await cache.put(key, response);
       } catch { /* Gate remains available online if caching fails. */ }
     }));
-  })());
+  })().catch(() => {}));
 });
 self.addEventListener('fetch', event => {
   const request = event.request, url = new URL(request.url);
@@ -68,11 +68,17 @@ self.addEventListener('fetch', event => {
         if (saved) return saved;
         throw new Error('城门页面不在缓存中');
       }
-    })());
+    })().catch(() => fetch(request)));
     return;
   }
   event.respondWith((async () => {
     const cache = await caches.open(await cacheName());
+    const client = event.clientId ? await self.clients.get(event.clientId) : null;
+    if (client && new URL(client.url).searchParams.get('repairCache') === '1') {
+      const response = await fetch(new Request(request, {cache: 'reload'}));
+      if (response.ok) event.waitUntil(cache.put(request, response.clone()).catch(() => {}));
+      return response;
+    }
     // Refresh the small entry document while reusing unchanged model caches.
     // This prevents cached full-floor launch HTML from surviving an entry fix.
     if (request.mode === 'navigate') {
@@ -95,5 +101,5 @@ self.addEventListener('fetch', event => {
       for (const client of await self.clients.matchAll()) client.postMessage({type: 'CACHE_LIMITED'});
     }));
     return response;
-  })());
+  })().catch(() => fetch(request)));
 });

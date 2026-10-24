@@ -54,7 +54,7 @@ export function createTavernTransition({pauseGate} = {}) {
     cacheTask = (async () => {
       if (!('serviceWorker' in navigator)) return;
       try {
-        const registration = await navigator.serviceWorker.register(new URL('arrival-sw.js?v=room-default-20261025', ROOT), {scope: ROOT.pathname});
+        const registration = await navigator.serviceWorker.register(new URL('arrival-sw.js?v=mobile-load-recovery-20261025', ROOT), {scope: ROOT.pathname});
         await navigator.serviceWorker.ready;
         registration.active?.postMessage({type: 'KEEP_WEEK'});
         navigator.serviceWorker.addEventListener('message', event => {
@@ -107,7 +107,8 @@ export function createTavernTransition({pauseGate} = {}) {
     // An existing controller already serves this visit from the weekly cache.
     // Do not hold scene creation behind its network update check (slow offline).
     const cacheReady = registerCache();
-    if (!navigator.serviceWorker?.controller?.scriptURL.startsWith(new URL('arrival-sw.js', ROOT).href)) await cacheReady;
+    // Cache registration must never prevent the online scene from starting.
+    if (!navigator.serviceWorker?.controller?.scriptURL.startsWith(new URL('arrival-sw.js', ROOT).href)) await Promise.race([cacheReady, new Promise(resolve => setTimeout(resolve, 800))]);
     frame.src = TAVERN.href;
     poll = setInterval(check, 80);
   }
