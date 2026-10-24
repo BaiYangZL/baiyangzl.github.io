@@ -8,7 +8,7 @@ import {Dialog} from './dialog.js';
 import {Mascot} from './mascot.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=full-preload-20261024';
+import {createTavernTransition} from './tavern-transition.js?v=room-memory-stick-20261024';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -69,9 +69,27 @@ const timers=[];const sleep=s=>new Promise(r=>timers.push({t:s,r}));
 function tickTimers(dt){for(let i=timers.length-1;i>=0;i--){timers[i].t-=dt;if(timers[i].t<=0){const r=timers[i].r;timers.splice(i,1);r();}}}
 
 // ---------- the gate story ----------
-const tavernTransition=createTavernTransition({pauseGate:()=>game?.loop.sleep()});
+function releaseFinishedGate(){
+ if(window.__gateReleased)return;
+ if(!scene?.ready){setTimeout(releaseFinishedGate,100);return;}
+ window.__gateReleased=true;
+ const oldGame=game;
+ oldGame.events.once('destroy',()=>{
+  scene=null;game=null;atlas=null;timers.length=0;
+  for(const canvas of document.querySelectorAll('canvas')){canvas.width=1;canvas.height=1;}
+  mask.width=mask.height=1;
+ });
+ oldGame.destroy(true);
+}
+const tavernTransition=createTavernTransition({pauseGate:releaseFinishedGate});
 window.__tavernEntry=tavernTransition;
 tavernTransition.prepare();
+
+
+
+
+
+
 
 
 const story=new GateStory({spots:SPOTS,maxDoor:MAX_DOOR,
@@ -208,8 +226,12 @@ class Arrival extends Phaser.Scene {
  update(time,delta){
   if(paused||document.hidden)return;
   govern(delta);
+  // HALL_REVIEW_READY
+  if(state.phase==="map")state.ready=this.ready&&tavernTransition.status().ready;
   if(review.at!=null&&state.ready){while(state.time<review.at&&state.phase!=='arrived')state.tick(1/60);review.at=null;review.hold=state.phase!=='arrived';}
   const dt=review.hold?0:Math.min(delta/1000,.1);
+  // HALL_MAP_GATE: prepare the first or restored room before leaving parchment.
+  if(state.phase==="map"){state.ready=this.ready&&tavernTransition.status().ready;if(state.ready)state.time=Math.max(state.time,8);if(tavernTransition.status().failed)notice("旅店准备中断，请刷新重试。",true); }
   state.tick(dt);tickTimers(dt);this.cameras.main.visible=state.phase!=='map';
   // the companion: walking while things load, lantern raised when ready, resting on failure
   if(state.phase==='map'){this.mascot.set(state.error?'rest':state.ready?'arrive':'walk');this.mascot.tick(dt);}
@@ -233,7 +255,7 @@ try{
  game=new Phaser.Game({type:Phaser.AUTO,parent:'game',width:v.width,height:v.height,backgroundColor:'#11141f',pixelArt:false,antialias:true,roundPixels:false,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},fps:{target:60,limit:60},scene:Arrival});
 }catch(error){window.bootFailure();console.error(error)}
 $('quality').value=quality;
-$('retry').onclick=()=>{state.error=false;scene?.beginAssets();};
+$('retry').onclick=()=>{state.error=false;notice();if(tavernTransition.status().failed)tavernTransition.retry();else scene?.beginAssets();};
 $('replay').onclick=()=>scene?.restart();
 // Phaser's FIT keeps the previous aspect after a game-size change, so refit explicitly.
 const refit=()=>{const v=viewport();if(!game)return;game.scale.resize(v.width,v.height);game.scale.displaySize.setAspectRatio(v.width/v.height);game.scale.refresh();};
@@ -266,4 +288,3 @@ if(query.get('inspect')==='1')import('./guard-review.js').then(({installReview})
   frame:()=>scene?.gate?.guard.frame||'loading'
  });
 });
-

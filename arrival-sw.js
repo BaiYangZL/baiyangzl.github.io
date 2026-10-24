@@ -1,9 +1,7 @@
-// These exact-URL, same-origin public static files have identical bytes across Origin headers.
-const siteRoots = new Set(["README.md","approach-road.js","arrival-sw.js","assets","dialog.js","gate-story.js","guard-review.js","index.html","invite.js","journey.js","map-art.js","mascot.js","painted-flora.js","painted-gate.js","pixel-guard.js","preview-api.js","sample.css","sample.js","tavern","tavern-transition.js","vendor","weather-fx.js"]);
 // Caches the tavern files actually requested by Cocos, scoped to this GitHub Pages project.
-const VERSION = 'walk-speed-20261024';
-const PREFIX = 'belvedere-domain-tavern-';
-const GATE_PREFIX = 'belvedere-domain-gate-';
+const VERSION = 'room-memory-stick-20261024';
+const PREFIX = 'belvedere-tavern-';
+const GATE_PREFIX = 'belvedere-gate-';
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const day = () => new Date().toLocaleDateString('sv-SE');
 const versionPrefix = `${PREFIX}${VERSION}-`;
@@ -19,7 +17,6 @@ async function cacheName() {
 }
 const tavernPath = new URL('tavern/', self.registration.scope).pathname;
 const rootPath = new URL('./', self.registration.scope).pathname;
-const isSitePath = pathname => pathname === rootPath || siteRoots.has(pathname.slice(rootPath.length).split('/')[0]);
 const gateName = async () => (await cacheName()).replace(PREFIX, GATE_PREFIX);
 let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
@@ -39,7 +36,7 @@ self.addEventListener('message', event => {
     const urls = [self.registration.scope, ...(event.data.urls || [])];
     await Promise.all(urls.map(async value => {
       const url = new URL(value, self.registration.scope);
-      if (url.origin !== self.location.origin || (!url.pathname.startsWith(rootPath) || !isSitePath(url.pathname)) || url.pathname.startsWith(tavernPath)) return;
+      if (url.origin !== self.location.origin || !url.pathname.startsWith(rootPath) || url.pathname.startsWith(tavernPath)) return;
       const key = url.pathname === rootPath ? self.registration.scope : url.href;
       if (await cache.match(key, {ignoreVary: true})) return;
       try {
@@ -51,7 +48,7 @@ self.addEventListener('message', event => {
 });
 self.addEventListener('fetch', event => {
   const request = event.request, url = new URL(request.url);
-  if (request.method !== 'GET' || url.origin !== self.location.origin || (!url.pathname.startsWith(rootPath) || !isSitePath(url.pathname))) return;
+  if (request.method !== 'GET' || url.origin !== self.location.origin || !url.pathname.startsWith(rootPath)) return;
   if (!url.pathname.startsWith(tavernPath)) {
     event.respondWith((async () => {
       const cache = await caches.open(await gateName());
@@ -62,7 +59,9 @@ self.addEventListener('fetch', event => {
       }
       try {
         const response = await fetch(request);
-        if (response.ok) await cache.put(key, response.clone()).catch(() => {});
+        // Return the network stream now; keep the worker alive for disk storage.
+        // First entry must not wait for the entire body to be saved to Cache API.
+        if (response.ok) event.waitUntil(cache.put(key, response.clone()).catch(() => {}));
         return response;
       } catch {
         const saved = await cache.match(key, {ignoreVary: true});
@@ -77,13 +76,11 @@ self.addEventListener('fetch', event => {
     const saved = await cache.match(request, {ignoreVary: true});
     if (saved) return saved;
     const response = await fetch(request);
-    if (response.ok) await cache.put(request, response.clone()).catch(async () => {
+    if (response.ok) event.waitUntil(cache.put(request, response.clone()).catch(async () => {
       if (warned) return;
       warned = true;
       for (const client of await self.clients.matchAll()) client.postMessage({type: 'CACHE_LIMITED'});
-    });
+    }));
     return response;
   })());
 });
-
-

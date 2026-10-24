@@ -1,6 +1,8 @@
-const VERSION = 'walk-speed-20261024';
+const VERSION = 'room-memory-stick-20261024';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
+// Opt-in room preview; the existing full-floor entry remains available.
+if (new URLSearchParams(location.search).get('rooms') === '1') TAVERN.searchParams.set('rooms', '1');
 const TODAY = () => new Date().toLocaleDateString('sv-SE');
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const RETURN_KEY = 'belvedere-tavern-return';
@@ -12,7 +14,7 @@ export function createTavernTransition({pauseGate} = {}) {
   function visitedThisWeek() {
     try {
       const marker = JSON.parse(localStorage.getItem(RETURN_KEY));
-      if (marker?.version === VERSION && Date.now() - marker.at >= 0 && Date.now() - marker.at < WEEK_MS) return true;
+      if (Number.isFinite(marker?.at) && Date.now() - marker.at >= 0 && Date.now() - marker.at < WEEK_MS) return true;
       if (localStorage.getItem('belvedere-tavern-ready-day') === current()) {
         localStorage.setItem(RETURN_KEY, JSON.stringify({at: Date.now(), version: VERSION}));
         return true;
@@ -40,18 +42,18 @@ export function createTavernTransition({pauseGate} = {}) {
     curtain = document.createElement('div');
     curtain.id = 'tavern-curtain';
     curtain.hidden = true;
-    curtain.style.cssText = 'position:fixed;inset:0;z-index:10002;display:none;place-content:center;gap:12px;padding:30px;text-align:center;background:#110e16;color:#f2ddba;font:16px/1.6 system-ui';
+    curtain.style.cssText = 'position:fixed;inset:0;z-index:10002;display:none;place-content:center;gap:12px;padding:30px;text-align:center;background:#110e16 url("'+new URL('tavern/start-preview.png',ROOT).href+'") center/cover no-repeat;color:#f2ddba;font:16px/1.6 system-ui;text-shadow:0 2px 8px #110e16';
     curtain.innerHTML = '<h2 style="font:25px/1.4 Georgia,serif;margin:0">门后是贝尔维德酒馆</h2><p style="margin:0">正在为你准备二楼起居厅…</p><button type="button" style="justify-self:center;min-width:140px" hidden>重新准备酒馆</button>';
     curtain.querySelector('button').onclick = retry;
     document.body.append(frame, badge, curtain);
-    say('酒馆正在备好，请继续查看邀请函…');
+    say('正在准备旅店，请稍候…');
   }
   function registerCache() {
     if (cacheTask) return cacheTask;
     cacheTask = (async () => {
       if (!('serviceWorker' in navigator)) return;
       try {
-        const registration = await navigator.serviceWorker.register(new URL('arrival-sw.js?v=full-preload-20261024', ROOT), {scope: ROOT.pathname});
+        const registration = await navigator.serviceWorker.register(new URL('arrival-sw.js?v=room-memory-stick-20261024', ROOT), {scope: ROOT.pathname});
         await navigator.serviceWorker.ready;
         registration.active?.postMessage({type: 'KEEP_WEEK'});
         navigator.serviceWorker.addEventListener('message', event => {
@@ -74,7 +76,8 @@ export function createTavernTransition({pauseGate} = {}) {
     if (!frame || entered) return;
     let tavern;
     try { tavern = frame.contentWindow.__tavern; } catch { /* iframe has not reached the same-origin scene yet */ }
-    if (tavern?.state().ready) {
+    const sceneState = tavern?.state();
+    if (sceneState?.ready && sceneState.firstFrameReady === true) {
       ready = true; failed = false; clearInterval(poll);
       badge.hidden = true;
       if (waiting) reveal();
@@ -98,14 +101,14 @@ export function createTavernTransition({pauseGate} = {}) {
     returning = visitedThisWeek();
     if (returning) {
       waiting = true;
-      curtain.hidden = false;
-      curtain.style.display = 'grid';
-      curtain.querySelector('p').textContent = '正在从本周缓存恢复二楼场景…';
-      badge.hidden = true;
+      say('正在从本周缓存恢复旅店…');
     }
-    await registerCache();
+    // An existing controller already serves this visit from the weekly cache.
+    // Do not hold scene creation behind its network update check (slow offline).
+    const cacheReady = registerCache();
+    if (!navigator.serviceWorker?.controller?.scriptURL.startsWith(new URL('arrival-sw.js', ROOT).href)) await cacheReady;
     frame.src = TAVERN.href;
-    poll = setInterval(check, 350);
+    poll = setInterval(check, 80);
   }
   function reveal() {
     if (!ready || entered) return;
@@ -115,6 +118,7 @@ export function createTavernTransition({pauseGate} = {}) {
     }
     curtain.querySelector('p').textContent = '炉火已亮。';
     requestAnimationFrame(() => {
+      frame.contentWindow.__tavern?.activate();
       frame.style.opacity = '1'; frame.style.pointerEvents = 'auto';
       pauseGate?.();
       setTimeout(() => { curtain.style.display = 'none'; curtain.hidden = true; frame.contentWindow.focus(); }, 400);
@@ -134,8 +138,8 @@ export function createTavernTransition({pauseGate} = {}) {
     clearInterval(poll); ready = failed = false; startedAt = Date.now();
     curtain.querySelector('button').hidden = true;
     curtain.querySelector('p').textContent = '重新准备二楼大厅…';
-    frame.src = new URL(`tavern/?v=${VERSION}&retry=${Date.now()}`, ROOT).href;
-    poll = setInterval(check, 350);
+    const retryURL = new URL(TAVERN); retryURL.searchParams.set('retry', String(Date.now())); frame.src = retryURL.href;
+    poll = setInterval(check, 80);
   }
   async function whenReady() {
     if (!frame) await prepare();
@@ -146,9 +150,8 @@ export function createTavernTransition({pauseGate} = {}) {
         if (!ready && !failed) return;
         clearInterval(watcher);
         if (ready) resolve(); else reject(new Error('酒馆场景未能载入'));
-      }, 350);
+      }, 80);
     });
   }
-  return {prepare, cacheGate, whenReady, enter, status: () => ({ready, entered, waiting, returning, failed, cacheLimited, frame: !!frame, startedAt})};
+  return {prepare, cacheGate, whenReady, enter, retry, status: () => ({ready, entered, waiting, returning, failed, cacheLimited, frame: !!frame, startedAt})};
 }
-
