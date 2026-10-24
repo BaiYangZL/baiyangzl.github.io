@@ -16,7 +16,7 @@ async function prepare(root = process.cwd(), destination = path.join(root, '.edg
       assert(!item.isSymbolicLink(), 'Symlink not allowed: ' + name);
       if (item.isDirectory()) { await fs.mkdir(target); await copy(name); continue; }
       const bytes = await fs.readFile(path.join(root, name));
-      if (name.replaceAll('\\', '/').startsWith('tavern/assets/') && name.endsWith('.bin')) {
+      if ((name.replaceAll('\\', '/').startsWith('tavern/assets/') || name.replaceAll('\\', '/').startsWith('tavern/packs/')) && name.endsWith('.bin')) {
         const compressed = gzipSync(bytes, { level: 9 });
         assert(gunzipSync(compressed).equals(bytes), 'Compression round-trip failed: ' + name);
         await fs.writeFile(target, compressed);
@@ -30,4 +30,3 @@ async function prepare(root = process.cwd(), destination = path.join(root, '.edg
 }
 module.exports = { prepare };
 if (require.main === module) prepare().then(console.log).catch(error => { console.error(error); process.exitCode = 1; });
-
