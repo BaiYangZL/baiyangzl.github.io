@@ -73,6 +73,19 @@ self.addEventListener('fetch', event => {
   }
   event.respondWith((async () => {
     const cache = await caches.open(await cacheName());
+    // Refresh the small entry document while reusing unchanged model caches.
+    // This prevents cached full-floor launch HTML from surviving an entry fix.
+    if (request.mode === 'navigate') {
+      try {
+        const response = await fetch(request);
+        if (response.ok) event.waitUntil(cache.put(request, response.clone()).catch(() => {}));
+        return response;
+      } catch (error) {
+        const saved = await cache.match(request, {ignoreVary: true});
+        if (saved) return saved;
+        throw error;
+      }
+    }
     const saved = await cache.match(request, {ignoreVary: true});
     if (saved) return saved;
     const response = await fetch(request);

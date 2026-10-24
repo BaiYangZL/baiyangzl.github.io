@@ -8,7 +8,7 @@ import {Dialog} from './dialog.js';
 import {Mascot} from './mascot.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=room-memory-stick-20261024';
+import {createTavernTransition} from './tavern-transition.js?v=room-default-20261025';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -84,6 +84,7 @@ function releaseFinishedGate(){
 const tavernTransition=createTavernTransition({pauseGate:releaseFinishedGate});
 window.__tavernEntry=tavernTransition;
 tavernTransition.prepare();
+
 
 
 

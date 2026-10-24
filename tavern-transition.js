@@ -1,8 +1,9 @@
 const VERSION = 'room-memory-stick-20261024';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
-// Opt-in room preview; the existing full-floor entry remains available.
-if (new URLSearchParams(location.search).get('rooms') === '1') TAVERN.searchParams.set('rooms', '1');
+// Normal entry always prepares the saved room (or upper for a new visitor).
+// The archived full-floor mode is only selected explicitly with rooms=0.
+TAVERN.searchParams.set('rooms', new URLSearchParams(location.search).get('rooms') === '0' ? '0' : '1');
 const TODAY = () => new Date().toLocaleDateString('sv-SE');
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const RETURN_KEY = 'belvedere-tavern-return';
@@ -53,7 +54,7 @@ export function createTavernTransition({pauseGate} = {}) {
     cacheTask = (async () => {
       if (!('serviceWorker' in navigator)) return;
       try {
-        const registration = await navigator.serviceWorker.register(new URL('arrival-sw.js?v=room-memory-stick-20261024', ROOT), {scope: ROOT.pathname});
+        const registration = await navigator.serviceWorker.register(new URL('arrival-sw.js?v=room-default-20261025', ROOT), {scope: ROOT.pathname});
         await navigator.serviceWorker.ready;
         registration.active?.postMessage({type: 'KEEP_WEEK'});
         navigator.serviceWorker.addEventListener('message', event => {
