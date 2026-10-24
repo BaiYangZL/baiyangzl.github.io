@@ -1,6 +1,6 @@
 // Runs before Cocos startup. Diagnostics stay on this device until copied.
 (() => {
-  const pending = new Map(), errors = [], started = performance.now();
+  const pending = new Map(), errors = [], repairs = [], started = performance.now();
   let installed = false, button, panel, lastProgress = started;
   const record = error => { errors.push(String(error?.stack || error).slice(0, 2400)); if (errors.length > 12) errors.shift(); };
   // Tavern.start catches construction failures and only logs them. These do
@@ -9,7 +9,7 @@
   console.error = function (...args) { args.forEach(record); return originalError.apply(console, args); };
   addEventListener('error', event => record(event.message || 'Resource failed'));
   addEventListener('unhandledrejection', event => record(event.reason));
-  const report = () => ({version: 'scene-error-D3-20261025', url: location.href,
+  const report = () => ({version: 'mesh-integrity-20261025', url: location.href, repairs,
     elapsedMs: Math.round(performance.now() - started), pending: [...pending.keys()], errors,
     status: document.querySelector('#tavern-ui .status')?.textContent,
     note: document.querySelector('#tavern-ui .note')?.textContent,
@@ -59,6 +59,47 @@
       return img;
     };
     engine.assetManager.downloader.register({'.png': imageDownload, '.jpg': imageDownload, '.jpeg': imageDownload, '.webp': imageDownload});
+    // Mesh descriptors contain byte offsets into native .bin files. An HTTP 200
+    // is not proof that a cached body is the matching, decoded model buffer.
+    const base = new URL('./', location.href);
+    let manifestTask;
+    async function getBytes(url) {
+      const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 25000);
+      try { const response = await fetch(url, {signal: controller.signal}); if (!response.ok) throw Error('模型下载失败 HTTP '+response.status); return await response.arrayBuffer(); }
+      finally { clearTimeout(timer); }
+    }
+    async function verified(buffer, expected) {
+      if (buffer.byteLength !== expected.size) return false;
+      if (!crypto.subtle) return true; // LAN HTTP lacks SubtleCrypto; public HTTPS verifies SHA256.
+      const digest = await crypto.subtle.digest('SHA-256', buffer);
+      return Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2,'0')).join('') === expected.sha256;
+    }
+    async function validate(buffer, expected) {
+      if (await verified(buffer, expected)) return buffer;
+      const magic = new Uint8Array(buffer, 0, Math.min(2, buffer.byteLength));
+      if (magic[0] === 31 && magic[1] === 139 && typeof DecompressionStream !== 'undefined') {
+        const decoded = await new Response(new Blob([buffer]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
+        if (await verified(decoded, expected)) return decoded;
+      }
+      return null;
+    }
+    const checkedDownload = (url, options, complete) => {
+      (async () => {
+        if (!manifestTask) manifestTask = fetch(new URL('mesh-integrity.json?v=mesh-integrity-20261025',base)).then(r => {if(!r.ok)throw Error('模型校验清单不可用');return r.json();}).catch(e => {manifestTask=null;throw e;});
+        const manifest = await manifestTask, full = new URL(url,base), key = full.pathname.slice(base.pathname.length), expected = manifest[key];
+        const bytes = await getBytes(full.href);
+        if (!expected) return bytes;
+        let valid = await validate(bytes, expected);
+        if (valid) {if(valid !== bytes) repairs.push({file:key,reason:'gzip-body-decoded'});return valid;}
+        repairs.push({file:key,reason:'integrity-mismatch',received:bytes.byteLength,expected:expected.size});
+        full.searchParams.set('meshIntegrity',expected.sha256);
+        valid = await validate(await getBytes(full.href), expected);
+        if (!valid) throw Error('模型数据校验失败，未使用损坏文件: '+key);
+        return valid;
+      })().then(data => new URL(url,base).pathname.endsWith('.json') ? JSON.parse(new TextDecoder().decode(data)) : data)
+        .then(data => complete(null,data), error => {record(error);complete(error);});
+    };
+    engine.assetManager.downloader.register({'.bin': checkedDownload, '.json': checkedDownload});
   }};
   const poll = setInterval(() => {
     if (window.__tavern?.state().firstFrameReady) {
