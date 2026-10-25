@@ -1,3 +1,4 @@
+const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js';
 import {createWorld,createAtlas,drawJourney,createDissolveNoise} from './map-art.js';
 import {createGate,SPOTS,MAX_DOOR} from './painted-gate.js';
@@ -8,7 +9,7 @@ import {Dialog} from './dialog.js';
 import {Mascot} from './mascot.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=room-map-landscape-20261025';
+import {createTavernTransition} from './tavern-transition.js?v=screen-entry-20261025';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -30,8 +31,8 @@ const validQuality=q=>['low','high','ultra'].includes(q);
 let savedQuality;try{savedQuality=localStorage.getItem('arrival-quality');}catch{/* Storage may be unavailable in private browsers. */}
 let scene,game,quality=validQuality(query.get('q'))?query.get('q'):validQuality(savedQuality)?savedQuality:olderMobile?'low':'high',paused=false,inspectFrozen=false,inspectUpdate,resScale=1;
 const state=new Journey(),paperLayer=$('map-layer'),paperContext=paperLayer.getContext('2d');
-const viewport=()=>renderSize(innerWidth,innerHeight,devicePixelRatio,quality,resScale);
-function resizePaper(){const v=viewport();paperLayer.width=v.width;paperLayer.height=v.height;paperContext.baseScale=v.width/Math.max(1,innerWidth);}
+const viewport=()=>renderSize(screenWidth(),screenHeight(),devicePixelRatio,quality,resScale);
+function resizePaper(){const v=viewport();paperLayer.width=v.width;paperLayer.height=v.height;paperContext.baseScale=v.width/Math.max(1,screenWidth());}
 function notice(message='',error=false){$('notice').hidden=!message;$('message').textContent=message;$('retry').hidden=!error;}
 async function loadImage(url){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);let local;
@@ -47,21 +48,21 @@ async function loadImage(url){
 // ---------- the endless map ----------
 let mapSeed=Number(query.get('seed'))||(Date.now()%99991)+1,W=createWorld(mapSeed),atlas=createAtlas(W);
 const mapCam={x:0,y:0,init:false},noise=createDissolveNoise(),mask=document.createElement('canvas');
-const mapZoom=()=>clamp(Math.sqrt(innerWidth*innerHeight)/900,1,1.55);
+const mapZoom=()=>clamp(Math.sqrt(screenWidth()*screenHeight())/900,1,1.55);
 function mapView(dt){
  // the walker sits a little left of centre so the country ahead is in view; the camera
  // follows his turns north and south with an easy lag
- const p=W.atDistance(state.travel),z=mapZoom(),vw=innerWidth/z,vh=innerHeight/z,tx=p.x+vw*.12;
+ const p=W.atDistance(state.travel),z=mapZoom(),vw=screenWidth()/z,vh=screenHeight()/z,tx=p.x+vw*.12;
  if(!mapCam.init){mapCam.x=tx;mapCam.y=p.y;mapCam.init=true;}
  mapCam.x=tx;mapCam.y+=(p.y-mapCam.y)*(1-Math.exp(-dt/.9));
  if(Math.abs(p.y-mapCam.y)>vh*.28)mapCam.y=p.y-Math.sign(p.y-mapCam.y)*vh*.28;
  const e=state.advance,lock=state.phase==='dissolve'?smooth(Math.min(1,state.phaseTime/1.4)):0,zoom=z*(1+.55*e*e);
  const cx=mapCam.x+(p.x-mapCam.x)*lock,cy=mapCam.y+(p.y-mapCam.y)*lock;
- return {zoom,cx,cy,view:{x0:cx-innerWidth/2/zoom,x1:cx+innerWidth/2/zoom,y0:cy-innerHeight/2/zoom,y1:cy+innerHeight/2/zoom}};
+ return {zoom,cx,cy,view:{x0:cx-screenWidth()/2/zoom,x1:cx+screenWidth()/2/zoom,y0:cy-screenHeight()/2/zoom,y1:cy+screenHeight()/2/zoom}};
 }
 function drawPaper(dt){
  const m=mapView(dt);atlas.setDetail(mapZoom()*paperContext.baseScale*1.05);atlas.step(m.view,state.phase==='map'?5:3);
- drawJourney(paperContext,atlas,walkingTrace(W,state.travel),innerWidth,innerHeight,{...m,dissolve:state.dissolve,mask,noise,focus:{x:innerWidth/2,y:innerHeight/2}});
+ drawJourney(paperContext,atlas,walkingTrace(W,state.travel),screenWidth(),screenHeight(),{...m,dissolve:state.dissolve,mask,noise,focus:{x:screenWidth()/2,y:screenHeight()/2}});
 }
 
 // ---------- game-time helpers (they stop while paused or in the background) ----------
@@ -277,6 +278,7 @@ function govern(delta){
 }
 $('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'继续':'暂停';$('pause').setAttribute('aria-pressed',String(paused));if(paused)game?.loop.sleep();else if(!document.hidden)game?.loop.wake();};
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(refit,150)});
+window.addEventListener('belvedere-screen-change',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(refit,50)});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)game?.loop.sleep();else if(!paused)game?.loop.wake();});
 window.__arrival={state,story,dialog,invitation,get scene(){return scene},get weather(){return weather},get atlas(){return atlas},
  // review aid: advance the gate by s seconds of game time immediately

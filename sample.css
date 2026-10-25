@@ -1,5 +1,5 @@
 *{box-sizing:border-box}
-:root{--sw:clamp(130px,24vw,300px);--kb:0px;--ink:#3a2a1e;--cream:#f4ead3;--hand:'Kaiti SC','STKaiti','KaiTi','楷体','Songti SC',serif}
+:root{--sw:clamp(130px,calc(24 * var(--screen-vw,1vw)),300px);--kb:0px;--ink:#3a2a1e;--cream:#f4ead3;--hand:'Kaiti SC','STKaiti','KaiTi','楷体','Songti SC',serif}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#11141f;font-family:'PingFang SC','Microsoft YaHei',sans-serif;color:var(--ink);-webkit-text-size-adjust:100%}
 #game{position:fixed;inset:0;background:#11141f}
 canvas{display:block}
@@ -18,7 +18,7 @@ footer label{font-size:0}footer select{font-size:12px;padding:6px 8px;min-height
 body.at-gate footer button,body.at-gate footer select,body.at-gate #replay{background:#1d2030d9;color:#efe3c6;border-color:#4a4256;box-shadow:none}
 body.talking footer,body.reading footer{top:max(10px,env(safe-area-inset-top));bottom:auto}
 body.talking footer button,body.reading footer button{display:none}
-#notice{position:fixed;left:50%;top:calc(max(10px,env(safe-area-inset-top)) + 84px);transform:translateX(-50%);background:#f4ead3f0;padding:8px 14px;border:1px solid #6b4a2c55;border-radius:10px;z-index:6;max-width:90vw;text-align:center;font-size:13px;line-height:1.6;font-family:var(--hand)}
+#notice{position:fixed;left:50%;top:calc(max(10px,env(safe-area-inset-top)) + 84px);transform:translateX(-50%);background:#f4ead3f0;padding:8px 14px;border:1px solid #6b4a2c55;border-radius:10px;z-index:6;max-width:calc(90 * var(--screen-vw,1vw));text-align:center;font-size:13px;line-height:1.6;font-family:var(--hand)}
 #notice button{margin-left:10px;min-height:36px}
 /* the loading companion */
 #companion{position:fixed;left:50%;top:max(8px,env(safe-area-inset-top));transform:translateX(-50%);z-index:3;pointer-events:none;transition:opacity .8s}
@@ -27,7 +27,7 @@ body.talking footer button,body.reading footer button{display:none}
 /* the town's name, revealed at the gate */
 #arrival{position:fixed;left:50%;top:max(16px,env(safe-area-inset-top));transform:translateX(-50%);text-align:center;pointer-events:none;color:#f6e7c4;z-index:3;text-shadow:0 2px 10px #0009,0 0 2px #000c;white-space:nowrap}
 #arrival span{display:block;font:11px Georgia,serif;letter-spacing:3px;opacity:.85}
-#arrival h1{font-family:'Songti SC',STSong,SimSun,serif;font-size:clamp(26px,4.6vw,42px);font-weight:700;letter-spacing:9px;margin:6px 0 0}
+#arrival h1{font-family:'Songti SC',STSong,SimSun,serif;font-size:clamp(26px,calc(4.6 * var(--screen-vw,1vw)),42px);font-weight:700;letter-spacing:9px;margin:6px 0 0}
 body.at-gate #arrival{animation:appear 1.8s both}
 body.talking #arrival,body.reading #arrival{opacity:.55;transition:opacity .5s}
 @keyframes appear{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
@@ -58,21 +58,21 @@ body.talking #arrival,body.reading #arrival{opacity:.55;transition:opacity .5s}
 #dialog-choices:empty{display:none}
 #dialog-choices button{font:17px/1.2 var(--hand);background:#fbf3e0;border-color:#8a6340;padding:9px 18px}
 #dialog-choices button.picked{background:#5d3622;color:#fbeed0}
-@media(max-width:640px){:root{--sw:38vw}
+@media(max-width:640px){:root{--sw:calc(38 * var(--screen-vw,1vw))}
  #dialog-box{margin-left:0;padding:24px 16px 12px 16px;min-height:112px}
  #dialog-box .nameplate{left:calc(var(--sw)*.62);font-size:15px;top:-16px}
  #speaker{left:0;bottom:calc(100% - 18px)}
  #dialog-text{font-size:17px}}
-@media(max-height:520px){:root{--sw:22vh}#dialog-text{font-size:16px;min-height:2.6em}#dialog-box{min-height:84px;padding-top:18px}}
+@media(max-height:520px){:root{--sw:calc(22 * var(--screen-vh,1vh))}#dialog-text{font-size:16px;min-height:2.6em}#dialog-box{min-height:84px;padding-top:18px}}
 
 /* ---------- the invitation ---------- */
 #letter{position:fixed;inset:0;z-index:6;display:grid;place-items:center;padding:16px 16px calc(16px + var(--kb));background:radial-gradient(ellipse at 50% 60%,#05060c66,#05060cb0);opacity:0;transition:opacity .3s}
 #letter.rise{opacity:1}#letter.down{opacity:0}
 #letter .envelope,#letter .card{grid-area:1/1}
-#letter .envelope{position:relative;width:min(84vw,400px);aspect-ratio:1.55;transform:translateY(85vh) rotate(-7deg);transition:transform .42s cubic-bezier(.18,.85,.25,1);perspective:900px}
+#letter .envelope{position:relative;width:min(calc(84 * var(--screen-vw,1vw)),400px);aspect-ratio:1.55;transform:translateY(calc(85 * var(--screen-vh,1vh))) rotate(-7deg);transition:transform .42s cubic-bezier(.18,.85,.25,1);perspective:900px}
 #letter.rise .envelope{transform:rotate(-1.5deg)}
 #letter.out .envelope{transform:translateY(34%) scale(.96) rotate(-1deg);transition-duration:.36s}
-#letter.down .envelope{transform:translateY(90vh) rotate(4deg);transition:transform .3s ease-in}
+#letter.down .envelope{transform:translateY(calc(90 * var(--screen-vh,1vh))) rotate(4deg);transition:transform .3s ease-in}
 #letter .back{position:absolute;inset:0;border-radius:6px;background:linear-gradient(160deg,#211b26,#0d0a10 70%);box-shadow:0 18px 40px #000a,inset 0 0 0 1px #c9a25a99,inset 0 0 0 6px #120e15,inset 0 0 0 7px #c9a25a55}
 #letter .flap{position:absolute;left:0;right:0;top:0;height:58%;background:linear-gradient(#2b2331,#141017);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;transition:transform .38s ease-in-out;box-shadow:inset 0 1px 0 #c9a25a66;backface-visibility:hidden}
 #letter.open .flap{transform:rotateX(178deg);filter:brightness(.6)}
@@ -81,10 +81,10 @@ body.talking #arrival,body.reading #arrival{opacity:.55;transition:opacity .5s}
 #letter .seal i:first-child{clip-path:polygon(0 0,58% 0,44% 52%,60% 100%,0 100%)}#letter .seal i:last-child{clip-path:polygon(58% 0,100% 0,100% 100%,60% 100%,44% 52%)}
 #letter.unseal .seal i:first-child{transform:translate(-9px,4px) rotate(-14deg)}#letter.unseal .seal i:last-child{transform:translate(9px,5px) rotate(12deg)}
 #letter.open .seal i{opacity:0}
-#letter .card{position:relative;width:min(88vw,430px);padding:22px 24px 18px;border-radius:4px;background:var(--paper,#f4ead3),#f4ead3;color:var(--ink);
+#letter .card{position:relative;width:min(calc(88 * var(--screen-vw,1vw)),430px);padding:22px 24px 18px;border-radius:4px;background:var(--paper,#f4ead3),#f4ead3;color:var(--ink);
  box-shadow:0 14px 30px #0009,inset 0 0 0 1px #b8946488,inset 0 0 40px #c8a06a44;opacity:0;transform:translateY(22%) scale(.92);transition:opacity .3s,transform .36s cubic-bezier(.2,.8,.25,1);pointer-events:none}
 #letter.out .card{opacity:1;transform:translateY(-6%);pointer-events:auto}
-#letter.down .card{transform:translateY(90vh);transition:transform .28s ease-in}
+#letter.down .card{transform:translateY(calc(90 * var(--screen-vh,1vh)));transition:transform .28s ease-in}
 #letter.busy .card{filter:saturate(.85)}
 #letter .kicker{margin:0;font:12px/1.4 Georgia,var(--hand);letter-spacing:3px;color:#8a6436}
 #letter h2{margin:6px 0 8px;font:600 22px/1.3 var(--hand);letter-spacing:2px;color:#2a1c14}
@@ -98,9 +98,9 @@ body.talking #arrival,body.reading #arrival{opacity:.55;transition:opacity .5s}
 body.talking #letter-reopen,body.reading #letter-reopen{display:none!important}
 #letter-reopen{position:fixed;left:50%;transform:translateX(-50%);bottom:max(18px,env(safe-area-inset-bottom));z-index:5;background:#1d2030e6;color:#efe3c6;border-color:#4a4256;font-family:var(--hand);font-size:16px}
 @media(max-height:560px){#letter{place-items:end center}#letter .body{display:none}#letter .card{padding:14px 18px}}
-#ending{position:fixed;left:50%;bottom:max(70px,env(safe-area-inset-bottom) + 60px);transform:translateX(-50%);z-index:4;text-align:center;color:#f6e7c4;text-shadow:0 2px 10px #000c;animation:appear 1.6s both;width:min(90vw,520px)}
+#ending{position:fixed;left:50%;bottom:max(70px,env(safe-area-inset-bottom) + 60px);transform:translateX(-50%);z-index:4;text-align:center;color:#f6e7c4;text-shadow:0 2px 10px #000c;animation:appear 1.6s both;width:min(calc(90 * var(--screen-vw,1vw)),520px)}
 #ending .kicker{font:11px Georgia,serif;letter-spacing:4px;margin:0;opacity:.85}
-#ending h2{font-family:'Songti SC',STSong,SimSun,serif;font-size:clamp(24px,5vw,34px);letter-spacing:6px;margin:8px 0}
+#ending h2{font-family:'Songti SC',STSong,SimSun,serif;font-size:clamp(24px,calc(5 * var(--screen-vw,1vw)),34px);letter-spacing:6px;margin:8px 0}
 #ending p{font:15px/1.6 var(--hand);margin:0;opacity:.9}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){#boot .ink-mark,body.at-gate #arrival,#ending,#speaker .pose.on,#dialog-next{animation:none}}

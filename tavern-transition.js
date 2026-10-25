@@ -1,4 +1,4 @@
-const VERSION = 'room-map-landscape-20261025';
+const VERSION = 'screen-entry-20261025';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -126,6 +126,7 @@ export function createTavernTransition({pauseGate} = {}) {
   function reveal() {
     if (!ready || entered) return;
     entered = true; waiting = false; clearInterval(poll);
+    window.__belvedereScreen?.hideControls();
     if (!returning) {
       try { localStorage.setItem(RETURN_KEY, JSON.stringify({at: Date.now(), version: VERSION})); } catch { /* Private storage is optional. */ }
     }
