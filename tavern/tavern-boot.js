@@ -108,9 +108,9 @@
     if (performance.now() - lastProgress < 25000 && !errors.length) return;
     if (!button) {
       let doc = document; try { doc = parent.document; } catch {}
-      button = doc.createElement('button'); button.textContent = '加载遇到等待 · 重试 / 诊断';
+      button = doc.createElement('button'); button.textContent = new URLSearchParams(location.search).get('diagnose')==='1'?'加载遇到等待 · 重试 / 诊断':'重新进入';
       button.style.cssText = 'position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:40000;padding:12px;background:#efe0c2;color:#302216;border:1px solid #ac804c;border-radius:8px';
-      button.onclick = showReport; doc.body.append(button);
+      button.onclick = new URLSearchParams(location.search).get('diagnose')==='1'?showReport:()=>{const target=new URL(location.href);target.searchParams.set('repairCache','1');location.replace(target.href);}; doc.body.append(button);
     }
   }, 1000);
   addEventListener('pagehide', () => { button?.remove(); panel?.remove(); clearInterval(poll); });

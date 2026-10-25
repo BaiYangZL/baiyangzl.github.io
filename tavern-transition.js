@@ -1,4 +1,4 @@
-const VERSION = 'head-stick-20261026';
+const VERSION = 'visitor-balance-20261026';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -27,8 +27,8 @@ export function createTavernTransition({pauseGate} = {}) {
   function say(message) {
     if (!badge) return;
     badge.textContent = message;
-    badge.hidden = ready || entered;
-    if (waiting) curtain.querySelector('p').textContent = message;
+    badge.hidden = true;
+    if (waiting) curtain.querySelector('p').textContent = ''; 
   }
   function makeUI() {
     if (frame) return;
@@ -45,7 +45,7 @@ export function createTavernTransition({pauseGate} = {}) {
     curtain.id = 'tavern-curtain';
     curtain.hidden = true;
     curtain.style.cssText = 'position:fixed;inset:0;z-index:10002;display:none;place-content:center;gap:12px;padding:30px;text-align:center;background:#110e16 url("'+new URL('tavern/start-preview.png',ROOT).href+'") center/cover no-repeat;color:#f2ddba;font:16px/1.6 system-ui;text-shadow:0 2px 8px #110e16';
-    curtain.innerHTML = '<h2 style="font:25px/1.4 Georgia,serif;margin:0">门后是贝尔维德酒馆</h2><p style="margin:0">正在为你准备二楼起居厅…</p><button type="button" style="justify-self:center;min-width:140px" hidden>重新准备酒馆</button>';
+    curtain.innerHTML = '<p style="margin:0"></p><button type="button" style="justify-self:center;min-width:140px" hidden>重新准备酒馆</button>';
     curtain.querySelector('button').onclick = retry;
     document.body.append(frame, badge, curtain);
     say('正在准备旅店，请稍候…');
@@ -130,7 +130,7 @@ export function createTavernTransition({pauseGate} = {}) {
     if (!returning) {
       try { localStorage.setItem(RETURN_KEY, JSON.stringify({at: Date.now(), version: VERSION})); } catch { /* Private storage is optional. */ }
     }
-    curtain.querySelector('p').textContent = '炉火已亮。';
+    curtain.querySelector('p').textContent = '';
     requestAnimationFrame(() => {
       frame.contentWindow.__tavern?.activate();
       frame.style.opacity = '1'; frame.style.pointerEvents = 'auto';
@@ -145,13 +145,13 @@ export function createTavernTransition({pauseGate} = {}) {
     curtain.style.display = 'grid';
     badge.hidden = true;
     if (ready) reveal();
-    else if (!failed) curtain.querySelector('p').textContent = '酒馆正在备好，马上进入二楼大厅…';
+    else if (!failed) curtain.querySelector('p').textContent = '';
   }
   function retry() {
     if (!frame) return prepare();
     clearInterval(poll); ready = failed = false; startedAt = Date.now();
     curtain.querySelector('button').hidden = true;
-    curtain.querySelector('p').textContent = '重新准备二楼大厅…';
+    curtain.querySelector('p').textContent = '';
     const retryURL = new URL(TAVERN); retryURL.searchParams.set('retry', String(Date.now())); frame.src = retryURL.href;
     poll = setInterval(check, 80);
   }
