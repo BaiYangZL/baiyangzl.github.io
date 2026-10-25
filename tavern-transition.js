@@ -1,4 +1,4 @@
-const VERSION = 'visitor-balance-20261026';
+const VERSION = 'room-framing-20261026';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).

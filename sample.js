@@ -9,7 +9,7 @@ import {Dialog} from './dialog.js';
 import {Mascot} from './mascot.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=visitor-balance-20261026';
+import {createTavernTransition} from './tavern-transition.js?v=room-framing-20261026';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
