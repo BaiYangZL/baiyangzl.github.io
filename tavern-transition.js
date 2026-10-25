@@ -1,4 +1,4 @@
-const VERSION = 'room-memory-stick-20261024';
+const VERSION = 'room-map-landscape-20261025';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -34,7 +34,8 @@ export function createTavernTransition({pauseGate} = {}) {
     if (frame) return;
     frame = document.createElement('iframe');
     frame.title = '贝尔维德酒馆二楼';
-    frame.setAttribute('allow', 'autoplay');
+    frame.setAttribute('allow', 'autoplay; fullscreen');
+    frame.allowFullscreen = true;
     frame.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;border:0;opacity:0;pointer-events:none;z-index:10001;background:#171019';
     badge = document.createElement('div');
     badge.id = 'tavern-preload';
@@ -54,7 +55,7 @@ export function createTavernTransition({pauseGate} = {}) {
     cacheTask = (async () => {
       if (!('serviceWorker' in navigator)) return;
       try {
-        const registration = await navigator.serviceWorker.register(new URL('arrival-sw.js?v=mobile-load-recovery-20261025', ROOT), {scope: ROOT.pathname});
+        const registration = await navigator.serviceWorker.register(new URL(`arrival-sw.js?v=${VERSION}`, ROOT), {scope: ROOT.pathname});
         await navigator.serviceWorker.ready;
         registration.active?.postMessage({type: 'KEEP_WEEK'});
         navigator.serviceWorker.addEventListener('message', event => {
@@ -104,12 +105,22 @@ export function createTavernTransition({pauseGate} = {}) {
       waiting = true;
       say('正在从本周缓存恢复旅店…');
     }
-    // An existing controller already serves this visit from the weekly cache.
-    // Do not hold scene creation behind its network update check (slow offline).
-    const cacheReady = registerCache();
-    // Cache registration must never prevent the online scene from starting.
-    if (!navigator.serviceWorker?.controller?.scriptURL.startsWith(new URL('arrival-sw.js', ROOT).href)) await Promise.race([cacheReady, new Promise(resolve => setTimeout(resolve, 800))]);
-    frame.src = TAVERN.href;
+    // A prior release's cache can contain the old character and scene scripts.
+    // Wait briefly for this release, then bypass the old cache if it still owns us.
+    const workerURL = new URL(`arrival-sw.js?v=${VERSION}`, ROOT).href;
+    const currentWorker = () => navigator.serviceWorker?.controller?.scriptURL === workerURL;
+    registerCache();
+    if (!currentWorker() && navigator.serviceWorker) await new Promise(resolve => {
+      const done = () => { clearTimeout(timer); navigator.serviceWorker.removeEventListener('controllerchange', changed); resolve(); };
+      const changed = () => { if (currentWorker()) done(); };
+      const timer = setTimeout(done, 800);
+      navigator.serviceWorker.addEventListener('controllerchange', changed);
+      changed();
+    });
+    const sceneURL = new URL(TAVERN);
+    if (navigator.serviceWorker?.controller && !currentWorker()) sceneURL.searchParams.set('repairCache', '1');
+    if (currentWorker()) navigator.serviceWorker.controller.postMessage({type: 'KEEP_WEEK'});
+    frame.src = sceneURL.href;
     poll = setInterval(check, 80);
   }
   function reveal() {

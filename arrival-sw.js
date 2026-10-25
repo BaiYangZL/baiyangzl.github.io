@@ -1,5 +1,5 @@
 // Caches the tavern files actually requested by Cocos, scoped to this GitHub Pages project.
-const VERSION = 'room-memory-stick-20261024';
+const VERSION = 'room-map-landscape-20261025';
 const PREFIX = 'belvedere-tavern-';
 const GATE_PREFIX = 'belvedere-gate-';
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
