@@ -3,7 +3,7 @@ const base=new URL('./',import.meta.url),url=p=>new URL(p,base).href;
 const image=p=>new Promise((ok,no)=>{const i=new Image();i.fetchPriority='high';i.onload=()=>i.decode().then(()=>ok(i),no);i.onerror=()=>no(Error('人物图片未能载入，请重试。'));i.src=url(p);});
 let pending;
 export function prepareCharacters(){
- return pending??=fetch(url('character-catalog.json'),{priority:'high'}).then(r=>{if(!r.ok)throw Error('角色清单未能载入');return r.json();}).then(list=>Promise.all(list.map(async c=>{const [heroImage,portraitImage,atlasImage,atlasData]=await Promise.all([image(c.hero),image(c.dialogue),image(c.atlas),fetch(url(c.atlasData),{priority:'high'}).then(r=>{if(!r.ok)throw Error('人物动作未能载入');return r.json();})]);return {...c,heroImage,portraitImage,atlasImage,atlasData};}))).catch(e=>{pending=null;throw e;});
+ return pending??=fetch(url('character-catalog.json?v=character-selection-fix-20261026'),{priority:'high'}).then(r=>{if(!r.ok)throw Error('角色清单未能载入');return r.json();}).then(list=>Promise.all(list.map(async c=>{const [heroImage,portraitImage,atlasImage,atlasData]=await Promise.all([image(c.hero),image(c.dialogue),image(c.atlas),fetch(url(c.atlasData),{priority:'high'}).then(r=>{if(!r.ok)throw Error('人物动作未能载入');return r.json();})]);return {...c,heroImage,portraitImage,atlasImage,atlasData};}))).catch(e=>{pending=null;throw e;});
 }
 const arrow='<svg viewBox="0 0 32 32"><path d="M5 16h22M18 7l9 9-9 9"/></svg>';
 const check='<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 16 6 6L26 9"/></svg>';

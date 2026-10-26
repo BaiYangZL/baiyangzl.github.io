@@ -1,4 +1,4 @@
-import {openCharacterSelection,prepareCharacters} from './character-select.js';
+import {openCharacterSelection,prepareCharacters} from './character-select.js?v=character-selection-fix-20261026';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js';
 import {createWorld,createAtlas,drawJourney,createDissolveNoise} from './map-art.js';
