@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><script id="room-entry-default">{const u=new URL(location.href);if(!u.searchParams.has("rooms")){u.searchParams.set("rooms","1");history.replaceState(history.state,"",u.href);}}</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content"><meta name="theme-color" content="#11141f"><title>血染钟楼 · 进场演示（非正式登录）</title><link rel="stylesheet" href="sample.css"><link rel="icon" href="data:,"></head>
 <body>
+<script src="mobile-screen.js?v=zoom-palette-20261026" data-kind="gate"></script>
 <details id="entry-diagnostic" style="display:none;position:fixed;top:calc(35px + env(safe-area-inset-top));right:8px;z-index:2147483647;max-width:92vw;padding:10px;background:#f2e1bf;color:#302218;border:2px solid #a1773d;font:14px/1.4 system-ui">
 <summary style="cursor:pointer">加载诊断 D2 · 点此复制</summary>
 <p>无需等待家具加载。展开后复制以下内容发回；结果不会自动上传。</p>
@@ -33,9 +34,6 @@
  window.__entryDiagnostic=collect;update();setInterval(update,2000);
 })();
 </script>
-
-<script src="mobile-screen.js?v=zoom-palette-20261026" data-kind="gate"></script>
-
 
 <aside style="position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:10000;text-align:center;font:12px/1.5 sans-serif;color:#fff;background:#17202ddd;pointer-events:none">公开演示 · 非正式登录 · 演示密语 DEMO</aside><main id="game" aria-label="旅途与城门场景"></main><canvas id="map-layer" aria-hidden="true"></canvas><div id="veil" aria-hidden="true"></div>
 <div id="companion" aria-hidden="true"><canvas id="mascot"></canvas></div>
@@ -71,5 +69,5 @@
 <noscript>请启用浏览器 JavaScript 后查看旅途。</noscript>
 <script>window.bootFailure=()=>{document.querySelector('#boot p').textContent='旅途未能加载，请检查网络后重试。';document.querySelector('#boot-retry').hidden=false;};window.bootTimer=setTimeout(window.bootFailure,15000);</script>
 <script>if(new URLSearchParams(location.search).has('measure')){const s=document.createElement('script');s.src='phone-measure.js';document.head.appendChild(s);}</script>
-<script src="vendor/phaser.min.js" onerror="bootFailure()"></script><script type="module" src="sample.js?v=zoom-palette-20261026" onerror="bootFailure()"></script>
+<script src="vendor/phaser.min.js" onerror="bootFailure()"></script><script type="module" src="sample.js?v=character-selection-20261026" onerror="bootFailure()"></script>
 </body></html>

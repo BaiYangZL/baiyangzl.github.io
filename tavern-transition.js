@@ -1,4 +1,5 @@
-const VERSION = 'zoom-palette-20261026';
+import {openCharacterSelection} from './character-select.js';
+const VERSION = 'character-selection-20261026';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -102,8 +103,9 @@ export function createTavernTransition({pauseGate} = {}) {
     makeUI(); startedAt = Date.now();
     returning = visitedThisWeek();
     if (returning) {
-      waiting = true;
       say('正在从本周缓存恢复旅店…');
+      // Returning visitors can change their name/look without repeating the invitation.
+      void openCharacterSelection({onConfirm:setCharacter}).then(()=>enter());
     }
     // A prior release's cache can contain the old character and scene scripts.
     // Wait briefly for this release, then bypass the old cache if it still owns us.
@@ -167,5 +169,6 @@ export function createTavernTransition({pauseGate} = {}) {
       }, 80);
     });
   }
-  return {prepare, cacheGate, whenReady, enter, retry, status: () => ({ready, entered, waiting, returning, failed, cacheLimited, frame: !!frame, startedAt})};
+  async function setCharacter(selection) { await whenReady();const api=frame.contentWindow.__tavern;if(!api?.setCharacter)throw new Error('请刷新以载入新版角色');await api.setCharacter(selection.id,selection.name,selection.direction); }
+  return {prepare, cacheGate, whenReady, setCharacter, enter, retry, status: () => ({ready, entered, waiting, returning, failed, cacheLimited, frame: !!frame, startedAt})};
 }

@@ -1,0 +1,5 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>贝尔维德 · 角色选择</title><style>body{margin:0;background:#eeebe7;font-family:sans-serif}.result{max-width:900px;margin:auto;padding:30px;display:flex;gap:30px;align-items:center}.result img{max-height:85vh;max-width:60%;object-fit:contain}button{padding:12px 20px}</style><div id="result"></div><script type="module">
+import {openCharacterSelection} from './character-select.js';
+const selected=await openCharacterSelection({initialId:new URLSearchParams(location.search).get('character')});
+const box=document.getElementById('result');box.className='result';const img=new Image();img.src=`characters/${selected.id}/dialogue.webp`;img.alt='游戏内聊天使用的完整立绘';const text=document.createElement('div');text.innerHTML='<h2>完整聊天立绘</h2><p>上方选角页只做横向取景；游戏聊天使用这一完整版本。</p><button>返回选角</button>';text.querySelector('button').onclick=()=>location.reload();box.append(img,text);
+</script></html>

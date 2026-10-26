@@ -7,7 +7,7 @@
   try{landscape=localStorage.getItem(key)==='1';}catch{}
   const style=document.createElement('style');style.id='mobile-screen-style';style.textContent=`
   html,body{margin:0!important;overscroll-behavior:none!important;background:#171019;overflow:hidden!important}html{height:100%;touch-action:manipulation}body{min-height:0!important}
-  #game,canvas,#move-stick{touch-action:none}input,textarea,select{touch-action:manipulation}#dialog-box,.card,.reading{overscroll-behavior:contain;touch-action:pan-y}
+  #game,canvas,#move-stick{touch-action:none}input,textarea,select{touch-action:manipulation}#dialog-box,.card,.reading,.cs-root{overscroll-behavior:contain;touch-action:pan-y}
   .screen-controls{position:fixed;z-index:45000;right:12px;top:max(12px,env(safe-area-inset-top));display:flex;gap:7px;pointer-events:auto;font:13px system-ui;letter-spacing:0}
   .screen-controls[hidden]{display:none!important}.screen-controls button{min-height:42px;padding:8px 13px;border:1px solid #b99b67;border-radius:8px;color:#f8e6bf;background:#29251df2;box-shadow:0 3px 12px #0003;font:13px system-ui;touch-action:none}
   #entry-diagnostic{top:70px!important;max-height:calc(var(--screen-height,100dvh) - 90px);max-width:calc(100% - 24px)!important;overflow:auto;overscroll-behavior:contain;touch-action:pan-y}
@@ -50,7 +50,7 @@
     controls.querySelector('[data-screen=landscape]').onclick=()=>setLandscape(!api.landscape);controls.querySelector('[data-screen=fullscreen]').onclick=()=>void toggleFullscreen();layout();
   }
   // Stop page scrolling/pull-to-refresh inside play areas, while keeping forms/readers usable.
-  document.addEventListener('touchmove',event=>{if(event.target instanceof Element&&event.target.closest('input,textarea,select,.reading,#dialog-box,.card,#entry-diagnostic,[data-allow-scroll]'))return;if(event.cancelable)event.preventDefault();},{passive:false,capture:true});
+  document.addEventListener('touchmove',event=>{if(event.target instanceof Element&&event.target.closest('input,textarea,select,.reading,#dialog-box,.card,.cs-root,#entry-diagnostic,[data-allow-scroll]'))return;if(event.cancelable)event.preventDefault();},{passive:false,capture:true});
   window.addEventListener('resize',layout);document.addEventListener('fullscreenchange',layout);document.addEventListener('webkitfullscreenchange',layout);
   if(parentScreen)parent.addEventListener('belvedere-screen-change',layout);
   document.addEventListener('fullscreenchange',()=>{if(!fullscreen())screen.orientation?.unlock?.();});

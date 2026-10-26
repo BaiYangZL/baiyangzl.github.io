@@ -1,3 +1,4 @@
+import {openCharacterSelection,prepareCharacters} from './character-select.js';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js';
 import {createWorld,createAtlas,drawJourney,createDissolveNoise} from './map-art.js';
@@ -9,7 +10,7 @@ import {Dialog} from './dialog.js';
 import {Mascot} from './mascot.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=zoom-palette-20261026';
+import {createTavernTransition} from './tavern-transition.js?v=character-selection-20261026';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -86,6 +87,22 @@ const tavernTransition=createTavernTransition({pauseGate:releaseFinishedGate});
 window.__tavernEntry=tavernTransition;
 tavernTransition.prepare();
 
+prepareCharacters().catch(()=>{});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,7 +120,7 @@ const guardState=()=>story.guardState;
 const night=()=>weather==='rain'?'雨夜':'夜风';
 let run=0;
 const invitation=new Invitation({
- onSubmit:async code=>{story.go('pending','allow-empty');dialog.portrait.set('pending');const result=await verify(code);if(result.kind!=='ok')return result;invitation.status('密语无误，正在备好二楼大厅…','busy');try{await tavernTransition.whenReady();return result;}catch{return {kind:'scene'};}},
+ onSubmit:code=>{story.go('pending','allow-empty');dialog.portrait.set('pending');return verify(code);},
  onResult:r=>answer(r,run)
 });
 $('letter-reopen').addEventListener('click',()=>{story.go('wait','allow-empty');dialog.portrait.set('wait');invitation.reopen();});
@@ -123,7 +140,7 @@ async function meet(id){
 async function answer(r,id){
  const alive=()=>id===run;
  if(r.kind==='ok'){
-  await invitation.close(false);if(!alive())return;story.accept();
+  await invitation.close(false);if(!alive())return;await openCharacterSelection({onConfirm:selection=>tavernTransition.setCharacter(selection)});if(!alive())return;story.accept();
   await dialog.say('密语无误。欢迎你，旅人。','agree');if(!alive())return;
   await dialog.say('请随我来——这扇门，由我为你推开。','agree');if(!alive())return;
   await dialog.hide();story.lead();return;
@@ -167,9 +184,9 @@ class Arrival extends Phaser.Scene {
   try{
    if(!this.images){
     const environmentHD=useHDEnvironment();
-    const entries=[...Object.entries(ASSETS).map(([k,f])=>[k,environmentURL(k,f,environmentHD)]),['guardSheet','assets/pixel-guard/guard-v4.webp'],['guardRims','assets/pixel-guard/guard-v4-rim.webp'],...POSES.map(p=>['guard:'+p,'assets/gate/guard-'+p+'.webp'])];
+    const entries=[...Object.entries(ASSETS).map(([k,f])=>[k,environmentURL(k,f,environmentHD)]),['guardSheet',query.get('guardHD')==='0'?'assets/pixel-guard/guard-v4.webp':'assets/pixel-guard/guard-hd.webp'],['guardRims','assets/pixel-guard/guard-v4-rim.webp'],...POSES.map(p=>['guard:'+p,'assets/gate/guard-'+p+'.webp'])];
     const [loaded,guardMeta]=await Promise.all([Promise.all(entries.map(([k,u])=>loadImage(u).then(img=>[k,img]))),
-     fetch('assets/pixel-guard/guard-v4.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();})]);
+     fetch(query.get('guardHD')==='0'?'assets/pixel-guard/guard-v4.json':'assets/pixel-guard/guard-hd.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();})]);
     const im={guard:{},guardMeta,environmentHD};for(const [k,img] of loaded){if(k.startsWith('guard:'))im.guard[k.slice(6)]=img;else im[k]=img;}
     await dialog.portrait.load(im.guard);this.images=im;
    }

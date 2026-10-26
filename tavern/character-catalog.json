@@ -1,0 +1,70 @@
+[
+  {
+    "id": "blue-a",
+    "name": "蓝发女孩",
+    "accent": "#b43e5b",
+    "secondary": "#7788b1",
+    "hero": "characters/blue-a/hero.webp",
+    "dialogue": "characters/blue-a/dialogue.webp",
+    "atlas": "characters/blue-a/atlas.png",
+    "atlasData": "characters/blue-a/atlas.json",
+    "portraitCrop": {
+      "width": 1,
+      "top": -0.06,
+      "left": 0
+    },
+    "firstGreeting": "终于见面了，旅人。",
+    "greetings": [
+      "又是你啊。",
+      "今天也来了呀。",
+      "进来坐一会儿吧。",
+      "这次想去哪里？",
+      "我记得你的脚步声。",
+      "准备好再逛一圈了吗？",
+      "很高兴又见到你。",
+      "外面冷吗？先进来吧。",
+      "今天有什么新发现？",
+      "走吧，别停在门口。",
+      "给你留了个位置。",
+      "又见面了。慢慢来。"
+    ],
+    "visual": {
+      "width": 1.24,
+      "height": 1.9290975453069112
+    }
+  },
+  {
+    "id": "gold-a",
+    "name": "金发女孩",
+    "accent": "#c6a052",
+    "secondary": "#7f8a48",
+    "hero": "characters/gold-a/hero.webp",
+    "dialogue": "characters/gold-a/dialogue.webp",
+    "atlas": "characters/gold-a/atlas.png",
+    "atlasData": "characters/gold-a/atlas.json",
+    "portraitCrop": {
+      "width": 1.6,
+      "top": -0.48,
+      "left": -0.3
+    },
+    "firstGreeting": "来啦，一起进去吧。",
+    "greetings": [
+      "又见面啦。",
+      "来得正好，走吧。",
+      "今天也一起逛逛？",
+      "我就知道你还会来。",
+      "准备出发了吗？",
+      "别站太远，到这边来。",
+      "这次轮到你带路。",
+      "先进去，边走边聊。",
+      "看起来今天心情不错。",
+      "好啦，等的就是你。",
+      "又有新计划了？",
+      "走，去看看有什么新鲜事。"
+    ],
+    "visual": {
+      "width": 1.24,
+      "height": 1.9290975453069112
+    }
+  }
+]
