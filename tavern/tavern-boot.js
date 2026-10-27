@@ -4,6 +4,7 @@
   // programs before checking completion lets the browser compile in parallel.
   // The engine still creates/validates its own programs with its original GLSL.
   const shaderWarmup = {started: false, completed: false, programs: 0, failed: 0, milliseconds: 0};
+  const packedFile = url => new URLSearchParams(location.search).get('repairCache')==='1' ? Promise.resolve(null) : window.__earlyArrival?.get(new URL(url,document.baseURI).href).catch(()=>null)||Promise.resolve(null);
   const textureTransfers = fetch(new URL('texture-transfer.json?v=loading-20261027', document.baseURI)).then(r => r.ok ? r.json() : {}).catch(() => ({}));
   const shaderData = typeof DecompressionStream === 'undefined' ? Promise.resolve(null) : fetch(new URL('tavern-shader-warmup.bin?v=loading-20261027', document.baseURI)).then(async r => {
     if (!r.ok) return null;
@@ -65,7 +66,7 @@
   console.error = function (...args) { args.forEach(record); return originalError.apply(console, args); };
   addEventListener('error', event => record(event.message || 'Resource failed'));
   addEventListener('unhandledrejection', event => record(event.reason));
-  const report = () => ({version: 'loading-20261027', url: location.href, repairs, shaderWarmup,
+  const report = () => ({version: 'loading-network-20261027', url: location.href, repairs, shaderWarmup,early:window.__earlyArrival?.state,
     elapsedMs: Math.round(performance.now() - started), pending: [...pending.keys()], errors,
     status: document.querySelector('#tavern-ui .status')?.textContent,
     note: document.querySelector('#tavern-ui .note')?.textContent,
@@ -124,17 +125,19 @@
     // Creator's DOM image downloader has no timeout. Bound stalled images;
     // the engine's existing retry mechanism retries failures without lowering quality.
     const imageDownload = (url, options, complete) => {
-      const img = new Image(); img.crossOrigin = 'anonymous'; let done = false, alternate = false;
+      const img = new Image(); img.crossOrigin = 'anonymous'; let done = false, alternate = false, blobURL;
       const finish = error => {
         if (done) return; done = true; clearTimeout(timer); img.onload = img.onerror = null;
+        if(blobURL)URL.revokeObjectURL(blobURL);
         if (error) { img.src = ''; record(error); }
         complete(error, error ? null : img);
       };
       const timer = setTimeout(() => finish(new Error('图片下载超时: ' + url)), 20000);
       img.onload = () => finish(null);
       img.onerror = () => { if (alternate) { alternate = false; img.src = url; } else finish(new Error('图片下载失败: ' + url)); };
-      textureTransfers.then(transfers => {
+      Promise.all([textureTransfers,packedFile(url)]).then(([transfers,packed]) => {
         if (done) return;
+        if(packed){blobURL=URL.createObjectURL(new Blob([packed.bytes],{type:packed.type}));alternate=true;img.src=blobURL;return;}
         const full = new URL(url, document.baseURI), root = new URL('./', document.baseURI), replacement = transfers[full.pathname.slice(root.pathname.length)];
         alternate = !!replacement; img.src = replacement ? new URL(replacement, root).href : url;
       });
@@ -146,6 +149,7 @@
     const base = new URL('./', location.href);
     let manifestTask;
     async function getBytes(url) {
+      const packed=await packedFile(url);if(packed)return packed.bytes.slice().buffer;
       const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 25000);
       try { const response = await fetch(url, {signal: controller.signal}); if (!response.ok) throw Error('模型下载失败 HTTP '+response.status); return await response.arrayBuffer(); }
       finally { clearTimeout(timer); }
