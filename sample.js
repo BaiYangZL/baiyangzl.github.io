@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=loading-network-20261027';
+import {createTavernTransition} from './tavern-transition.js?v=loading-ready-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -265,11 +265,11 @@ class Arrival extends Phaser.Scene {
   if(paused||document.hidden)return;
   govern(delta);
   // HALL_REVIEW_READY
-  if(state.phase==="map")state.ready=this.ready&&tavernTransition.status().ready;
+  if(state.phase==="map")state.ready=this.ready;
   if(review.at!=null&&state.ready){while(state.time<review.at&&state.phase!=='arrived')state.tick(1/60);review.at=null;review.hold=state.phase!=='arrived';}
   const dt=review.hold?0:Math.min(delta/1000,.1);
   // HALL_MAP_GATE: prepare the first or restored room before leaving parchment.
-  if(state.phase==="map"){state.ready=this.ready&&tavernTransition.status().ready;if(state.ready)state.time=Math.max(state.time,8);if(tavernTransition.status().failed)notice(tavernTransition.status().failureMessage||"旅店准备中断，请点击重试。",true); }
+  if(state.phase==="map"){state.ready=this.ready;if(state.ready)state.time=Math.max(state.time,8);if(tavernTransition.status().failed)notice(tavernTransition.status().failureMessage||"旅店准备中断，请点击重试。",true); }
   state.tick(dt);arrivalAudio.setStage(state.phase);tickTimers(dt);this.cameras.main.visible=state.phase!=='map';
   if(state.phase==='arrived'&&story.phase==='idle'&&!story.ended&&!story.started){story.started=true;meet(run);}
   if(state.phase!=='map'&&!inspectFrozen)story.tick(dt);

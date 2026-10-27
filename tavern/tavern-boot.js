@@ -66,7 +66,7 @@
   console.error = function (...args) { args.forEach(record); return originalError.apply(console, args); };
   addEventListener('error', event => record(event.message || 'Resource failed'));
   addEventListener('unhandledrejection', event => record(event.reason));
-  const report = () => ({version: 'loading-network-20261027', url: location.href, repairs, shaderWarmup,early:window.__earlyArrival?.state,
+  const report = () => ({version: 'loading-ready-20261027', url: location.href, repairs, shaderWarmup,early:window.__earlyArrival?.state,
     elapsedMs: Math.round(performance.now() - started), pending: [...pending.keys()], errors,
     status: document.querySelector('#tavern-ui .status')?.textContent,
     note: document.querySelector('#tavern-ui .note')?.textContent,
