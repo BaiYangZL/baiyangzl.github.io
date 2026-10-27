@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=wardrobe-studio-20261026';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'loading-ready-20261027';
+const VERSION = 'loading-priority-20261027';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -36,6 +36,7 @@ export function createTavernTransition({pauseGate} = {}) {
   function makeUI() {
     if (frame) return;
     frame = document.getElementById('tavern-early-frame') || document.createElement('iframe');
+    frame.id = 'tavern-early-frame';
     frame.title = '贝尔维德酒馆二楼';
     frame.setAttribute('allow', 'autoplay; fullscreen');
     frame.allowFullscreen = true;
@@ -143,6 +144,7 @@ export function createTavernTransition({pauseGate} = {}) {
       navigator.serviceWorker.addEventListener('controllerchange', changed);
       changed();
     });
+    await window.__earlyArrival?.gateReady;
     const sceneURL = new URL(TAVERN);
     if (navigator.serviceWorker?.controller && !currentWorker()) sceneURL.searchParams.set('repairCache', '1');
     if (currentWorker()) navigator.serviceWorker.controller.postMessage({type: 'KEEP_WEEK'});

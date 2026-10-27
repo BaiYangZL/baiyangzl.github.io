@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=loading-ready-20261027';
+import {createTavernTransition} from './tavern-transition.js?v=loading-priority-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
