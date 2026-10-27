@@ -23,7 +23,7 @@ self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 // Runtime changes do not invalidate unchanged models/textures from this week.
 // Retire only the changed scripts when this worker version takes over.
 self.addEventListener('activate', event => event.waitUntil((async () => {
-  const changed = new Set(['painted-flora.js','painted-gate.js','weather-fx.js','tavern/tavern-boot.js']);
+  const changed = new Set(['painted-flora.js','painted-gate.js','weather-fx.js','journey.js','tavern/tavern-boot.js']);
   for (const name of await caches.keys()) {
     if (!name.startsWith(PREFIX) && !name.startsWith(GATE_PREFIX)) continue;
     const cache = await caches.open(name);

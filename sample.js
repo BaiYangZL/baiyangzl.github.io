@@ -1,7 +1,7 @@
 import {createArrivalAudio} from './arrival-audio.js?v=formal-cinema-20261027';
 import {openCharacterSelection,prepareCharacters} from './character-select.js?v=wardrobe-studio-20261026';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
-import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js';
+import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js?v=paper-ready-20261027';
 import {createWorld,createAtlas,drawJourney,createDissolveNoise} from './map-art.js';
 import {createGate,SPOTS,MAX_DOOR} from './painted-gate.js';
 import {paintApproach} from './approach-road.js';
@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=loading-priority-20261027';
+import {createTavernTransition} from './tavern-transition.js?v=loading-final-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
