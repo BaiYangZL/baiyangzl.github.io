@@ -6,7 +6,9 @@
   const shaderWarmup = {started: false, completed: false, programs: 0, failed: 0, milliseconds: 0};
   const packedFile = url => new URLSearchParams(location.search).get('repairCache')==='1' ? Promise.resolve(null) : window.__earlyArrival?.get(new URL(url,document.baseURI).href).catch(()=>null)||Promise.resolve(null);
   const textureTransfers = fetch(new URL('texture-transfer.json?v=loading-20261027', document.baseURI)).then(r => r.ok ? r.json() : {}).catch(() => ({}));
-  const shaderData = typeof DecompressionStream === 'undefined' ? Promise.resolve(null) : fetch(new URL('tavern-shader-warmup.bin?v=shader-rooms-20261027', document.baseURI)).then(async r => {
+  const shaderData = typeof DecompressionStream === 'undefined' ? Promise.resolve(null) : Promise.resolve().then(async () => {
+    const embedded=document.getElementById('tavern-shader-data')?.textContent?.trim();
+    const r=embedded?new Response(Uint8Array.from(atob(embedded),c=>c.charCodeAt(0))):await fetch(new URL('tavern-shader-warmup.bin?v=shader-rooms-20261027', document.baseURI));
     if (!r.ok) return null;
     const data = await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).json();
     const stages = data.stages.map(stage => ({type: stage.type, source: stage.lines.map(n => data.lines[n]).join('\n')}));
