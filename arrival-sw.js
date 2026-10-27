@@ -20,7 +20,20 @@ const rootPath = new URL('./', self.registration.scope).pathname;
 const gateName = async () => (await cacheName()).replace(PREFIX, GATE_PREFIX);
 let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
-self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
+// Runtime changes do not invalidate unchanged models/textures from this week.
+// Retire only the changed scripts when this worker version takes over.
+self.addEventListener('activate', event => event.waitUntil((async () => {
+  const changed = new Set(['painted-flora.js','painted-gate.js','weather-fx.js','tavern/tavern-boot.js']);
+  for (const name of await caches.keys()) {
+    if (!name.startsWith(PREFIX) && !name.startsWith(GATE_PREFIX)) continue;
+    const cache = await caches.open(name);
+    for (const request of await cache.keys()) {
+      const relative = new URL(request.url).pathname.slice(rootPath.length);
+      if (changed.has(relative)) await cache.delete(request);
+    }
+  }
+  await self.clients.claim();
+})()));
 self.addEventListener('message', event => {
   if (event.data?.type !== 'KEEP_WEEK') return;
   event.waitUntil((async () => {

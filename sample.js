@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=formal-cinema-20261027';
+import {createTavernTransition} from './tavern-transition.js?v=loading-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -74,7 +74,7 @@ function tickTimers(dt){for(let i=timers.length-1;i>=0;i--){timers[i].t-=dt;if(t
 // ---------- the gate story ----------
 function releaseFinishedGate(){
  if(window.__gateReleased)return;
- if(!scene?.ready){setTimeout(releaseFinishedGate,100);return;}
+ if(!scene||(!scene.ready&&!tavernTransition.status().returning)){setTimeout(releaseFinishedGate,100);return;}
  window.__gateReleased=true;
  const oldGame=game;
  oldGame.events.once('destroy',()=>{
@@ -110,7 +110,7 @@ tavernTransition.prepare();
 
 
 
-if(!tavernTransition.status().returning)prepareCharacters().catch(()=>{});
+if(!tavernTransition.status().returning)tavernTransition.whenReady().then(()=>prepareCharacters()).catch(()=>{});
 
 
 
@@ -195,7 +195,7 @@ class Arrival extends Phaser.Scene {
   atlas.setDetail(mapZoom()*paperContext.baseScale*1.05);atlas.paintAllNow(mapView(0).view);drawPaper(0);
   this.scale.on('resize',()=>{resizePaper();if(state.phase==='map'||state.phase==='dissolve')drawPaper(0);this.placeCamera(0,true);});
   this.applyQuality();$('boot').hidden=true;clearTimeout(window.bootTimer);
-  this.beginAssets();
+  if(!tavernTransition.status().returning)this.beginAssets();
  }
  async beginAssets(){
   if(this.loading)return;this.loading=true;state.error=false;notice();
