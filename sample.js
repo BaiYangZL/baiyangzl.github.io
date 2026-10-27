@@ -1,4 +1,4 @@
-import {createArrivalAudio} from './arrival-audio.js?v=formal-cinema-20261027';
+import {createArrivalAudio} from './arrival-audio.js?v=room-prefetch-audio-20261027';
 import {openCharacterSelection,prepareCharacters} from './character-select.js?v=entry-fix-20261027b';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js?v=entry-fix-20261027b';
@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js?v=entry-recovery-20261027';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=entry-fix-20261027b';
+import {createTavernTransition} from './tavern-transition.js?v=room-prefetch-audio-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the

@@ -7,7 +7,7 @@ export function createArrivalAudio(){
  let muted=false;try{muted=localStorage.getItem('belvedere-arrival-muted')==='1';}catch{}master.gain.value=muted?0:.8;master.connect(context.destination);musicGain.connect(master);rainGain.connect(master);fireflyGain.connect(master);bellGain.connect(master);fireflyGain.gain.value=0;musicGain.gain.value=rainGain.gain.value=0;
  const music=new Audio('/assets/arrival-loading.mp3');music.loop=true;music.preload='auto';music.setAttribute('playsinline','');context.createMediaElementSource(music).connect(musicGain);
  const params=new URLSearchParams(location.search),buffers={},events=[],failures=[],shots=new Map();
- const levels={loading:80,gate:33,rain:33,clear:29,bell:71,fireflies:38};let confirmed=false;
+ const levels={loading:80,gate:20,rain:33,clear:29,bell:71,fireflies:38};let confirmed=false;
  let ui='05',button='04',auto=false;
  let fireflySource,fireflyLoading=false,lastFirefly=-1,envelopePlayed=false;
  let started=false,paused=false,completed=false,disposed=false,stage='map',phase='',letterState='',uiSeen=false,mailPlayed=false,lastAuto=0,dialogDue=0,letterDue=0,dialogVisible=false,frame,rainSource,rainLoading=false,lastMusic=-1,lastRain=-1;
@@ -19,8 +19,9 @@ export function createArrivalAudio(){
  function makeLoop(b,gain){const overlap=Math.round(b.sampleRate*.25),length=b.length-overlap,loop=context.createBuffer(b.numberOfChannels,length,b.sampleRate);let sum=0,peak=0;for(let c=0;c<b.numberOfChannels;c++){const input=b.getChannelData(c),out=loop.getChannelData(c);out.set(input.subarray(overlap));for(let i=0;i<overlap;i++){const t=i/(overlap-1);out[length-overlap+i]=out[length-overlap+i]*(1-t)+input[i]*t;}for(const v of out){sum+=v*v;peak=Math.max(peak,Math.abs(v));}}const scale=Math.min(.12/Math.max(1e-9,Math.sqrt(sum/(length*b.numberOfChannels))),.7/Math.max(1e-9,peak));for(let c=0;c<loop.numberOfChannels;c++){const out=loop.getChannelData(c);for(let i=0;i<out.length;i++)out[i]*=scale;}const source=context.createBufferSource();source.buffer=loop;source.loop=true;source.connect(gain);source.start();return source;}
  function apply(){
   const active=available()&&!confirmed;
-  const m=active?(stage==='map'?levels.loading:levels.gate)*.003:0,r=active&&stage!=='map'&&!uiSeen?(window.__arrival?.weather==='rain'?levels.rain:levels.clear)*.001:0;
-  if(m!==lastMusic){ramp(musicGain.gain,m,.7);lastMusic=m;}
+  const foreground=Array.from(shots.values()).some(name=>name==='mail'||name==='envelope');
+  const m=active?(stage==='map'?levels.loading:levels.gate)*.003*(foreground?.25:1):0,r=active&&stage!=='map'&&!uiSeen?(window.__arrival?.weather==='rain'?levels.rain:levels.clear)*.001:0;
+  if(m!==lastMusic){ramp(musicGain.gain,m,foreground?.08:.7);lastMusic=m;}
   if(r!==lastRain){ramp(rainGain.gain,r,.7);lastRain=r;}
   if(r>0&&!rainLoading){rainLoading=true;load('ambience',window.__arrival?.weather==='rain'?'/assets/arrival-rain.mp3':'/assets/gate-study-wind_01.wav').then(()=>{if(!disposed&&buffers.ambience)rainSource=makeLoop(buffers.ambience,rainGain);});}
   const f=active&&stage!=='map'&&!uiSeen?levels.fireflies*.001:0;if(f!==lastFirefly){ramp(fireflyGain.gain,f,.7);lastFirefly=f;}
@@ -32,7 +33,7 @@ export function createArrivalAudio(){
  function play(name,gain=.65,manual=false){
   if(disposed||paused||document.hidden||context.state!=='running'||(!manual&&!available())||!buffers[name])return false;
   // One voice per cue, so repeated testing cannot pile up a long bell tail.
-  stopSound(name);const s=context.createBufferSource(),g=context.createGain();s.buffer=buffers[name];g.gain.value=gain;s.connect(g);g.connect(name==='bell'?bellGain:master);shots.set(s,name);s.onended=()=>{shots.delete(s);s.disconnect();g.disconnect();};s.start();emit('sound',{name,gain,stage});return true;
+  stopSound(name);const s=context.createBufferSource(),g=context.createGain();s.buffer=buffers[name];g.gain.value=gain;s.connect(g);g.connect(name==='bell'?bellGain:master);shots.set(s,name);s.onended=()=>{shots.delete(s);s.disconnect();g.disconnect();if(!disposed)apply();};s.start();if(name==='mail'||name==='envelope')apply();emit('sound',{name,gain,stage});return true;
  }
  function uiSound(manual=false){play('transition-'+ui,.65,manual);}
  const soundButton=document.createElement('button');soundButton.id='arrival-sound';document.querySelector('footer')?.append(soundButton);
@@ -44,9 +45,9 @@ export function createArrivalAudio(){
  function tick(now){
   if(disposed)return;frame=requestAnimationFrame(tick);if(!available())return;
   const api=window.__arrival;if(!api)return;apply();
-  if(api.story.phase!==phase){phase=api.story.phase;if(phase==='offer'&&!mailPlayed){mailPlayed=true;play('mail',.7);}if(phase==='deny')play('bell',1);}
+  if(api.story.phase!==phase){phase=api.story.phase;if(phase==='offer'&&!mailPlayed){mailPlayed=true;play('mail',.9);}if(phase==='deny')play('bell',1);}
   const letter=api.invitation.state;if(letter!==letterState){letterState=letter;if(letter==='open')letterDue=now+1900;}
-  if(!envelopePlayed&&document.getElementById('letter')?.classList.contains('unseal')){envelopePlayed=true;play('envelope',.7);}
+  if(!envelopePlayed&&document.getElementById('letter')?.classList.contains('unseal')){envelopePlayed=true;play('envelope',.9);}
   const panel=document.querySelector('.cs-root');
   if(panel&&!uiSeen){uiSeen=true;stopSound('bell');uiSound();apply();emit('ui-open',{ui});finish();}
   if(uiSeen||!auto)return;

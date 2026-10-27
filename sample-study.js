@@ -1,4 +1,4 @@
-import {createArrivalAudio} from './arrival-audio-study.js?v=envelope-26-online';
+import {createArrivalAudio} from './arrival-audio-study.js?v=room-prefetch-audio-20261027';
 import {openCharacterSelection,prepareCharacters} from './character-select.js?v=wardrobe-studio-20261026';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js';
