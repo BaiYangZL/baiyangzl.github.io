@@ -1,4 +1,4 @@
-import {createArrivalAudio} from './arrival-audio.js?v=arrival-audio-20261026';
+import {createArrivalAudio} from './arrival-audio.js?v=formal-cinema-20261027';
 import {openCharacterSelection,prepareCharacters} from './character-select.js?v=wardrobe-studio-20261026';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js';
@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=original-8-formal-20261027';
+import {createTavernTransition} from './tavern-transition.js?v=formal-cinema-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -162,9 +162,7 @@ async function meet(id){
 async function answer(r,id){
  const alive=()=>id===run;
  if(r.kind==='ok'){
-  if(!alive())return;await openCharacterSelection({morphFrom:invitation.el.querySelector('.card'),onAttached:()=>{invitation.el.hidden=true;invitation.state='closed';document.body.classList.remove('reading');$('letter-reopen').hidden=true;},onConfirm:selection=>tavernTransition.setCharacter(selection)});if(!alive())return;story.accept();
-  await dialog.say('密令无误。请进，愿你今夜在贝尔维德过得愉快。','agree');if(!alive())return;
-  await dialog.hide();story.lead();return;
+  if(!alive())return;const chosen=await openCharacterSelection({morphFrom:invitation.el.querySelector('.card'),onAttached:()=>{invitation.el.hidden=true;invitation.state='closed';document.body.classList.remove('reading');$('letter-reopen').hidden=true;},onConfirm:async selection=>{await tavernTransition.setCharacter(selection);await tavernTransition.coverCinema();}});if(!alive()||!chosen)return;arrivalAudio.selectionConfirmed();await tavernTransition.enterCinema();return;
  }
  await invitation.close(true);if(!alive())return;
  if(r.kind==='denied'){
