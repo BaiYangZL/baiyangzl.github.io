@@ -22,7 +22,7 @@ let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event => event.waitUntil((async()=>{
  // Entry guard and compatibility repair: entry-fix-20261027b
- const changed=new Set(["character-select.js","arrival-sw.js","index.html","journey.js","painted-flora.js","painted-gate.js","sample.js","tavern-transition.js","tavern/index.html","tavern/tavern-boot.js","weather-fx.js"]);
+ const changed=new Set(["","character-select.js","arrival-sw.js","index.html","journey.js","painted-flora.js","painted-gate.js","sample.js","tavern-transition.js","tavern/index.html","tavern/tavern-boot.js","weather-fx.js"]);
  for(const name of await caches.keys()){
   if(name.startsWith('belvedere-entry-')){await caches.delete(name);continue;}
   if(!name.startsWith(PREFIX)&&!name.startsWith(GATE_PREFIX))continue;
@@ -59,10 +59,12 @@ self.addEventListener('message', event => {
 self.addEventListener('fetch', event => {
   const request = event.request, url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin || !url.pathname.startsWith(rootPath)) return;
+  // Recovery documents must never replace the cached game homepage.
+  if (url.pathname === rootPath + 'recover.html') {event.respondWith(fetch(request));return;}
   if (!url.pathname.startsWith(tavernPath)) {
     event.respondWith((async () => {
       const cache = await caches.open(await gateName());
-      const key = request.mode === 'navigate' ? self.registration.scope : request;
+      const key = request.mode === 'navigate' && url.pathname === rootPath ? self.registration.scope : request;
       if (request.mode !== 'navigate') {
         const saved = await cache.match(key, {ignoreVary: true});
         if (saved) return saved;

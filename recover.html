@@ -1,1 +1,35 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>重新进入贝尔维德</title><style>body{background:#211b25;color:#f0dfbc;font:18px/1.8 system-ui;padding:12vh 8%;max-width:640px;margin:auto}a,button{color:#211b25;background:#efdab0;padding:14px 20px;border:0;border-radius:8px;font:inherit}</style><h1>重新进入贝尔维德</h1><p id="status">正在更新入口。你的角色和房间记录会保留。</p><p><a id="enter" href="./?v=entry-fix-20261027b" hidden>进入游戏</a></p><script>(async()=>{try{const base=new URL('./',location.href);if('serviceWorker' in navigator){for(const r of await navigator.serviceWorker.getRegistrations())if(r.scope===base.href)await r.unregister();}if('caches' in window)for(const key of await caches.keys())if(key.startsWith('belvedere-'))await caches.delete(key);location.replace(new URL('./?v=entry-fix-20261027b',base));}catch(e){document.getElementById('status').textContent='自动更新未完成，请点击下方按钮重新进入。';document.getElementById('enter').hidden=false;}})();</script></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>重新进入贝尔维德</title>
+<style>body{background:#211b25;color:#f0dfbc;font:18px/1.8 system-ui;padding:12vh 8%;max-width:640px;margin:auto}a{display:inline-block;color:#211b25;background:#efdab0;padding:14px 20px;border-radius:8px;text-decoration:none}small{opacity:.75}</style></head>
+<body><h1>重新进入贝尔维德</h1><p id="status">可以直接进入游戏。角色和房间记录会保留。</p>
+<p><a id="enter" href="./?v=entry-fix-20261027b&amp;recovery=bounded">直接进入游戏</a></p>
+<small>入口恢复 R2 · 自动处理最多等待 3 秒，也可以直接点击上方按钮。</small>
+<script>
+(function () {
+  var stopped=false, timer, link=document.getElementById('enter'),status=document.getElementById('status');
+  function enter(){if(stopped)return;stopped=true;clearTimeout(timer);status.textContent='正在进入游戏；若未跳转，请点击上方按钮。';location.replace(link.href);}
+  link.onclick=function(){stopped=true;clearTimeout(timer);};
+  // Start the independent deadline BEFORE touching either browser storage API.
+  timer=setTimeout(enter,3000);
+  try {
+    if(!window.Promise){enter();return;}
+    var base=location.href.split('?')[0].replace(/[^/]*$/,'');
+    status.textContent='正在更新入口，最多等待 3 秒。也可直接进入。';
+    Promise.resolve().then(function(){
+      if(stopped)return;
+      if(navigator.serviceWorker && navigator.serviceWorker.getRegistrations){
+        return navigator.serviceWorker.getRegistrations().then(function(registrations){
+          if(stopped)return;
+          return Promise.all(registrations.filter(function(r){return r.scope===base;}).map(function(r){return r.unregister();}));
+        });
+      }
+    }).then(function(){
+      if(stopped || !window.caches)return;
+      return caches.keys().then(function(keys){
+        if(stopped)return;
+        return Promise.all(keys.filter(function(key){return key.indexOf('belvedere-')===0;}).map(function(key){return caches.delete(key);}));
+      });
+    }).then(enter,function(){enter();});
+  }catch(error){enter();}
+})();
+</script></body></html>
