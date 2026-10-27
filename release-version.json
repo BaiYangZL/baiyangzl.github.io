@@ -1,0 +1,15 @@
+{
+  "version": "original-8-formal-20261027",
+  "character": "original-8",
+  "walkPerDirection": 8,
+  "runPerDirection": 8,
+  "atlasSha256": "1ccb8b2e08f9706ed6feb1ae1f63c93c8a74244db8ff750507f4a9348a172b42",
+  "features": [
+    "原版人物与移动",
+    "昼夜灯光与窗景",
+    "衣橱与人物选择",
+    "功能面板与回归面板",
+    "城门欢迎与进场声音",
+    "血染客户端（房间后端未部署）"
+  ]
+}

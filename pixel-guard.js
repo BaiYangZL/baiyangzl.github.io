@@ -4,9 +4,9 @@ import {poseFor,footSupport} from './gate-story.js';
 // crates, the 296-unit doorway) put a grown man at ~110–130; 168 made the doorway look
 // barely taller than him.
 export const GUARD_H=120;
-// The sheet is 运行版-v4 (工具脚本/精修像素护卫.mjs): the v3 cells rebuilt offline on a real
-// 2×2 art-pixel grid (96² per cell), hard-edged, one 30-colour palette graded to the night,
-// a selective dark contour, plus left/right rim masks for the lamps.
+// HD uses the original 192px frames with the existing 96px logical grid.
+// textureScale preserves world size, roots and contact corrections; v4 rim masks
+// remain at their original resolution to avoid extra rim texture memory.
 const CELL=96, PAD=8, WARP=CELL+PAD*2, SCALE=GUARD_H/80;
 
 function canvas(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c;}
@@ -29,6 +29,7 @@ function drawTriangle(ctx,image,src,dst){
 }
 
 export function createPixelGuard(scene,{depth=10,sheet,rims,meta}){
+ const density=meta.textureScale||1;
  const NEAREST=Phaser.Textures.FilterMode.NEAREST,keys={main:'pixel-guard-v4',rim:'pixel-guard-v4-rim'};
  // Phaser 4's texture-local sampling keeps texel interiors crisp, with a narrow
  // antialiased edge. Never change global filtering, geometry or the source art.
@@ -41,16 +42,16 @@ export function createPixelGuard(scene,{depth=10,sheet,rims,meta}){
  for(const [k,img] of [[keys.main,sheet],[keys.rim,rims]]){if(scene.textures.exists(k))scene.textures.remove(k);scene.textures.addImage(k,img).setFilter(NEAREST);}
  const tm=scene.textures.get(keys.main),tr=scene.textures.get(keys.rim);
  [tm,tr].forEach(setTextureSampling);
- for(const [id,f] of Object.entries(meta.frames)){const [x,y,w,h]=f.frame;tm.add(id,0,x,y,w,h);tr.add('L:'+id,0,x,y,w,h);tr.add('R:'+id,0,x+meta.rimOffset,y,w,h);}
+ for(const [id,f] of Object.entries(meta.frames)){const [x,y,w,h]=f.frame;tm.add(id,0,x,y,w,h);const [rx,ry,rw,rh]=meta.rimFrames?.[id]||f.frame;tr.add('L:'+id,0,rx,ry,rw,rh);tr.add('R:'+id,0,rx+meta.rimOffset,ry,rw,rh);}
  // Grounding: a tight dark contact patch under the boots, a soft ambient pool, and a long
  // shadow cast away from the lamps that light him.
  const pool=scene.add.image(0,0,'g-shadow').setDisplaySize(64,15).setAlpha(.4).setDepth(depth-.12);
  const cast=scene.add.image(0,0,'g-shadow').setOrigin(.08,.5).setAlpha(0).setDepth(depth-.11);
  const contact=scene.add.image(0,0,'g-shadow').setDisplaySize(36,7).setAlpha(.8).setDepth(depth-.1);
  const first='S/interactions/0';
- const sprite=scene.add.image(0,0,keys.main,first).setScale(SCALE).setDepth(depth);
+ const sprite=scene.add.image(0,0,keys.main,first).setScale(SCALE/density).setDepth(depth);
  const rimSprites=['L','R'].map((k,i)=>scene.add.image(0,0,keys.rim,k+':'+first).setScale(SCALE).setDepth(depth+.01+i*.001).setBlendMode(Phaser.BlendModes.ADD).setTint(0xffbe78));
- const source=canvas(CELL,CELL),warped=canvas(WARP,WARP),rimLayer=canvas(CELL,CELL);
+ const source=canvas(CELL*density,CELL*density),warped=canvas(WARP*density,WARP*density),rimLayer=canvas(CELL*density,CELL*density);
  const sg=source.getContext('2d'),wg=warped.getContext('2d');
  const rg=rimLayer.getContext('2d');
  sg.imageSmoothingEnabled=wg.imageSmoothingEnabled=rg.imageSmoothingEnabled=false;
@@ -69,15 +70,15 @@ export function createPixelGuard(scene,{depth=10,sheet,rims,meta}){
   const signature=sourceKey+':'+[arms?g.x:0,arms?g.y:0,arms?.L.x||0,arms?.L.y||0,arms?.R.x||0,arms?.R.y||0,blend,lean,foot?.dx||0,foot?.dy||0].map(n=>n.toFixed(3)).join(',');
   if(signature===lastWarp)return;lastWarp=signature;
   if(sourceKey!==lastSource){
-   lastSource=sourceKey;sg.clearRect(0,0,CELL,CELL);sg.drawImage(sheet,f.frame[0],f.frame[1],CELL,CELL,0,0,CELL,CELL);
+   lastSource=sourceKey;sg.clearRect(0,0,CELL*density,CELL*density);sg.drawImage(sheet,...f.frame,0,0,CELL*density,CELL*density);
    for(let i=0;i<2;i++){
-    rg.clearRect(0,0,CELL,CELL);rg.drawImage(rims,f.frame[0]+i*meta.rimOffset,f.frame[1],CELL,CELL,0,0,CELL,CELL);
-    rg.globalCompositeOperation='source-in';rg.fillStyle='#ffcf9a';rg.fillRect(0,0,CELL,CELL);rg.globalCompositeOperation='source-over';
+    const rim=meta.rimFrames?.[id]||f.frame;rg.clearRect(0,0,CELL*density,CELL*density);rg.drawImage(rims,rim[0]+i*meta.rimOffset,rim[1],rim[2],rim[3],0,0,CELL*density,CELL*density);
+    rg.globalCompositeOperation='source-in';rg.fillStyle='#ffcf9a';rg.fillRect(0,0,CELL*density,CELL*density);rg.globalCompositeOperation='source-over';
     sg.globalCompositeOperation='lighter';sg.globalAlpha=Math.round(rimA[i]*32)/32;sg.drawImage(rimLayer,0,0);
    }
    sg.globalAlpha=1;sg.globalCompositeOperation='source-over';
   }
-  wg.setTransform(1,0,0,1,0,0);wg.clearRect(0,0,WARP,WARP);
+  wg.setTransform(1,0,0,1,0,0);wg.clearRect(0,0,WARP*density,WARP*density);
   const shifts={};
   const upper=p=>Math.max(0,Math.min(1,(78-p.y)/38))*lean;
   if(arms)for(const side of ['L','R']){
@@ -100,7 +101,7 @@ export function createPixelGuard(scene,{depth=10,sheet,rims,meta}){
   };
   for(let y=0;y<ys.length-1;y++)for(let x=0;x<xs.length-1;x++){
    const a={x:xs[x],y:ys[y]},b={x:xs[x+1],y:ys[y]},c={x:xs[x],y:ys[y+1]},d={x:xs[x+1],y:ys[y+1]};
-   for(const tri of [[a,b,c],[b,d,c]])drawTriangle(wg,source,tri,tri.map(warp));
+   for(const tri of [[a,b,c],[b,d,c]])drawTriangle(wg,source,tri.map(p=>({x:p.x*density,y:p.y*density})),tri.map(warp).map(p=>({x:p.x*density,y:p.y*density})));
   }
   warpTex.refresh();
  }

@@ -1,4 +1,5 @@
-import {openCharacterSelection,prepareCharacters} from './character-select.js?v=character-selection-fix-20261026';
+import {createArrivalAudio} from './arrival-audio.js?v=arrival-audio-20261026';
+import {openCharacterSelection,prepareCharacters} from './character-select.js?v=wardrobe-studio-20261026';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js';
 import {createWorld,createAtlas,drawJourney,createDissolveNoise} from './map-art.js';
@@ -7,10 +8,9 @@ import {paintApproach} from './approach-road.js';
 import {Invitation,paintPaper} from './invite.js';
 import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
-import {Mascot} from './mascot.js';
 import {createFX} from './weather-fx.js';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=character-selection-20261026';
+import {createTavernTransition} from './tavern-transition.js?v=original-8-formal-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -31,6 +31,7 @@ const olderMobile=matchMedia('(pointer:coarse)').matches&&(known(navigator.devic
 const validQuality=q=>['low','high','ultra'].includes(q);
 let savedQuality;try{savedQuality=localStorage.getItem('arrival-quality');}catch{/* Storage may be unavailable in private browsers. */}
 let scene,game,quality=validQuality(query.get('q'))?query.get('q'):validQuality(savedQuality)?savedQuality:olderMobile?'low':'high',paused=false,inspectFrozen=false,inspectUpdate,resScale=1;
+const arrivalAudio=createArrivalAudio();
 const state=new Journey(),paperLayer=$('map-layer'),paperContext=paperLayer.getContext('2d');
 const viewport=()=>renderSize(screenWidth(),screenHeight(),devicePixelRatio,quality,resScale);
 function resizePaper(){const v=viewport();paperLayer.width=v.width;paperLayer.height=v.height;paperContext.baseScale=v.width/Math.max(1,screenWidth());}
@@ -87,7 +88,29 @@ const tavernTransition=createTavernTransition({pauseGate:releaseFinishedGate});
 window.__tavernEntry=tavernTransition;
 tavernTransition.prepare();
 
-prepareCharacters().catch(()=>{});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(!tavernTransition.status().returning)prepareCharacters().catch(()=>{});
 
 
 
@@ -126,13 +149,12 @@ const invitation=new Invitation({
 $('letter-reopen').addEventListener('click',()=>{story.go('wait','allow-empty');dialog.portrait.set('wait');invitation.reopen();});
 async function meet(id){
  const alive=()=>id===run;
- story.go('reveal','allow');$('arrival').hidden=false;document.body.classList.add('at-gate');document.title='鸦木布拉夫 · 城门前';
+ story.go('reveal','allow');$('arrival').hidden=false;document.body.classList.add('at-gate');document.title='贝尔维德 · 城门前';
  await sleep(1.6);if(!alive())return;
  story.go('notice');await sleep(1.2);if(!alive())return;
- await dialog.say('夜深了，旅人。钟楼一直在等你。','greet');if(!alive())return;
- await dialog.say('鸦木布拉夫的城门，只为持信而来的人打开。','hold');if(!alive())return;
+ await dialog.say('你好，欢迎来到贝尔维德。','greet');if(!alive())return;
  story.go('offer','offer');await sleep(.8);if(!alive())return;
- await dialog.ask('这封信，是给你的。','offer',[['take','接过邀请函']]);if(!alive())return;
+ await dialog.ask('无论你是初次到访，还是熟悉这里的老朋友，都请出示你的密令。','offer',[['take','接过邀请函']]);if(!alive())return;
  // the hand-over: at this moment the letter leaves his glove and comes into your view
  story.letter=false;story.go('release','allow-empty');dialog.portrait.set('wait');await dialog.hide();if(!alive())return;
  await invitation.receive();
@@ -140,24 +162,23 @@ async function meet(id){
 async function answer(r,id){
  const alive=()=>id===run;
  if(r.kind==='ok'){
-  await invitation.close(false);if(!alive())return;await openCharacterSelection({onConfirm:selection=>tavernTransition.setCharacter(selection)});if(!alive())return;story.accept();
-  await dialog.say('密语无误。欢迎你，旅人。','agree');if(!alive())return;
-  await dialog.say('请随我来——这扇门，由我为你推开。','agree');if(!alive())return;
+  if(!alive())return;await openCharacterSelection({morphFrom:invitation.el.querySelector('.card'),onAttached:()=>{invitation.el.hidden=true;invitation.state='closed';document.body.classList.remove('reading');$('letter-reopen').hidden=true;},onConfirm:selection=>tavernTransition.setCharacter(selection)});if(!alive())return;story.accept();
+  await dialog.say('密令无误。请进，愿你今夜在贝尔维德过得愉快。','agree');if(!alive())return;
   await dialog.hide();story.lead();return;
  }
  await invitation.close(true);if(!alive())return;
  if(r.kind==='denied'){
   story.go('deny','refuse-empty');
-  const c=await dialog.ask('这不是钟楼认得的密语。再看一眼你的信吧。','refuse',[['retry','再看一眼邀请函'],['wait','暂且在门外等候']]);if(!alive())return;
+  const c=await dialog.ask('密令似乎不对，请再核对一下。','refuse',[['retry','再看一眼邀请函'],['wait','暂且在门外等候']]);if(!alive())return;
   await dialog.hide();if(c==='retry'){$('letter-reopen').hidden=true;invitation.reopen();}
  }else if(r.kind==='limited'){
   story.go('pending');
-  await dialog.ask(`别急——钟楼需要片刻安静。约${r.wait}秒后再试。`,'pending',[['ok','好']]);if(!alive())return;
+  await dialog.ask(`刚才试得太快了。稍歇片刻，约${r.wait}秒后再核对吧。`,'pending',[['ok','好']]);if(!alive())return;
   await dialog.hide();$('letter-reopen').hidden=true;invitation.reopen();
  }else{
   // the message did not get through: not a refusal, and he says so
   story.go('puzzle','allow-empty');
-  const c=await dialog.ask(r.kind==='scene'?'酒馆还未准备好。请稍等，再呈一次密语。':`……城里没有回音。也许是${night()}耽搁了信使。`,'puzzle',[['again','再呈一次'],['letter','再看一眼邀请函']]);if(!alive())return;
+  const c=await dialog.ask(r.kind==='scene'?'酒馆还未准备好。请稍等，再呈一次密语。':`通行核验暂时没有回音。你先在这里歇一歇，稍后再试。`,'puzzle',[['again','再呈一次'],['letter','再看一眼邀请函']]);if(!alive())return;
   await dialog.hide();$('letter-reopen').hidden=true;await invitation.reopen();if(c==='again'&&alive())$('letter-form').requestSubmit();
  }
 }
@@ -172,7 +193,6 @@ class Arrival extends Phaser.Scene {
   // a faint vignette keeps the eye on the lit gate; one cheap pass, the night's colour is untouched (WebGL only)
   this.cameras.main.filters?.internal.addVignette(.5,.48,.95,.22,0x0a0614);
   resizePaper();paintPaper();
-  this.mascot=new Mascot($('mascot'));
   // the first screenful of map is painted before the curtain lifts
   atlas.setDetail(mapZoom()*paperContext.baseScale*1.05);atlas.paintAllNow(mapView(0).view);drawPaper(0);
   this.scale.on('resize',()=>{resizePaper();if(state.phase==='map'||state.phase==='dissolve')drawPaper(0);this.placeCamera(0,true);});
@@ -235,13 +255,13 @@ class Arrival extends Phaser.Scene {
  applyQuality(){this.game.loop.setFPSLimit(60);if(this.images)this.changeEnvironment();}
  restart(){
   run++;timers.length=0;
-  state.reset();mapSeed=(Date.now()%99991)+1;W=createWorld(mapSeed);atlas=createAtlas(W);mapCam.init=false;
+  state.reset();arrivalAudio.setStage('map');mapSeed=(Date.now()%99991)+1;W=createWorld(mapSeed);atlas=createAtlas(W);mapCam.init=false;
   atlas.setDetail(mapZoom()*paperContext.baseScale*1.05);atlas.paintAllNow(mapView(0).view);
-  story.reset();invitation.reset();dialog.reset();$('ending').hidden=true;$('companion').classList.remove('gone');$('veil').classList.remove('on');
+  story.reset();invitation.reset();dialog.reset();$('ending').hidden=true;$('veil').classList.remove('on');
   // A new entry may bring a different night; the approach and wet ground follow it.
   const next=rollWeather();if(next!==this.gateWeather){weather=next;this.ready=false;this.paintLater();}
   state.ready=this.ready;state.error=false;paperLayer.hidden=false;this.cameras.main.visible=false;this.applyQuality();
-  $('arrival').hidden=true;$('replay').hidden=true;document.body.classList.remove('at-gate');document.title='一段远行';notice();
+  $('arrival').hidden=true;$('replay').hidden=true;document.body.classList.remove('at-gate');document.title='贝尔维德 · 一段远行';notice();
  }
  update(time,delta){
   if(paused||document.hidden)return;
@@ -251,11 +271,8 @@ class Arrival extends Phaser.Scene {
   if(review.at!=null&&state.ready){while(state.time<review.at&&state.phase!=='arrived')state.tick(1/60);review.at=null;review.hold=state.phase!=='arrived';}
   const dt=review.hold?0:Math.min(delta/1000,.1);
   // HALL_MAP_GATE: prepare the first or restored room before leaving parchment.
-  if(state.phase==="map"){state.ready=this.ready&&tavernTransition.status().ready;if(state.ready)state.time=Math.max(state.time,8);if(tavernTransition.status().failed)notice("旅店准备中断，请刷新重试。",true); }
-  state.tick(dt);tickTimers(dt);this.cameras.main.visible=state.phase!=='map';
-  // the companion: walking while things load, lantern raised when ready, resting on failure
-  if(state.phase==='map'){this.mascot.set(state.error?'rest':state.ready?'arrive':'walk');this.mascot.tick(dt);}
-  else{$('companion').classList.add('gone');if(state.phase==='dissolve')this.mascot.tick(dt);}
+  if(state.phase==="map"){state.ready=this.ready&&tavernTransition.status().ready;if(state.ready)state.time=Math.max(state.time,8);if(tavernTransition.status().failed)notice(tavernTransition.status().failureMessage||"旅店准备中断，请点击重试。",true); }
+  state.tick(dt);arrivalAudio.setStage(state.phase);tickTimers(dt);this.cameras.main.visible=state.phase!=='map';
   if(state.phase==='arrived'&&story.phase==='idle'&&!story.ended&&!story.started){story.started=true;meet(run);}
   if(state.phase!=='map'&&!inspectFrozen)story.tick(dt);
   if(this.gate&&state.phase!=='map'){
@@ -293,11 +310,11 @@ function govern(delta){
  const m=[...frames].sort((a,b)=>a-b)[60];frames.length=0;
  if(m>19&&resScale>.6){resScale=Math.max(.6,resScale*.88);calm=1500;refit();console.info('画面分辨率自动降至',resScale.toFixed(2),'中位帧',m.toFixed(1),'ms');}
 }
-$('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'继续':'暂停';$('pause').setAttribute('aria-pressed',String(paused));if(paused)game?.loop.sleep();else if(!document.hidden)game?.loop.wake();};
+$('pause').onclick=()=>{paused=!paused;arrivalAudio.setPaused(paused);$('pause').textContent=paused?'继续':'暂停';$('pause').setAttribute('aria-pressed',String(paused));if(paused)game?.loop.sleep();else if(!document.hidden)game?.loop.wake();};
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(refit,150)});
 window.addEventListener('belvedere-screen-change',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(refit,50)});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)game?.loop.sleep();else if(!paused)game?.loop.wake();});
-window.__arrival={state,story,dialog,invitation,get scene(){return scene},get weather(){return weather},get atlas(){return atlas},
+window.__arrival={audio:arrivalAudio,state,story,dialog,invitation,get scene(){return scene},get weather(){return weather},get atlas(){return atlas},
  // review aid: advance the gate by s seconds of game time immediately
  ff:s=>{for(let i=0;i<s*30;i++){story.tick(1/30);tickTimers(1/30);scene.gate?.update(1/30,{door:story.door,guard:guardState()});scene.fx?.update(1/30,scene.cameras.main);scene.placeCamera(1/30);}return story.phase;},
  frame:()=>new Promise(resolve=>game.renderer.snapshot(img=>{const c=document.createElement('canvas');c.width=img.width;c.height=img.height;const g=c.getContext('2d');g.drawImage(img,0,0);if(!paperLayer.hidden)g.drawImage(paperLayer,0,0,c.width,c.height);resolve(c);}))};

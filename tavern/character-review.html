@@ -1,5 +1,11 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>贝尔维德 · 角色选择</title><style>body{margin:0;background:#eeebe7;font-family:sans-serif}.result{max-width:900px;margin:auto;padding:30px;display:flex;gap:30px;align-items:center}.result img{max-height:85vh;max-width:60%;object-fit:contain}button{padding:12px 20px}</style><div id="result"></div><script type="module">
-import {openCharacterSelection} from './character-select.js';
-const selected=await openCharacterSelection({initialId:new URLSearchParams(location.search).get('character')});
-const box=document.getElementById('result');box.className='result';const img=new Image();img.src=`characters/${selected.id}/dialogue.webp`;img.alt='游戏内聊天使用的完整立绘';const text=document.createElement('div');text.innerHTML='<h2>完整聊天立绘</h2><p>上方选角页只做横向取景；游戏聊天使用这一完整版本。</p><button>返回选角</button>';text.querySelector('button').onclick=()=>location.reload();box.append(img,text);
+import {openCharacterSelection} from './character-select.js?v=wardrobe-studio-20261026';
+const params=new URLSearchParams(location.search),mode=params.get('mode')==='wardrobe'?'wardrobe':'entry';
+document.title=mode==='wardrobe'?'贝尔维德 · 我的衣橱':'贝尔维德 · 角色选择';
+let initialName='白羊';try{initialName=JSON.parse(localStorage.getItem('belvedere-character-v1'))?.name||initialName;}catch{}
+const selected=await openCharacterSelection({mode,initialId:params.get('character'),...(mode==='wardrobe'?{initialName}:{})});
+if(mode==='wardrobe'){const box=document.getElementById('result');box.className='result';const text=document.createElement('p');text.textContent=selected?'已保存：'+selected.name+' · '+(selected.id==='gold-a'?'金发女孩':'蓝发女孩'):'已取消，保留原来的角色。';const reopen=document.createElement('button');reopen.textContent='重新打开衣橱';reopen.onclick=()=>location.reload();box.append(text,reopen);}else{
+const catalog=await fetch('./character-catalog.json?v=portrait-fit-20261026').then(r=>r.json());
+const box=document.getElementById('result');box.className='result';const img=new Image();img.src=catalog.find(c=>c.id===selected.id).dialogue;img.alt='游戏内聊天使用的完整立绘';const text=document.createElement('div');text.innerHTML='<h2>完整聊天立绘</h2><p>上方选角页只做横向取景；游戏聊天使用这一完整版本。</p><button>返回选角</button>';text.querySelector('button').onclick=()=>location.reload();box.append(img,text);
+}
 </script></html>

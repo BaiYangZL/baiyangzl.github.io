@@ -1,22 +1,24 @@
-import {openCharacterSelection} from './character-select.js';
-const VERSION = 'character-selection-20261026';
+import {openCharacterSelection} from './character-select.js?v=wardrobe-studio-20261026';
+import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
+const VERSION = 'original-8-formal-20261027';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
 // The archived full-floor mode is only selected explicitly with rooms=0.
 TAVERN.searchParams.set('rooms', new URLSearchParams(location.search).get('rooms') === '0' ? '0' : '1');
 const TODAY = () => new Date().toLocaleDateString('sv-SE');
-const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const RETURN_KEY = 'belvedere-tavern-return';
 
 export function createTavernTransition({pauseGate} = {}) {
   let frame, badge, curtain, entered = false, waiting = false, ready = false, failed = false;
   let startedAt = 0, poll, cacheLimited = false, returning = false, cacheTask;
+  let documentRetries=0,documentRetryTimer,failureMessage='';
   const current = () => `${TODAY()}/${VERSION}`;
-  function visitedThisWeek() {
+  function hasEnteredBefore() {
+    if(new URLSearchParams(location.search).get('reenter')==='1')return false;
     try {
       const marker = JSON.parse(localStorage.getItem(RETURN_KEY));
-      if (Number.isFinite(marker?.at) && Date.now() - marker.at >= 0 && Date.now() - marker.at < WEEK_MS) return true;
+      if (Number.isFinite(marker?.at) && Date.now() - marker.at >= 0) return true;
       if (localStorage.getItem('belvedere-tavern-ready-day') === current()) {
         localStorage.setItem(RETURN_KEY, JSON.stringify({at: Date.now(), version: VERSION}));
         return true;
@@ -37,6 +39,27 @@ export function createTavernTransition({pauseGate} = {}) {
     frame.title = '贝尔维德酒馆二楼';
     frame.setAttribute('allow', 'autoplay; fullscreen');
     frame.allowFullscreen = true;
+    frame.addEventListener('load',()=>{
+      if(entered)return;
+      let doc;
+      try{if(frame.contentWindow.location.href==='about:blank')return;doc=frame.contentDocument;}catch{}
+      if(doc?.getElementById('GameDiv'))return;
+      // A missing entry (e.g. while a local build replaces files) is a finished
+      // navigation, not a scene still loading. Retry twice, then expose recovery.
+      if(documentRetries<2){
+        const delay=[1000,2500][documentRetries++];
+        clearTimeout(documentRetryTimer);
+        documentRetryTimer=setTimeout(()=>{
+          const url=new URL(TAVERN);url.searchParams.set('retry',String(Date.now()));
+          url.searchParams.set('repairCache','1');frame.src=url.href;
+        },delay);
+      }else{
+        failed=true;failureMessage='酒馆入口暂时未能打开，请点击重新准备。';
+        clearInterval(poll);
+        curtain.querySelector('p').textContent=failureMessage;
+        curtain.querySelector('button').hidden=false;
+      }
+    });
     frame.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;border:0;opacity:0;pointer-events:none;z-index:10001;background:#171019';
     badge = document.createElement('div');
     badge.id = 'tavern-preload';
@@ -82,6 +105,7 @@ export function createTavernTransition({pauseGate} = {}) {
     const sceneState = tavern?.state();
     if (sceneState?.ready && sceneState.firstFrameReady === true) {
       ready = true; failed = false; clearInterval(poll);
+      failureMessage='';clearTimeout(documentRetryTimer);
       badge.hidden = true;
       if (waiting) reveal();
       return;
@@ -101,11 +125,11 @@ export function createTavernTransition({pauseGate} = {}) {
   async function prepare() {
     if (frame) return;
     makeUI(); startedAt = Date.now();
-    returning = visitedThisWeek();
+    returning = hasEnteredBefore();
     if (returning) {
-      say('正在从本周缓存恢复旅店…');
-      // Returning visitors can change their name/look without repeating the invitation.
-      void openCharacterSelection({onConfirm:setCharacter}).then(()=>enter());
+      say('正在恢复上次的旅店位置…');
+      // Returning players resume their confirmed character without opening selection.
+      void restoreReturning();
     }
     // A prior release's cache can contain the old character and scene scripts.
     // Wait briefly for this release, then bypass the old cache if it still owns us.
@@ -128,6 +152,9 @@ export function createTavernTransition({pauseGate} = {}) {
   function reveal() {
     if (!ready || entered) return;
     entered = true; waiting = false; clearInterval(poll);
+    window.dispatchEvent(new Event('belvedere:tavern-enter'));
+    const entryURL=new URL(location.href);
+    if(entryURL.searchParams.has('reenter')){entryURL.searchParams.delete('reenter');history.replaceState(history.state,'',entryURL.href);}
     window.__belvedereScreen?.hideControls();
     if (!returning) {
       try { localStorage.setItem(RETURN_KEY, JSON.stringify({at: Date.now(), version: VERSION})); } catch { /* Private storage is optional. */ }
@@ -151,11 +178,13 @@ export function createTavernTransition({pauseGate} = {}) {
   }
   function retry() {
     if (!frame) return prepare();
+    clearTimeout(documentRetryTimer);documentRetries=0;failureMessage='';
     clearInterval(poll); ready = failed = false; startedAt = Date.now();
     curtain.querySelector('button').hidden = true;
     curtain.querySelector('p').textContent = '';
-    const retryURL = new URL(TAVERN); retryURL.searchParams.set('retry', String(Date.now())); frame.src = retryURL.href;
+    const retryURL = new URL(TAVERN); retryURL.searchParams.set('retry', String(Date.now()));retryURL.searchParams.set('repairCache','1'); frame.src = retryURL.href;
     poll = setInterval(check, 80);
+    if(returning){waiting=false;void restoreReturning();}
   }
   async function whenReady() {
     if (!frame) await prepare();
@@ -169,6 +198,31 @@ export function createTavernTransition({pauseGate} = {}) {
       }, 80);
     });
   }
+  async function restoreReturning(){
+    try{
+      await whenReady();
+      let saved;try{saved=JSON.parse(localStorage.getItem('belvedere-character-v1')||'null');}catch{}
+      const state=frame.contentWindow.__tavern.state();
+      const id=['blue-a','gold-a'].includes(saved?.id)?saved.id:'blue-a';
+      await setCharacter({id,name:saved?.name||'旅人',direction:state.facing});
+      if(!saved)try{localStorage.setItem('belvedere-character-v1',JSON.stringify({id,name:'旅人',direction:state.facing}));}catch{}
+      enter();
+    }catch(error){failed=true;waiting=true;curtain.hidden=false;curtain.style.display='grid';curtain.querySelector('p').textContent=failureMessage||'角色暂未准备好，请重试。';curtain.querySelector('button').hidden=false;}
+  }
+  function panelOptions(options){
+    const r=frame.getBoundingClientRect(),b=options.originRect,rotated=!!window.__belvedereScreen?.rotated;
+    const fw=frame.contentWindow.innerWidth,fh=frame.contentWindow.innerHeight;
+    const originRect=b?(rotated?{x:r.right-(b.y+b.height)*r.width/fh,y:r.top+b.x*r.height/fw,width:b.height*r.width/fh,height:b.width*r.height/fw}:{x:r.left+b.x*r.width/fw,y:r.top+b.y*r.height/fh,width:b.width*r.width/fw,height:b.height*r.height/fh}):undefined;
+    return {...options,originRect};
+  }
+  function selectWardrobe(options){return openCharacterSelection({...panelOptions(options),mode:'wardrobe'});}
+  function showReentry(options){return openReentryPanel(panelOptions(options));}
+  function restart(){
+    const url=new URL(ROOT);url.searchParams.set('rooms',TAVERN.searchParams.get('rooms'));
+    url.searchParams.set('reenter','1');url.searchParams.set('v','reentry-20261026');
+    for(const key of [RETURN_KEY,'belvedere-tavern-ready-day'])try{localStorage.removeItem(key);}catch{}
+    location.assign(url.href);
+  }
   async function setCharacter(selection) { await whenReady();const api=frame.contentWindow.__tavern;if(!api?.setCharacter)throw new Error('请刷新以载入新版角色');await api.setCharacter(selection.id,selection.name,selection.direction); }
-  return {prepare, cacheGate, whenReady, setCharacter, enter, retry, status: () => ({ready, entered, waiting, returning, failed, cacheLimited, frame: !!frame, startedAt})};
+  return {prepare, cacheGate, whenReady, setCharacter, selectWardrobe, showReentry, restart, enter, retry, status: () => ({ready, entered, waiting, returning, failed, failureMessage, documentRetries, cacheLimited, frame: !!frame, startedAt})};
 }

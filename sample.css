@@ -20,10 +20,6 @@ body.talking footer,body.reading footer{top:max(10px,env(safe-area-inset-top));b
 body.talking footer button,body.reading footer button{display:none}
 #notice{position:fixed;left:50%;top:calc(max(10px,env(safe-area-inset-top)) + 84px);transform:translateX(-50%);background:#f4ead3f0;padding:8px 14px;border:1px solid #6b4a2c55;border-radius:10px;z-index:6;max-width:calc(90 * var(--screen-vw,1vw));text-align:center;font-size:13px;line-height:1.6;font-family:var(--hand)}
 #notice button{margin-left:10px;min-height:36px}
-/* the loading companion */
-#companion{position:fixed;left:50%;top:max(8px,env(safe-area-inset-top));transform:translateX(-50%);z-index:3;pointer-events:none;transition:opacity .8s}
-#companion canvas{width:192px;height:78px;image-rendering:pixelated}
-#companion.gone{opacity:0}
 /* the town's name, revealed at the gate */
 #arrival{position:fixed;left:50%;top:max(16px,env(safe-area-inset-top));transform:translateX(-50%);text-align:center;pointer-events:none;color:#f6e7c4;z-index:3;text-shadow:0 2px 10px #0009,0 0 2px #000c;white-space:nowrap}
 #arrival span{display:block;font:11px Georgia,serif;letter-spacing:3px;opacity:.85}

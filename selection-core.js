@@ -1,9 +1,11 @@
 // Analytic critically damped springs: rendering depends only on time + input events.
 export function springStep(t,omega=18){return t<=0?0:1-(1+omega*t)*Math.exp(-omega*t);}
 export class Spring {
- constructor(value=0,omega=18){this.base=value;this.goal=value;this.omega=omega;this.events=[];}
- to(value,time){if(value===this.goal)return;this.events.push({time,delta:value-this.goal});this.goal=value;}
- at(time){return this.base+this.events.reduce((sum,e)=>sum+e.delta*springStep(time-e.time,this.omega),0);}
+ constructor(value=0,omega=18){this.base=value;this.goal=value;this.omega=omega;this.speed=0;this.time=0;}
+ sample(time){const dt=Math.max(0,time-this.time),d=this.base-this.goal,b=this.speed+this.omega*d,e=Math.exp(-this.omega*dt);return {value:this.goal+(d+b*dt)*e,velocity:(this.speed-this.omega*b*dt)*e};}
+ to(value,time){if(value===this.goal)return;const s=this.sample(time);this.base=s.value;this.speed=s.velocity;this.time=time;this.goal=value;}
+ at(time){return this.sample(time).value;}
+ release(value,velocity,time,goal=0){this.base=value;this.speed=velocity;this.time=time;this.goal=goal;}
 }
 export function chooseGreeting(previous,first,pool,random=Math.random){
  if(!previous)return first;

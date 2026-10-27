@@ -41,12 +41,12 @@ export class Invitation{
   this.el.hidden=true;this.el.className='';this.state=keep?'tucked':'closed';$('letter-reopen').hidden=!keep;this.onClose?.(keep);
  }
  async reopen(){$('letter-reopen').hidden=true;this.locked=false;this.state='opening';const el=this.el;el.hidden=false;el.className='rise unseal open';void el.offsetWidth;el.classList.add('out');await wait(360);this.state='open';document.body.classList.add('reading');}
- setBusy(b){this.busy=b;$('letter-submit').disabled=b;$('letter-later').disabled=b;$('passcode').readOnly=b;$('letter-submit').textContent=b?'核对中…':'呈上密语';this.el.classList.toggle('busy',b);}
+ setBusy(b){this.busy=b;$('letter-submit').disabled=b;$('letter-later').disabled=b;$('passcode').readOnly=b;$('letter-submit').textContent=b?'核对中…':'呈上密令';this.el.classList.toggle('busy',b);}
  async submit(){
   if(this.busy||this.locked||!['open','invalid'].includes(this.state))return; // no double submit
   const code=$('passcode').value.trim();
-  if(!code){this.state='invalid';this.status('请先写下信上的通行密语。','warn');$('passcode').focus();return;}
-  if(code.length>32){this.state='invalid';this.status('密语太长了，请再核对一次。','warn');return;}
+  if(!code){this.state='invalid';this.status('请先写下信上的通行密令。','warn');$('passcode').focus();return;}
+  if(code.length>32){this.state='invalid';this.status('密令太长了，请再核对一次。','warn');return;}
   const epoch=this.epoch;this.setBusy(true);this.status('守门人正在核对……','busy');
   let result;try{result=await this.onSubmit(code);}catch{result={kind:'network'};}
   if(epoch!==this.epoch)return; // an old request must not affect a replay

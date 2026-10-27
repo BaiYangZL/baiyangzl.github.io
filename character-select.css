@@ -24,4 +24,169 @@
 .cs-confirm{position:absolute;left:937px;top:737px;width:526px;height:89px;border:0;border-radius:48px;color:#161616;background:#f0ede8;z-index:6;font-size:29px;font-weight:600;padding:0 95px 0 30px;letter-spacing:1px}.cs-confirm .cs-arrow-circle{position:absolute;right:6px;top:6px;width:77px;height:77px;border:1px solid #f1efeb;border-radius:50%;background:#181819;color:#fff;display:grid;place-items:center}.cs-confirm svg{width:34px;height:34px;stroke:currentColor;stroke-width:1.5;fill:none}.cs-error{position:absolute;left:864px;top:710px;width:660px;z-index:7;font-size:13px;color:#f3b5ad;text-align:center}
 .cs-chooser{position:absolute;left:145px;top:864px;z-index:8;display:flex;align-items:center;gap:8px;font-size:13px}.cs-chooser button{border:1px solid #b6b0a8;background:#eeebe7ee;padding:9px 15px;border-radius:24px;color:#555;min-height:40px}.cs-chooser button[aria-pressed=true]{background:#232323;color:#fff;border-color:var(--accent)}.cs-chooser .cs-prev,.cs-chooser .cs-next{font-size:23px;padding:4px 15px}.cs-helper{position:absolute;left:864px;top:838px;color:#aaa49a;font-size:12px;letter-spacing:2px;z-index:6}
 .cs-root.cs-waiting .cs-confirm{font-size:22px}.cs-root.cs-loading{display:grid;place-items:center}.cs-load-label{font-size:17px;letter-spacing:2px}.cs-root [hidden]{display:none!important}
+.cs-shield{position:fixed;inset:0;z-index:100019;background:#171319;opacity:0;touch-action:none;overscroll-behavior:none}
+.cs-root{box-sizing:border-box;outline:none;border:0;padding:0;max-width:none;max-height:none;margin:0;box-shadow:none;transition:none;text-align:left}
+.cs-root .cs-direction{background:transparent}
+.cs-hero{left:0;top:0}
+.cs-hero-still,.cs-hero-motion{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;pointer-events:none;user-select:none;image-rendering:auto}
+.cs-performing>.cs-hero-still{visibility:hidden}
+.cs-root[data-function-panel]{box-shadow:0 18px 55px #0003;border:1px solid #f9f5ef99;overscroll-behavior:contain}
+.cs-close{position:absolute;right:14px;top:14px;width:44px;height:44px;display:grid;place-items:center;z-index:30;background:#eeebe7f2;color:#222;border:1px solid #ccc5bb;border-radius:50%;touch-action:manipulation}
+.cs-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}
+.cs-close:hover{background:#fff}.cs-close:disabled{opacity:.45}
+.cs-direction-mark{position:absolute;left:0;top:0;border:2px solid var(--accent);border-radius:14px;pointer-events:none}
+.cs-direction[aria-pressed=true] .cs-sprite-frame{border:1px solid #8c8984}
+.cs-hero-stack{touch-action:pan-y pinch-zoom}.cs-hero{transform-origin:center bottom}
+.cs-load-retry{position:absolute;top:57%;left:50%;transform:translateX(-50%);padding:12px 24px;border:1px solid #aaa;border-radius:20px;background:#fff;color:#222}
+.cs-preparing .cs-helper{color:var(--accent)}.cs-root.cs-loading .cs-load-label{max-width:80%;text-align:center}
+.cs-root.cs-wardrobe .cs-brand{right:80px}.cs-root.cs-compact .cs-direction-mark{border-radius:10px}
+.cs-root.cs-compact .cs-close{position:sticky;top:14px;margin:14px 14px 0 auto}.cs-root.cs-compact.cs-wardrobe .cs-seal{right:72px}
+@media(prefers-reduced-motion:reduce){.cs-hero,.cs-portrait-layer,.cs-quote-layer{filter:none!important;transform:none!important}}
+.cs-landscape .cs-stage{width:100%;height:100%;left:0;top:0;transform:none!important}
+.cs-landscape .cs-surface{left:3%!important;top:14%!important;width:94%!important;height:79%!important;border-radius:24px!important}
+.cs-landscape .cs-hero-stack{left:1%;top:0;width:46%;height:100%}
+.cs-landscape .cs-monogram{left:5%;top:24%;font-size:30px}.cs-landscape .cs-monogram small{font-size:6px;margin:12px 0}.cs-landscape .cs-monogram:after{margin:10px 0}
+.cs-landscape .cs-portrait-box{left:49%;top:20%;width:33%;height:26%;border-radius:10px}
+.cs-landscape .cs-greeting{left:84%;top:21%;width:11%;height:25%}.cs-landscape .cs-greeting:before{width:3px;height:15px;margin-bottom:5px}.cs-landscape .cs-quote-layer{top:22px;font-size:12px;line-height:1.45}.cs-landscape .cs-ellipsis{top:1px;left:7px;font-size:12px}
+.cs-landscape .cs-name{left:49%;top:49%;width:46%;height:36px;border-radius:10px}.cs-landscape .cs-name label{width:36px}.cs-landscape .cs-name label svg{width:18px;height:18px}.cs-landscape .cs-name input{font-size:16px;padding:0 10px;height:23px}.cs-landscape .cs-name>.cs-pencil{width:16px;height:16px;margin-right:12px}
+.cs-landscape .cs-directions-title{left:49%;top:65%;font-size:12px}.cs-landscape .cs-directions{left:60%;top:62%;width:35%;height:21%;gap:6px}.cs-landscape .cs-direction{width:calc((100% - 18px)/4)}.cs-landscape .cs-direction .cs-sprite-frame{width:100%;height:calc(100% - 20px);border-radius:8px}.cs-landscape .cs-direction canvas{width:auto;max-width:100%;height:100%;max-height:60px;aspect-ratio:1}.cs-landscape .cs-direction span{font-size:11px;line-height:20px}.cs-landscape .cs-direction-mark{border-radius:8px}
+.cs-landscape .cs-confirm{left:52%;top:85%;width:40%;height:38px;font-size:16px;padding:0 48px 0 12px}.cs-landscape .cs-confirm .cs-arrow-circle{right:4px;top:4px;width:30px;height:30px}.cs-landscape .cs-confirm svg{width:19px;height:19px}.cs-landscape.cs-waiting .cs-confirm{font-size:14px}
+.cs-landscape .cs-chooser{left:5%;top:auto;bottom:3%;gap:5px}.cs-landscape .cs-chooser button{font-size:11px;min-height:32px;padding:5px 9px}.cs-landscape .cs-chooser .cs-prev,.cs-landscape .cs-chooser .cs-next{font-size:20px;padding:1px 10px}
+.cs-landscape .cs-error{left:49%;top:82%;width:46%;font-size:10px}.cs-landscape .cs-helper{display:none}
+.cs-landscape .cs-password{left:49%;top:4%;width:20%;height:26px;font-size:12px;gap:8px;letter-spacing:2px}.cs-landscape .cs-password svg{width:14px}.cs-landscape .cs-password-arrow{left:71%;top:3%;font-size:24px}.cs-landscape .cs-seal{left:77%;top:3%;width:30px;height:30px}.cs-landscape .cs-seal svg{width:20px;height:20px}.cs-landscape .cs-neck{display:none}
+.cs-landscape .cs-brand{top:10px;font-size:7px;letter-spacing:2px}.cs-landscape .cs-crest{left:15px;top:12px;width:18px;height:22px}.cs-landscape .cs-crest-line{left:24px;top:42px;height:12px}.cs-landscape .cs-script{left:15px;top:40px;font-size:90px}.cs-landscape .cs-welcome,.cs-landscape .cs-rule,.cs-landscape .cs-footer{display:none}.cs-landscape .cs-ghost img{width:55%;right:-5%;top:-35%}
+.cs-landscape .cs-close{right:7px;top:7px;width:36px;height:36px}
 .cs-root.cs-compact{overflow:auto}.cs-root.cs-compact .cs-stage{width:100%;height:1050px;left:0;top:0;transform:none!important}.cs-root.cs-compact .cs-surface{left:12px!important;top:215px!important;width:calc(100% - 24px)!important;height:810px!important;border-radius:28px!important}.cs-root.cs-compact .cs-hero-stack{left:8%;top:0;width:84%;height:430px}.cs-root.cs-compact .cs-hero{object-position:center top}.cs-root.cs-compact .cs-monogram{left:30px;top:255px;font-size:37px}.cs-root.cs-compact .cs-monogram small{font-size:7px}.cs-root.cs-compact .cs-welcome,.cs-root.cs-compact .cs-neck,.cs-root.cs-compact .cs-script,.cs-root.cs-compact .cs-rule,.cs-root.cs-compact .cs-password,.cs-root.cs-compact .cs-password-arrow{display:none}.cs-root.cs-compact .cs-seal{left:auto;right:22px;top:22px;width:40px;height:40px}.cs-root.cs-compact .cs-brand{left:20px;right:auto;top:28px;font-size:8px}.cs-root.cs-compact .cs-brand:after{margin-left:0}.cs-root.cs-compact .cs-crest{display:none}.cs-root.cs-compact .cs-chooser{top:430px;left:22px;right:22px;justify-content:center;gap:4px}.cs-root.cs-compact .cs-chooser button{padding:7px 10px;font-size:12px}.cs-root.cs-compact .cs-portrait-box{left:28px;top:493px;width:calc(100% - 56px);height:150px}.cs-root.cs-compact .cs-greeting{left:28px;top:659px;width:calc(100% - 56px);height:47px;display:flex;align-items:center;gap:10px}.cs-root.cs-compact .cs-greeting:before{height:23px;width:3px;margin:0}.cs-root.cs-compact .cs-ellipsis{display:none}.cs-root.cs-compact .cs-quote-layer{top:0;left:15px;font-size:17px;line-height:1.6}.cs-root.cs-compact .cs-quote-layer small{display:none}.cs-root.cs-compact .cs-name{left:28px;top:714px;width:calc(100% - 56px);height:52px}.cs-root.cs-compact .cs-name input{font-size:16px;padding-left:12px}.cs-root.cs-compact .cs-name label{width:47px}.cs-root.cs-compact .cs-directions-title{left:28px;top:785px;font-size:13px}.cs-root.cs-compact .cs-directions{left:28px;top:811px;width:calc(100% - 56px);height:101px;gap:8px}.cs-root.cs-compact .cs-direction{width:calc((100% - 24px)/4)}.cs-root.cs-compact .cs-direction .cs-sprite-frame{width:100%;height:73px;border-radius:10px}.cs-root.cs-compact .cs-direction canvas{width:78px;height:78px}.cs-root.cs-compact .cs-direction span{font-size:14px;line-height:28px}.cs-root.cs-compact .cs-confirm{left:28px;top:939px;width:calc(100% - 56px);height:56px;font-size:20px;padding-right:60px}.cs-root.cs-compact .cs-confirm .cs-arrow-circle{width:46px;height:46px;right:5px;top:5px}.cs-root.cs-compact .cs-error{left:28px;top:915px;width:calc(100% - 56px);font-size:11px}.cs-root.cs-compact .cs-helper{display:none}.cs-root.cs-compact .cs-footer{bottom:12px;font-size:7px}.cs-root.cs-compact .cs-ghost img{width:450px;right:-150px}.cs-root.cs-compact.cs-waiting .cs-confirm{font-size:16px}
+
+/* ===== 衣橱重设计 wardrobe-design-20261026（只作用于衣橱；首次选角保持原样） ===== */
+/* 共用质感：只设颜色、描边与光影，不改各画幅的位置 */
+.cs-root.cs-wardrobe{--mist:#f4f1ec;--glow:color-mix(in srgb,var(--accent) 34%,transparent)}
+.cs-root.cs-wardrobe .cs-portrait-box{display:none}
+.cs-root.cs-wardrobe .cs-password-arrow{display:none}
+.cs-root.cs-wardrobe .cs-script{font-size:0}.cs-root.cs-wardrobe .cs-script:after{content:'Wardrobe';font-size:160px}
+.cs-root.cs-wardrobe .cs-surface{background:radial-gradient(120% 90% at 26% 62%,#262428 0,#1c1c1d 58%,#19191a 100%);box-shadow:0 30px 60px #24201a14,inset 0 1px 0 #ffffff12}
+.cs-root.cs-wardrobe .cs-monogram small{font-size:0}.cs-root.cs-wardrobe .cs-monogram small:before{content:'DRESSING\A ROOM';white-space:pre;font-size:11px}
+/* 立绘：主视觉，背后一束随角色变色的柔光与落地阴影 */
+.cs-root.cs-wardrobe .cs-hero-stack{isolation:isolate}
+.cs-root.cs-wardrobe .cs-hero-stack:before{content:'';position:absolute;left:8%;right:8%;top:16%;height:62%;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,var(--glow),transparent);filter:blur(24px);pointer-events:none}
+.cs-root.cs-wardrobe .cs-hero-stack:after{content:'';position:absolute;left:22%;right:22%;bottom:6%;height:7%;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,#0000004d,transparent);pointer-events:none}
+/* 封印改为衣橱徽记，与面板相连 */
+.cs-root.cs-wardrobe .cs-seal svg{display:none}
+.cs-root.cs-wardrobe .cs-seal:before{content:'';width:52%;height:52%;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='16' rx='2.5'/%3E%3Cpath d='M12 3v16M9.5 10v2.5M14.5 10v2.5M7.5 19v2M16.5 19v2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='16' rx='2.5'/%3E%3Cpath d='M12 3v16M9.5 10v2.5M14.5 10v2.5M7.5 19v2M16.5 19v2'/%3E%3C/svg%3E") center/contain no-repeat}
+.cs-root.cs-wardrobe .cs-seal:after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 55%,transparent)}
+.cs-root.cs-wardrobe .cs-password{border-color:#cfcac3;color:#6f6b66;background:#f6f4f1;font-weight:600;letter-spacing:6px}
+.cs-root.cs-wardrobe .cs-password:before{content:'衣橱';letter-spacing:4px;font-weight:600;color:#1c1c1d;padding-right:14px;margin-right:2px;border-right:1px solid #d3cec6}
+/* 角色切换：分段胶囊 */
+.cs-root.cs-wardrobe .cs-chooser button{border:1px solid #ffffff2b;background:#ffffff08;color:#cfc9c1;transition:background .25s,color .25s,border-color .25s}
+.cs-root.cs-wardrobe .cs-chooser button:hover{border-color:#ffffff55;color:#fff}
+.cs-root.cs-wardrobe .cs-chooser button[aria-pressed=true]{background:var(--mist);color:#151515;border-color:var(--mist)}
+.cs-root.cs-wardrobe .cs-chooser button[data-character]:before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:9px;vertical-align:1px;background:#ffffff40;transition:background .25s}
+.cs-root.cs-wardrobe .cs-chooser button[aria-pressed=true]:before{background:var(--accent);box-shadow:0 0 0 3px var(--glow)}
+.cs-root.cs-wardrobe .cs-chooser .cs-prev,.cs-root.cs-wardrobe .cs-chooser .cs-next{border-radius:50%;display:grid;place-items:center;padding:0;line-height:1}
+/* 问候：引语 */
+.cs-root.cs-wardrobe .cs-greeting{color:var(--mist)}
+.cs-root.cs-wardrobe .cs-greeting .cs-ellipsis{display:none}
+.cs-root.cs-wardrobe .cs-quote-layer{font-weight:300;letter-spacing:1px}
+/* 名字 */
+.cs-root.cs-wardrobe .cs-name{background:#ffffff07;border-color:#ffffff2e;transition:border-color .25s,background .25s}
+.cs-root.cs-wardrobe .cs-name:focus-within{border-color:var(--accent);background:#ffffff0c}
+.cs-root.cs-wardrobe .cs-name label{color:#cfc9c1}.cs-root.cs-wardrobe .cs-name input{border-left-color:#ffffff2a}
+.cs-root.cs-wardrobe .cs-name:before{content:'旅途中的名字';position:absolute;left:4px;bottom:calc(100% + 9px);font-size:11px;letter-spacing:3px;color:#8f8a83;white-space:nowrap}
+.cs-root.cs-wardrobe .cs-name input:focus-visible{outline:none}
+/* 朝向：带地面光斑的小展台 */
+.cs-root.cs-wardrobe .cs-directions-title{color:#8f8a83;letter-spacing:3px}
+.cs-root.cs-wardrobe .cs-direction{color:#8f8a83;transition:color .25s}
+.cs-root.cs-wardrobe .cs-direction .cs-sprite-frame,.cs-root.cs-wardrobe .cs-direction[aria-pressed=true] .cs-sprite-frame{border:1px solid #ffffff1c;background:radial-gradient(ellipse 34% 7% at 50% 88%,#ffffff17,transparent 100%),linear-gradient(180deg,#2a292c,#202022);transition:border-color .25s}
+.cs-root.cs-wardrobe .cs-direction:hover .cs-sprite-frame{border-color:#ffffff40}
+.cs-root.cs-wardrobe .cs-direction[aria-pressed=true]{color:var(--accent)}
+.cs-root.cs-wardrobe .cs-direction-mark{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 16%,transparent),0 10px 26px color-mix(in srgb,var(--accent) 22%,transparent)}
+/* 确认：大白按钮 */
+.cs-root.cs-wardrobe .cs-confirm{background:var(--mist);box-shadow:0 14px 30px #0000003d,inset 0 -2px 0 #0000000f;transition:transform .2s,box-shadow .2s}
+.cs-root.cs-wardrobe .cs-confirm:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 18px 36px #00000047}
+.cs-root.cs-wardrobe .cs-confirm .cs-arrow-circle{border:0;transition:background .25s}
+.cs-root.cs-wardrobe .cs-confirm:hover:not(:disabled) .cs-arrow-circle{background:var(--accent)}
+.cs-root.cs-wardrobe .cs-helper{color:#8a857e}
+.cs-root.cs-wardrobe .cs-close{background:#f6f4f1;border-color:#cfc9c1;box-shadow:0 6px 16px #24201a14}
+@media(prefers-reduced-motion:reduce){.cs-root.cs-wardrobe *{transition:none!important}}
+
+/* ---- 电脑：1672×941 参考画幅 ---- */
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-hero-stack{left:40px;top:-18px;width:880px;height:1200px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-seal{left:1302px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-neck{left:1290px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-password{left:1040px;width:236px;font-size:15px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-chooser{left:950px;top:200px;width:612px;gap:10px;font-size:15px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-chooser button{min-height:46px;padding:0 22px;border-radius:24px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-chooser .cs-prev,.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-chooser .cs-next{width:46px;height:46px;padding:0;font-size:24px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-greeting{left:950px;top:276px;width:600px;height:100px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-greeting:before{position:absolute;left:0;top:12px;width:3px;height:40px;margin:0}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-quote-layer{top:4px;left:26px;width:calc(100% - 26px);font-size:34px;line-height:1.45}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-name{left:950px;top:418px;width:612px;height:60px;border-radius:16px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-name input{font-size:20px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-directions-title{left:954px;top:506px;font-size:11px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-directions{left:950px;top:534px;width:612px;height:170px;gap:12px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-direction{width:144px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-direction .cs-sprite-frame{width:144px;height:138px;border-radius:16px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-direction canvas{width:138px;height:138px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-direction span{font-size:15px;line-height:32px;letter-spacing:4px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-direction-mark{border-radius:16px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-error{left:950px;top:708px;width:612px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-confirm{left:950px;top:730px;width:612px;height:80px;border-radius:40px;font-size:25px;letter-spacing:4px;padding:0 90px 0 30px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-confirm .cs-arrow-circle{right:7px;top:7px;width:66px;height:66px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-helper{left:950px;top:824px;width:612px;text-align:center}
+
+/* ---- 手机竖屏：立绘占上半屏，从卡片上沿探出 ---- */
+.cs-root.cs-compact.cs-wardrobe .cs-stage{height:1030px}
+.cs-root.cs-compact.cs-wardrobe .cs-surface{top:300px!important;height:715px!important}
+.cs-root.cs-compact.cs-wardrobe .cs-hero-stack{left:0;top:6px;width:100%;height:600px}
+.cs-root.cs-compact.cs-wardrobe .cs-hero-still,.cs-root.cs-compact.cs-wardrobe .cs-hero-motion{object-fit:cover;object-position:center top}
+.cs-root.cs-compact.cs-wardrobe .cs-hero-stack:before{top:10%;height:58%}
+.cs-root.cs-compact.cs-wardrobe .cs-hero-stack:after{display:none}
+.cs-root.cs-compact.cs-wardrobe .cs-seal,.cs-root.cs-compact.cs-wardrobe .cs-ghost,.cs-root.cs-compact.cs-wardrobe .cs-footer,.cs-root.cs-compact.cs-wardrobe .cs-welcome{display:none}
+.cs-root.cs-compact.cs-wardrobe .cs-script{left:-10px;top:40px}.cs-root.cs-compact.cs-wardrobe .cs-script:after{font-size:92px}
+.cs-root.cs-compact.cs-wardrobe .cs-monogram{left:26px;top:322px;font-size:30px}.cs-root.cs-compact.cs-wardrobe .cs-monogram small:before{font-size:7px}
+.cs-root.cs-compact.cs-wardrobe .cs-chooser{top:548px;left:16px;right:16px;gap:6px}
+.cs-root.cs-compact.cs-wardrobe .cs-chooser button{background:#1c1c1dcc;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);min-height:40px;padding:0 14px;border-radius:22px;font-size:13px}
+.cs-root.cs-compact.cs-wardrobe .cs-chooser button[aria-pressed=true]{background:var(--mist)}
+.cs-root.cs-compact.cs-wardrobe .cs-chooser .cs-prev,.cs-root.cs-compact.cs-wardrobe .cs-chooser .cs-next{width:40px;padding:0;font-size:22px}
+.cs-root.cs-compact.cs-wardrobe .cs-greeting{left:30px;top:614px;width:calc(100% - 60px);height:56px;gap:14px}
+.cs-root.cs-compact.cs-wardrobe .cs-greeting:before{width:3px;height:26px}
+.cs-root.cs-compact.cs-wardrobe .cs-quote-layer{font-size:20px;left:17px;line-height:56px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cs-root.cs-compact.cs-wardrobe .cs-name{top:710px;left:28px;width:calc(100% - 56px);height:54px;border-radius:14px}
+.cs-root.cs-compact.cs-wardrobe .cs-name:before{font-size:10px;bottom:calc(100% + 7px)}
+.cs-root.cs-compact.cs-wardrobe .cs-directions-title{top:786px;left:32px;font-size:10px}
+.cs-root.cs-compact.cs-wardrobe .cs-directions{top:810px;height:104px}
+.cs-root.cs-compact.cs-wardrobe .cs-direction .cs-sprite-frame{height:78px;border-radius:12px}
+.cs-root.cs-compact.cs-wardrobe .cs-direction canvas{width:80px;height:80px}
+.cs-root.cs-compact.cs-wardrobe .cs-direction span{font-size:12px;line-height:26px;letter-spacing:3px}
+.cs-root.cs-compact.cs-wardrobe .cs-direction-mark{border-radius:12px}
+.cs-root.cs-compact.cs-wardrobe .cs-error{top:916px}
+.cs-root.cs-compact.cs-wardrobe .cs-confirm{top:938px;height:60px;border-radius:30px;font-size:19px;letter-spacing:3px}
+.cs-root.cs-compact.cs-wardrobe .cs-confirm .cs-arrow-circle{width:50px;height:50px}
+.cs-root.cs-compact.cs-wardrobe .cs-brand{top:24px;left:22px}
+
+/* ---- 手机横屏：左侧立绘放大并越出下沿 ---- */
+.cs-root.cs-landscape.cs-wardrobe .cs-surface{left:2%!important;top:9%!important;width:96%!important;height:86%!important}
+.cs-root.cs-landscape.cs-wardrobe .cs-hero-stack{left:0;top:-4%;width:50%;height:122%}
+.cs-root.cs-landscape.cs-wardrobe .cs-seal,.cs-root.cs-landscape.cs-wardrobe .cs-password,.cs-root.cs-landscape.cs-wardrobe .cs-brand{display:none}
+.cs-root.cs-landscape.cs-wardrobe .cs-monogram{left:4%;top:16%;font-size:24px}.cs-root.cs-landscape.cs-wardrobe .cs-monogram small:before{font-size:6px}
+.cs-root.cs-landscape.cs-wardrobe .cs-chooser{left:51%;top:14%;bottom:auto;gap:5px}
+.cs-root.cs-landscape.cs-wardrobe .cs-chooser button{min-height:30px;padding:0 11px;border-radius:16px;font-size:11px}
+.cs-root.cs-landscape.cs-wardrobe .cs-chooser .cs-prev,.cs-root.cs-landscape.cs-wardrobe .cs-chooser .cs-next{width:30px;padding:0;font-size:18px}
+.cs-root.cs-landscape.cs-wardrobe .cs-greeting{left:51%;top:26%;width:44%;height:12%}
+.cs-root.cs-landscape.cs-wardrobe .cs-greeting:before{position:absolute;left:0;top:3px;width:2px;height:16px;margin:0}
+.cs-root.cs-landscape.cs-wardrobe .cs-quote-layer{top:0;left:12px;font-size:15px;line-height:1.4}
+.cs-root.cs-landscape.cs-wardrobe .cs-name{left:51%;top:40%;width:44%;height:36px}
+.cs-root.cs-landscape.cs-wardrobe .cs-name:before{display:none}
+.cs-root.cs-landscape.cs-wardrobe .cs-directions-title{left:51%;top:53%;font-size:9px}
+.cs-root.cs-landscape.cs-wardrobe .cs-directions{left:51%;top:58%;width:44%;height:23%}
+.cs-root.cs-landscape.cs-wardrobe .cs-direction span{font-size:10px;letter-spacing:2px}
+.cs-root.cs-landscape.cs-wardrobe .cs-error{left:51%;top:80%;width:44%}
+.cs-root.cs-landscape.cs-wardrobe .cs-confirm{left:51%;top:83%;width:44%;height:38px;border-radius:19px;font-size:15px;letter-spacing:2px}
+.cs-root.cs-compact.cs-wardrobe .cs-hero-stack{-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 99%);mask-image:linear-gradient(180deg,#000 72%,transparent 99%)}
+.cs-root.cs-compact.cs-wardrobe .cs-monogram,.cs-root.cs-compact.cs-wardrobe .cs-crest-line{display:none}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-name:before,.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-directions-title{font-size:15px}
+.cs-root.cs-wardrobe:not(.cs-compact):not(.cs-landscape) .cs-helper{font-size:14px}
+/* 衣橱去掉 BEL VED 大字与小字，避免被立绘遮住 */
+.cs-root.cs-wardrobe .cs-monogram{display:none}
+/* 衣橱同时去掉左下角欢迎字，避免被裙摆压住 */
+.cs-root.cs-wardrobe .cs-welcome{display:none}

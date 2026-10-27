@@ -1,9 +1,10 @@
 {
-  "version": 4,
+  "version": 11,
+  "textureScale": 2,
   "character": "蓝发女角色A",
   "size": [
-    1600,
-    1000
+    3200,
+    3600
   ],
   "cell": 192,
   "root": [
@@ -13,10 +14,10 @@
   "frames": {
     "S/walk/0": {
       "frame": [
-        4,
-        4,
-        192,
-        192
+        8,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -25,15 +26,16 @@
       "phase": 0,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 0
+        "cell": 0,
+        "fullImage": false
       }
     },
     "S/walk/1": {
       "frame": [
-        204,
-        4,
-        192,
-        192
+        408,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -42,15 +44,16 @@
       "phase": 0.125,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 1
+        "cell": 1,
+        "fullImage": false
       }
     },
     "S/walk/2": {
       "frame": [
-        404,
-        4,
-        192,
-        192
+        808,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -59,15 +62,16 @@
       "phase": 0.25,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 6
+        "cell": 5,
+        "fullImage": false
       }
     },
     "S/walk/3": {
       "frame": [
-        604,
-        4,
-        192,
-        192
+        1208,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -76,15 +80,16 @@
       "phase": 0.375,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 7
+        "cell": 6,
+        "fullImage": false
       }
     },
     "S/walk/4": {
       "frame": [
-        804,
-        4,
-        192,
-        192
+        1608,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -93,15 +98,16 @@
       "phase": 0.5,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 4
+        "cell": 4,
+        "fullImage": false
       }
     },
     "S/walk/5": {
       "frame": [
-        1004,
-        4,
-        192,
-        192
+        2008,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -110,15 +116,16 @@
       "phase": 0.625,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 5
+        "cell": 3,
+        "fullImage": false
       }
     },
     "S/walk/6": {
       "frame": [
-        1204,
-        4,
-        192,
-        192
+        2408,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -127,15 +134,16 @@
       "phase": 0.75,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 2
+        "cell": 2,
+        "fullImage": false
       }
     },
     "S/walk/7": {
       "frame": [
-        1404,
-        4,
-        192,
-        192
+        2808,
+        8,
+        384,
+        384
       ],
       "root": [
         96,
@@ -144,15 +152,16 @@
       "phase": 0.875,
       "source": {
         "file": "蓝发A-协调步态-S-原稿.png",
-        "cell": 3
+        "cell": 7,
+        "fullImage": false
       }
     },
     "E/walk/0": {
       "frame": [
-        4,
-        204,
-        192,
-        192
+        8,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -160,16 +169,17 @@
       ],
       "phase": 0,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 0
+        "file": "蓝发A-交替侧步-E-原稿.png",
+        "cell": 0,
+        "fullImage": false
       }
     },
     "E/walk/1": {
       "frame": [
-        204,
-        204,
-        192,
-        192
+        408,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -177,16 +187,17 @@
       ],
       "phase": 0.125,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 1
+        "file": "蓝发A-交替侧步-E-原稿.png",
+        "cell": 1,
+        "fullImage": false
       }
     },
     "E/walk/2": {
       "frame": [
-        404,
-        204,
-        192,
-        192
+        808,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -194,16 +205,22 @@
       ],
       "phase": 0.25,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 2
-      }
+        "file": "蓝发A-低抬脚-E-原稿.png",
+        "cell": 2,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0820824119951302,
+        1.085172001421702,
+        1.0569150180322728
+      ]
     },
     "E/walk/3": {
       "frame": [
-        604,
-        204,
-        192,
-        192
+        1208,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -211,16 +228,17 @@
       ],
       "phase": 0.375,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 7
+        "file": "蓝发A-交替侧步-E-前伸.png",
+        "cell": 0,
+        "fullImage": true
       }
     },
     "E/walk/4": {
       "frame": [
-        804,
-        204,
-        192,
-        192
+        1608,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -228,16 +246,17 @@
       ],
       "phase": 0.5,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 4
+        "file": "蓝发A-交替侧步-E-换脚.png",
+        "cell": 0,
+        "fullImage": true
       }
     },
     "E/walk/5": {
       "frame": [
-        1004,
-        204,
-        192,
-        192
+        2008,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -245,16 +264,17 @@
       ],
       "phase": 0.625,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 5
+        "file": "蓝发A-交替侧步-E-离地.png",
+        "cell": 0,
+        "fullImage": true
       }
     },
     "E/walk/6": {
       "frame": [
-        1204,
-        204,
-        192,
-        192
+        2408,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -262,16 +282,22 @@
       ],
       "phase": 0.75,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 6
-      }
+        "file": "蓝发A-低抬脚-E-原稿.png",
+        "cell": 6,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1024423633175138,
+        1.1028336047021663,
+        1.070442287788502
+      ]
     },
     "E/walk/7": {
       "frame": [
-        1404,
-        204,
-        192,
-        192
+        2808,
+        408,
+        384,
+        384
       ],
       "root": [
         96,
@@ -279,16 +305,17 @@
       ],
       "phase": 0.875,
       "source": {
-        "file": "蓝发A-协调步态-E-原稿.png",
-        "cell": 3
+        "file": "蓝发A-交替侧步-E-原稿.png",
+        "cell": 7,
+        "fullImage": false
       }
     },
     "N/walk/0": {
       "frame": [
-        4,
-        404,
-        192,
-        192
+        8,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -297,15 +324,16 @@
       "phase": 0,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 0
+        "cell": 0,
+        "fullImage": false
       }
     },
     "N/walk/1": {
       "frame": [
-        204,
-        404,
-        192,
-        192
+        408,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -314,15 +342,16 @@
       "phase": 0.125,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 3
+        "cell": 3,
+        "fullImage": false
       }
     },
     "N/walk/2": {
       "frame": [
-        404,
-        404,
-        192,
-        192
+        808,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -331,15 +360,16 @@
       "phase": 0.25,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 5
+        "cell": 5,
+        "fullImage": false
       }
     },
     "N/walk/3": {
       "frame": [
-        604,
-        404,
-        192,
-        192
+        1208,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -348,15 +378,16 @@
       "phase": 0.375,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 6
+        "cell": 6,
+        "fullImage": false
       }
     },
     "N/walk/4": {
       "frame": [
-        804,
-        404,
-        192,
-        192
+        1608,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -365,15 +396,16 @@
       "phase": 0.5,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 4
+        "cell": 4,
+        "fullImage": false
       }
     },
     "N/walk/5": {
       "frame": [
-        1004,
-        404,
-        192,
-        192
+        2008,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -382,15 +414,16 @@
       "phase": 0.625,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 7
+        "cell": 7,
+        "fullImage": false
       }
     },
     "N/walk/6": {
       "frame": [
-        1204,
-        404,
-        192,
-        192
+        2408,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -399,15 +432,16 @@
       "phase": 0.75,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 1
+        "cell": 1,
+        "fullImage": false
       }
     },
     "N/walk/7": {
       "frame": [
-        1404,
-        404,
-        192,
-        192
+        2808,
+        808,
+        384,
+        384
       ],
       "root": [
         96,
@@ -416,15 +450,16 @@
       "phase": 0.875,
       "source": {
         "file": "蓝发A-协调步态-N-原稿.png",
-        "cell": 2
+        "cell": 2,
+        "fullImage": false
       }
     },
     "W/walk/0": {
       "frame": [
-        4,
-        604,
-        192,
-        192
+        8,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -432,16 +467,17 @@
       ],
       "phase": 0,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 0
+        "file": "蓝发A-交替侧步-W-原稿.png",
+        "cell": 0,
+        "fullImage": false
       }
     },
     "W/walk/1": {
       "frame": [
-        204,
-        604,
-        192,
-        192
+        408,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -449,16 +485,17 @@
       ],
       "phase": 0.125,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 1
+        "file": "蓝发A-交替侧步-W-原稿.png",
+        "cell": 1,
+        "fullImage": false
       }
     },
     "W/walk/2": {
       "frame": [
-        404,
-        604,
-        192,
-        192
+        808,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -466,16 +503,22 @@
       ],
       "phase": 0.25,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 2
-      }
+        "file": "蓝发A-低抬脚-W-原稿.png",
+        "cell": 2,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.252352694902464,
+        1.148961445155971,
+        1.0063203282470474
+      ]
     },
     "W/walk/3": {
       "frame": [
-        604,
-        604,
-        192,
-        192
+        1208,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -483,16 +526,17 @@
       ],
       "phase": 0.375,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 7
+        "file": "蓝发A-交替侧步-W-前伸.png",
+        "cell": 0,
+        "fullImage": true
       }
     },
     "W/walk/4": {
       "frame": [
-        804,
-        604,
-        192,
-        192
+        1608,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -500,16 +544,17 @@
       ],
       "phase": 0.5,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 4
+        "file": "蓝发A-交替侧步-W-换脚.png",
+        "cell": 0,
+        "fullImage": true
       }
     },
     "W/walk/5": {
       "frame": [
-        1004,
-        604,
-        192,
-        192
+        2008,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -517,16 +562,17 @@
       ],
       "phase": 0.625,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 5
+        "file": "蓝发A-交替侧步-W-离地.png",
+        "cell": 0,
+        "fullImage": true
       }
     },
     "W/walk/6": {
       "frame": [
-        1204,
-        604,
-        192,
-        192
+        2408,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -534,16 +580,22 @@
       ],
       "phase": 0.75,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 6
-      }
+        "file": "蓝发A-低抬脚-W-原稿.png",
+        "cell": 6,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.285678041048801,
+        1.162704904404672,
+        1.0083555538205464
+      ]
     },
     "W/walk/7": {
       "frame": [
-        1404,
-        604,
-        192,
-        192
+        2808,
+        1208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -551,16 +603,753 @@
       ],
       "phase": 0.875,
       "source": {
-        "file": "蓝发A-协调步态-W-原稿.png",
-        "cell": 3
+        "file": "蓝发A-交替侧步-W-原稿.png",
+        "cell": 7,
+        "fullImage": false
       }
+    },
+    "S/run/0": {
+      "frame": [
+        8,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 0,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0901017320734632,
+        1.113974369362724,
+        1.0463438474571396
+      ]
+    },
+    "S/run/1": {
+      "frame": [
+        408,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.125,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 1,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0984718419932247,
+        1.1200486002384935,
+        1.0490895767415118
+      ]
+    },
+    "S/run/2": {
+      "frame": [
+        808,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.25,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 2,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0962850042114323,
+        1.1185477092130895,
+        1.0492308162245023
+      ]
+    },
+    "S/run/3": {
+      "frame": [
+        1208,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.375,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 3,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1036965482725918,
+        1.12425287184699,
+        1.0523076653561079
+      ]
+    },
+    "S/run/4": {
+      "frame": [
+        1608,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.5,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 4,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1263864761471105,
+        1.149235429082237,
+        1.0685827295996166
+      ]
+    },
+    "S/run/5": {
+      "frame": [
+        2008,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.625,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 5,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1189827829217118,
+        1.143315282774403,
+        1.0680129171490182
+      ]
+    },
+    "S/run/6": {
+      "frame": [
+        2408,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.75,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 6,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1304628852884022,
+        1.1524072767508875,
+        1.0720232608248255
+      ]
+    },
+    "S/run/7": {
+      "frame": [
+        2808,
+        1608,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.875,
+      "source": {
+        "file": "蓝发A-独立跑步-S-原稿.png",
+        "cell": 7,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1248294161731904,
+        1.1472827660577933,
+        1.067674145858256
+      ]
+    },
+    "E/run/0": {
+      "frame": [
+        8,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 0,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0702679157909838,
+        1.0706769429991956,
+        1.0247026978446871
+      ]
+    },
+    "E/run/1": {
+      "frame": [
+        408,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.125,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 1,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0845781340824843,
+        1.0869475224560279,
+        1.0336954102235734
+      ]
+    },
+    "E/run/2": {
+      "frame": [
+        808,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.25,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 2,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0704000863414855,
+        1.072046038319376,
+        1.023668095853974
+      ]
+    },
+    "E/run/3": {
+      "frame": [
+        1208,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.375,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 3,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0828826434618066,
+        1.075406768481481,
+        1.0140189285130727
+      ]
+    },
+    "E/run/4": {
+      "frame": [
+        1608,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.5,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 4,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1009808164819976,
+        1.0906505009595184,
+        1.0236122271609869
+      ]
+    },
+    "E/run/5": {
+      "frame": [
+        2008,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.625,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 5,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0982088570801436,
+        1.090587922503583,
+        1.0238423011424593
+      ]
+    },
+    "E/run/6": {
+      "frame": [
+        2408,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.75,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 6,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0919587978668703,
+        1.0873252242666351,
+        1.0344149776685447
+      ]
+    },
+    "E/run/7": {
+      "frame": [
+        2808,
+        2008,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.875,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-E-原稿.png",
+        "cell": 7,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0909369538647193,
+        1.08525747785404,
+        1.027798453827924
+      ]
+    },
+    "N/run/0": {
+      "frame": [
+        8,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 0,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0478659211247365,
+        1.062201416672838,
+        1.0223639892849532
+      ]
+    },
+    "N/run/1": {
+      "frame": [
+        408,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.125,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 2,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0426510840975647,
+        1.0593836142419562,
+        1.0190107109979183
+      ]
+    },
+    "N/run/2": {
+      "frame": [
+        808,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.25,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 4,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0496582783725352,
+        1.0651073762987935,
+        1.0242377924406758
+      ]
+    },
+    "N/run/3": {
+      "frame": [
+        1208,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.375,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 7,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0434385675736042,
+        1.0607534271661694,
+        1.019208869198563
+      ]
+    },
+    "N/run/4": {
+      "frame": [
+        1608,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.5,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 5,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0407174465140525,
+        1.0574899439202436,
+        1.018638365081861
+      ]
+    },
+    "N/run/5": {
+      "frame": [
+        2008,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.625,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 1,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0457955236828909,
+        1.0610137551348027,
+        1.0216881325060043
+      ]
+    },
+    "N/run/6": {
+      "frame": [
+        2408,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.75,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 6,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0463657598562963,
+        1.0636101697309233,
+        1.0229564897528043
+      ]
+    },
+    "N/run/7": {
+      "frame": [
+        2808,
+        2408,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.875,
+      "source": {
+        "file": "蓝发A-独立跑步-N-原稿.png",
+        "cell": 3,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0417310345339335,
+        1.0562550623508276,
+        1.0135199576045546
+      ]
+    },
+    "W/run/0": {
+      "frame": [
+        8,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 0,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.179071239969559,
+        1.1542009095361396,
+        1.0669981272698397
+      ]
+    },
+    "W/run/1": {
+      "frame": [
+        408,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.125,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 1,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.181107769389054,
+        1.1555489850636167,
+        1.0683219379579694
+      ]
+    },
+    "W/run/2": {
+      "frame": [
+        808,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.25,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 2,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1888043384937097,
+        1.1621881572634083,
+        1.070207882637495
+      ]
+    },
+    "W/run/3": {
+      "frame": [
+        1208,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.375,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 3,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.0878957376074447,
+        1.0881961041461392,
+        1.0384199100578166
+      ]
+    },
+    "W/run/4": {
+      "frame": [
+        1608,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.5,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 4,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1463251231609937,
+        1.135480659801553,
+        1.067151995933393
+      ]
+    },
+    "W/run/5": {
+      "frame": [
+        2008,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.625,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 5,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1331605174505202,
+        1.1224695514691558,
+        1.0594599654083106
+      ]
+    },
+    "W/run/6": {
+      "frame": [
+        2408,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.75,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 6,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.180560420777212,
+        1.1573780752646208,
+        1.0711777043731776
+      ]
+    },
+    "W/run/7": {
+      "frame": [
+        2808,
+        2808,
+        384,
+        384
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "phase": 0.875,
+      "source": {
+        "file": "蓝发A-保留双腿跑步-W-原稿.png",
+        "cell": 7,
+        "fullImage": false
+      },
+      "hairCorrection": [
+        1.1697645821410187,
+        1.1468874631860653,
+        1.0637789431391846
+      ]
     },
     "S/idle/0": {
       "frame": [
-        4,
-        804,
-        192,
-        192
+        8,
+        3208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -573,10 +1362,10 @@
     },
     "E/idle/0": {
       "frame": [
-        204,
-        804,
-        192,
-        192
+        408,
+        3208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -589,10 +1378,10 @@
     },
     "N/idle/0": {
       "frame": [
-        404,
-        804,
-        192,
-        192
+        808,
+        3208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -605,10 +1394,10 @@
     },
     "W/idle/0": {
       "frame": [
-        604,
-        804,
-        192,
-        192
+        1208,
+        3208,
+        384,
+        384
       ],
       "root": [
         96,
@@ -661,6 +1450,46 @@
       "W/walk/6",
       "W/walk/7"
     ],
+    "run-S": [
+      "S/run/0",
+      "S/run/1",
+      "S/run/2",
+      "S/run/3",
+      "S/run/4",
+      "S/run/5",
+      "S/run/6",
+      "S/run/7"
+    ],
+    "run-E": [
+      "E/run/0",
+      "E/run/1",
+      "E/run/2",
+      "E/run/3",
+      "E/run/4",
+      "E/run/5",
+      "E/run/6",
+      "E/run/7"
+    ],
+    "run-N": [
+      "N/run/0",
+      "N/run/1",
+      "N/run/2",
+      "N/run/3",
+      "N/run/4",
+      "N/run/5",
+      "N/run/6",
+      "N/run/7"
+    ],
+    "run-W": [
+      "W/run/0",
+      "W/run/1",
+      "W/run/2",
+      "W/run/3",
+      "W/run/4",
+      "W/run/5",
+      "W/run/6",
+      "W/run/7"
+    ],
     "idle-S": [
       "S/idle/0"
     ],
@@ -677,6 +1506,7 @@
   "registration": [
     {
       "dir": "S",
+      "action": "walk",
       "frame": 0,
       "crown": 32,
       "sole": 176,
@@ -685,6 +1515,7 @@
     },
     {
       "dir": "S",
+      "action": "walk",
       "frame": 1,
       "crown": 32,
       "sole": 176,
@@ -693,7 +1524,17 @@
     },
     {
       "dir": "S",
+      "action": "walk",
       "frame": 2,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 95.59016108904937,
+      "ratio": 0.31788079470198677
+    },
+    {
+      "dir": "S",
+      "action": "walk",
+      "frame": 3,
       "crown": 32,
       "sole": 176,
       "faceCenter": 96.25019317937401,
@@ -701,14 +1542,7 @@
     },
     {
       "dir": "S",
-      "frame": 3,
-      "crown": 32,
-      "sole": 176,
-      "faceCenter": 95.8372747658201,
-      "ratio": 0.31718061674008813
-    },
-    {
-      "dir": "S",
+      "action": "walk",
       "frame": 4,
       "crown": 32,
       "sole": 176,
@@ -717,14 +1551,16 @@
     },
     {
       "dir": "S",
+      "action": "walk",
       "frame": 5,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 95.59016108904937,
-      "ratio": 0.31788079470198677
+      "faceCenter": 96.20723789664741,
+      "ratio": 0.3083511777301927
     },
     {
       "dir": "S",
+      "action": "walk",
       "frame": 6,
       "crown": 32,
       "sole": 176,
@@ -733,78 +1569,88 @@
     },
     {
       "dir": "S",
+      "action": "walk",
       "frame": 7,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 96.20723789664741,
-      "ratio": 0.3083511777301927
+      "faceCenter": 95.8372747658201,
+      "ratio": 0.31718061674008813
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 0,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 112.43806457906545,
-      "ratio": 0.3137254901960784
+      "faceCenter": 112.10161178705788,
+      "ratio": 0.30638297872340425
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 1,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 111.92998306041783,
-      "ratio": 0.3116883116883117
+      "faceCenter": 112.25869082840238,
+      "ratio": 0.3076923076923077
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 2,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 111.9743261523508,
-      "ratio": 0.31101511879049676
+      "faceCenter": 111.90209549982826,
+      "ratio": 0.43902439024390244
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 3,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 111.60275777604156,
-      "ratio": 0.3130434782608696
+      "faceCenter": 111.55985326541473,
+      "ratio": 0.10714285714285714
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 4,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 111.66617998071581,
-      "ratio": 0.3123644251626898
+      "faceCenter": 111.64180286516006,
+      "ratio": 0.10827067669172932
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 5,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 111.71494565217392,
-      "ratio": 0.3130434782608696
+      "faceCenter": 111.82148561105984,
+      "ratio": 0.10786516853932585
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 6,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 112.06657688314094,
-      "ratio": 0.3123644251626898
+      "faceCenter": 111.75355188939314,
+      "ratio": 0.4458204334365325
     },
     {
       "dir": "E",
+      "action": "walk",
       "frame": 7,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 112.22478817390005,
+      "faceCenter": 112.25779870512063,
       "ratio": 0.3116883116883117
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 0,
       "crown": 32,
       "sole": 176,
@@ -813,6 +1659,7 @@
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 1,
       "crown": 32,
       "sole": 176,
@@ -821,6 +1668,7 @@
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 2,
       "crown": 32,
       "sole": 176,
@@ -829,6 +1677,7 @@
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 3,
       "crown": 32,
       "sole": 176,
@@ -837,6 +1686,7 @@
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 4,
       "crown": 32,
       "sole": 176,
@@ -845,6 +1695,7 @@
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 5,
       "crown": 32,
       "sole": 176,
@@ -853,6 +1704,7 @@
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 6,
       "crown": 32,
       "sole": 176,
@@ -861,6 +1713,7 @@
     },
     {
       "dir": "N",
+      "action": "walk",
       "frame": 7,
       "crown": 32,
       "sole": 176,
@@ -869,68 +1722,364 @@
     },
     {
       "dir": "W",
+      "action": "walk",
       "frame": 0,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 79.97653171682182,
-      "ratio": 0.3221476510067114
-    },
-    {
-      "dir": "W",
-      "frame": 1,
-      "crown": 32,
-      "sole": 176,
-      "faceCenter": 79.76000101413634,
-      "ratio": 0.3221476510067114
-    },
-    {
-      "dir": "W",
-      "frame": 2,
-      "crown": 32,
-      "sole": 176,
-      "faceCenter": 80.21110734966591,
+      "faceCenter": 80.15686346100016,
       "ratio": 0.3207126948775056
     },
     {
       "dir": "W",
+      "action": "walk",
+      "frame": 1,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 80.13301771533293,
+      "ratio": 0.32142857142857145
+    },
+    {
+      "dir": "W",
+      "action": "walk",
+      "frame": 2,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 80.24038672819164,
+      "ratio": 0.43243243243243246
+    },
+    {
+      "dir": "W",
+      "action": "walk",
       "frame": 3,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 79.67785234899333,
-      "ratio": 0.32432432432432434
+      "faceCenter": 79.75899208789424,
+      "ratio": 0.10627306273062731
     },
     {
       "dir": "W",
+      "action": "walk",
       "frame": 4,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 79.80876024419264,
-      "ratio": 0.32505643340857787
+      "faceCenter": 79.92958985424295,
+      "ratio": 0.10650887573964497
     },
     {
       "dir": "W",
+      "action": "walk",
       "frame": 5,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 79.50063279002876,
-      "ratio": 0.3221476510067114
+      "faceCenter": 79.79694391721105,
+      "ratio": 0.10534016093635698
     },
     {
       "dir": "W",
+      "action": "walk",
       "frame": 6,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 79.64235722284437,
-      "ratio": 0.32142857142857145
+      "faceCenter": 79.6706155389522,
+      "ratio": 0.4376899696048632
     },
     {
       "dir": "W",
+      "action": "walk",
       "frame": 7,
       "crown": 32,
       "sole": 176,
-      "faceCenter": 80.33294994844131,
-      "ratio": 0.32142857142857145
+      "faceCenter": 79.64073829927486,
+      "ratio": 0.31929046563192903
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 0,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 95.9590191324017,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 1,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 96.03547691282465,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 2,
+      "crown": 31,
+      "sole": 175,
+      "faceCenter": 96.18694809745642,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 3,
+      "crown": 29,
+      "sole": 162,
+      "faceCenter": 95.81172875778584,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 4,
+      "crown": 32,
+      "sole": 174,
+      "faceCenter": 96.37625599830324,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 5,
+      "crown": 32,
+      "sole": 174,
+      "faceCenter": 95.834204135698,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 6,
+      "crown": 31,
+      "sole": 173,
+      "faceCenter": 96.2964693929388,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "S",
+      "action": "run",
+      "frame": 7,
+      "crown": 29,
+      "sole": 160,
+      "faceCenter": 96.48334127273233,
+      "ratio": 0.3779527559055118
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 0,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 112.07687712461065,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 1,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 111.85492051817569,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 2,
+      "crown": 31,
+      "sole": 175,
+      "faceCenter": 111.55135012992878,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 3,
+      "crown": 28,
+      "sole": 173,
+      "faceCenter": 111.92507328730007,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 4,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 112.14569495820646,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 5,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 111.64402879633991,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 6,
+      "crown": 31,
+      "sole": 175,
+      "faceCenter": 112.15808383233532,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "E",
+      "action": "run",
+      "frame": 7,
+      "crown": 29,
+      "sole": 173,
+      "faceCenter": 111.86563858584205,
+      "ratio": 0.4311377245508982
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 0,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 96.34050179211468,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 1,
+      "crown": 30,
+      "sole": 176,
+      "faceCenter": 95.51341256366723,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 2,
+      "crown": 31,
+      "sole": 173,
+      "faceCenter": 95.9897718332022,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 3,
+      "crown": 29,
+      "sole": 166,
+      "faceCenter": 96.18238213399502,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 4,
+      "crown": 32,
+      "sole": 174,
+      "faceCenter": 96.39219015280136,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 5,
+      "crown": 29,
+      "sole": 176,
+      "faceCenter": 96.39331163065995,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 6,
+      "crown": 31,
+      "sole": 172,
+      "faceCenter": 95.50798914681945,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "N",
+      "action": "run",
+      "frame": 7,
+      "crown": 29,
+      "sole": 168,
+      "faceCenter": 95.90932868352223,
+      "ratio": 0.3870967741935484
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 0,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 79.70463283228968,
+      "ratio": 0.43373493975903615
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 1,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 79.57842561957676,
+      "ratio": 0.43373493975903615
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 2,
+      "crown": 31,
+      "sole": 175,
+      "faceCenter": 80.28966931556013,
+      "ratio": 0.43373493975903615
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 3,
+      "crown": 29,
+      "sole": 173,
+      "faceCenter": 79.9523294416054,
+      "ratio": 0.43373493975903615
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 4,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 80.40862244157353,
+      "ratio": 0.43373493975903615
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 5,
+      "crown": 32,
+      "sole": 176,
+      "faceCenter": 80.01162631990371,
+      "ratio": 0.43373493975903615
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 6,
+      "crown": 31,
+      "sole": 175,
+      "faceCenter": 80.10289228129135,
+      "ratio": 0.43373493975903615
+    },
+    {
+      "dir": "W",
+      "action": "run",
+      "frame": 7,
+      "crown": 29,
+      "sole": 173,
+      "faceCenter": 80.25053439564712,
+      "ratio": 0.43373493975903615
     }
   ],
-  "notes": "32 full-body authored walk poses plus four preserved idle poses; coordinated arm swing. No limb slices or mirrored art. Naturalism pending visual acceptance."
+  "notes": "32 walk poses, 32 independent run poses and four preserved idle poses; coordinated arm swing. No limb slices or mirrored art. Naturalism pending visual acceptance."
 }

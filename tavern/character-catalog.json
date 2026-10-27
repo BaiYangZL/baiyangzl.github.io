@@ -9,9 +9,10 @@
     "atlas": "characters/blue-a/atlas.png",
     "atlasData": "characters/blue-a/atlas.json",
     "portraitCrop": {
-      "width": 1,
-      "top": -0.06,
-      "left": 0
+      "x": 0.12,
+      "y": 0.1,
+      "width": 0.76,
+      "height": 0.34
     },
     "firstGreeting": "终于见面了，旅人。",
     "greetings": [
@@ -43,9 +44,10 @@
     "atlas": "characters/gold-a/atlas.png",
     "atlasData": "characters/gold-a/atlas.json",
     "portraitCrop": {
-      "width": 1.6,
-      "top": -0.48,
-      "left": -0.3
+      "x": 0.2,
+      "y": 0.05,
+      "width": 0.7,
+      "height": 0.3
     },
     "firstGreeting": "来啦，一起进去吧。",
     "greetings": [
