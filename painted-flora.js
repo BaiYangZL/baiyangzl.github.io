@@ -84,9 +84,7 @@ export function paintTrunk(h,{seed=1,lean=0,limbs=[],resolution=RES}={}){
 }
 
 let texId=0;
-// These canvases never change after painting. CanvasTexture eagerly reads every
-// pixel back from the GPU; a regular Texture keeps the same pixels and filter.
-function addTex(scene,c){const key='flora-'+(texId++);scene.textures.addImage(key,c).setFilter(Phaser.Textures.FilterMode.LINEAR);return key;}
+function addTex(scene,c){const key='flora-'+(texId++);scene.textures.addCanvas(key,c).setFilter(Phaser.Textures.FilterMode.LINEAR);return key;}
 
 // A tree standing at (x,y) in scene px. clumps: [dx,dy,r,tone,flat] relative to the base.
 // With a shared cache (many roadside trees), a few painted clumps and trunks are reused,
@@ -125,7 +123,7 @@ export function makeBush(scene,opts){return makeTree(scene,{...opts,trunk:null,s
 export function makeLeaves(scene,{trees,depth,rate=.5,low=false,rain=false,tint=0xffffff}){
  const keys=['#8fb257','#6f9a46','#b5c766','#a07f3a'].map((col,i)=>{const k='leaf-'+i;if(!scene.textures.exists(k)){const c=canvas(10*RES,6*RES),g=c.getContext('2d');
   g.translate(5*RES,3*RES);g.fillStyle=INK;g.beginPath();g.ellipse(0,0,4.6*RES,2.4*RES,0,0,7);g.fill();g.fillStyle=col;g.beginPath();g.ellipse(0,0,3.8*RES,1.7*RES,0,0,7);g.fill();
-  g.strokeStyle='#2c3f22';g.lineWidth=.5*RES;g.beginPath();g.moveTo(-3.6*RES,0);g.lineTo(3.6*RES,0);g.stroke();scene.textures.addImage(k,c);}return k;});
+  g.strokeStyle='#2c3f22';g.lineWidth=.5*RES;g.beginPath();g.moveTo(-3.6*RES,0);g.lineTo(3.6*RES,0);g.stroke();scene.textures.addCanvas(k,c);}return k;});
  const pool=[],n=low?14:34;
  for(let i=0;i<n;i++){const im=scene.add.image(0,0,keys[i%keys.length]).setScale(1/RES).setDepth(depth).setTint(tint).setVisible(false);pool.push({im,on:false});}
  const rnd=random(4242);let acc=0;

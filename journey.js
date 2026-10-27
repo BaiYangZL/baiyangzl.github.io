@@ -12,7 +12,7 @@ export function renderSize(width,height,dpr,quality,scale=1){
  const ratio=Math.min(density,(ultra?3840:high?2880:1600)/Math.max(width,height),Math.sqrt(PIXEL_BUDGET[q]/(width*height)))*Math.min(1,Math.max(.5,scale));
  return {width:Math.round(width*ratio),height:Math.round(height*ratio),ratio};
 }
-export const TIMING={map:8,dissolve:1.2,approach:6.5};
+export const TIMING={map:8,dissolve:4,approach:6.5};
 // One forward move spans dissolve and approach: starts from rest, peaks as the paper
 // clears, then a long deceleration to the threshold (velocity ∝ u(1-u)²).
 export const dolly=u=>{u=clamp(u);return 6*u*u-8*u*u*u+3*u*u*u*u;};

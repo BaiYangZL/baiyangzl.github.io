@@ -8,7 +8,7 @@
 // and from the trees, low drifting mist. Fireflies in the planting (a few, under the
 // crowns, on a wet night). Everything is bounded; the low tier keeps the same weather with
 // fewer pieces. Positions are scene px.
-function tex(scene,key,w,h,draw){if(scene.textures.exists(key))return;const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);scene.textures.addImage(key,c).setFilter(Phaser.Textures.FilterMode.LINEAR);}
+function tex(scene,key,w,h,draw){if(scene.textures.exists(key))return;const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);scene.textures.addCanvas(key,c).setFilter(Phaser.Textures.FilterMode.LINEAR);}
 const rad=(g,x,y,r,stops)=>{const gr=g.createRadialGradient(x,y,0,x,y,r);for(const [k,c] of stops)gr.addColorStop(k,c);return gr;};
 const D={mist:33,map:34,ground:35,glow:36,flies:37,rain:40};
 
@@ -36,7 +36,7 @@ function paintLightMap(scene,{bounds,lamps,windows,rain,low,ultra,canopies=[]}){
  for(const [x,y] of windows)pool(x,y+8,60,44,'120,82,40',.75);
  for(const c of canopies)pool(c.x,c.y-c.r*.4,c.r*1.3,c.r*1.1,'34,40,40',.9);
  g.globalCompositeOperation='source-over';
- const key='fx-lightmap';if(scene.textures.exists(key))scene.textures.remove(key);scene.textures.addImage(key,c).setFilter(Phaser.Textures.FilterMode.LINEAR);
+ const key='fx-lightmap';if(scene.textures.exists(key))scene.textures.remove(key);scene.textures.addCanvas(key,c).setFilter(Phaser.Textures.FilterMode.LINEAR);
  return scene.add.image(bounds.x,bounds.y,key).setOrigin(0,0).setScale(1/S).setBlendMode(Phaser.BlendModes.MULTIPLY).setDepth(D.map);
 }
 

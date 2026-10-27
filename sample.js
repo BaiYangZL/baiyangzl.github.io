@@ -1,16 +1,16 @@
 import {createArrivalAudio} from './arrival-audio.js?v=formal-cinema-20261027';
 import {openCharacterSelection,prepareCharacters} from './character-select.js?v=wardrobe-studio-20261026';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
-import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js?v=paper-ready-20261027';
+import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js?v=entry-recovery-20261027';
 import {createWorld,createAtlas,drawJourney,createDissolveNoise} from './map-art.js';
-import {createGate,SPOTS,MAX_DOOR} from './painted-gate.js';
+import {createGate,SPOTS,MAX_DOOR} from './painted-gate.js?v=entry-recovery-20261027';
 import {paintApproach} from './approach-road.js';
 import {Invitation,paintPaper} from './invite.js';
 import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
-import {createFX} from './weather-fx.js';
+import {createFX} from './weather-fx.js?v=entry-recovery-20261027';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=loading-final-20261027';
+import {createTavernTransition} from './tavern-transition.js?v=entry-recovery-20261027';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -74,7 +74,7 @@ function tickTimers(dt){for(let i=timers.length-1;i>=0;i--){timers[i].t-=dt;if(t
 // ---------- the gate story ----------
 function releaseFinishedGate(){
  if(window.__gateReleased)return;
- if(!scene||(!scene.ready&&!tavernTransition.status().returning)){setTimeout(releaseFinishedGate,100);return;}
+ if(!scene?.ready){setTimeout(releaseFinishedGate,100);return;}
  window.__gateReleased=true;
  const oldGame=game;
  oldGame.events.once('destroy',()=>{
@@ -110,7 +110,7 @@ tavernTransition.prepare();
 
 
 
-if(!tavernTransition.status().returning)tavernTransition.whenReady().then(()=>prepareCharacters()).catch(()=>{});
+if(!tavernTransition.status().returning)prepareCharacters().catch(()=>{});
 
 
 
@@ -195,7 +195,7 @@ class Arrival extends Phaser.Scene {
   atlas.setDetail(mapZoom()*paperContext.baseScale*1.05);atlas.paintAllNow(mapView(0).view);drawPaper(0);
   this.scale.on('resize',()=>{resizePaper();if(state.phase==='map'||state.phase==='dissolve')drawPaper(0);this.placeCamera(0,true);});
   this.applyQuality();$('boot').hidden=true;clearTimeout(window.bootTimer);
-  if(!tavernTransition.status().returning)this.beginAssets();
+  this.beginAssets();
  }
  async beginAssets(){
   if(this.loading)return;this.loading=true;state.error=false;notice();
@@ -265,11 +265,11 @@ class Arrival extends Phaser.Scene {
   if(paused||document.hidden)return;
   govern(delta);
   // HALL_REVIEW_READY
-  if(state.phase==="map")state.ready=this.ready;
+  if(state.phase==="map")state.ready=this.ready&&tavernTransition.status().ready;
   if(review.at!=null&&state.ready){while(state.time<review.at&&state.phase!=='arrived')state.tick(1/60);review.at=null;review.hold=state.phase!=='arrived';}
   const dt=review.hold?0:Math.min(delta/1000,.1);
   // HALL_MAP_GATE: prepare the first or restored room before leaving parchment.
-  if(state.phase==="map"){state.ready=this.ready;if(state.ready)state.time=Math.max(state.time,8);if(tavernTransition.status().failed)notice(tavernTransition.status().failureMessage||"旅店准备中断，请点击重试。",true); }
+  if(state.phase==="map"){state.ready=this.ready&&tavernTransition.status().ready;if(state.ready)state.time=Math.max(state.time,8);if(tavernTransition.status().failed)notice(tavernTransition.status().failureMessage||"旅店准备中断，请点击重试。",true); }
   state.tick(dt);arrivalAudio.setStage(state.phase);tickTimers(dt);this.cameras.main.visible=state.phase!=='map';
   if(state.phase==='arrived'&&story.phase==='idle'&&!story.ended&&!story.started){story.started=true;meet(run);}
   if(state.phase!=='map'&&!inspectFrozen)story.tick(dt);

@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=wardrobe-studio-20261026';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'loading-final-20261027';
+const VERSION = 'entry-recovery-20261027';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -35,8 +35,7 @@ export function createTavernTransition({pauseGate} = {}) {
   }
   function makeUI() {
     if (frame) return;
-    frame = document.getElementById('tavern-early-frame') || document.createElement('iframe');
-    frame.id = 'tavern-early-frame';
+    frame = document.createElement('iframe');
     frame.title = '贝尔维德酒馆二楼';
     frame.setAttribute('allow', 'autoplay; fullscreen');
     frame.allowFullscreen = true;
@@ -72,7 +71,7 @@ export function createTavernTransition({pauseGate} = {}) {
     curtain.style.cssText = 'position:fixed;inset:0;z-index:10002;display:none;place-content:center;gap:12px;padding:30px;text-align:center;background:#110e16 url("'+new URL('tavern/start-preview.png',ROOT).href+'") center/cover no-repeat;color:#f2ddba;font:16px/1.6 system-ui;text-shadow:0 2px 8px #110e16';
     curtain.innerHTML = '<p style="margin:0"></p><button type="button" style="justify-self:center;min-width:140px" hidden>重新准备酒馆</button>';
     curtain.querySelector('button').onclick = retry;
-    if(!frame.isConnected)document.body.append(frame);document.body.append(badge, curtain);
+    document.body.append(frame, badge, curtain);
     say('正在准备旅店，请稍候…');
   }
   function registerCache() {
@@ -144,11 +143,10 @@ export function createTavernTransition({pauseGate} = {}) {
       navigator.serviceWorker.addEventListener('controllerchange', changed);
       changed();
     });
-    await window.__earlyArrival?.gateReady;
     const sceneURL = new URL(TAVERN);
     if (navigator.serviceWorker?.controller && !currentWorker()) sceneURL.searchParams.set('repairCache', '1');
     if (currentWorker()) navigator.serviceWorker.controller.postMessage({type: 'KEEP_WEEK'});
-    if(!frame.src || frame.src === "about:blank")frame.src = sceneURL.href;
+    frame.src = sceneURL.href;
     poll = setInterval(check, 80);
   }
   function reveal() {

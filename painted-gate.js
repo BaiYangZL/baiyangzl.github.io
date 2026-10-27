@@ -7,7 +7,7 @@
 //  · two foreground trees and hedges that sway and shed leaves, framing the view;
 // All positions are scene px of the art (1181×1260 including a band below it).
 import {clamp,smooth} from './journey.js';
-import {makeTree,makeBush,makeLeaves,RES} from './painted-flora.js';
+import {makeTree,makeBush,makeLeaves,RES} from './painted-flora.js?v=entry-recovery-20261027';
 import {createPixelGuard} from './pixel-guard.js';
 import {paintPuddle,paintLampPost,roadAt,roadClearance,APPROACH,ROAD_LENGTH,ROAD_HALF,SEAM_S,ROAD_LAMPS,trimPlate} from './approach-road.js';
 
@@ -59,9 +59,9 @@ export function createGate(scene,{images,weather,quality}){
  const floraResolution=low||!images.environmentHD?RES:quality==='ultra'?4:3;
  const detail=quality==='ultra'?4:RES;
  const T=(key,img)=>{if(scene.textures.exists(key))scene.textures.remove(key);scene.textures.addImage(key,img);scene.textures.get(key).setFilter(Phaser.Textures.FilterMode.LINEAR);return key;};
- const TC=(key,c)=>{if(scene.textures.exists(key))scene.textures.remove(key);const t=key==='gate-doorway'?scene.textures.addCanvas(key,c):scene.textures.addImage(key,c);t.setFilter(Phaser.Textures.FilterMode.LINEAR);return t;};
+ const TC=(key,c)=>{if(scene.textures.exists(key))scene.textures.remove(key);const t=scene.textures.addCanvas(key,c);t.setFilter(Phaser.Textures.FilterMode.LINEAR);return t;};
  // the road out to the south-west lies under the art; the art's filler band and wedge are cut away
- {const key='gate-approach',a=images.approach;if(scene.textures.exists(key))scene.textures.remove(key);scene.textures.addImage(key,a.canvas).setFilter(Phaser.Textures.FilterMode.LINEAR);
+ {const key='gate-approach',a=images.approach;if(scene.textures.exists(key))scene.textures.remove(key);scene.textures.addCanvas(key,a.canvas).setFilter(Phaser.Textures.FilterMode.LINEAR);
   add(scene.add.image(APPROACH.x,APPROACH.y,key).setOrigin(0,0).setScale(1/a.scale).setDepth(-1));}
  TC('gate-plate',trimPlate(images.plate));
  add(scene.add.image(0,0,'gate-plate').setOrigin(0,0).setDisplaySize(WORLD.w,WORLD.h).setDepth(0));
