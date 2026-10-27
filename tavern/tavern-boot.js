@@ -6,11 +6,13 @@
   const shaderWarmup = {started: false, completed: false, programs: 0, failed: 0, milliseconds: 0};
   const packedFile = url => new URLSearchParams(location.search).get('repairCache')==='1' ? Promise.resolve(null) : window.__earlyArrival?.get(new URL(url,document.baseURI).href).catch(()=>null)||Promise.resolve(null);
   const textureTransfers = fetch(new URL('texture-transfer.json?v=loading-20261027', document.baseURI)).then(r => r.ok ? r.json() : {}).catch(() => ({}));
-  const shaderData = typeof DecompressionStream === 'undefined' ? Promise.resolve(null) : fetch(new URL('tavern-shader-warmup.bin?v=loading-20261027', document.baseURI)).then(async r => {
+  const shaderData = typeof DecompressionStream === 'undefined' ? Promise.resolve(null) : fetch(new URL('tavern-shader-warmup.bin?v=shader-rooms-20261027', document.baseURI)).then(async r => {
     if (!r.ok) return null;
     const data = await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).json();
     const stages = data.stages.map(stage => ({type: stage.type, source: stage.lines.map(n => data.lines[n]).join('\n')}));
-    return {programs: data.programs.map(program => ({webgl2: program.webgl2, sources: program.stages.map(n => stages[n])}))};
+    let room=window.__earlyArrival?.state.room;try{room||=JSON.parse(localStorage.getItem('belvedere-position-v1-rooms')||'null')?.room;}catch{}room||='upper';
+    const selected=data.rooms?.[room]||data.programs.map((_,i)=>i);shaderWarmup.room=room;
+    return {programs: selected.map(n=>data.programs[n]).map(program => ({webgl2: program.webgl2, sources: program.stages.map(n => stages[n])}))};
   }).catch(() => null);
   const gameCanvas = document.getElementById('GameCanvas');
   if (gameCanvas) {
@@ -66,7 +68,7 @@
   console.error = function (...args) { args.forEach(record); return originalError.apply(console, args); };
   addEventListener('error', event => record(event.message || 'Resource failed'));
   addEventListener('unhandledrejection', event => record(event.reason));
-  const report = () => ({version: 'loading-ready-20261027', url: location.href, repairs, shaderWarmup,early:window.__earlyArrival?.state,
+  const report = () => ({version: 'shader-rooms-20261027', url: location.href, repairs, shaderWarmup,early:window.__earlyArrival?.state,
     elapsedMs: Math.round(performance.now() - started), pending: [...pending.keys()], errors,
     status: document.querySelector('#tavern-ui .status')?.textContent,
     note: document.querySelector('#tavern-ui .note')?.textContent,
