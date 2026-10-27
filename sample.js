@@ -1,7 +1,7 @@
 import {createArrivalAudio} from './arrival-audio.js?v=formal-cinema-20261027';
-import {openCharacterSelection,prepareCharacters} from './character-select.js?v=wardrobe-studio-20261026';
+import {openCharacterSelection,prepareCharacters} from './character-select.js?v=entry-fix-20261027b';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
-import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js?v=entry-recovery-20261027';
+import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js?v=entry-fix-20261027b';
 import {createWorld,createAtlas,drawJourney,createDissolveNoise} from './map-art.js';
 import {createGate,SPOTS,MAX_DOOR} from './painted-gate.js?v=entry-recovery-20261027';
 import {paintApproach} from './approach-road.js';
@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js?v=entry-recovery-20261027';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=entry-recovery-20261027';
+import {createTavernTransition} from './tavern-transition.js?v=entry-fix-20261027b';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -194,7 +194,7 @@ class Arrival extends Phaser.Scene {
   // the first screenful of map is painted before the curtain lifts
   atlas.setDetail(mapZoom()*paperContext.baseScale*1.05);atlas.paintAllNow(mapView(0).view);drawPaper(0);
   this.scale.on('resize',()=>{resizePaper();if(state.phase==='map'||state.phase==='dissolve')drawPaper(0);this.placeCamera(0,true);});
-  this.applyQuality();$('boot').hidden=true;clearTimeout(window.bootTimer);
+  this.applyQuality();window.bootReady();
   this.beginAssets();
  }
  async beginAssets(){
@@ -288,7 +288,7 @@ try{
  if(!window.Phaser)throw Error('缺少绘制库');
  const v=viewport();
  game=new Phaser.Game({type:Phaser.AUTO,parent:'game',width:v.width,height:v.height,backgroundColor:'#11141f',pixelArt:false,antialias:true,roundPixels:false,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},fps:{target:60,limit:60},scene:Arrival});
-}catch(error){window.bootFailure();console.error(error)}
+}catch(error){window.bootFailure(error);console.error(error)}
 $('quality').value=quality;
 $('retry').onclick=()=>{state.error=false;notice();if(tavernTransition.status().failed)tavernTransition.retry();else scene?.beginAssets();};
 $('replay').onclick=()=>scene?.restart();

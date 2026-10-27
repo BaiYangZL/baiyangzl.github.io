@@ -6,7 +6,7 @@ export function random(seed) { return () => ((seed=(Math.imul(seed,1664525)+1013
 // governor's step down: it lowers resolution, never the effects.
 export const PIXEL_BUDGET={ultra:8294400,high:4200000,low:1600000};
 export function renderSize(width,height,dpr,quality,scale=1){
- const q=Object.hasOwn(PIXEL_BUDGET,quality)?quality:'high',ultra=q==='ultra',high=q!=='low';
+ const q=Object.prototype.hasOwnProperty.call(PIXEL_BUDGET,quality)?quality:'high',ultra=q==='ultra',high=q!=='low';
  width=Math.max(1,width);height=Math.max(1,height);
  const density=Math.min(Math.max(ultra?2:1,dpr||1),ultra?4:high?2.5:1.15);
  const ratio=Math.min(density,(ultra?3840:high?2880:1600)/Math.max(width,height),Math.sqrt(PIXEL_BUDGET[q]/(width*height)))*Math.min(1,Math.max(.5,scale));

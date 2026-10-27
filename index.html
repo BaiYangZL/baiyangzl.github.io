@@ -1,5 +1,58 @@
 <!doctype html>
-<html lang="zh-CN"><head><script id="room-entry-default">{const u=new URL(location.href);if(!u.searchParams.has("rooms")){u.searchParams.set("rooms","1");history.replaceState(history.state,"",u.href);}}</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content"><meta name="theme-color" content="#11141f"><title>贝尔维德 · 进场演示（非正式登录）</title><link rel="stylesheet" href="sample.css?v=no-loading-companion-20261026"><link rel="icon" href="data:,"></head>
+<html lang="zh-CN"><head><script id="entry-boot-guard">// Inlined before external scripts so even a failed engine/module request is visible.
+(function () {
+  var started = Date.now(), done = false, failure = null, slow = false;
+  var info = {version: 'entry-fix-20261027b', userAgent: navigator.userAgent, errors: []};
+  function render() {
+    if (done) return;
+    var boot = document.getElementById('boot');
+    if (!boot || (!failure && !slow)) return;
+    boot.querySelector('p').textContent = failure
+      ? '旅途暂未启动（' + failure.code + '）'
+      : '旅途仍在加载，请稍候…';
+    document.getElementById('boot-retry').hidden = false;
+    var detail = document.getElementById('boot-detail');
+    if (!detail) {
+      detail = document.createElement('details'); detail.id = 'boot-detail';
+      detail.style.cssText = 'max-width:88vw;text-align:left;font:14px/1.5 sans-serif;pointer-events:auto';
+      var summary = document.createElement('summary'); summary.textContent = '查看加载原因（可截图发给我）';
+      var text = document.createElement('pre'); text.id = 'boot-detail-text';
+      text.style.cssText = 'white-space:pre-wrap;overflow-wrap:anywhere;max-height:32vh;overflow:auto';
+      detail.appendChild(summary); detail.appendChild(text); boot.appendChild(detail);
+    }
+    info.elapsedMs = Date.now() - started;
+    info.engine = !!window.Phaser;
+    info.module = !!window.__arrival;
+    info.status = failure ? failure.code : 'WAIT';
+    document.getElementById('boot-detail-text').textContent = JSON.stringify(info, null, 2);
+    if (failure) detail.open = true;
+  }
+  window.bootFailure = function (reason, code) {
+    if (done) return;
+    var message = reason && (reason.stack || reason.message) || String(reason || '启动未完成');
+    info.errors.push(message.slice(0, 1800));
+    if (info.errors.length > 6) info.errors.shift();
+    failure = failure || {code: code || 'J1'}; render();
+  };
+  window.bootReady = function () {
+    done = true; info.status = 'READY'; info.elapsedMs = Date.now() - started; clearTimeout(window.bootTimer);
+    var boot = document.getElementById('boot'); if (boot) boot.hidden = true;
+  };
+  window.addEventListener('error', function (event) {
+    if (event.target && event.target.tagName === 'SCRIPT') {
+      window.bootFailure('启动文件未下载成功：' + event.target.src, 'N1');
+    } else if (event.message) {
+      window.bootFailure(event.error || (event.message + ' ' + event.filename + ':' + event.lineno), 'J1');
+    }
+  }, true);
+  window.addEventListener('unhandledrejection', function (event) {
+    window.bootFailure(event.reason, 'J2');
+  });
+  document.addEventListener('DOMContentLoaded', render);
+  window.bootTimer = setTimeout(function () { slow = true; render(); }, 15000);
+  window.__entryBootReport = function () { return info; };
+})();
+</script><script id="room-entry-default">{const u=new URL(location.href);if(!u.searchParams.has("rooms")){u.searchParams.set("rooms","1");history.replaceState(history.state,"",u.href);}}</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content"><meta name="theme-color" content="#11141f"><title>贝尔维德 · 进场演示（非正式登录）</title><link rel="stylesheet" href="sample.css?v=no-loading-companion-20261026"><link rel="icon" href="data:,"></head>
 <body>
 <script src="mobile-screen.js?v=zoom-palette-20261026" data-kind="gate"></script>
 <details id="entry-diagnostic" style="display:none;position:fixed;top:calc(35px + env(safe-area-inset-top));right:8px;z-index:2147483647;max-width:92vw;padding:10px;background:#f2e1bf;color:#302218;border:2px solid #a1773d;font:14px/1.4 system-ui">
@@ -66,7 +119,7 @@
 <div id="ending" hidden><p class="kicker">THE GATE IS OPEN</p><h2>城门已打开</h2><p>门后通往贝尔维德酒馆二楼。</p></div>
 <footer><button id="replay" hidden>再走一程 ↻</button><label>画质 <select id="quality" aria-label="选择画质"><option value="low">流畅</option><option value="high">高清（推荐）</option><option value="ultra">极致</option></select></label><button id="pause" aria-pressed="false">暂停</button></footer>
 <noscript>请启用浏览器 JavaScript 后查看旅途。</noscript>
-<script>window.bootFailure=()=>{document.querySelector('#boot p').textContent='旅途未能加载，请检查网络后重试。';document.querySelector('#boot-retry').hidden=false;};window.bootTimer=setTimeout(window.bootFailure,15000);</script>
+
 <script>if(new URLSearchParams(location.search).has('measure')){const s=document.createElement('script');s.src='phone-measure.js';document.head.appendChild(s);}</script>
-<script src="vendor/phaser.min.js" onerror="bootFailure()"></script><script type="module" src="sample.js?v=entry-recovery-20261027" onerror="bootFailure()"></script>
+<script src="vendor/phaser.min.js"></script><script type="module" src="sample.js?v=entry-fix-20261027b"></script>
 </body></html>
