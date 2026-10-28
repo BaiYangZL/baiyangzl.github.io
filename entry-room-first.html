@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-CN"><head><!-- entry-measurement:start --><script id="entry-measurement">
+if(new URLSearchParams(location.search).get("entryTrace1")==="1"){
+window.__entryDiagnosticBuild={"diagnosticVersion":"entry-check-mobile-v2-20261028","baseCommit":"abbe1ea24de19b286e4634c3df57878cb219aa4a","gameVersion":"entry-cache-target-20261028","mainSha256":"da36eaad5ac0097c330e09ac9a2756d15288fdbc69368a23ae454b8561ee7a90","probeSha256":"fad70f5a5ae311eec5c8e29029640c0b316f653839a4bd3699738bcd07f0f556","sourceHomeSha256":"055949fc91a768643dba3d9a86f42a76eb636d027adde41d5d200eadacd4d93c","sourceTavernSha256":"fbd81ecca3f80cdc26e08a73bfd2a96dd610f5a5ab3612a2a0ea3ccbfb692930","experiment":"character-preload-after-room","experimentSampleSha256":"33426cc5369721fbb2530792dd3bf74ae19a78e58479bb2ae13702cd3c001529"};
+ // Only measurement navigations get fixed comparison settings, before the first request.
+ const descriptor=Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,'src');
+ if(descriptor?.set&&descriptor.configurable){Object.defineProperty(HTMLIFrameElement.prototype,'src',{...descriptor,set(value){let next=value;try{const url=new URL(String(value),location.href);if(url.origin===location.origin&&/\/tavern\//.test(url.pathname)){for(const [key,item]of Object.entries({entryTrace1:'1',quality:'full',time:'night',weather:'rain'}))url.searchParams.set(key,item);next=url.href;}}catch{}return descriptor.set.call(this,next);}});}
+ let movementRecorded=false,movementPending=false;
+ function measureMovement(kind){if(movementRecorded||movementPending)return;const initial=window.__tavern?.state();if(!initial?.entered)return;movementPending=true;const start=performance.now();window.__entryTrace?.mark('input.movement.start',{kind});
+  const check=()=>{const current=window.__tavern?.state();if(current&&Math.hypot(current.x-initial.x,current.z-initial.z)>.005){movementRecorded=true;movementPending=false;window.__entryTrace?.mark('input.movement.responded',{kind,elapsedMs:performance.now()-start});}else if(performance.now()-start<2000)requestAnimationFrame(check);else{movementPending=false;window.__entryTrace?.mark('input.movement.noResponse',{kind});}};requestAnimationFrame(check);
+ }
+ addEventListener('keydown',event=>{if(event.target?.closest?.('#entry-tools'))return;if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.code))measureMovement('keyboard');},true);
+ addEventListener('pointermove',event=>{if(event.target?.closest?.('#entry-tools'))return;const state=window.__tavern?.state();if(state?.entered&&state.pad&&Math.hypot(state.pad.x,state.pad.z)>.05)measureMovement('joystick');},true);
+ /* Opt-in measurement only; inject before SystemJS. Does not change quality or readiness. */
+(function () {
+  if (window.__entryTrace) return;
+  const origin = performance.timeOrigin, events = [], loads = [], downloads = [], handlers = [], parses = [], gpu = {}, totals = {};
+  const dropped = {events: 0, loads: 0};
+  const push = event => {if(events.length < 5000) events.push(event); else dropped.events++;};
+  const safeURL = value => {try {const u = new URL(value, location.href), allow = new Set(['v','rooms','quality','weather','time','q','reenter','entryTrace','entryTrace1','diagnose','meshIntegrity']);for(const key of Array.from(u.searchParams.keys()))if(!allow.has(key))u.searchParams.delete(key);u.hash='';return u.href;}catch{return '';}};
+  const safeState = s => s && ({floor:s.floor,ready:s.ready,firstFrameReady:s.firstFrameReady,entered:s.entered,loadTimings:s.loadTimings,roomTimings:s.roomTimings,modelCount:s.modelCount,objects:s.objects,background:s.background && {origin:s.background.origin,downloaded:s.background.downloaded,total:s.background.total}});
+  const now = () => performance.now(), begin = now();
+  const mark = (name, extra) => push({name, at: now(), ...extra});
+  const span = (name, start, extra) => {
+    const ms = now() - start, t = totals[name] || (totals[name] = {calls: 0, ms: 0, maxMs: 0});
+    t.calls++; t.ms += ms; t.maxMs = Math.max(t.maxMs, ms);
+    push({name, start, end: now(), ms, ...extra});
+  };
+  const wrapped = new WeakSet();
+  function wrap(object, method, label) {
+    const original = object?.[method]; if (typeof original !== 'function' || wrapped.has(original)) return;
+    const measured = function (...args) {
+      const start = now();
+      if (['engine.game.init','engine.game.run','Tavern.start','Tavern.loadActor','Tavern.changeFloor'].includes(label)) mark(label + '.begin');
+      try {
+        const result = original.apply(this, args);
+        if (result && typeof result.then === 'function') result.then(() => span(label, start), e => span(label, start, {error: String(e)}));
+        else span(label, start);
+        return result;
+      } catch (e) { span(label, start, {error: String(e)}); throw e; }
+    };
+    wrapped.add(measured); object[method] = measured;
+  }
+  function hookClass(name, value) {
+    if (typeof value !== 'function') return;
+    if (name === 'Tavern') for (const method of ['start', 'createActor', 'loadActor', 'changeFloor', 'drawRoom', 'finishArrival', 'activate', 'setCharacter']) wrap(value.prototype, method, 'Tavern.' + method);
+    if (name === 'TavernBakedLight') for (const method of ['add', 'createBatches', 'update', 'createSurfaceMesh']) wrap(value.prototype, method, 'Baked.' + method);
+  }
+  let engine, engineConfig;
+  function hookEngine(cc) {
+    if (engine) return; engine = cc; engineConfig={maxConcurrency:cc.assetManager.downloader.maxConcurrency,maxRequestsPerFrame:cc.assetManager.downloader.maxRequestsPerFrame,maxRetryCount:cc.assetManager.downloader.maxRetryCount,retryInterval:cc.assetManager.downloader.retryInterval};mark('engine.import.complete');
+    wrap(cc.game, 'init', 'engine.game.init');wrap(cc.game, 'run', 'engine.game.run');
+    const original = cc.resources.load;
+    cc.resources.load = function (...args) {
+      const entry = {path: String(args[0]), start: now()}; if(loads.length < 2000) loads.push(entry);else dropped.loads++;
+      const callback = args[args.length - 1];
+      if (typeof callback === 'function') args[args.length - 1] = function (...results) {
+        entry.end = now(); entry.ms = entry.end - entry.start; entry.error = results[0] ? String(results[0]) : null;
+        return callback.apply(this, results);
+      };
+      return original.apply(this, args);
+    };
+    for(const [object,method,entries] of [[cc.assetManager.downloader,'download',downloads],[cc.assetManager.parser,'parse',parses]]) {
+      const original = object?.[method];if(typeof original !== 'function')continue;
+      object[method] = function(...args) {
+        const entry={id:typeof args[0] === 'string' ? safeURL(args[0]) : '',type:typeof args[2] === 'string' ? args[2] : '',start:now()};
+        if(method === 'download' && typeof args[1] === 'string')entry.url=safeURL(args[1]);
+        if(entries.length < 2000)entries.push(entry);
+        const callback=args[args.length-1];if(typeof callback === 'function')args[args.length-1]=function(...results){entry.end=now();entry.ms=entry.end-entry.start;entry.error=results[0]?String(results[0]):null;return callback.apply(this,results);};
+        return original.apply(this,args);
+      };
+    }
+    const registerDownloader=cc.assetManager.downloader.register;
+    const measureHandler=(type,original)=>function(...args){
+      const entry={type,url:typeof args[0] === 'string'?safeURL(args[0]):'',start:now()};if(handlers.length<2000)handlers.push(entry);
+      const callback=args[args.length-1];if(typeof callback==='function')args[args.length-1]=function(...results){entry.end=now();entry.ms=entry.end-entry.start;entry.error=results[0]?String(results[0]):null;return callback.apply(this,results);};
+      return original.apply(this,args);
+    };
+    cc.assetManager.downloader.register=function(type,handler){
+      if(typeof type==='string'&&typeof handler==='function')return registerDownloader.call(this,type,measureHandler(type,handler));
+      if(type&&typeof type==='object'){const map={};for(const key of Object.keys(type))map[key]=typeof type[key]==='function'?measureHandler(key,type[key]):type[key];return registerDownloader.call(this,map);}
+      return registerDownloader.apply(this,arguments);
+    };
+    cc.director.once(cc.Director.EVENT_BEFORE_DRAW, () => mark('engine.first.beforeDraw'));
+    cc.director.on(cc.Director.EVENT_AFTER_DRAW, function firstReadyDraw() {
+      const state = window.__tavern?.state();
+      if (!state?.ready) return;
+      mark('scene.first.completeDraw', {floor: state.floor, state: safeState(state)});
+      cc.director.off(cc.Director.EVENT_AFTER_DRAW, firstReadyDraw);
+    });
+  }
+  function hookSystem(system) {
+    if (!system?.register || system.__entryMeasured) return false;
+    system.__entryMeasured = true; mark('system.hooked');
+    const register = system.register;
+    system.register = function (...args) {
+      const i = args.length - 1, declare = args[i];
+      if (typeof declare === 'function') args[i] = function (exporter, context) {
+        return declare.call(this, function (name, value) {
+          if (typeof name === 'string') hookClass(name, value);
+          else if (name && typeof name === 'object') for (const key in name) hookClass(key, name[key]);
+          return exporter.apply(this, arguments);
+        }, context);
+      };
+      return register.apply(this, args);
+    };
+    const imp = system.import;
+    system.import = function (...args) {
+      const start = now(), result = imp.apply(this, args);
+      if (args[0] === 'cc') result.then(cc => { span('engine.import', start); hookEngine(cc); }, e => span('engine.import', start, {error: String(e)}));
+      return result;
+    };
+    return true;
+  }
+  const systemTimer = setInterval(() => { if (hookSystem(window.System)) clearInterval(systemTimer); }, 1);
+  for (const prototype of [window.WebGLRenderingContext?.prototype, window.WebGL2RenderingContext?.prototype]) {
+    if (!prototype) continue;
+    for (const method of ['compileShader', 'getShaderParameter', 'linkProgram', 'getProgramParameter', 'texImage2D', 'texSubImage2D', 'bufferData', 'bufferSubData']) {
+      const original = prototype[method]; if (!original || wrapped.has(original)) continue;
+      const measured = function (...args) {
+        const start = now(); try { return original.apply(this, args); } finally {
+          const ms = now() - start, t = gpu[method] || (gpu[method] = {calls: 0, ms: 0, maxMs: 0});
+          t.calls++; t.ms += ms; t.maxMs = Math.max(t.maxMs, ms);
+          if (ms >= 20) push({name: 'WebGL.' + method, start, end: now(), ms});
+        }
+      }; wrapped.add(measured); prototype[method] = measured;
+    }
+  }
+  const decode = window.HTMLImageElement?.prototype.decode;
+  if (decode) HTMLImageElement.prototype.decode = function (...args) {
+    const start = now(), src = safeURL(this.currentSrc || this.src), result = decode.apply(this, args);
+    result.then(() => span('image.decode', start, {url: src}), e => span('image.decode', start, {url: src, error: String(e)})); return result;
+  };
+  const long = []; try { new PerformanceObserver(l => l.getEntries().forEach(e => long.length < 2000 && long.push({at: e.startTime, ms: e.duration}))).observe({type: 'longtask', buffered: true}); } catch {}
+  performance.setResourceTimingBufferSize(8000);
+  let lastKey = '';
+  const phaseTimer = setInterval(() => {
+    const a = window.__arrival, b = window.__tavernEntry?.status(), s = window.__tavern?.state();
+    const key = [a?.state.phase, a?.scene?.ready, b?.ready, b?.entered, s?.ready, s?.firstFrameReady].join('|');
+    if (key !== lastKey) { lastKey = key; mark('state', {key, bridge: b, scene: s && {floor: s.floor, ready: s.ready, firstFrameReady: s.firstFrameReady}}); }
+  }, 25);
+  window.__entryTrace = {
+    mark,
+    snapshot: () => ({version: 'critical-trace-20261028', url: safeURL(location.href), timeOrigin: origin, probeStart: begin, now: now(), userAgent: navigator.userAgent, events, loads, downloads, handlers, parses, totals, gpu, long, dropped, engineConfig,
+      navigation: performance.getEntriesByType('navigation').map(e => ({...e.toJSON(),name:safeURL(e.name)})),
+      resources: performance.getEntriesByType('resource').slice(0,4000).map(e => ({...e.toJSON(),name:safeURL(e.name)})),
+      serviceWorker: navigator.serviceWorker?.controller?.scriptURL || null,
+      state: safeState(window.__tavern?.state()), bridge: window.__tavernEntry?.status(), gate: window.__arrival && {phase: window.__arrival.state.phase, sceneReady: window.__arrival.scene?.ready},
+      canvas: Array.from(document.querySelectorAll('canvas'), c => ({width: c.width, height: c.height}))}),
+    stop: () => { clearInterval(systemTimer); clearInterval(phaseTimer); }
+  };
+  mark('probe.installed');
+})();
+if(window===top&&new URLSearchParams(location.search).has('entryCheck')){const show=()=>{if(document.getElementById('entry-tools'))return;const style=document.createElement('style');style.textContent="#entry-tools,#entry-tools *{box-sizing:border-box}#entry-tools{position:relative;margin:12px auto;width:min(760px,calc(100% - 24px));z-index:2147483647;color:#f2e5d0;font:14px/1.5 system-ui}#entry-tools [hidden]{display:none!important}#entry-tools .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}#entry-tools button,#entry-tools select{font:inherit;color:inherit;background:#493646;border:1px solid #aa885c;border-radius:7px;padding:8px 12px;min-height:40px}#entry-tools button:disabled{opacity:.5}#entry-tools p{margin:5px 0}#entry-tools .small{font-size:12px;color:#d2c1ab}#entry-tools #status{color:#efca88}#entry-tools details{margin-top:5px}#entry-tools textarea{width:100%;height:150px;background:#100e15;color:#ddd2be;font:11px/1.3 monospace;border:1px solid #746047;resize:vertical}#entry-tools .warn{color:#ffc98b}#entry-tools #entry-panel{padding:12px;background:#211b28f5;border:1px solid #937547;border-radius:9px;box-shadow:0 3px 16px #0005;overscroll-behavior:contain;touch-action:pan-y}#entry-tools.in-game{position:fixed;left:auto;right:max(8px,env(safe-area-inset-right));top:max(8px,env(safe-area-inset-top));bottom:auto;width:60px;max-width:calc(100vw - 16px);height:32px;margin:0;padding:0;pointer-events:none}#entry-tools.in-game #toggle{display:block;width:60px;height:32px;min-height:32px;padding:0;pointer-events:auto;font-size:13px;box-shadow:0 2px 12px #0007}#entry-tools.in-game #entry-panel{position:absolute;right:0;top:40px;width:min(420px,calc(100vw - 16px));max-height:calc(100vh - 64px);max-height:calc(100dvh - 64px);overflow:auto;pointer-events:auto}#entry-tools.in-game #collapse{margin-left:auto}@media(max-height:500px){#entry-tools.in-game #entry-panel{max-height:calc(100vh - 58px);max-height:calc(100dvh - 58px)}#entry-tools button,#entry-tools select{min-height:34px;padding:5px 9px}}";document.head.append(style);const host=document.createElement('div');host.innerHTML="<section class=\"tools\" id=\"entry-tools\"><button id=\"toggle\" type=\"button\" aria-expanded=\"false\" aria-controls=\"entry-panel\" hidden>测量</button><div id=\"entry-panel\" data-allow-scroll>\n<div class=\"row\"><strong>贝尔维德 · 进场测量</strong><button id=\"collapse\" type=\"button\" hidden>收起返回游戏</button></div><div class=\"row\"><select id=\"label\" aria-label=\"本次测试类型\"><option value=\"existing\">现有缓存（非冷启动）</option><option value=\"wechat-existing\">微信现有缓存（非冷启动）</option><option value=\"first\">首次（浏览器新无痕窗口）</option><option value=\"repeat\">再次（保留此窗口）</option></select><button id=\"start\">当前房间测试</button><button id=\"full\">完整入场测试</button><button id=\"copy\" hidden disabled>复制摘要</button><button id=\"download\" hidden disabled>保存报告</button></div>\n<p id=\"status\" role=\"status\">先点击“当前房间测试”。进入后，点右上角小“测量”按钮复制摘要。</p>\n<div class=\"notes\"><p class=\"small\">本页只记录耗时，不自动上传；沿用现有角色、房间及缓存，不清除存档；正常操作仍会保存位置。微信通常不能新开无痕窗口，请选“微信现有缓存”，不把它当冷启动；标签本身不能证明缓存为空。浏览器首次请新开无痕窗口，再次保留同一窗口重测。</p><p class=\"small\">对照条件：城门 ultra，酒馆 full，雨夜。仅本次地址固定画质，不修改保存的默认设置；请正常进场，再用摇杆或方向键向空地移动一下。</p><p id=\"secure\" class=\"small\"></p></div>\n<details id=\"report\" hidden><summary>查看报告文字</summary><textarea id=\"text\" readonly aria-label=\"进场诊断报告\"></textarea></details></div>\n</section>";document.documentElement.append(host.firstElementChild);const ui=document.createElement('script');ui.textContent="\n(() => {\n const tools=document.getElementById('entry-tools'),$=id=>tools.querySelector('#'+id),build=window.__entryDiagnosticBuild||{\"diagnosticVersion\":\"entry-check-mobile-v2-20261028\",\"baseCommit\":\"abbe1ea24de19b286e4634c3df57878cb219aa4a\",\"gameVersion\":\"entry-cache-target-20261028\",\"mainSha256\":\"da36eaad5ac0097c330e09ac9a2756d15288fdbc69368a23ae454b8561ee7a90\",\"probeSha256\":\"fad70f5a5ae311eec5c8e29029640c0b316f653839a4bd3699738bcd07f0f556\",\"sourceHomeSha256\":\"4ef64c978a2e4e333e7244fd2eaa32e111060831b1de88e9b471c892dbc89c3d\",\"sourceTavernSha256\":\"fbd81ecca3f80cdc26e08a73bfd2a96dd610f5a5ab3612a2a0ea3ccbfb692930\"};\n const query=new URLSearchParams(location.search),appMode=query.has('entryCheck')&&!/\\/entry-check\\.html$/.test(location.pathname);const selectedRun=query.get('entryRun')||(/MicroMessenger/i.test(navigator.userAgent)?'wechat-existing':'existing');$('label').value=[...$('label').options].some(option=>option.value===selectedRun)?selectedRun:'existing';\n tools.addEventListener('keydown',event=>event.stopPropagation());for(const type of ['pointerdown','pointermove','pointerup','pointercancel','click'])tools.addEventListener(type,event=>event.stopPropagation());\n const setOpen=open=>{$('entry-panel').hidden=!open;$('toggle').setAttribute('aria-expanded',String(open));};$('toggle').onclick=()=>setOpen($('entry-panel').hidden);$('collapse').onclick=()=>{setOpen(false);document.activeElement?.blur();};\n if(appMode){$('copy').hidden=false;$('copy').disabled=false;$('download').hidden=false;$('download').disabled=false;$('report').hidden=false;tools.classList.add('in-game');$('toggle').hidden=false;$('collapse').hidden=false;setOpen(false);}else{$('copy').hidden=true;$('copy').disabled=true;$('download').hidden=true;$('download').disabled=true;$('report').hidden=true;}\n const safeURL=value=>{try{const u=new URL(value,location.href);for(const key of [...u.searchParams.keys()])if(!['v','rooms','quality','weather','time','q','entryTrace1','entryCheck','entryRun','reenter','diagnose'].includes(key))u.searchParams.delete(key);u.hash='';return u.href;}catch{return '';}};\n const storageSummary=()=>{const result={readable:false};try{result.readable=true;for(const [key,field]of [['belvedere-character-v1','character'],['belvedere-position-v1-rooms','position'],['belvedere-tavern-return','returnMarker']]){let value;try{value=JSON.parse(localStorage.getItem(key)||'null');}catch{}result[field]={present:!!value};if(field==='position'&&typeof value?.room==='string')result[field].room=value.room;if(field==='returnMarker'&&Number.isFinite(value?.at))result[field].ageMs=Date.now()-value.at;}}catch{}return result;};\n const cacheSummary=async()=>{const result={secureContext:isSecureContext,serviceWorkerSupported:'serviceWorker'in navigator,controller:navigator.serviceWorker?.controller?safeURL(navigator.serviceWorker.controller.scriptURL):null};let timer;try{const keys=await Promise.race([caches.keys(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('cache-timeout')),750);})]);result.gameCacheCount=keys.filter(k=>k.startsWith('belvedere-')).length;}catch{result.cacheAPIUnavailable=true;}finally{clearTimeout(timer);}return result;};\n function collectFrames(win,path='game',out=[]){try{const probe=win.__entryTrace?.snapshot();out.push({path,url:safeURL(win.location.href),timeOrigin:win.performance.timeOrigin,offsetFromReportMs:win.performance.timeOrigin-performance.timeOrigin,build:win.__entryDiagnosticBuild||null,probe:probe||null});for(let i=0;i<win.frames.length;i++)collectFrames(win.frames[i],path+'/'+i,out);}catch{out.push({path,unavailable:true});}return out;}\n async function report(){const c=navigator.connection;return {reportVersion:'entry-check-mobile-v2-20261028',at:new Date().toISOString(),userLabel:$('label').value,mode:query.get('entryCheck')||'landing',now:performance.now(),timeOrigin:performance.timeOrigin,build,url:safeURL(location.href),userAgent:navigator.userAgent,screen:{width:innerWidth,height:innerHeight,dpr:devicePixelRatio},security:{secureContext:isSecureContext,subtleCryptoAvailable:!!window.crypto?.subtle},connection:c?{effectiveType:c.effectiveType,downlink:c.downlink,rtt:c.rtt,saveData:c.saveData}:null,storage:storageSummary(),cache:await cacheSummary(),frames:appMode?collectFrames(window):[],notes:['电脑模拟不等于真实手机。','userLabel由测试者选择，不能由它证明缓存为空。','HTTP局域网和HTTPS公网的Service Worker与SubtleCrypto校验条件不同；LAN可能仅做长度校验，不能把全部差异归为线路。','资源transferSize为0需结合workerStart/decoded等判断，不能单独认定未下载。','offsetFromReportMs加探针相对时间，可统一到本页navigation timeOrigin。']};}\n const round=value=>Number.isFinite(value)?Math.round(value*10)/10:null;\n function summarize(data){return {reportVersion:data.reportVersion,at:data.at,userLabel:data.userLabel,mode:data.mode,build:data.build,userAgent:data.userAgent,screen:data.screen,security:data.security,connection:data.connection,storage:data.storage,cache:data.cache,times:'毫秒，相对本次导航开始；逻辑加载不是HTTP下载',frames:data.frames.map(frame=>{const p=frame.probe;if(!p)return {path:frame.path,pendingProbe:true};const offset=frame.offsetFromReportMs||0,time=value=>round(value+offset),events=p.events||[],startup=events.find(e=>e.name==='Tavern.start'),first=events.find(e=>e.name==='scene.first.completeDraw'),cut=first?.at??startup?.end??p.now;\n   return {path:frame.path,build:frame.build,state:p.state,bridge:p.bridge,gate:p.gate,engineConfig:p.engineConfig,probeStart:time(p.probeStart),snapshotAt:time(p.now),initialRoomLoadsLast10:(p.loads||[]).filter(e=>!startup||e.start<=startup.end).filter(e=>e.end!==undefined).sort((a,b)=>b.end-a.end).slice(0,10).map(e=>({path:e.path,start:time(e.start),end:time(e.end),ms:round(e.ms),error:e.error})),lastNetworkBeforeFirstDraw10:(p.resources||[]).filter(e=>e.responseEnd>0&&e.responseEnd<=cut).sort((a,b)=>b.responseEnd-a.responseEnd).slice(0,10).map(e=>({url:e.name,start:time(e.startTime),request:e.requestStart>0?time(e.requestStart):null,firstByte:e.responseStart>0?time(e.responseStart):null,end:time(e.responseEnd),encoded:e.encodedBodySize,transfer:e.transferSize,workerStart:e.workerStart>0?time(e.workerStart):null})),stages:events.filter(e=>/^(Tavern\\.(start|loadActor|createActor|changeFloor|drawRoom|finishArrival|setCharacter|activate)(\\.begin)?|engine\\.game\\.(init|run)(\\.begin)?|game\\.(init|run))$/.test(e.name)||/first.*Draw|visible\\.|input\\./.test(e.name)).map(e=>({name:e.name,start:e.start===undefined?undefined:time(e.start),end:e.end===undefined?undefined:time(e.end),at:e.at===undefined?undefined:time(e.at),ms:round(e.ms??e.elapsedMs),error:e.error})),longTasks:(p.long||[]).filter(e=>e.at<=cut).sort((a,b)=>b.ms-a.ms).slice(0,10).map(e=>({at:time(e.at),ms:e.ms})),gpu:p.gpu,baked:Object.fromEntries(Object.entries(p.totals||{}).filter(([key])=>key.startsWith('Baked.'))),pending:[...['loads','downloads','parses'].flatMap(type=>(p[type]||[]).filter(e=>e.end===undefined).map(e=>({type,path:e.path||e.url||e.id,start:time(e.start),waitMs:round(p.now-e.start)})))].slice(0,20),errors:[...(p.loads||[]),...(p.downloads||[]),...(p.parses||[])].filter(e=>e.error).map(e=>({path:e.path||e.url||e.id,error:e.error})).slice(0,12)};})};}\n async function renderReport(){if(!appMode){$('status').textContent='请先进入房间，再点右上角“测量”复制。';return null;}const data=await report(),text=JSON.stringify(summarize(data),null,2);$('text').value=text;return {data,text};}\n function start(mode){const base=location.pathname.includes('/tavern/')?new URL('../',location.href):new URL('./',location.href),url=mode==='room'?new URL('tavern/',base):base;for(const [key,value]of Object.entries({entryTrace1:'1',entryCheck:mode,entryRun:$('label').value,q:'ultra',quality:'full',time:'night',weather:'rain',rooms:'1'}))url.searchParams.set(key,value);location.assign(url.href);}\n $('start').onclick=()=>start('room');$('full').onclick=()=>start('full');\n $('copy').onclick=async()=>{const result=await renderReport();if(!result)return;const {text}=result;try{await navigator.clipboard.writeText(text);$('status').textContent='摘要已复制，可以直接粘贴发给我。';}catch{$('report').open=true;$('text').focus();$('text').select();if(document.execCommand('copy'))$('status').textContent='摘要已复制。';else $('status').textContent='请长按摘要文字，全选后复制。';}};\n $('download').onclick=async()=>{const result=await renderReport();if(!result)return;const {data}=result,url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='belvedere-entry-'+Date.now()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='已生成完整报告文件；如果微信未保存，请用“复制摘要”。';};\n $('report').ontoggle=()=>{if(appMode&&$('report').open)renderReport();};\n $('secure').textContent=isSecureContext?'当前是安全地址，可记录 Service Worker 缓存状态。':'当前是 HTTP 局域网，通常不能使用 Service Worker；再次进入与 HTTPS 公网的缓存条件不同。';if(!isSecureContext)$('secure').classList.add('warn');\n if(appMode){$('status').textContent='正在记录；若整页暂时冻结，等按钮恢复后复制，先前等待仍会记录。';let visibleRecorded=false,queued=false;const checkVisible=()=>{if(visibleRecorded||queued)return;let ready=window.__tavern?.state().firstFrameReady;if(!ready){const bridge=window.__tavernEntry?.status(),frame=document.querySelector('iframe'),cinema=document.getElementById('tavern-amber-cinema');ready=bridge?.entered&&frame?.style.opacity==='1'&&(!cinema||cinema.style.display==='none');}if(!ready)return;queued=true;requestAnimationFrame(()=>requestAnimationFrame(()=>{queued=false;visibleRecorded=true;window.__entryTrace?.mark('visible.first.complete');observer.disconnect();}));};const observer=new MutationObserver(checkVisible);observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['style','hidden']});checkVisible();\n  setInterval(()=>{const s=window.__tavern?.state(),bridge=window.__tavernEntry?.status();if(s?.entered||bridge?.entered)$('status').textContent='已进入；请移动一下，然后复制摘要或保存完整报告。';else if(bridge?.failed)$('status').textContent='检测到加载失败；现在可以复制摘要。';checkVisible();},2000);\n }\n})();\n";document.body.append(ui);};if(document.readyState==='loading')addEventListener('DOMContentLoaded',show,{once:true});else show();}
+}
+</script>
+<!-- entry-measurement:end --><script id="entry-boot-guard">// Inlined before external scripts so even a failed engine/module request is visible.
+(function () {
+  var started = Date.now(), done = false, failure = null, slow = false;
+  var info = {version: 'entry-fix-20261027b', userAgent: navigator.userAgent, errors: []};
+  function render() {
+    if (done) return;
+    var boot = document.getElementById('boot');
+    if (!boot || (!failure && !slow)) return;
+    boot.querySelector('p').textContent = failure
+      ? '旅途暂未启动（' + failure.code + '）'
+      : '旅途仍在加载，请稍候…';
+    document.getElementById('boot-retry').hidden = false;
+    var detail = document.getElementById('boot-detail');
+    if (!detail) {
+      detail = document.createElement('details'); detail.id = 'boot-detail';
+      detail.style.cssText = 'max-width:88vw;text-align:left;font:14px/1.5 sans-serif;pointer-events:auto';
+      var summary = document.createElement('summary'); summary.textContent = '查看加载原因（可截图发给我）';
+      var text = document.createElement('pre'); text.id = 'boot-detail-text';
+      text.style.cssText = 'white-space:pre-wrap;overflow-wrap:anywhere;max-height:32vh;overflow:auto';
+      detail.appendChild(summary); detail.appendChild(text); boot.appendChild(detail);
+    }
+    info.elapsedMs = Date.now() - started;
+    info.engine = !!window.Phaser;
+    info.module = !!window.__arrival;
+    info.status = failure ? failure.code : 'WAIT';
+    document.getElementById('boot-detail-text').textContent = JSON.stringify(info, null, 2);
+    if (failure) detail.open = true;
+  }
+  window.bootFailure = function (reason, code) {
+    if (done) return;
+    var message = reason && (reason.stack || reason.message) || String(reason || '启动未完成');
+    info.errors.push(message.slice(0, 1800));
+    if (info.errors.length > 6) info.errors.shift();
+    failure = failure || {code: code || 'J1'}; render();
+  };
+  window.bootReady = function () {
+    done = true; info.status = 'READY'; info.elapsedMs = Date.now() - started; clearTimeout(window.bootTimer);
+    var boot = document.getElementById('boot'); if (boot) boot.hidden = true;
+  };
+  window.addEventListener('error', function (event) {
+    if (event.target && event.target.tagName === 'SCRIPT') {
+      window.bootFailure('启动文件未下载成功：' + event.target.src, 'N1');
+    } else if (event.message) {
+      window.bootFailure(event.error || (event.message + ' ' + event.filename + ':' + event.lineno), 'J1');
+    }
+  }, true);
+  window.addEventListener('unhandledrejection', function (event) {
+    window.bootFailure(event.reason, 'J2');
+  });
+  document.addEventListener('DOMContentLoaded', render);
+  window.bootTimer = setTimeout(function () { slow = true; render(); }, 15000);
+  window.__entryBootReport = function () { return info; };
+})();
+</script><script id="room-entry-default">{const u=new URL(location.href);if(!u.searchParams.has("rooms")){u.searchParams.set("rooms","1");history.replaceState(history.state,"",u.href);}}</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content"><meta name="theme-color" content="#11141f"><title>贝尔维德 · 进场演示（非正式登录）</title><link rel="stylesheet" href="sample.css?v=no-loading-companion-20261026"><link rel="icon" href="data:,"></head>
+<body>
+<script src="mobile-screen.js?v=zoom-palette-20261026" data-kind="gate"></script>
+<details id="entry-diagnostic" style="display:none;position:fixed;top:calc(35px + env(safe-area-inset-top));right:8px;z-index:2147483647;max-width:92vw;padding:10px;background:#f2e1bf;color:#302218;border:2px solid #a1773d;font:14px/1.4 system-ui">
+<summary style="cursor:pointer">加载诊断 D2 · 点此复制</summary>
+<p>无需等待家具加载。展开后复制以下内容发回；结果不会自动上传。</p>
+<textarea id="entry-diagnostic-text" readonly style="width:80vw;max-width:560px;height:48vh">D2页面已到达，诊断脚本尚未执行。</textarea>
+<p><button type="button" id="entry-diagnostic-copy">选中并复制</button></p>
+</details>
+<script id="entry-diagnostic-script">
+(function(){
+ var panel=document.getElementById('entry-diagnostic'),box=document.getElementById('entry-diagnostic-text'),errors=[],start=Date.now();
+ var forced=new URLSearchParams(location.search).get('diagnose')==='1';if(!forced){panel.remove();return;}panel.style.display='block';
+ function error(value){errors.push(String(value).slice(0,600));if(errors.length>15)errors.shift();}
+ window.addEventListener('error',function(e){error(e.message||('资源失败: '+(e.target.src||e.target.href||'unknown')));},true);
+ window.addEventListener('unhandledrejection',function(e){error(e.reason);});
+ function collect(){
+  var result={version:'entry-diagnostic-D2',url:location.href,elapsedMs:Date.now()-start,readyState:document.readyState,errors:errors.slice(),userAgent:navigator.userAgent,viewport:[innerWidth,innerHeight,devicePixelRatio]};
+  try{result.controller=navigator.serviceWorker&&navigator.serviceWorker.controller?navigator.serviceWorker.controller.scriptURL:null;}catch(e){error(e);}
+  try{result.entry=window.__tavernEntry?window.__tavernEntry.status():null;result.journey=window.__arrival?{phase:window.__arrival.state.phase,ready:window.__arrival.state.ready,error:window.__arrival.state.error}:null;
+   var frame=document.querySelector('iframe[title="贝尔维德酒馆二楼"]'),child=frame?frame.contentWindow:window;
+   result.iframe=frame?frame.src:null;result.childURL=child.location.href;result.childReady=child.document.readyState;
+   result.boot=child.__tavernLoad?child.__tavernLoad.report():null;
+   var state=child.__tavern?child.__tavern.state():null;result.scene=state?{ready:state.ready,firstFrameReady:state.firstFrameReady,room:state.floor,contextLost:state.contextLost,loadTimings:state.loadTimings}:null;
+   var status=child.document.querySelector('#tavern-ui .status'),note=child.document.querySelector('#tavern-ui .note');result.status=status?status.textContent:null;result.note=note?note.textContent:null;
+   result.resources=child.performance.getEntriesByType('resource').slice(-12).map(function(r){return {url:r.name,duration:Math.round(r.duration)};});
+  }catch(e){result.readError=String(e);}
+  return result;
+ }
+ function update(){var result=collect();if(!panel.open)box.value=JSON.stringify(result,null,2);if(!forced&&result.scene&&result.scene.firstFrameReady)panel.style.display='none';}
+ panel.addEventListener('toggle',function(){if(panel.open)box.value=JSON.stringify(collect(),null,2);});
+ document.getElementById('entry-diagnostic-copy').onclick=function(){box.focus();box.select();try{document.execCommand('copy');}catch(e){}};
+ window.__entryDiagnostic=collect;update();setInterval(update,2000);
+})();
+</script>
+
+<aside style="position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:10000;text-align:center;font:12px/1.5 sans-serif;color:#fff;background:#17202ddd;pointer-events:none">公开演示 · 非正式登录 · 演示密令 DEMO</aside><main id="game" aria-label="旅途与城门场景"></main><canvas id="map-layer" aria-hidden="true"></canvas><div id="veil" aria-hidden="true"></div>
+<div id="boot" role="status"><div class="ink-mark">✧</div><p>展开旅途</p><button id="boot-retry" hidden onclick="location.reload()">重新打开</button></div>
+<div id="notice" role="status" aria-live="polite" hidden><span id="message"></span><button id="retry" hidden>重试加载</button></div>
+<div id="arrival" hidden><span>THE END OF THE OLD ROAD</span><h1>贝尔维德</h1></div>
+<section id="dialog" hidden aria-live="polite">
+ <div id="speaker" aria-hidden="true"><div class="inner"><div class="cam"></div></div></div>
+ <div id="dialog-box" tabindex="0" aria-label="对话，点击继续">
+  <div class="nameplate">白羊</div>
+  <p id="dialog-text"></p>
+  <div id="dialog-choices"></div>
+  <span id="dialog-next" hidden aria-hidden="true"></span>
+ </div>
+</section>
+<section id="letter" hidden aria-label="邀请函">
+ <div class="envelope" aria-hidden="true"><div class="back"></div><div class="flap"></div><div class="seal"><i></i><i></i></div></div>
+ <div class="card">
+  <p class="kicker">贝尔维德 · 邀请函</p>
+  <h2>致远道而来的旅人</h2>
+  <p class="body">欢迎来到贝尔维德。请在下方填写你的密令。</p>
+  <form id="letter-form" novalidate autocomplete="off">
+   <label for="passcode">通行密令</label>
+   <input id="passcode" name="passcode" type="text" maxlength="64" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="演示请输入 DEMO，不要填写个人密码">
+   <p id="letter-status" role="status" aria-live="polite"></p>
+   <div class="actions"><button type="button" id="letter-later">暂且收起</button><button type="submit" id="letter-submit">呈上密令</button></div>
+  </form>
+ </div>
+</section>
+<button id="letter-reopen" hidden>展开邀请函</button>
+<div id="ending" hidden><p class="kicker">THE GATE IS OPEN</p><h2>城门已打开</h2><p>门后通往贝尔维德酒馆二楼。</p></div>
+<footer><button id="replay" hidden>再走一程 ↻</button><label>画质 <select id="quality" aria-label="选择画质"><option value="low">流畅</option><option value="high">高清（推荐）</option><option value="ultra">极致</option></select></label><button id="pause" aria-pressed="false">暂停</button></footer>
+<noscript>请启用浏览器 JavaScript 后查看旅途。</noscript>
+
+<script>if(new URLSearchParams(location.search).has('measure')){const s=document.createElement('script');s.src='phone-measure.js';document.head.appendChild(s);}</script>
+<script src="vendor/phaser.min.js"></script><script type="module" src="sample-room-first.js?v=entry-cache-target-20261028"></script>
+</body></html>
