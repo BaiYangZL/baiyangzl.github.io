@@ -154,3 +154,5 @@ self.addEventListener('fetch', event => {
     return response;
   })().catch(() => fetch(networkRequest(request))));
 });
+
+// Prepared release: entry-load-c13747ccd0dd
