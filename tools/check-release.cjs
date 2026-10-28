@@ -10,6 +10,7 @@ function check(root){root=path.resolve(root);const release=JSON.parse(fs.readFil
  assert.equal(fs.readFileSync(path.join(root,'.gitattributes'),'utf8').trim(),'* -text','发布树必须禁止Git自动改写已校验字节');
  assert.deepEqual(actual,release.files,'发布内容在准备后发生变化，请重新准备并验证，不能混发旧清单');
  const bridge=fs.readFileSync(path.join(root,'tavern-transition.js'),'utf8');assert.equal(bridge.match(/const VERSION = '([^']+)'/)?.[1],release.version,'入口版本与发布清单不同');
+ assert(fs.readFileSync(path.join(root,'tavern/index.html'),'utf8').includes('tavern-boot.js?v='+release.version),'直连酒馆缓存版本没有同步');
  const integrity=JSON.parse(fs.readFileSync(path.join(root,'tavern/mesh-integrity.json')));
  for(const [name,item] of Object.entries(integrity)){const b=fs.readFileSync(path.join(root,'tavern',name));assert.equal(b.length,item.size,name);assert.equal(sha(b),item.sha256,name);}
  for(const prefix of ['','tavern/']){const catalog=JSON.parse(fs.readFileSync(path.join(root,prefix,'character-catalog.json')));for(const c of catalog){for(const key of ['hero','dialogue','atlas','atlasData']){

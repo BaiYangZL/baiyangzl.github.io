@@ -3,6 +3,15 @@
   const pending = new Map(), errors = [], repairs = [], started = performance.now();
   let installed = false, button, panel, lastProgress = started;
   const record = error => { errors.push(String(error?.stack || error).slice(0, 2400)); if (errors.length > 12) errors.shift(); };
+  // The homepage enrolls its iframe; a fresh direct tavern visit needs the same
+  // worker too. Start asynchronously: storage restrictions must not block entry.
+  if (window.top === window && window.isSecureContext && navigator.serviceWorker && document.currentScript?.src) {
+    const bootURL = new URL(document.currentScript.src), version = bootURL.searchParams.get('v');
+    if (version && /^entry-load-[a-f0-9]+$/.test(version)) {
+      const root = new URL('../', bootURL), worker = new URL('arrival-sw.js', root);worker.searchParams.set('v', version);
+      navigator.serviceWorker.register(worker.href, {scope:root.pathname}).catch(record);
+    }
+  }
   // Tavern.start catches construction failures and only logs them. These do
   // not dispatch window.error or unhandledrejection, so preserve that evidence.
   const originalError = console.error;
