@@ -1,31 +1,59 @@
 import {openCharacterSelection} from './character-select.js?v=wardrobe-studio-20261026';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'room-prefetch-audio-20261027';
+const VERSION = 'entry-hour-trace-20261028';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
 // The archived full-floor mode is only selected explicitly with rooms=0.
 TAVERN.searchParams.set('rooms', new URLSearchParams(location.search).get('rooms') === '0' ? '0' : '1');
-const TODAY = () => new Date().toLocaleDateString('sv-SE');
 const RETURN_KEY = 'belvedere-tavern-return';
+// A recent visit resumes; an absence of at least one hour replays the rain entry.
+export function reentryState(marker,now=Date.now()) {
+  const seen=marker&&typeof marker==='object'?('lastSeenAt' in marker?marker.lastSeenAt:marker.at):undefined;
+  const valid=Number.isFinite(seen)&&Number.isFinite(now)&&now-seen>=0;
+  return {returning:valid&&now-seen<3600000,expired:valid&&now-seen>=3600000};
+}
 
 export function createTavernTransition({pauseGate} = {}) {
   let frame, badge, curtain, entered = false, waiting = false, ready = false, failed = false;
   let startedAt = 0, poll, cacheLimited = false, returning = false, cacheTask;
   let documentRetries=0,documentRetryTimer,failureMessage='';
-  const current = () => `${TODAY()}/${VERSION}`;
-  function hasEnteredBefore() {
-    if(new URLSearchParams(location.search).get('reenter')==='1')return false;
-    try {
-      const marker = JSON.parse(localStorage.getItem(RETURN_KEY));
-      if (Number.isFinite(marker?.at) && Date.now() - marker.at >= 0) return true;
-      if (localStorage.getItem('belvedere-tavern-ready-day') === current()) {
-        localStorage.setItem(RETURN_KEY, JSON.stringify({at: Date.now(), version: VERSION}));
-        return true;
-      }
-      return false;
-    } catch { return false; }
+  let lastActiveAt=0,leftAt=0,presenceTimer,navigating=false;
+  function readReturnState() {
+    if(new URLSearchParams(location.search).get('reenter')==='1')return {returning:false,expired:false};
+    try{return reentryState(JSON.parse(localStorage.getItem(RETURN_KEY)));}
+    catch{return {returning:false,expired:false};}
   }
+  function rememberSeen(at) {
+    lastActiveAt=at;
+    try{localStorage.setItem(RETURN_KEY,JSON.stringify({at,lastSeenAt:at,version:VERSION}));}catch{}
+  }
+  function rememberActive() {
+    if(entered&&!navigating&&!document.hidden&&!leftAt)rememberSeen(Date.now());
+  }
+  function leave() {
+    if(!entered||navigating||leftAt)return;
+    leftAt=Date.now();rememberSeen(leftAt);
+  }
+  function restartRain() {
+    if(navigating)return;navigating=true;clearInterval(presenceTimer);
+    // Save through the room's existing handler; never clear its character/position.
+    try{frame?.contentWindow.dispatchEvent(new frame.contentWindow.Event('pagehide'));}catch{}
+    const url=new URL(ROOT),currentURL=new URL(location.href);url.searchParams.set('rooms',TAVERN.searchParams.get('rooms'));
+    for(const key of ['entryTrace1','entryTrace','entryCheck','entryRun','q','quality','time','diagnose'])if(currentURL.searchParams.has(key))url.searchParams.set(key,currentURL.searchParams.get(key));
+    url.searchParams.set('reenter','1');url.searchParams.set('weather','rain');url.searchParams.set('v',VERSION);
+    location.replace(url.href);
+  }
+  function resume() {
+    if(!entered||navigating||document.hidden)return;
+    const own=leftAt||lastActiveAt;
+    // Another foreground tab may have kept this same visitor active.
+    const recent=own&&reentryState({lastSeenAt:own}).returning;
+    if(!recent&&!readReturnState().returning){restartRain();return;}
+    leftAt=0;rememberActive();
+  }
+  document.addEventListener('visibilitychange',()=>document.hidden?leave():resume());
+  window.addEventListener('pagehide',leave);window.addEventListener('pageshow',resume);
 
   function say(message) {
     if (!badge) return;
@@ -123,9 +151,11 @@ export function createTavernTransition({pauseGate} = {}) {
     }
   }
   async function prepare() {
-    if (frame) return;
+    if (frame||navigating) return;
+    const previous=readReturnState();
+    if(previous.expired){restartRain();return;}
+    returning=previous.returning;
     makeUI(); startedAt = Date.now();
-    returning = hasEnteredBefore();
     if (returning) {
       say('正在恢复上次的旅店位置…');
       // Returning players resume their confirmed character without opening selection.
@@ -156,9 +186,8 @@ export function createTavernTransition({pauseGate} = {}) {
     const entryURL=new URL(location.href);
     if(entryURL.searchParams.has('reenter')){entryURL.searchParams.delete('reenter');history.replaceState(history.state,'',entryURL.href);}
     window.__belvedereScreen?.hideControls();
-    if (!returning) {
-      try { localStorage.setItem(RETURN_KEY, JSON.stringify({at: Date.now(), version: VERSION})); } catch { /* Private storage is optional. */ }
-    }
+    leftAt=0;rememberActive();
+    presenceTimer=setInterval(rememberActive,30000);
     curtain.querySelector('p').textContent = '';
     requestAnimationFrame(() => {
       frame.contentWindow.__tavern?.activate();
@@ -170,6 +199,7 @@ export function createTavernTransition({pauseGate} = {}) {
   function enter() {
     waiting = true;
     if (!frame) prepare();
+    if(navigating)return;
     curtain.hidden = false;
     curtain.style.display = 'grid';
     badge.hidden = true;
@@ -218,6 +248,7 @@ export function createTavernTransition({pauseGate} = {}) {
   function selectWardrobe(options){return openCharacterSelection({...panelOptions(options),mode:'wardrobe'});}
   function showReentry(options){return openReentryPanel(panelOptions(options));}
   function restart(){
+    navigating=true;clearInterval(presenceTimer);
     const url=new URL(ROOT);url.searchParams.set('rooms',TAVERN.searchParams.get('rooms'));
     url.searchParams.set('reenter','1');url.searchParams.set('v','reentry-20261026');
     for(const key of [RETURN_KEY,'belvedere-tavern-ready-day'])try{localStorage.removeItem(key);}catch{}
