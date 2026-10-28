@@ -40,7 +40,7 @@ async function mediaRange(request, saved) {
   const headers=new Headers(saved.headers);headers.delete('Content-Encoding');headers.set('Content-Range',`bytes ${start}-${end}/${size}`);headers.set('Content-Length',String(end-start+1));headers.set('Accept-Ranges','bytes');
   return new Response(body.slice(start,end+1),{status:206,headers});
 }
-const changed=new Set(["","arrival-audio-study.js","arrival-audio.js","arrival-sw.js","cache-check.html","character-catalog.json","character-select.js","entry-check.html","index.html","journey.js","painted-flora.js","painted-gate.js","sample-study.js","sample.js","stage.html","tavern-transition.js","tavern/assets/main/index.js","tavern/character-catalog.json","tavern/index.html","tavern/mesh-integrity.json","tavern/tavern-boot.js","weather-fx.js"]);
+const changed=new Set(["","arrival-audio-study.js","arrival-audio.js","arrival-sw.js","cache-check.html","character-catalog.json","character-select.css","character-select.js","entry-check.html","index.html","journey.js","painted-flora.js","painted-gate.js","sample-study.js","sample.js","stage.html","tavern-transition.js","tavern/assets/main/index.js","tavern/character-catalog.json","tavern/index.html","tavern/mesh-integrity.json","tavern/tavern-boot.js","weather-fx.js"]);
 const networkRequest = request => changed.has(new URL(request.url).pathname.slice(rootPath.length)) ? new Request(request,{cache:'reload'}) : request;
 let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
@@ -155,4 +155,4 @@ self.addEventListener('fetch', event => {
   })().catch(() => fetch(networkRequest(request))));
 });
 
-// Prepared release: entry-load-ab3313f04329
+// Prepared release: entry-load-4864a92a67d1

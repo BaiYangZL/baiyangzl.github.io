@@ -190,3 +190,17 @@
 .cs-root.cs-wardrobe .cs-monogram{display:none}
 /* 衣橱同时去掉左下角欢迎字，避免被裙摆压住 */
 .cs-root.cs-wardrobe .cs-welcome{display:none}
+
+/* First arrival shares the wardrobe; keep its form within a phone-sized panel. */
+.cs-root.cs-entry .cs-name:before{content:'旅途中的名字'}
+.cs-root.cs-entry.cs-compact .cs-stage{height:770px}
+.cs-root.cs-entry.cs-compact .cs-surface{top:180px!important;height:580px!important}
+.cs-root.cs-entry.cs-compact .cs-hero-stack{height:370px}
+.cs-root.cs-entry.cs-compact .cs-chooser{top:330px}
+.cs-root.cs-entry.cs-compact .cs-greeting{top:392px}
+.cs-root.cs-entry.cs-compact .cs-name{top:480px}
+.cs-root.cs-entry.cs-compact .cs-directions-title{top:552px}
+.cs-root.cs-entry.cs-compact .cs-directions{top:576px}
+.cs-root.cs-entry.cs-compact .cs-error{top:681px}
+.cs-root.cs-entry.cs-compact .cs-confirm{top:702px;height:54px}
+.cs-root.cs-entry .cs-password:before{content:'密语已验证'}

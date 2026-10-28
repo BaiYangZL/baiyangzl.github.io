@@ -21,7 +21,7 @@ async function showSelection({onConfirm=async()=>{},initialId,initialName,initia
  const focusBefore=document.activeElement,origin=originRect||(originElement||morphFrom)?.getBoundingClientRect();
  const original=morphFrom?{parent:morphFrom.parentNode,next:morphFrom.nextSibling,attrs:Array.from(morphFrom.attributes,a=>[a.name,a.value]),children:Array.from(morphFrom.childNodes)}:null;
  const root=morphFrom||document.createElement('section'),shade=document.createElement('div');shade.className='cs-shield';shade.setAttribute('aria-hidden','true');
- if(original)root.replaceChildren();root.className='cs-root cs-loading'+(wardrobe?' cs-wardrobe':'');root.removeAttribute('style');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',wardrobe?'衣橱 · 更换角色':'选择本次进入的角色');root.tabIndex=-1;
+ if(original)root.replaceChildren();root.className='cs-root cs-loading cs-wardrobe'+(wardrobe?'':' cs-entry');root.removeAttribute('style');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',wardrobe?'衣橱 · 更换角色':'选择本次进入的角色');root.tabIndex=-1;
  root.innerHTML='<div class="cs-load-label" role="status">'+(wardrobe?'正在打开衣橱…':'密语验证完成 · 正在准备人物…')+'</div>';
  document.body.append(shade,root);onAttached();
  const now=()=>performance.now()/1000;

@@ -1,7 +1,7 @@
 {
-  "version": "entry-load-ab3313f04329",
+  "version": "entry-load-4864a92a67d1",
   "files": 2173,
-  "bytes": 598488228,
+  "bytes": 598488960,
   "verifiedModels": 1968,
   "reused": [],
   "invalidatedPaths": [
@@ -11,6 +11,7 @@
     "arrival-sw.js",
     "cache-check.html",
     "character-catalog.json",
+    "character-select.css",
     "character-select.js",
     "entry-check.html",
     "index.html",
