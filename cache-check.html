@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>贝尔维德 · 缓存盘点</title><style>body{margin:20px;background:#201b25;color:#eee0ca;font:16px/1.6 system-ui}button{padding:12px 18px;font:inherit}textarea{box-sizing:border-box;width:100%;height:58vh;margin-top:14px;background:#100d15;color:#ddd;font:12px monospace}p{max-width:680px}</style></head>
+<body><h1>缓存盘点</h1><p>这页不加载游戏、不清缓存、不注册或更新 Service Worker，也不修改角色和房间。只查指定文件是否已在缓存中；仅对已有的主脚本缓存计算指纹，不读取模型或图片内容。</p><p id="status" role="status">正在检查；即使有接口一直等待，也会在截止后给出部分结果。</p><button id="copy">复制盘点结果</button><textarea id="out" readonly aria-label="缓存盘点结果"></textarea>
+<script>
+(async()=>{
+ const out=document.getElementById('out'),status=document.getElementById('status');
+ const report={version:'cache-inventory-20261028',at:new Date().toISOString(),secureContext:isSecureContext,userAgent:navigator.userAgent.replace(/\bMMWEBID\/\S+/g,'MMWEBID/[removed]'),controller:navigator.serviceWorker?.controller?.scriptURL||null,expectedMainSHA256:'da36eaad5ac0097c330e09ac9a2756d15288fdbc69368a23ae454b8561ee7a90',phase:'scanning',cacheNames:[],files:[],errors:[],notes:['缓存存在不等于上次请求命中；本页不推断已运行的模块身份。','main缓存指纹是本页读取时的缓存响应，不是捕获上次脚本执行字节。','音乐可能使用Range分段，本页只查无Range完整URL。']};
+ const show=()=>out.value=JSON.stringify(report,null,2);
+ async function bounded(task,label,ms=2000){let timer;try{return await Promise.race([task,new Promise((_,no)=>{timer=setTimeout(()=>no(Error(label+' timeout')),ms)})]);}finally{clearTimeout(timer);}}
+ document.getElementById('copy').onclick=async()=>{show();try{await navigator.clipboard.writeText(out.value);status.textContent='结果已复制，请粘贴发来。';}catch{out.focus();out.select();status.textContent=document.execCommand('copy')?'结果已复制。':'请长按文字全选后复制。';}};
+ show();
+ try{
+  if(!window.caches)throw Error('Cache API unavailable');
+  report.cacheNames=(await bounded(caches.keys(),'cache names')).filter(n=>n.startsWith('belvedere-'));
+  const roots=await Promise.all(report.cacheNames.map(async name=>({name,cache:await bounded(caches.open(name),'open '+name)})));
+  const paths=['tavern/characters/blue-a/atlas.png','tavern/characters/gold-a/atlas.png','tavern/assets/resources/native/fd/fd321b98-6a79-445e-af4c-4a9522b0e654.png','tavern/assets/resources/native/b2/b294987a-b441-4551-90e8-81467a740ec9.png','tavern/assets/resources/native/9a/9aa36728-1735-4a7d-8266-e64ad969563c.png','tavern/assets/resources/native/31/31a6cb18-53b6-4785-a943-d35f3c446377.png','tavern/assets/main/index.js','tavern/mesh-integrity.json?v=mesh-integrity-D4-20261025','assets/arrival-loading.mp3'];
+  await Promise.all(paths.map(async path=>{const row={path,matches:[]};report.files.push(row);await Promise.all(roots.map(async({name,cache})=>{try{const r=await bounded(cache.match(new URL(path,location.href),{ignoreVary:true}),'match '+path);if(!r)return;const match={cache:name,status:r.status,type:r.headers.get('content-type'),bytesHeader:r.headers.get('content-length'),encoding:r.headers.get('content-encoding')};row.matches.push(match);if(path==='tavern/assets/main/index.js'&&crypto.subtle){const b=await bounded(r.arrayBuffer(),'cached main body');if(b.byteLength>1000000)throw Error('unexpected main size');match.bytes=b.byteLength;match.sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',b))).map(v=>v.toString(16).padStart(2,'0')).join('');match.matchesExpected=match.sha256===report.expectedMainSHA256;}}catch(e){report.errors.push({path,cache:name,error:String(e)});}}));show();}));
+ }catch(e){report.errors.push({error:String(e)});}
+ report.phase='complete';show();status.textContent='检查完成，请复制盘点结果；不需要重新走剧情。';
+})();
+</script></body></html>
