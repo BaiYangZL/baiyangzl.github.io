@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-4847f3c0c68a",
+  "version": "entry-load-073a3e1366e4",
   "files": {
     "approach-road.js": {
       "bytes": 21947,
@@ -15,7 +15,7 @@
     },
     "arrival-sw.js": {
       "bytes": 11469,
-      "sha256": "473381bf89399a0fb77741507be9ce1f5a38900f3154ec9c8a02d2ad2df0927f"
+      "sha256": "f6ebf2c2b3d3e66d16668abbbf5ef7fe27dd7841cd8c9bb627705b53d0edab21"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -319,7 +319,7 @@
     },
     "entry-check.html": {
       "bytes": 14745,
-      "sha256": "fe5e68363c573074bc39d8018fa12f8061ed237064e7f097493afb5594622060"
+      "sha256": "042a44c3734c8010e4f342b9a24f3cb1e58e459a4d3a1b07954653a8d634c84c"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -363,7 +363,7 @@
     },
     "index.html": {
       "bytes": 37292,
-      "sha256": "51e103403a21c1cdd7c22f2ec8b8e6cccfe0c6bf82663363bcf65cae5ecf71bd"
+      "sha256": "2dcc0425468ad5faeb219e01a05460c090d4ee50f86e25ed2d46220408ba9a5a"
     },
     "invite.js": {
       "bytes": 5367,
@@ -8587,7 +8587,7 @@
     },
     "tavern/index.html": {
       "bytes": 33436,
-      "sha256": "9ab3b8e9c3dfe59c6130c3723c6c8accf5717fe2bd2053bb2a7a9c92b48dfc3c"
+      "sha256": "1297889c865cab145121bf66f6b845d80cae6c5e6ef75d4a9148a3ca3121a956"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -8678,8 +8678,8 @@
       "sha256": "e91729c7ed891ae83c1a04eb2cb55072360a3ece32f8a0e770dcd75c32df0ed4"
     },
     "tavern-transition.js": {
-      "bytes": 15714,
-      "sha256": "68803899cf2327e8fbf6d495a2af4b3da729dece35a9d885809f02d7f0250f73"
+      "bytes": 16832,
+      "sha256": "433edc23ad454d11c9dd1a4e4a24ac9ec98297695819c25f8914514ad68f6cf0"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,

@@ -9,6 +9,7 @@ function inventory(root){const entries={};function walk(relative=''){for(const i
 function check(root){root=path.resolve(root);const release=JSON.parse(fs.readFileSync(path.join(root,'release-load-manifest.json'))),actual=inventory(root);
  assert.equal(fs.readFileSync(path.join(root,'.gitattributes'),'utf8').trim(),'* -text','发布树必须禁止Git自动改写已校验字节');
  assert.deepEqual(actual,release.files,'发布内容在准备后发生变化，请重新准备并验证，不能混发旧清单');
+ const sample=fs.readFileSync(path.join(root,'sample.js'),'utf8'),transition=fs.readFileSync(path.join(root,'tavern-transition.js'),'utf8');for(const name of ['coverCinema','enterCinema'])if(sample.includes('tavernTransition.'+name+'('))assert(transition.includes('function '+name+'(')&&transition.match(/return \{prepare[^\n]+/)[0].includes(name),'选角转场接口缺失: '+name);
  const bridge=fs.readFileSync(path.join(root,'tavern-transition.js'),'utf8');assert.equal(bridge.match(/const VERSION = '([^']+)'/)?.[1],release.version,'入口版本与发布清单不同');
  assert(fs.readFileSync(path.join(root,'tavern/index.html'),'utf8').includes('tavern-boot.js?v='+release.version),'直连酒馆缓存版本没有同步');
  const integrity=JSON.parse(fs.readFileSync(path.join(root,'tavern/mesh-integrity.json')));
