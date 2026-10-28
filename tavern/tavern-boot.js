@@ -25,7 +25,7 @@
     const text = doc.createElement('textarea'); text.readOnly = true; text.value = JSON.stringify(report(), null, 2); text.style.cssText = 'width:100%;height:55%;font:12px monospace';
     const copy = doc.createElement('button'); copy.textContent = '复制诊断'; copy.onclick = () => { text.focus(); text.select(); doc.execCommand('copy'); };
     const retry = doc.createElement('button'); retry.textContent = '重新下载当前房间'; retry.onclick = () => {
-      const url = new URL(location.href); url.searchParams.set('repairCache', '1');
+      const url = new URL(location.href); url.searchParams.set('repairCache', '1'); url.searchParams.delete('automaticRepairFor');
       url.searchParams.set('retry', String(Date.now())); location.replace(url.href);
     };
     const close = doc.createElement('button'); close.textContent = '关闭'; close.onclick = showReport;
@@ -110,7 +110,7 @@
       let doc = document; try { doc = parent.document; } catch {}
       button = doc.createElement('button'); button.textContent = new URLSearchParams(location.search).get('diagnose')==='1'?'加载遇到等待 · 重试 / 诊断':'重新进入';
       button.style.cssText = 'position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:40000;padding:12px;background:#efe0c2;color:#302216;border:1px solid #ac804c;border-radius:8px';
-      button.onclick = new URLSearchParams(location.search).get('diagnose')==='1'?showReport:()=>{const target=new URL(location.href);target.searchParams.set('repairCache','1');location.replace(target.href);}; doc.body.append(button);
+      button.onclick = new URLSearchParams(location.search).get('diagnose')==='1'?showReport:()=>{const target=new URL(location.href);target.searchParams.set('repairCache','1');target.searchParams.delete('automaticRepairFor');location.replace(target.href);}; doc.body.append(button);
     }
   }, 1000);
   addEventListener('pagehide', () => { button?.remove(); panel?.remove(); clearInterval(poll); });

@@ -22,7 +22,7 @@ let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event => event.waitUntil((async()=>{
  // Entry guard and compatibility repair: entry-fix-20261027b
- const changed=new Set(["arrival-audio.js","arrival-audio-study.js","sample-study.js","stage.html","tavern/assets/main/index.js","","character-select.js","arrival-sw.js","index.html","journey.js","painted-flora.js","painted-gate.js","sample.js","tavern-transition.js","tavern/index.html","tavern/tavern-boot.js","weather-fx.js"]);
+ const changed=new Set(["character-catalog.json","tavern/character-catalog.json","arrival-audio.js","arrival-audio-study.js","sample-study.js","stage.html","tavern/assets/main/index.js","","character-select.js","arrival-sw.js","index.html","journey.js","painted-flora.js","painted-gate.js","sample.js","tavern-transition.js","tavern/index.html","tavern/tavern-boot.js","weather-fx.js"]);
  for(const name of await caches.keys()){
   if(name.startsWith('belvedere-entry-')){await caches.delete(name);continue;}
   if(!name.startsWith(PREFIX)&&!name.startsWith(GATE_PREFIX))continue;
@@ -86,7 +86,11 @@ self.addEventListener('fetch', event => {
   event.respondWith((async () => {
     const cache = await caches.open(await cacheName());
     const client = event.clientId ? await self.clients.get(event.clientId) : null;
-    if (client && new URL(client.url).searchParams.get('repairCache') === '1') {
+    const clientURL = client ? new URL(client.url) : null;
+    const ownVersion = new URL(self.location.href).searchParams.get('v');
+    const automatic = ownVersion && clientURL?.searchParams.get('automaticRepairFor') === ownVersion;
+    // Old/unknown workers and explicit retries retain the full repair bypass.
+    if (clientURL?.searchParams.get('repairCache') === '1' && !automatic) {
       const response = await fetch(new Request(request, {cache: 'reload'}));
       if (response.ok) event.waitUntil(cache.put(request, response.clone()).catch(() => {}));
       return response;

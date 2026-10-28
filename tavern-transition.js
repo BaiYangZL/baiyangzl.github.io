@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=wardrobe-studio-20261026';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'entry-hour-trace-20261028';
+const VERSION = 'entry-cache-target-20261028';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -55,6 +55,16 @@ export function createTavernTransition({pauseGate} = {}) {
   document.addEventListener('visibilitychange',()=>document.hidden?leave():resume());
   window.addEventListener('pagehide',leave);window.addEventListener('pageshow',resume);
 
+  const workerURL = new URL(`arrival-sw.js?v=${VERSION}`, ROOT).href;
+  const currentWorker = () => navigator.serviceWorker?.controller?.scriptURL === workerURL;
+  let cacheRepairReason='none',automaticRepairStartedAt=null;
+  function cacheRepairStatus(){
+    const kind=controller=>!controller?'none':controller.scriptURL===workerURL?'current':'other';
+    let requested=null,automaticForExpectedWorker=null,frameController='unknown';
+    try{const child=frame?.contentWindow,url=new URL(child.location.href);if(url.origin===ROOT.origin&&url.pathname===TAVERN.pathname){requested=url.searchParams.get('repairCache')==='1';automaticForExpectedWorker=url.searchParams.get('automaticRepairFor')===VERSION;frameController=kind(child.navigator.serviceWorker?.controller);}}catch{}
+    return {reason:cacheRepairReason,requested,automaticForExpectedWorker,parentController:kind(navigator.serviceWorker?.controller),frameController,automaticStartedAt:automaticRepairStartedAt};
+  }
+
   function say(message) {
     if (!badge) return;
     badge.textContent = message;
@@ -78,6 +88,7 @@ export function createTavernTransition({pauseGate} = {}) {
         const delay=[1000,2500][documentRetries++];
         clearTimeout(documentRetryTimer);
         documentRetryTimer=setTimeout(()=>{
+          cacheRepairReason='recovery';
           const url=new URL(TAVERN);url.searchParams.set('retry',String(Date.now()));
           url.searchParams.set('repairCache','1');frame.src=url.href;
         },delay);
@@ -163,8 +174,6 @@ export function createTavernTransition({pauseGate} = {}) {
     }
     // A prior release's cache can contain the old character and scene scripts.
     // Wait briefly for this release, then bypass the old cache if it still owns us.
-    const workerURL = new URL(`arrival-sw.js?v=${VERSION}`, ROOT).href;
-    const currentWorker = () => navigator.serviceWorker?.controller?.scriptURL === workerURL;
     registerCache();
     if (!currentWorker() && navigator.serviceWorker) await new Promise(resolve => {
       const done = () => { clearTimeout(timer); navigator.serviceWorker.removeEventListener('controllerchange', changed); resolve(); };
@@ -174,7 +183,10 @@ export function createTavernTransition({pauseGate} = {}) {
       changed();
     });
     const sceneURL = new URL(TAVERN);
-    if (navigator.serviceWorker?.controller && !currentWorker()) sceneURL.searchParams.set('repairCache', '1');
+    if (navigator.serviceWorker?.controller && !currentWorker()) {
+      sceneURL.searchParams.set('repairCache','1');sceneURL.searchParams.set('automaticRepairFor',VERSION);
+      cacheRepairReason='upgrade';automaticRepairStartedAt=Date.now();
+    }
     if (currentWorker()) navigator.serviceWorker.controller.postMessage({type: 'KEEP_WEEK'});
     frame.src = sceneURL.href;
     poll = setInterval(check, 80);
@@ -207,6 +219,7 @@ export function createTavernTransition({pauseGate} = {}) {
     else if (!failed) curtain.querySelector('p').textContent = '';
   }
   function retry() {
+    cacheRepairReason='manual';
     if (!frame) return prepare();
     clearTimeout(documentRetryTimer);documentRetries=0;failureMessage='';
     clearInterval(poll); ready = failed = false; startedAt = Date.now();
@@ -260,5 +273,5 @@ export function createTavernTransition({pauseGate} = {}) {
   async function animateCinema(keys,duration){const animation=cinema.animate(keys,{duration:reduced?140:duration,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});await animation.finished;Object.assign(cinema.style,keys[keys.length-1]);animation.cancel();}
   async function coverCinema(){await whenReady();if(!cinema){cinema=document.createElement('div');cinema.id='tavern-amber-cinema';cinema.style.cssText='position:fixed;inset:0;z-index:100030;pointer-events:none;display:none;opacity:0;background:radial-gradient(ellipse at 64% 40%,#7c5634,#322131 60%,#140f1b)';document.body.append(cinema);}if(cinemaCovered)return;cinema.style.display='block';await animateCinema([{opacity:'0'},{opacity:'1'}],800);cinemaCovered=true;}
   async function enterCinema(){if(!cinemaCovered)await coverCinema();enter();await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));await animateCinema([{opacity:'1'},{opacity:'0'}],1250);cinema.style.display='none';cinemaCovered=false;}
-  return {prepare, cacheGate, whenReady, setCharacter, selectWardrobe, showReentry, restart, enter, coverCinema, enterCinema, retry, status: () => ({ready, entered, waiting, returning, failed, failureMessage, documentRetries, cacheLimited, frame: !!frame, startedAt})};
+  return {prepare, cacheGate, whenReady, setCharacter, selectWardrobe, showReentry, restart, enter, coverCinema, enterCinema, retry, status: () => ({ready, entered, waiting, returning, failed, failureMessage, documentRetries, cacheLimited, frame: !!frame, startedAt, cacheRepair:cacheRepairStatus()})};
 }
