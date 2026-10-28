@@ -40,7 +40,7 @@ async function mediaRange(request, saved) {
   const headers=new Headers(saved.headers);headers.delete('Content-Encoding');headers.set('Content-Range',`bytes ${start}-${end}/${size}`);headers.set('Content-Length',String(end-start+1));headers.set('Accept-Ranges','bytes');
   return new Response(body.slice(start,end+1),{status:206,headers});
 }
-const changed=new Set(["","arrival-audio-study.js","arrival-audio.js","arrival-sw.js","cache-check.html","character-catalog.json","character-select.css","character-select.js","entry-check.html","index.html","journey.js","painted-flora.js","painted-gate.js","sample-study.js","sample.js","stage.html","tavern-transition.js","tavern/assets/main/index.js","tavern/character-catalog.json","tavern/index.html","tavern/mesh-integrity.json","tavern/tavern-boot.js","weather-fx.js"]);
+const changed=new Set(["","arrival-audio-study.js","arrival-audio.js","arrival-sw.js","cache-check.html","character-catalog.json","character-select.js","cold-entry.html","entry-check.html","index.html","journey.js","painted-flora.js","painted-gate.js","reentry-panel.js","sample-study.js","sample.js","stage.html","tavern-transition.js","tavern/assets/main/index.js","tavern/character-catalog.json","tavern/character-select.css","tavern/character-select.js","tavern/index.html","tavern/mesh-integrity.json","tavern/reentry-panel.js","tavern/reentry.js","tavern/tavern-boot.js","weather-fx.js"]);
 const networkRequest = request => changed.has(new URL(request.url).pathname.slice(rootPath.length)) ? new Request(request,{cache:'reload'}) : request;
 let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
@@ -83,6 +83,36 @@ self.addEventListener('message', event => {
 self.addEventListener('fetch', event => {
   const request = event.request, url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin || !url.pathname.startsWith(rootPath)) return;
+  // Explicit first-download test: isolated cache prevents old in-flight writes
+  // from repopulating this run. Misses bypass the browser HTTP cache, not the CDN.
+  const coldResponse=async()=>{
+    const client=event.clientId?await self.clients.get(event.clientId):null;
+    const token=url.searchParams.get('coldEntry')||(client&&new URL(client.url).searchParams.get('coldEntry'));
+    if(!token||!/^[a-z0-9-]{6,80}$/.test(token))return null;
+    const cache=await caches.open('belvedere-entry-cold-'+token),saved=await cache.match(request.url,{ignoreVary:true});
+    if(request.headers.has('Range')){const part=await mediaRange(request,saved);if(part)return part;}
+    else if(saved)return saved;
+    const response=await fetch(new Request(request,{cache:'reload'}));
+    const whole=request.headers.has('Range')?completeMedia(response):response.status===200?response.clone():null;
+    if(whole)event.waitUntil(cache.put(request.url,whole).catch(()=>{}));
+    return response;
+  };
+  // Resolve client identity before dispatching the ordinary cache policy.
+  if(url.searchParams.has('coldEntry')){event.respondWith(coldResponse().then(r=>r||ordinaryResponse()));return;}
+  // Subresources carry the test identity through their document URL.
+  if(event.clientId){event.respondWith((async()=>{
+    const cold=await coldResponse();if(cold)return cold;
+    return ordinaryResponse();
+  })());return;}
+  event.respondWith(ordinaryResponse());
+  function ordinaryResponse(){
+    // Reuse the normal handler below without a second FetchEvent response.
+    let response;const normalEvent={request,clientId:event.clientId,waitUntil:p=>event.waitUntil(p),respondWith:p=>{response=p;}};
+    normalFetch(normalEvent);return response||fetch(request);
+  }
+});
+function normalFetch(event){
+  const request=event.request,url=new URL(request.url);
   // Recovery documents must never replace the cached game homepage.
   if (url.pathname === rootPath + 'recover.html') {event.respondWith(fetch(networkRequest(request)));return;}
   if (!url.pathname.startsWith(tavernPath) && /\.(mp3|wav)$/i.test(url.pathname) && request.headers.has('Range')) {
@@ -153,6 +183,6 @@ self.addEventListener('fetch', event => {
     }));
     return response;
   })().catch(() => fetch(networkRequest(request))));
-});
+}
 
-// Prepared release: entry-load-4864a92a67d1
+// Prepared release: entry-load-4847f3c0c68a

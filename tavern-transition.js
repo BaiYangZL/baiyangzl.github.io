@@ -1,11 +1,12 @@
-import {openCharacterSelection} from './character-select.js?v=wardrobe-studio-20261026';
+import {openCharacterSelection} from './character-select.js?v=entry-wardrobe-clean-20261029';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'entry-load-4864a92a67d1';
+const VERSION = 'entry-load-4847f3c0c68a';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
 // The archived full-floor mode is only selected explicitly with rooms=0.
 TAVERN.searchParams.set('rooms', new URLSearchParams(location.search).get('rooms') === '0' ? '0' : '1');
+const coldEntry=new URLSearchParams(location.search).get('coldEntry');if(coldEntry)TAVERN.searchParams.set('coldEntry',coldEntry);
 const RETURN_KEY = 'belvedere-tavern-return';
 // A recent visit resumes; an absence of at least one hour replays the rain entry.
 export function reentryState(marker,now=Date.now()) {
@@ -262,16 +263,12 @@ export function createTavernTransition({pauseGate} = {}) {
   function showReentry(options){return openReentryPanel(panelOptions(options));}
   function restart(){
     navigating=true;clearInterval(presenceTimer);
-    const url=new URL(ROOT);url.searchParams.set('rooms',TAVERN.searchParams.get('rooms'));
+    const url=new URL('cold-entry.html',ROOT);url.searchParams.set('rooms',TAVERN.searchParams.get('rooms'));
+    for(const key of ['quality','q','weather','time']){const value=new URL(location.href).searchParams.get(key);if(value!==null)url.searchParams.set(key,value);}
     url.searchParams.set('reenter','1');url.searchParams.set('v','reentry-20261026');
     for(const key of [RETURN_KEY,'belvedere-tavern-ready-day'])try{localStorage.removeItem(key);}catch{}
     location.assign(url.href);
   }
   async function setCharacter(selection) { await whenReady();const api=frame.contentWindow.__tavern;if(!api?.setCharacter)throw new Error('请刷新以载入新版角色');await api.setCharacter(selection.id,selection.name,selection.direction); }
-  let cinema,cinemaCovered=false;
-  const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  async function animateCinema(keys,duration){const animation=cinema.animate(keys,{duration:reduced?140:duration,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});await animation.finished;Object.assign(cinema.style,keys[keys.length-1]);animation.cancel();}
-  async function coverCinema(){await whenReady();if(!cinema){cinema=document.createElement('div');cinema.id='tavern-amber-cinema';cinema.style.cssText='position:fixed;inset:0;z-index:100030;pointer-events:none;display:none;opacity:0;background:radial-gradient(ellipse at 64% 40%,#7c5634,#322131 60%,#140f1b)';document.body.append(cinema);}if(cinemaCovered)return;cinema.style.display='block';await animateCinema([{opacity:'0'},{opacity:'1'}],800);cinemaCovered=true;}
-  async function enterCinema(){if(!cinemaCovered)await coverCinema();enter();await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));await animateCinema([{opacity:'1'},{opacity:'0'}],1250);cinema.style.display='none';cinemaCovered=false;}
-  return {prepare, cacheGate, whenReady, setCharacter, selectWardrobe, showReentry, restart, enter, coverCinema, enterCinema, retry, status: () => ({ready, entered, waiting, returning, failed, failureMessage, documentRetries, cacheLimited, frame: !!frame, startedAt, cacheRepair:cacheRepairStatus()})};
+  return {prepare, cacheGate, whenReady, setCharacter, selectWardrobe, showReentry, restart, enter, retry, status: () => ({ready, entered, waiting, returning, failed, failureMessage, documentRetries, cacheLimited, frame: !!frame, startedAt, cacheRepair:cacheRepairStatus()})};
 }
