@@ -18,11 +18,35 @@ async function cacheName() {
 const tavernPath = new URL('tavern/', self.registration.scope).pathname;
 const rootPath = new URL('./', self.registration.scope).pathname;
 const gateName = async () => (await cacheName()).replace(PREFIX, GATE_PREFIX);
+// Media normally asks for bytes=0-. Cache API cannot store a 206 response.
+// Only a response covering the entire original file may become a reusable 200.
+function completeMedia(response) {
+  if (response.status === 200) return response.clone();
+  const part = /^bytes 0-(\d+)\/(\d+)$/.exec(response.headers.get('Content-Range') || '');
+  if (response.status !== 206 || !part || Number(part[1]) + 1 !== Number(part[2]) || response.headers.has('Content-Encoding')) return null;
+  const headers = new Headers(response.headers);headers.delete('Content-Range');headers.set('Content-Length',part[2]);
+  return new Response(response.clone().body,{status:200,headers});
+}
+async function mediaRange(request, saved) {
+  if (!saved || saved.status !== 200) return null;
+  const condition=request.headers.get('If-Range');
+  if (condition && (condition.startsWith('W/') || (condition!==saved.headers.get('ETag') && condition!==saved.headers.get('Last-Modified')))) return null;
+  const range=/^bytes=(\d*)-(\d*)$/.exec(request.headers.get('Range')||'');
+  if(!range || (!range[1]&&!range[2]))return null; // Multiple/unsupported ranges go to the origin.
+  const body=await saved.arrayBuffer(),size=body.byteLength;
+  const start=range[1]?Number(range[1]):Math.max(0,size-Number(range[2]));
+  const end=range[1]?(range[2]?Math.min(Number(range[2]),size-1):size-1):size-1;
+  if(!Number.isSafeInteger(start)||!Number.isSafeInteger(end)||start>=size||end<start)return new Response(null,{status:416,headers:{'Content-Range':`bytes */${size}`}});
+  const headers=new Headers(saved.headers);headers.delete('Content-Encoding');headers.set('Content-Range',`bytes ${start}-${end}/${size}`);headers.set('Content-Length',String(end-start+1));headers.set('Accept-Ranges','bytes');
+  return new Response(body.slice(start,end+1),{status:206,headers});
+}
+const changed=new Set(["","arrival-audio-study.js","arrival-audio.js","arrival-sw.js","cache-check.html","character-catalog.json","character-select.js","entry-check.html","index.html","journey.js","painted-flora.js","painted-gate.js","sample-study.js","sample.js","stage.html","tavern-transition.js","tavern/assets/main/index.js","tavern/character-catalog.json","tavern/index.html","tavern/mesh-integrity.json","tavern/tavern-boot.js","weather-fx.js"]);
+const networkRequest = request => changed.has(new URL(request.url).pathname.slice(rootPath.length)) ? new Request(request,{cache:'reload'}) : request;
 let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event => event.waitUntil((async()=>{
  // Entry guard and compatibility repair: entry-fix-20261027b
- const changed=new Set(["character-catalog.json","tavern/character-catalog.json","arrival-audio.js","arrival-audio-study.js","sample-study.js","stage.html","tavern/assets/main/index.js","","character-select.js","arrival-sw.js","index.html","journey.js","painted-flora.js","painted-gate.js","sample.js","tavern-transition.js","tavern/index.html","tavern/tavern-boot.js","weather-fx.js"]);
+
  for(const name of await caches.keys()){
   if(name.startsWith('belvedere-entry-')){await caches.delete(name);continue;}
   if(!name.startsWith(PREFIX)&&!name.startsWith(GATE_PREFIX))continue;
@@ -60,7 +84,18 @@ self.addEventListener('fetch', event => {
   const request = event.request, url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin || !url.pathname.startsWith(rootPath)) return;
   // Recovery documents must never replace the cached game homepage.
-  if (url.pathname === rootPath + 'recover.html') {event.respondWith(fetch(request));return;}
+  if (url.pathname === rootPath + 'recover.html') {event.respondWith(fetch(networkRequest(request)));return;}
+  if (!url.pathname.startsWith(tavernPath) && /\.(mp3|wav)$/i.test(url.pathname) && request.headers.has('Range')) {
+    event.respondWith((async()=>{
+      const cache=await caches.open(await gateName());
+      const saved=await cache.match(url.href,{ignoreVary:true});
+      const hit=await mediaRange(request,saved);if(hit)return hit;
+      const response=await fetch(networkRequest(request)),whole=completeMedia(response);
+      if(whole)event.waitUntil(cache.put(url.href,whole).catch(()=>{}));
+      return response;
+    })().catch(()=>fetch(networkRequest(request))));
+    return;
+  }
   if (!url.pathname.startsWith(tavernPath)) {
     event.respondWith((async () => {
       const cache = await caches.open(await gateName());
@@ -70,7 +105,7 @@ self.addEventListener('fetch', event => {
         if (saved) return saved;
       }
       try {
-        const response = await fetch(request);
+        const response = await fetch(networkRequest(request));
         // Return the network stream now; keep the worker alive for disk storage.
         // First entry must not wait for the entire body to be saved to Cache API.
         if (response.ok) event.waitUntil(cache.put(key, response.clone()).catch(() => {}));
@@ -80,7 +115,7 @@ self.addEventListener('fetch', event => {
         if (saved) return saved;
         throw new Error('城门页面不在缓存中');
       }
-    })().catch(() => fetch(request)));
+    })().catch(() => fetch(networkRequest(request))));
     return;
   }
   event.respondWith((async () => {
@@ -99,7 +134,7 @@ self.addEventListener('fetch', event => {
     // This prevents cached full-floor launch HTML from surviving an entry fix.
     if (request.mode === 'navigate') {
       try {
-        const response = await fetch(request);
+        const response = await fetch(networkRequest(request));
         if (response.ok) event.waitUntil(cache.put(request, response.clone()).catch(() => {}));
         return response;
       } catch (error) {
@@ -110,12 +145,12 @@ self.addEventListener('fetch', event => {
     }
     const saved = await cache.match(request, {ignoreVary: true});
     if (saved) return saved;
-    const response = await fetch(request);
+    const response = await fetch(networkRequest(request));
     if (response.ok) event.waitUntil(cache.put(request, response.clone()).catch(async () => {
       if (warned) return;
       warned = true;
       for (const client of await self.clients.matchAll()) client.postMessage({type: 'CACHE_LIMITED'});
     }));
     return response;
-  })().catch(() => fetch(request)));
+  })().catch(() => fetch(networkRequest(request))));
 });

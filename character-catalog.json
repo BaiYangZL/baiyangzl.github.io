@@ -6,7 +6,7 @@
     "secondary": "#7788b1",
     "hero": "tavern/characters/blue-a/hero.webp",
     "dialogue": "tavern/characters/blue-a/dialogue.webp",
-    "atlas": "tavern/characters/blue-a/atlas.png",
+    "atlas": "tavern/assets/resources/native/31/31a6cb18-53b6-4785-a943-d35f3c446377.png",
     "atlasData": "tavern/characters/blue-a/atlas.json",
     "portraitCrop": {
       "x": 0.12,

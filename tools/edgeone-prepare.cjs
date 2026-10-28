@@ -7,6 +7,7 @@ const assert = require('node:assert/strict');
 async function prepare(root = process.cwd(), destination = path.join(root, '.edgeone-dist')) {
   root = path.resolve(root); destination = path.resolve(destination);
   assert(destination.startsWith(root + path.sep), 'Output must stay inside the checkout');
+  require('./check-release.cjs').check(root);
   await fs.mkdir(destination); // A fresh deployment must never overwrite an old output.
   const report = { version: 'lossless-bin-20261024', files: 0, originalBytes: 0, transferBytes: 0 };
   async function copy(relative = '') {
@@ -30,4 +31,3 @@ async function prepare(root = process.cwd(), destination = path.join(root, '.edg
 }
 module.exports = { prepare };
 if (require.main === module) prepare().then(console.log).catch(error => { console.error(error); process.exitCode = 1; });
-

@@ -85,9 +85,10 @@
     }
     const checkedDownload = (url, options, complete) => {
       (async () => {
-        if (!manifestTask) manifestTask = fetch(new URL('mesh-integrity.json?v=mesh-integrity-D4-20261025',base)).then(r => {if(!r.ok)throw Error('模型校验清单不可用');return r.json();}).catch(e => {manifestTask=null;throw e;});
-        const manifest = await manifestTask, full = new URL(url,base), key = full.pathname.slice(base.pathname.length), expected = manifest[key];
-        const bytes = await getBytes(full.href);
+        if (!manifestTask) manifestTask = getBytes(new URL('mesh-integrity.json?v=mesh-integrity-D4-20261025',base)).then(bytes => JSON.parse(new TextDecoder().decode(bytes))).catch(e => {manifestTask=null;throw e;});
+        const full = new URL(url,base), key = full.pathname.slice(base.pathname.length);
+        // Fetch bytes while the shared manifest is in flight, but never expose unverified data.
+        const [manifest, bytes] = await Promise.all([manifestTask, getBytes(full.href)]), expected = manifest[key];
         if (!expected) return bytes;
         let valid = await validate(bytes, expected);
         if (valid) {if(valid !== bytes) repairs.push({file:key,reason:'gzip-body-decoded'});return valid;}
