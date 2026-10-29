@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=entry-wardrobe-clean-20261029';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'entry-load-d9dfe83c25e4';
+const VERSION = 'entry-load-857bb6304af1';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -120,6 +120,7 @@ export function createTavernTransition({pauseGate} = {}) {
       if (!('serviceWorker' in navigator)) return;
       try {
         const registration = await navigator.serviceWorker.register(new URL(`arrival-sw.js?v=${VERSION}`, ROOT), {scope: ROOT.pathname});
+        const activate=()=>registration.waiting?.postMessage({type:'SKIP_WAITING'});activate();registration.addEventListener('updatefound',()=>registration.installing?.addEventListener('statechange',activate));
         await navigator.serviceWorker.ready;
         registration.active?.postMessage({type: 'KEEP_WEEK'});
         navigator.serviceWorker.addEventListener('message', event => {

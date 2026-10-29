@@ -9,7 +9,7 @@
     const bootURL = new URL(document.currentScript.src), version = bootURL.searchParams.get('v');
     if (version && /^entry-load-[a-f0-9]+$/.test(version)) {
       const root = new URL('../', bootURL), worker = new URL('arrival-sw.js', root);worker.searchParams.set('v', version);
-      navigator.serviceWorker.register(worker.href, {scope:root.pathname}).catch(record);
+      navigator.serviceWorker.register(worker.href, {scope:root.pathname}).then(registration=>{const activate=()=>registration.waiting?.postMessage({type:'SKIP_WAITING'});activate();registration.addEventListener('updatefound',()=>registration.installing?.addEventListener('statechange',activate));}).catch(record);
     }
   }
   // Tavern.start catches construction failures and only logs them. These do
