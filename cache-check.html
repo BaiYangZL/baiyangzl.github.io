@@ -4,7 +4,7 @@
 <script>
 (async()=>{
  const out=document.getElementById('out'),status=document.getElementById('status');
- const report={version:'cache-inventory-20261028',at:new Date().toISOString(),secureContext:isSecureContext,userAgent:navigator.userAgent.replace(/\bMMWEBID\/\S+/g,'MMWEBID/[removed]'),controller:navigator.serviceWorker?.controller?.scriptURL||null,expectedMainSHA256:"0fc9c9d204cb9d150b571857049a799e6351cbb287083c0d8bcfacd7a09461d5",phase:'scanning',cacheNames:[],files:[],errors:[],notes:['缓存存在不等于上次请求命中；本页不推断已运行的模块身份。','main缓存指纹是本页读取时的缓存响应，不是捕获上次脚本执行字节。','音乐可能使用Range分段，本页只查无Range完整URL。']};
+ const report={version:'cache-inventory-20261028',at:new Date().toISOString(),secureContext:isSecureContext,userAgent:navigator.userAgent.replace(/\bMMWEBID\/\S+/g,'MMWEBID/[removed]'),controller:navigator.serviceWorker?.controller?.scriptURL||null,expectedMainSHA256:"752b6de2314f805a086b76f3984e55ab5971eb3592dcb0acf155bef7e8861729",phase:'scanning',cacheNames:[],files:[],errors:[],notes:['缓存存在不等于上次请求命中；本页不推断已运行的模块身份。','main缓存指纹是本页读取时的缓存响应，不是捕获上次脚本执行字节。','音乐可能使用Range分段，本页只查无Range完整URL。']};
  const show=()=>out.value=JSON.stringify(report,null,2);
  async function bounded(task,label,ms=2000){let timer;try{return await Promise.race([task,new Promise((_,no)=>{timer=setTimeout(()=>no(Error(label+' timeout')),ms)})]);}finally{clearTimeout(timer);}}
  document.getElementById('copy').onclick=async()=>{show();try{await navigator.clipboard.writeText(out.value);status.textContent='结果已复制，请粘贴发来。';}catch{out.focus();out.select();status.textContent=document.execCommand('copy')?'结果已复制。':'请长按文字全选后复制。';}};

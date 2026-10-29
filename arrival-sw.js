@@ -40,7 +40,7 @@ async function mediaRange(request, saved) {
   const headers=new Headers(saved.headers);headers.delete('Content-Encoding');headers.set('Content-Range',`bytes ${start}-${end}/${size}`);headers.set('Content-Length',String(end-start+1));headers.set('Accept-Ranges','bytes');
   return new Response(body.slice(start,end+1),{status:206,headers});
 }
-const changed=new Set(["","arrival-audio-study.js","arrival-audio.js","arrival-sw.js","cache-check.html","character-catalog.json","character-select.js","cold-entry.html","entry-check.html","index.html","journey.js","painted-flora.js","painted-gate.js","reentry-panel.js","reentry.js","sample-study.js","sample.js","stage.html","tavern-transition.js","tavern/assets/main/index.js","tavern/character-catalog.json","tavern/character-select.css","tavern/character-select.js","tavern/index.html","tavern/mesh-integrity.json","tavern/reentry-panel.js","tavern/reentry.js","tavern/tavern-boot.js","weather-fx.js"]);
+const changed=new Set(["","arrival-audio-study.js","arrival-audio.js","arrival-sw.js","cache-check.html","character-catalog.json","character-select.js","cold-entry.html","entry-check.html","index.html","journey.js","painted-flora.js","painted-gate.js","reentry-panel.js","reentry.js","sample-study.js","sample.js","stage.html","tavern-transition.js","tavern/assets/main/index.js","tavern/assets/resources/import/63/63c37b89-98bf-4203-bd00-abef6a91569e.json","tavern/character-catalog.json","tavern/character-select.css","tavern/character-select.js","tavern/index.html","tavern/mesh-integrity.json","tavern/reentry-panel.js","tavern/reentry.js","tavern/tavern-boot.js","weather-fx.js"]);
 const networkRequest = request => changed.has(new URL(request.url).pathname.slice(rootPath.length)) ? new Request(request,{cache:'reload'}) : request;
 let warned = false;
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
@@ -185,4 +185,4 @@ function normalFetch(event){
   })().catch(() => fetch(networkRequest(request))));
 }
 
-// Prepared release: entry-load-5c4823f2d0ad
+// Prepared release: entry-load-07dc488bdb70

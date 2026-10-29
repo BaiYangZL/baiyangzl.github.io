@@ -1,7 +1,7 @@
 {
-  "version": "entry-load-5c4823f2d0ad",
+  "version": "entry-load-07dc488bdb70",
   "files": 2174,
-  "bytes": 598495103,
+  "bytes": 598498419,
   "verifiedModels": 1968,
   "reused": [],
   "invalidatedPaths": [
@@ -25,6 +25,7 @@
     "stage.html",
     "tavern-transition.js",
     "tavern/assets/main/index.js",
+    "tavern/assets/resources/import/63/63c37b89-98bf-4203-bd00-abef6a91569e.json",
     "tavern/character-catalog.json",
     "tavern/character-select.css",
     "tavern/character-select.js",

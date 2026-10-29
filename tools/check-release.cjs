@@ -22,6 +22,11 @@ function check(root){root=path.resolve(root);const release=JSON.parse(fs.readFil
  const equivalent=Object.entries(actual).find(([name,other])=>name.startsWith('tavern/assets/resources/native/')&&name.endsWith('.png')&&other.sha256===item.sha256);
  if(equivalent)assert.equal(atlasName,equivalent[0],'同一图集仍通过两个URL下载，请运行准备流程: '+c.id);
  }}
+ const mainFile=path.join(root,'tavern/assets/main/index.js');
+ if(fs.existsSync(mainFile)&&fs.readFileSync(mainFile,'utf8').includes('tavernRepeatWidth')){
+  const effect=fs.readFileSync(path.join(root,'tavern/assets/resources/import/63/63c37b89-98bf-4203-bd00-abef6a91569e.json'),'utf8');
+  for(const key of ['tavernRepeatWidth','tavernRepeatHeight','tavSampleAlbedo','TAV_REPEAT_ALBEDO'])assert(effect.includes(key),'地板WebGL1兼容的核心与材质未成套发布: '+key);
+ }
  const sw=fs.readFileSync(path.join(root,'arrival-sw.js'),'utf8');assert(sw.includes('function mediaRange('),'缺少音频Range缓存修复');
  assert(fs.readFileSync(path.join(root,'tavern/tavern-boot.js'),'utf8').includes('Promise.all([manifestTask, getBytes(full.href)])'),'缺少并行且校验后交付的下载器');
  return {version:release.version,files:Object.keys(actual).length,bytes:Object.values(actual).reduce((n,f)=>n+f.bytes,0),verifiedModels:Object.keys(integrity).length};
