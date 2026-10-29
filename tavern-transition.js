@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=entry-wardrobe-clean-20261029';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'entry-load-857bb6304af1';
+const VERSION = 'entry-load-855cd6cb40b0';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -120,9 +120,9 @@ export function createTavernTransition({pauseGate} = {}) {
       if (!('serviceWorker' in navigator)) return;
       try {
         const registration = await navigator.serviceWorker.register(new URL(`arrival-sw.js?v=${VERSION}`, ROOT), {scope: ROOT.pathname});
-        const activate=()=>registration.waiting?.postMessage({type:'SKIP_WAITING'});activate();registration.addEventListener('updatefound',()=>registration.installing?.addEventListener('statechange',activate));
+        const activate=worker=>worker?.postMessage({type:'SKIP_WAITING'});const watch=()=>{const worker=registration.installing;if(worker){worker.addEventListener('statechange',()=>{if(worker.state==='installed')activate(worker);});if(worker.state==='installed')activate(worker);}};activate(registration.waiting);watch();registration.addEventListener('updatefound',watch);let attempts=0;const activationTimer=setInterval(()=>{activate(registration.waiting);if(++attempts>=30||(!registration.waiting&&!registration.installing))clearInterval(activationTimer);},1000);
         await navigator.serviceWorker.ready;
-        registration.active?.postMessage({type: 'KEEP_WEEK'});
+        if(registration.active?.scriptURL===workerURL)registration.active.postMessage({type:'KEEP_WEEK'});
         navigator.serviceWorker.addEventListener('message', event => {
           if (event.data?.type !== 'CACHE_LIMITED') return;
           cacheLimited = true;
@@ -135,7 +135,7 @@ export function createTavernTransition({pauseGate} = {}) {
   }
   async function cacheGate() {
     const registration = await registerCache();
-    if (!registration?.active) return;
+    if (registration?.active?.scriptURL !== workerURL) return;
     const urls = performance.getEntriesByType('resource').map(entry => entry.name);
     registration.active.postMessage({type: 'CACHE_GATE', urls});
   }

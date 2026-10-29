@@ -1,7 +1,7 @@
 {
-  "version": "entry-load-857bb6304af1",
-  "files": 2511,
-  "bytes": 657851286,
+  "version": "entry-load-855cd6cb40b0",
+  "files": 2512,
+  "bytes": 657855053,
   "verifiedModels": 1968,
   "reused": [],
   "invalidatedPaths": [
@@ -172,6 +172,7 @@
     "assets/user-storage_open.mp3",
     "assets/user-wood-sneaker.mp3",
     "cache-check.html",
+    "cache-upgrade.html",
     "character-catalog.json",
     "character-select.js",
     "cold-entry.html",

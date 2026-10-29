@@ -9,7 +9,9 @@ function sync(engine){
 window.__tavernRoomState=(engine,phase)=>{
  window.__tavernRoomController=engine;
  if(!engine.__savedSwitches){engine.__savedSwitches=true;try{for(const [id,on]of JSON.parse(localStorage.getItem(KEY)||'[]'))if(typeof id==='string'&&typeof on==='boolean')engine.states.set(id,on);}catch{}
-  const backgroundSlot=engine.backgroundSlot;engine.backgroundSlot=async function(){if(window.__gamePreviewInactive)await new Promise(resolve=>{const resume=e=>{if(e.detail.active){window.removeEventListener('game-preview-activity',resume);resolve();}};window.addEventListener('game-preview-activity',resume);});return backgroundSlot.apply(this,arguments);};
+  const expectedVersion=new URLSearchParams(location.search).get('v');let cacheHandoff;
+  const waitForCache=()=>{const sw=navigator.serviceWorker;if(!expectedVersion?.startsWith('entry-load-')||!sw?.controller||sw.controller.scriptURL.includes(expectedVersion))return;return cacheHandoff??=new Promise(resolve=>{const finish=()=>{clearTimeout(timer);sw.removeEventListener('controllerchange',finish);resolve();};const timer=setTimeout(finish,10000);sw.addEventListener('controllerchange',finish);});};
+  const backgroundSlot=engine.backgroundSlot;engine.backgroundSlot=async function(){await waitForCache();if(window.__gamePreviewInactive)await new Promise(resolve=>{const resume=e=>{if(e.detail.active){window.removeEventListener('game-preview-activity',resume);resolve();}};window.addEventListener('game-preview-activity',resume);});return backgroundSlot.apply(this,arguments);};
   const interact=engine.interact;engine.interact=function(){const result=interact.apply(this,arguments);sync(this);save(this);return result;};
   const atmosphere=engine.applyAtmosphere;engine.applyAtmosphere=function(){sync(this);return atmosphere.apply(this,arguments);};
  }

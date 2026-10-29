@@ -38,7 +38,7 @@ async function tick(){
  active=!blocked;
  if(!s.transitioning&&(!lastScan||previous?.floor!==s.floor||previous?.transitioning)){scan();lastScan=performance.now();}
  if(!previous||previous.floor!==s.floor||previous.characterId!==s.characterId){windows=new Map();const shoe=manifest.characters[s.characterId];for(const id of Object.keys(manifest.choices))if(id.startsWith('foot_'+shoe+'_wood')||id.startsWith('foot_'+shoe+'_carpet')||id.startsWith('foot_'+shoe+'_mat')||id==='curtain')void get(id);}
- if(previous&&!blocked){if(previous.transitioning&&!s.transitioning&&doorTrip){if(!s.transitionError&&doorTrip.close)play(doorTrip.close);doorTrip=null;}
+ if(previous&&!blocked){if(!s.transitioning&&doorTrip){if(!s.transitionError&&doorTrip.close)play(doorTrip.close);doorTrip=null;}
   const moved=Math.hypot(s.x-previous.x,s.z-previous.z);if(!s.transitioning&&s.floor===previous.floor&&s.characterId===previous.characterId&&s.gait.moving&&moved>.001&&moved<1&&Math.floor(s.gait.frame/4)!==Math.floor(previous.gait.frame/4)){play(`foot_${manifest.characters[s.characterId]}_${surface(s)}_${s.movement.mode}`);}}
  const roomObjects=api.objects();const objects=roomObjects.filter(o=>o.interactive==='window').map(o=>({...o,canClose:true}));
  for(const o of objects){if(previous?.floor===s.floor&&windows.has(o.id)&&windows.get(o.id)!==o.on&&o.parts?.some(p=>/CurtainSlide|BlindSlide/.test(p.name)))play('curtain');windows.set(o.id,o.on);}
