@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=entry-wardrobe-clean-20261029';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'entry-load-073a3e1366e4';
+const VERSION = 'entry-load-5c4823f2d0ad';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).

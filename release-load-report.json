@@ -1,7 +1,7 @@
 {
-  "version": "entry-load-073a3e1366e4",
+  "version": "entry-load-5c4823f2d0ad",
   "files": 2174,
-  "bytes": 598494358,
+  "bytes": 598495103,
   "verifiedModels": 1968,
   "reused": [],
   "invalidatedPaths": [
@@ -19,6 +19,7 @@
     "painted-flora.js",
     "painted-gate.js",
     "reentry-panel.js",
+    "reentry.js",
     "sample-study.js",
     "sample.js",
     "stage.html",

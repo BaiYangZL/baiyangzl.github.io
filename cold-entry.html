@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>清空缓存并重新进入</title><style>body{background:#211d25;color:#eee3d2;font:18px/1.7 system-ui;max-width:560px;margin:15vh auto;padding:24px}button{font:inherit;padding:12px 24px}</style><h1>正在准备重新进入</h1><p id="status">清理游戏资源缓存，保留角色和房间记录。</p><button hidden id="retry">重试</button><script>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>清空缓存并重新进入</title><style>body{background:#211d25;color:#eee3d2;font:18px/1.7 system-ui;max-width:560px;margin:15vh auto;padding:24px}button{font:inherit;padding:12px 24px}</style><h1>正在准备重新进入</h1><p id="status">清理游戏资源、角色、名字和位置记录，重新开始首次入场。</p><button hidden id="retry">重试</button><script>
 const status=document.getElementById('status'),retry=document.getElementById('retry');
 async function run(){retry.hidden=true;try{
  if(!navigator.serviceWorker||!window.isSecureContext)throw Error('此浏览器环境无法执行完整资源重载，请使用公网HTTPS地址。');
@@ -8,6 +8,11 @@ async function run(){retry.hidden=true;try{
  const worker=registration.installing||registration.waiting;
  if(worker&&worker.state!=='activated')await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('缓存服务更新尚未完成，请重试。')),15000);worker.addEventListener('statechange',()=>{if(worker.state==='activated'){clearTimeout(timer);resolve();}else if(worker.state==='redundant'){clearTimeout(timer);reject(Error('缓存服务更新失败，请重试。'));}});});
  await Promise.all((await caches.keys()).filter(k=>/^belvedere-(gate|tavern|entry|domain-gate|domain-tavern)-/.test(k)).map(k=>caches.delete(k)));
+ // The engine document is gone, so its pagehide save cannot recreate these records.
+ for(const storage of [localStorage,sessionStorage]){
+  const keys=Object.keys(storage).filter(k=>k.startsWith('belvedere-')||k.startsWith('arrival-'));
+  for(const key of keys)storage.removeItem(key);
+ }
  const url=new URL('./',location.href);url.searchParams.set('reenter','1');url.searchParams.set('coldEntry',Date.now().toString(36)+'-'+Math.random().toString(36).slice(2));
  for(const key of ['rooms','quality','q','weather','time']){const value=new URL(location.href).searchParams.get(key);if(value!==null)url.searchParams.set(key,value);}
  location.replace(url.href);

@@ -38,7 +38,7 @@ function install(){
  const views=document.querySelector('#tavern-ui .views');
  if(!views||!window.__tavern?.state().firstFrameReady){requestAnimationFrame(install);return;}
  if(document.getElementById('reentry'))return;
- const button=document.createElement('button');button.id='reentry';button.type='button';button.textContent='↻ 清空缓存并重新进入';button.title='清理游戏资源缓存，保留角色与房间记录';button.onclick=()=>open(button);
+ const button=document.createElement('button');button.id='reentry';button.type='button';button.textContent='↻ 清空缓存并重新进入';button.title='清除游戏缓存和存档，重新命名、选角并从初始位置开始';button.onclick=()=>open(button);
  button.style.cssText='background:linear-gradient(145deg,#f4f0e8e6,#ded6d3cc);color:#393034;border-color:#ffffffa6;min-height:44px';views.append(button);
  let start,last=-1000;
  button.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'){e.preventDefault();start={id:e.pointerId,x:e.clientX,y:e.clientY};}});

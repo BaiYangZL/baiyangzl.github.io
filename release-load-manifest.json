@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-073a3e1366e4",
+  "version": "entry-load-5c4823f2d0ad",
   "files": {
     "approach-road.js": {
       "bytes": 21947,
@@ -14,8 +14,8 @@
       "sha256": "cf68c0a5f43542f03152172e078d8238662f7418c9292dbc1924f568a37e3666"
     },
     "arrival-sw.js": {
-      "bytes": 11469,
-      "sha256": "f6ebf2c2b3d3e66d16668abbbf5ef7fe27dd7841cd8c9bb627705b53d0edab21"
+      "bytes": 11482,
+      "sha256": "70e1f9f341ead462824426582ab51e7496a91cd44cc39a84837b2b9a158a4062"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -306,8 +306,8 @@
       "sha256": "d594d0429644dbdf26de8559b74cb9f55cc50e2c27e30892cc8eca9340b2947d"
     },
     "cold-entry.html": {
-      "bytes": 2135,
-      "sha256": "5a25fe4967e300806ea200069ab5f65f370f734d80d40861eef2cfed45359df4"
+      "bytes": 2449,
+      "sha256": "ff72a23372c865c61895b8d02c45222fb878ea81a7ed054e9fc4c37777d98878"
     },
     "dialog.js": {
       "bytes": 7777,
@@ -318,8 +318,8 @@
       "sha256": "045c376717c7180aa413d802935251ed2dca5bf9a0d0f1ab0ff30611d794dea4"
     },
     "entry-check.html": {
-      "bytes": 14745,
-      "sha256": "042a44c3734c8010e4f342b9a24f3cb1e58e459a4d3a1b07954653a8d634c84c"
+      "bytes": 14753,
+      "sha256": "6d613ba7aa1437aeb6c913cd8e7a82b84fc7289d879184f1290e29f7ba225a1a"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -362,8 +362,8 @@
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "index.html": {
-      "bytes": 37292,
-      "sha256": "2dcc0425468ad5faeb219e01a05460c090d4ee50f86e25ed2d46220408ba9a5a"
+      "bytes": 37308,
+      "sha256": "b74cddc4a552e8f3161b4167eace0829e0c41ebc3d4a5dcce7ad93f756ee7660"
     },
     "invite.js": {
       "bytes": 5367,
@@ -414,16 +414,16 @@
       "sha256": "f9adafaa4d07c9411f88953bfdee662e2849112d596dffc47e118b7a0b87b71d"
     },
     "reentry-panel.js": {
-      "bytes": 3166,
-      "sha256": "0e69ccc5de436fcce8d764c92ce00dead45c6f7783ede34aff04dab332630215"
+      "bytes": 3223,
+      "sha256": "3b760640dbfd04bb9f1823fdad246835e8d17bf03b24e12d24d9fa39cbe2f27d"
     },
     "reentry.css": {
       "bytes": 3330,
       "sha256": "4185fdb455dec4051d996e29b342b7be34fd968b188406c708b8383474c0a03a"
     },
     "reentry.js": {
-      "bytes": 3320,
-      "sha256": "6cede94cc1e04886ae02f6de9150fa4224d2ce19d6bc9e33441ecde524a35ae4"
+      "bytes": 3563,
+      "sha256": "95f2561028d558a0ea6eb640cd326d800124194193a071bd4c22bf51143b0409"
     },
     "release-version.json": {
       "bytes": 435,
@@ -8586,8 +8586,8 @@
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 33436,
-      "sha256": "1297889c865cab145121bf66f6b845d80cae6c5e6ef75d4a9148a3ca3121a956"
+      "bytes": 33452,
+      "sha256": "5dce9af1b27396ac261e06d9ef03ce19195752109d15c0d46b3aa7edc13e7ec7"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -8610,16 +8610,16 @@
       "sha256": "f689d27d7b184a558a80422ebec03931be5039bd2de20dec8abded3a3be85f6e"
     },
     "tavern/reentry-panel.js": {
-      "bytes": 3166,
-      "sha256": "0e69ccc5de436fcce8d764c92ce00dead45c6f7783ede34aff04dab332630215"
+      "bytes": 3223,
+      "sha256": "3b760640dbfd04bb9f1823fdad246835e8d17bf03b24e12d24d9fa39cbe2f27d"
     },
     "tavern/reentry.css": {
       "bytes": 3330,
       "sha256": "4185fdb455dec4051d996e29b342b7be34fd968b188406c708b8383474c0a03a"
     },
     "tavern/reentry.js": {
-      "bytes": 3542,
-      "sha256": "f246d6ea0802147b31d20eeaec2a3c5f6bf1947f54e95b0c0e2ac42ea0cb5b0a"
+      "bytes": 3563,
+      "sha256": "95f2561028d558a0ea6eb640cd326d800124194193a071bd4c22bf51143b0409"
     },
     "tavern/selection-core.js": {
       "bytes": 1356,
@@ -8679,7 +8679,7 @@
     },
     "tavern-transition.js": {
       "bytes": 16832,
-      "sha256": "433edc23ad454d11c9dd1a4e4a24ac9ec98297695819c25f8914514ad68f6cf0"
+      "sha256": "d177f55df90addd15af9c994f018b038413282a606e7d094e003b538f7f79b5d"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
