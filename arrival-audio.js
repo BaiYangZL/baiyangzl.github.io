@@ -1,18 +1,21 @@
+import {volume} from './game-volume.js';
 // Local audition controller; only the 4213 server maps this over arrival-audio.js.
 // Selected sounds from the approved 4213 mix. Other candidates stay in the review page.
 export function createArrivalAudio(){
  const AC=window.AudioContext||window.webkitAudioContext;
  if(!AC)return {started:true,setStage(){},setPaused(){},status:()=>({unsupported:true})};
  const context=new AC(),master=context.createGain(),musicGain=context.createGain(),rainGain=context.createGain(),fireflyGain=context.createGain(),bellGain=context.createGain();
- let muted=false;try{muted=localStorage.getItem('belvedere-arrival-muted')==='1';}catch{}master.gain.value=muted?0:.8;master.connect(context.destination);musicGain.connect(master);rainGain.connect(master);fireflyGain.connect(master);bellGain.connect(master);fireflyGain.gain.value=0;musicGain.gain.value=rainGain.gain.value=0;
+ let muted=false;try{muted=localStorage.getItem('belvedere-arrival-muted')==='1';}catch{}master.gain.value=muted?0:.8;master.connect(context.destination);const buses={music:volume.gain(context,'music',master),effects:volume.gain(context,'effects',master),ambience:volume.gain(context,'ambience',master)};musicGain.connect(buses.music.node);rainGain.connect(buses.ambience.node);fireflyGain.connect(buses.ambience.node);bellGain.connect(buses.effects.node);fireflyGain.gain.value=0;musicGain.gain.value=rainGain.gain.value=0;
  const music=new Audio('/assets/arrival-loading.mp3');music.loop=true;music.preload='auto';music.setAttribute('playsinline','');context.createMediaElementSource(music).connect(musicGain);
  const params=new URLSearchParams(location.search),buffers={},events=[],failures=[],shots=new Map();
  const levels={loading:80,gate:20,rain:33,clear:29,bell:71,fireflies:38};let confirmed=false;
  let ui='05',button='04',auto=false;
+ const rainDetails=['rain_stone_B_01.wav','rain_leaf_A_01.wav'].map(file=>({file,gain:context.createGain(),loading:false,source:null}));for(const d of rainDetails){d.gain.gain.value=0;d.gain.connect(buses.ambience.node);}
  let fireflySource,fireflyLoading=false,lastFirefly=-1,envelopePlayed=false;
  let started=false,paused=false,completed=false,disposed=false,stage='map',phase='',letterState='',uiSeen=false,mailPlayed=false,lastAuto=0,dialogDue=0,letterDue=0,dialogVisible=false,frame,rainSource,rainLoading=false,lastMusic=-1,lastRain=-1;
  function emit(type,extra={}){const d={type,at:Math.round(performance.now()),...extra};if(type==='sound')events.push(d);parent.postMessage({channel:'belvedere-sound-study',...d},location.origin);}
  function ramp(p,v,s=.5){const t=context.currentTime;if(p.cancelAndHoldAtTime)p.cancelAndHoldAtTime(t);else{p.cancelScheduledValues(t);p.setValueAtTime(p.value,t);}p.linearRampToValueAtTime(v,t+s);}
+ function nightRain(){let time=params.get('time');if(!time)try{time=localStorage.getItem('belvedere-time-v1');}catch{}return time!=='day';}
  function available(){return started&&!paused&&!muted&&!disposed&&!document.hidden;}
  async function load(id,url){try{const r=await fetch(url);if(!r.ok)throw Error(r.status);buffers[id]=await context.decodeAudioData(await r.arrayBuffer());}catch(e){failures.push({id,message:String(e)});emit('error',{message:'声音读取失败：'+id});}}
  const ready=Promise.all([load('mail','/assets/gate-study-mail.mp3'),load('envelope','/assets/gate-study-envelope.mp3'),load('bell','/assets/gate-study-bell_01.wav'),load('transition-05','/assets/gate-study-transition-05.wav'),load('button-04','/assets/gate-study-button-04.wav')]).then(()=>emit('audio-ready'));
@@ -20,10 +23,11 @@ export function createArrivalAudio(){
  function apply(){
   const active=available()&&!confirmed;
   const foreground=Array.from(shots.values()).some(name=>name==='mail'||name==='envelope');
-  const m=active?(stage==='map'?levels.loading:levels.gate)*.003*(foreground?.25:1):0,r=active&&stage!=='map'&&!uiSeen?(window.__arrival?.weather==='rain'?levels.rain:levels.clear)*.001:0;
+  const m=active?(stage==='map'?levels.loading:levels.gate)*.003*(foreground?.25:1):0,r=active&&stage!=='map'&&!uiSeen?(window.__arrival?.weather==='rain'?(nightRain()?levels.rain*10:0):levels.clear)*.001:0;
   if(m!==lastMusic){ramp(musicGain.gain,m,foreground?.08:.7);lastMusic=m;}
   if(r!==lastRain){ramp(rainGain.gain,r,.7);lastRain=r;}
-  if(r>0&&!rainLoading){rainLoading=true;load('ambience',window.__arrival?.weather==='rain'?'/assets/arrival-rain.mp3':'/assets/gate-study-wind_01.wav').then(()=>{if(!disposed&&buffers.ambience)rainSource=makeLoop(buffers.ambience,rainGain);});}
+  for(const d of rainDetails){const value=window.__arrival?.weather==='rain'?r*.16:0;ramp(d.gain.gain,value,.7);if(value>0&&!d.loading){d.loading=true;load(d.file,'/assets/'+d.file).then(()=>{if(!disposed&&buffers[d.file])d.source=makeLoop(buffers[d.file],d.gain);});}}
+  if(r>0&&!rainLoading){rainLoading=true;load('ambience',window.__arrival?.weather==='rain'?'/assets/rain_out_A_01.wav':'/assets/gate-study-wind_01.wav').then(()=>{if(!disposed&&buffers.ambience)rainSource=makeLoop(buffers.ambience,rainGain);});}
   const f=active&&stage!=='map'&&!uiSeen?levels.fireflies*.001:0;if(f!==lastFirefly){ramp(fireflyGain.gain,f,.7);lastFirefly=f;}
   bellGain.gain.setTargetAtTime(levels.bell*.01,context.currentTime,.04);
   if(f>0&&!fireflyLoading){fireflyLoading=true;load('fireflies','/assets/arrival-insects.mp3').then(()=>{if(!disposed&&buffers.fireflies)fireflySource=makeLoop(buffers.fireflies,fireflyGain);});}
@@ -33,7 +37,7 @@ export function createArrivalAudio(){
  function play(name,gain=.65,manual=false){
   if(disposed||paused||document.hidden||context.state!=='running'||(!manual&&!available())||!buffers[name])return false;
   // One voice per cue, so repeated testing cannot pile up a long bell tail.
-  stopSound(name);const s=context.createBufferSource(),g=context.createGain();s.buffer=buffers[name];g.gain.value=gain;s.connect(g);g.connect(name==='bell'?bellGain:master);shots.set(s,name);s.onended=()=>{shots.delete(s);s.disconnect();g.disconnect();if(!disposed)apply();};s.start();if(name==='mail'||name==='envelope')apply();emit('sound',{name,gain,stage});return true;
+  stopSound(name);const s=context.createBufferSource(),g=context.createGain();s.buffer=buffers[name];g.gain.value=gain;s.connect(g);g.connect(name==='bell'?bellGain:buses.effects.node);shots.set(s,name);s.onended=()=>{shots.delete(s);s.disconnect();g.disconnect();if(!disposed)apply();};s.start();if(name==='mail'||name==='envelope')apply();emit('sound',{name,gain,stage});return true;
  }
  function uiSound(manual=false){play('transition-'+ui,.65,manual);}
  const soundButton=document.createElement('button');soundButton.id='arrival-sound';document.querySelector('footer')?.append(soundButton);
@@ -81,7 +85,7 @@ export function createArrivalAudio(){
  setPaused(value){paused=value;if(value){stopSound();music.pause();context.suspend().catch(()=>{});}else{context.resume().then(()=>{if(!confirmed)music.play().catch(()=>{});});}apply();},
  status:()=>({started,paused,muted,completed,confirmed,levels:{...levels},stage,ui,button,auto,weather:window.__arrival?.weather,context:context.state,ready:Object.keys(buffers),durations:Object.fromEntries(Object.entries(buffers).map(([k,v])=>[k,v.duration])),events:[...events],failures:[...failures],masterGain:master.gain.value,musicGain:musicGain.gain.value,rainGain:rainGain.gain.value,fireflyGain:fireflyGain.gain.value,bellGain:bellGain.gain.value})};
  window.__gateSoundStudy=controller;frame=requestAnimationFrame(tick);
- const cleanup=()=>{if(disposed)return;disposed=true;cancelAnimationFrame(frame);stopSound();music.pause();rainSource?.stop();fireflySource?.stop();for(const type of ['pointerdown','touchend','keydown'])document.removeEventListener(type,unlock,true);document.removeEventListener('WeixinJSBridgeReady',start);soundButton.remove();context.close().catch(()=>{});};window.addEventListener('pagehide',cleanup,{once:true});window.addEventListener('belvedere:tavern-enter',cleanup,{once:true});
+ const cleanup=()=>{if(disposed)return;disposed=true;cancelAnimationFrame(frame);stopSound();music.pause();rainSource?.stop();fireflySource?.stop();rainDetails.forEach(d=>d.source?.stop());for(const type of ['pointerdown','touchend','keydown'])document.removeEventListener(type,unlock,true);document.removeEventListener('WeixinJSBridgeReady',start);soundButton.remove();Object.values(buses).forEach(b=>b.dispose());context.close().catch(()=>{});};window.addEventListener('pagehide',cleanup,{once:true});window.addEventListener('belvedere:tavern-enter',cleanup,{once:true});
  if(params.get('from')==='gate'){const interval=setInterval(()=>{const a=window.__arrival;if(a?.state.ready){while(a.state.phase!=='arrived')a.state.tick(1/60);clearInterval(interval);}},100);}
  emit('study-ready',{ui,button,auto});return controller;
 }

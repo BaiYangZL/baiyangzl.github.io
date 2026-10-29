@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-07dc488bdb70",
+  "version": "entry-load-d9dfe83c25e4",
   "files": {
     "approach-road.js": {
       "bytes": 21947,
@@ -10,12 +10,12 @@
       "sha256": "ffadfbc392dc482c0431f1a48c3f4b1c4d71b336c5a9efe6213009d6faf37d2e"
     },
     "arrival-audio.js": {
-      "bytes": 11474,
-      "sha256": "cf68c0a5f43542f03152172e078d8238662f7418c9292dbc1924f568a37e3666"
+      "bytes": 12554,
+      "sha256": "b3982e55635b630bdccdc6f532ce38b3070222acdfacb094fe95f06efc519080"
     },
     "arrival-sw.js": {
-      "bytes": 11560,
-      "sha256": "e48d06dec9e06274a4cc3c2c02cefe7961b85382ff79b5df7c95ae89321a98f2"
+      "bytes": 25726,
+      "sha256": "930047360d29b2143d760b7347ce9846558ff7e1ac58503d923aa8df4abb359c"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -28,6 +28,602 @@
     "assets/arrival-rain.mp3": {
       "bytes": 81127,
       "sha256": "22cf0cc846e6774a20715c0df5e1716eeff7600498fd9c7b08e69293cf696ae9"
+    },
+    "assets/curtain_A_01.wav": {
+      "bytes": 122444,
+      "sha256": "1c73840b3a417446ccd8e41827de42babea772308d7e59f7b2bb1746fe414157"
+    },
+    "assets/curtain_A_02.wav": {
+      "bytes": 122444,
+      "sha256": "b45dea081ad213335a10e3c3c91abb237f25058b27c94e7200d243487ce1f251"
+    },
+    "assets/floor_transition_C_01.wav": {
+      "bytes": 158444,
+      "sha256": "5e9a3e17870a6b9f1e52b7345837dd5f21eebbd9dfcb291f671597ca0255f95f"
+    },
+    "assets/foot-v3-heels-wood.wav": {
+      "bytes": 25985,
+      "sha256": "4c4d313da5307a88634c25ddbb21ef1bcc1d9a6efee1639470cfaba99d35bb4b"
+    },
+    "assets/foot-v3-leather-wood.wav": {
+      "bytes": 35057,
+      "sha256": "9e5bf246d9ad4f9532585bd4fe74e4ff629ac3d5ca248c2b05b893d4b82b3c27"
+    },
+    "assets/foot_heels_carpet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "50a8ec69ca38bd553f987b0971621f40a07ca9c3f7bb14a0aea4dff203355526"
+    },
+    "assets/foot_heels_carpet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "f6ff3072b687b41da4a94aad98a35721aa0de071710630a7a70a0263f20d6bc8"
+    },
+    "assets/foot_heels_carpet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "ef3ba25c655ce7ddfbb8059d2c2b33d588cb0ad5b3beda9ec77dea1b027d5884"
+    },
+    "assets/foot_heels_carpet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "3456d2d05422eb83c3bd645eff4de8a944878ffbe496274f7a2c40bb64fae03a"
+    },
+    "assets/foot_heels_carpet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "519eef8006a2855c81bea2393fb438932a77d06fdc4b6226efcf4bc92d5dac05"
+    },
+    "assets/foot_heels_carpet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "e909e7449156620434eb08db0b48c6f644906931176935505ecf9be341e3fc58"
+    },
+    "assets/foot_heels_carpet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "4e179cd50b43fbf363dd09d75687a37741d43e98212699c88195332249bbbfea"
+    },
+    "assets/foot_heels_carpet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "aec8e25633b61985ce37a4ba8f3e00386686b4a0a191e19d04113179024ab703"
+    },
+    "assets/foot_heels_gravel_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "3732e489f12520d3eaff45c7463697f66189ade25bff189e87b6d7ccd7b9b3eb"
+    },
+    "assets/foot_heels_gravel_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "5d2b57f4e919f240fb0f6a0cba004ad221d8ead8fb54fbe2eec11711efcb37af"
+    },
+    "assets/foot_heels_gravel_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "806a979bcc0f2d6c311fb094e83d986e294a4b7ad71b0a6727594150b45568d5"
+    },
+    "assets/foot_heels_gravel_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "99f175b05b2809fc44477ec8575d316f6334c638e5dcaa0864667449d953edf9"
+    },
+    "assets/foot_heels_gravel_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "dc0dd71642a5f58acaccbfe9cb061e379e1016bebf465013fa3e7e5ca5128b36"
+    },
+    "assets/foot_heels_gravel_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "2cf07689dda4eb1411abfb7f09ee268da4df42d81a5389efdd27c2464e2b888e"
+    },
+    "assets/foot_heels_gravel_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "d7d9f1f360e77d46f35cda81c9ea725f48fff2edb19ab6b8fffa73fd265b6f52"
+    },
+    "assets/foot_heels_gravel_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "b1aa24b827fc9d61c97c003cc8b8456aaea1cf751da1f8e19aace25b07bd062a"
+    },
+    "assets/foot_heels_mat_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "224b5a61034b4f1d0fe8e7264cb08cd1dfd7c5c20a835b540944e29c1845d97b"
+    },
+    "assets/foot_heels_mat_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "cbb32910b9ff55bf08eb8c628491e9be373bb42dc454693485a9f5d2c744f4cf"
+    },
+    "assets/foot_heels_mat_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "b9ace548b418990b7de7eda84b66079d1e0cb1198a99e7e2551f6099c4834b30"
+    },
+    "assets/foot_heels_mat_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "b12c76827ac6317959f990e33ed19b52e81ce3daeea8cb011c1105bfa41a70b9"
+    },
+    "assets/foot_heels_mat_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "623ec9d3abe129de9fabe7d3cd3bdbd0d36a48ca7904af7e240476aa0306dc27"
+    },
+    "assets/foot_heels_mat_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "cd9dea2ea7118e02b57ede0b70d578f2c3e021cc1c6ad432b1dd091f948f280c"
+    },
+    "assets/foot_heels_mat_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "4d2adff02bd9cacba58bac1b3be5f1866444db11e2cd651469ba2bb778e88db6"
+    },
+    "assets/foot_heels_mat_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "b540de5069adc430aa1620068205fc830be3e739519b50083f9d050e73431c50"
+    },
+    "assets/foot_heels_stairs_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "037e4a85db2d67e43e0c8fc74eb9cf4513c763130916088b9efdba4c7a9b6478"
+    },
+    "assets/foot_heels_stairs_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "5d52103004795260f321ac2d3e2591015585d5e8b4406bd1744b6d832f0aaf0b"
+    },
+    "assets/foot_heels_stairs_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "6dea24a00bc529be078988e9279cafa04fa3d7435121f135d0fba9cf9c023331"
+    },
+    "assets/foot_heels_stairs_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "c6007b0e3b8acfe39cc61ac3e8bd373ad8dac4b257f06cf52a1f914630ae1cf0"
+    },
+    "assets/foot_heels_stairs_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "1a35bea8c0fc009a286aef599fa23b1fa5ee94e1fec0d7e8bf824fa1936bc9fd"
+    },
+    "assets/foot_heels_stairs_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "aa3cbe15b0ba2c60ae678f179f3f9e6349866e1e2b6d3236d8e686255a1caa17"
+    },
+    "assets/foot_heels_stairs_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "75b3e63beef619ef9a0336db97d1dce264a5c2ab585b8e0f50a9601d2bae4ec2"
+    },
+    "assets/foot_heels_stairs_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "e145447e0987a562ce9c1b0a3f6fa9f1fd7688fb8d8313921e564314be4d68b4"
+    },
+    "assets/foot_heels_stone_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "80f12d7abb178526e38b670361bc05ef38713422a2ed8dc1e8e159b58883c357"
+    },
+    "assets/foot_heels_stone_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "c31e22a16d4990dc96caef2c177b07955a8df98d3c4c1eeec206de684563e0f2"
+    },
+    "assets/foot_heels_stone_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "f3258daf8b38df2bbe88dd6ff6e686ce117cafe763c5d0b7a9288a646ab102bd"
+    },
+    "assets/foot_heels_stone_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "c733803a2d0f6287a130e08d0a04a25201d3e79b1e559af4845c82a369f7be05"
+    },
+    "assets/foot_heels_stone_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "ba644b0d89bfc0264693285a92df116a221021e737a54d0969050d53f911c56e"
+    },
+    "assets/foot_heels_stone_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "8e43ee6ed83e8f2a0a259c49af7444b442e513a51d611c235f9ad89c1d7fa742"
+    },
+    "assets/foot_heels_stone_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "f93eb23ea623bb8014da0ba0cf14a57449e8c042d51760396808fa4048273e4a"
+    },
+    "assets/foot_heels_stone_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "5545b0e4ef9dc57569e6e099a2118c0d77254b72a6a1d9507df6e447f38bc988"
+    },
+    "assets/foot_heels_tile_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "4aa4a27be857d2e9a1b778f9bd97a3754d3761dab1d1caeeb43e1585dbedf64d"
+    },
+    "assets/foot_heels_tile_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "8f3e9cbb7601d1b5e0aa38a1a5c8b29bfc14d7081640e5112e75a9c62fd9038d"
+    },
+    "assets/foot_heels_tile_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "78323d9c95dedbfeac48f993201b8eb5f8ec83f2aff31a10f0abde332554f350"
+    },
+    "assets/foot_heels_tile_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "a34730704fd10ef0cd0349e53d115df702ffa01ab0a7133f8f09fce24db465f4"
+    },
+    "assets/foot_heels_tile_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "a5c849426320e3ed43e84b1bdd73be2f845ab315e756772d299cfddfdb37ea41"
+    },
+    "assets/foot_heels_tile_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "07872f51eb580f8e45f341c8d17d035ba37b901d64e486de7d0603117b6749dd"
+    },
+    "assets/foot_heels_tile_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "92fbbc4839b9e69af4f706c2bf8318434a1da8c9a91ae37a962974d7e8014cf9"
+    },
+    "assets/foot_heels_tile_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "390c700a0f222a225861aa5af4c965de8321f4d6fabbad1aeb5fc74e92d35246"
+    },
+    "assets/foot_heels_wet_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "1314e039ba8477c6a4e7ff445f7261ec78f243e15bbec7b573a6523da3af1db1"
+    },
+    "assets/foot_heels_wet_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "1d390b2926d0427e81c4752899d8b9493062cbeb4450466bfcf8b8f91176699a"
+    },
+    "assets/foot_heels_wet_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "2c2aa044383079f0c4e6252b7b260d7fa3af73db4cdb8144dc8c4b05fd0e3ec6"
+    },
+    "assets/foot_heels_wet_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "376edbc7eee7a0f6603a3000ab0dd6f3702846361db228f04903a018d2bd9886"
+    },
+    "assets/foot_heels_wet_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "53b4b92cd2c52f0ea92045b44cb32ed547eaf9f812c9fb56aee76b4112848602"
+    },
+    "assets/foot_heels_wet_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "c0945973311049bd225d1347cc33dec28323ea340791a9f2a5564cc9476e8784"
+    },
+    "assets/foot_heels_wet_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "c50ec6e9878150916dacb516f45a2e2b14490ae754918fa6256f16dbcea3d87c"
+    },
+    "assets/foot_heels_wet_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "8870041f6d563940a00b4bfd14b108cc5c2100920a928adf07d4f92ad0bfb9ec"
+    },
+    "assets/foot_leather_carpet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "3f2a16e95d951f8ad37591a79139505d33ea3b0f8299fff67994115a0cfac726"
+    },
+    "assets/foot_leather_carpet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "3ba27a5bdec2c0c1cb12758327cf1292bd4a9db72b71e4d5b05feb4e16afa8d7"
+    },
+    "assets/foot_leather_carpet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "e1b911ca327cf356a7cde10e01bd01c49a70aa361b6652c03272724f5c15ab25"
+    },
+    "assets/foot_leather_carpet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "c3ad8eeb5b7e16ad2b953252264ae0a50cb32084f3cb0ed712b80802eceac06c"
+    },
+    "assets/foot_leather_carpet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "6f4908d13ef2c1640d282221634000d78159da9c19718eae0e32bf8d75df37c0"
+    },
+    "assets/foot_leather_carpet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "e10e4ae6aa1727561ed3f55a70fd9a7959f3a22dfa5340baf162de6b56e239b4"
+    },
+    "assets/foot_leather_carpet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "f2e8b9b62f99941d1c67232d5e45247354f8b94bf8936ab51bfdddbf9f894dee"
+    },
+    "assets/foot_leather_carpet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "1540e29e96e070092acf256241c33f3be139b570a07ff422b246f2d6cd7bbc7f"
+    },
+    "assets/foot_leather_mat_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "74db900f78b219fa57e7d8c9d3fb76efadb2482043f5c857bfb128049fc1dc1e"
+    },
+    "assets/foot_leather_mat_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "80aba659d5ca17bf35fe4f5acc9473ba5c1ddecaa27bdaeff794e889d8960a90"
+    },
+    "assets/foot_leather_mat_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "cd849c0a1d9fd71e394471e1f4cd84a35050c424e077ea6dae6adef705b71e38"
+    },
+    "assets/foot_leather_mat_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "dfd6b5bd784f3f34551fabdbc7134bb70209ba08b066eddbd5b4c29a41a34314"
+    },
+    "assets/foot_leather_mat_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "75bf857eb9ee3989478e8c9b5dafa25c69e18812ccbdac8744e698da01babb0e"
+    },
+    "assets/foot_leather_mat_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "341083465a3dead01df71ef6944f2f301f6afe61f54c165258ffb658b7a181eb"
+    },
+    "assets/foot_leather_mat_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "10ecb14569363b4eb06ba5af0ee3a5d4c258f4545f4610bf4953f888386e6fc9"
+    },
+    "assets/foot_leather_mat_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "20d08cfe46448d453e5de96753df36055e79dbb28d437852e20f4d2822e8659b"
+    },
+    "assets/foot_leather_stone_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "f7e6590e2cbe712861179ee015cd56e695972e2ae2e73484bed3f7f1367f0869"
+    },
+    "assets/foot_leather_stone_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "7e2d17498c1a54c27510d5444332edf68c77b2b7b2256e34632abb48dee25ccb"
+    },
+    "assets/foot_leather_stone_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "17c95e958c2dc52ffecd9f329f0c2940cf1eb3ff8a61dce37f5a5012b6d2c677"
+    },
+    "assets/foot_leather_stone_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "30da42b54487d9e27942f78dd2a81cad5bebe53487915bce8a8b8e446c747dc0"
+    },
+    "assets/foot_leather_stone_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "ea08e61727528db622e7ebdeb33a9fceb992145270b5e867ed645772040ed482"
+    },
+    "assets/foot_leather_stone_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "b35320d6cfaf39adae62ee7e1adee6a50e91ce2a265022e800e288db2e926e22"
+    },
+    "assets/foot_leather_stone_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "07bdd6982ad2b22b4afb8d20867e11afd09c622393c18ad57c6053527399b2f3"
+    },
+    "assets/foot_leather_stone_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "d410c444ed95e7a8eedb6cb6a231a848d18d498040e62f6b2eb73e043240752f"
+    },
+    "assets/foot_leather_tile_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "af9da3491b4c55b058ce8b9a193aeef0563d637948ee63826cf5f152474afca6"
+    },
+    "assets/foot_leather_tile_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "9b3f50d32d2d7a91fa8027a60c25d3535d2b3f7dc76ed0333688c042477e0c9d"
+    },
+    "assets/foot_leather_tile_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "29c39ae2888c5c4df28e9252c4fcfe6734b8dbd9bd81dbea4cf804689220075c"
+    },
+    "assets/foot_leather_tile_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "8900c515b7e020e043e595d73ab478e132c3948bc0831220e28ff001ecab289b"
+    },
+    "assets/foot_leather_tile_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "e40bfe16a9ca587218cebca0777aa05101249c104b294cfd19b056039869354d"
+    },
+    "assets/foot_leather_tile_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "f210122b12713a1034156d6fb48cdfa7e2c4f6795362c1f6aa12583342fd9211"
+    },
+    "assets/foot_leather_tile_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "0cde2088bb9eeb83e74cbcff8bb26125e6aa0a9c5615d00172a613206232bd9d"
+    },
+    "assets/foot_leather_tile_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "0f782bea9943c341ff3d0444c129b5382278aeb9d7328cd71655ece367267331"
+    },
+    "assets/foot_sneaker_carpet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "a672cbe4dce4e6321061ee86a40262c2ac0cb574cef26fa47e685dfeba1d7d65"
+    },
+    "assets/foot_sneaker_carpet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "4b68697c4d2fcae95be293010e4693647f12ae859bdaca4a2a559e70498dc5ff"
+    },
+    "assets/foot_sneaker_carpet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "a77c4edc90ea3807f1012f1608f091a8bbda3f03a6e75ec39c7507360d505395"
+    },
+    "assets/foot_sneaker_carpet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "443325958eed9e5de14a392fa723b8ee8a9c9a1a1df8658782a44fd42947df60"
+    },
+    "assets/foot_sneaker_carpet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "62163d6e76f0821e25f53b533dcb3799902d306ffe3d6c5ce83038ab613626a1"
+    },
+    "assets/foot_sneaker_carpet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "a48ada6886d6d7ec48147675e7d9c32dcaa66dda29c51d6d39c70bf80fa21aa7"
+    },
+    "assets/foot_sneaker_carpet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "7dfc2ca18c72179f173946b2bea1dd0eb8d46816b1f5efa58619ff4a70a30921"
+    },
+    "assets/foot_sneaker_carpet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "8990ff04b2a4b673b2bb892250e9bf22f1de6f814ef7bee4620ea1e5e5aa56b6"
+    },
+    "assets/foot_sneaker_gravel_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "bee630e179b8ef75436520eefaa08b4ce902732403e724ef84459db4821578bb"
+    },
+    "assets/foot_sneaker_gravel_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "a0c91d8c5604c6901885fd1ffbfdf55b5f9497e2360cc51848b568e9ab4a1383"
+    },
+    "assets/foot_sneaker_gravel_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "2961878d335e5fea2de903be4383afb5966e98da19abff2ecfec1fb2e9ec56e9"
+    },
+    "assets/foot_sneaker_gravel_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "eac8366f7f07305f5859b86b509963dfaca7217d619630c90b77bb3a3d08728e"
+    },
+    "assets/foot_sneaker_gravel_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "841fbf57cfadf8777f161064567be777f812a315646d4b278e033ef4dd3eab39"
+    },
+    "assets/foot_sneaker_gravel_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "f4c78cb4a97db7f97475223b5f4fec3fd797d6a682df0a182522bbf0d0ef21fe"
+    },
+    "assets/foot_sneaker_gravel_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "36680963a417c4929e0dbea9e284b37fdb266676ace51a35842586c9e4da2279"
+    },
+    "assets/foot_sneaker_gravel_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "52f92683d5396ff22d01850f93ab448aafb7e9e2fb184cb33f3ae3eca738f236"
+    },
+    "assets/foot_sneaker_mat_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "61eaa072024506702bff3927fc5d1f9c66990cc0b7772c8b7c45507e0047e285"
+    },
+    "assets/foot_sneaker_mat_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "43aa613a2ab7ed473f43eb7721709e104564d83e05434ea1d0d9dbde215ec9cf"
+    },
+    "assets/foot_sneaker_mat_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "003e0d855c55b51c3921a25e1f8c3a02f2291a033725084451736d8382acb60a"
+    },
+    "assets/foot_sneaker_mat_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "b3cdbf1656f56e288b568c372aa4ce562089acf9b6ae0ca61f6314300024df28"
+    },
+    "assets/foot_sneaker_mat_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "0d416b2049f077c9cb89053fdf3bd15663fd91a473497492fa33ee814e3d3dae"
+    },
+    "assets/foot_sneaker_mat_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "af553ed0fba94109cb156a23cb035c0a4577ad6b5eb000df16efdb2b981e324f"
+    },
+    "assets/foot_sneaker_mat_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "ff19629bc5b13a0d88440089f450a71b792298e299ba7185221e6e0eef988b19"
+    },
+    "assets/foot_sneaker_mat_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "4605720c1e3f6f3283ca01b7f02923440271766791bb396adb481e797237d17e"
+    },
+    "assets/foot_sneaker_stairs_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "94742716fed2ac2e857c70a354ccfb74b1bc4aa1c054847ff26bdd49271877b7"
+    },
+    "assets/foot_sneaker_stairs_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "beb6980948cbcfa2a623ee291760acf3a8467e56d317a623de071d8e36ca578a"
+    },
+    "assets/foot_sneaker_stairs_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "b52680357fa2ebe3f47b1557ab01a17b8052f9866463614a3a9743098cb45b9a"
+    },
+    "assets/foot_sneaker_stairs_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "d70cd5eb83405d99c54365f608a049ab1417ac40d668e17f3b5277f3f936667a"
+    },
+    "assets/foot_sneaker_stairs_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "d5134ad664b60b93505ac2a9b6d3b39c0008cf716bbedc53ead3a47ddc10a0fd"
+    },
+    "assets/foot_sneaker_stairs_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "c5f0e3bac5c581d331924d50bcc9d1ddd72d9d8c85670d7e575fb95a00338a11"
+    },
+    "assets/foot_sneaker_stairs_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "db68c8c25918300f52093b6cbe894994e2d1452bd1d83124db5c8fb9895c9ca5"
+    },
+    "assets/foot_sneaker_stairs_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "907515253f4fa5a5228d3bbbc93b1d82fae5310afd349276bb527a99fe51f1ab"
+    },
+    "assets/foot_sneaker_stone_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "7bac35ef609f7f509de8928e263eea9cb06649c769e39b9f77bd9afe88afd310"
+    },
+    "assets/foot_sneaker_stone_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "eb04c2387f743e203c15b94a3411817772166520e2e541c2593cb47884901307"
+    },
+    "assets/foot_sneaker_stone_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "cd51c13d2ce1123f822ac254d6ed5528abb8c0bb2739002193bd3d46979fd602"
+    },
+    "assets/foot_sneaker_stone_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "e925fd61ca9f5a3fdac42bea9fc54f089114dd2705b5be055d5b369fcd824445"
+    },
+    "assets/foot_sneaker_stone_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "5b7cf48107749d57bbd4e603f47584f8fb05d206b382c897b7620419f7becf2a"
+    },
+    "assets/foot_sneaker_stone_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "32322072a77f9ea9ea5756bbc1207a1ca8da07482cb2668020401cd2247c598d"
+    },
+    "assets/foot_sneaker_stone_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "b3cde1cb85c6d639d6327610670733bab13f672e3fca2018f58fa3e599b76942"
+    },
+    "assets/foot_sneaker_stone_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "648abf2cd3a32d6fcc8b4386102e0ede40e16f3ef87fad15e5b2f69b19f86bb1"
+    },
+    "assets/foot_sneaker_tile_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "26e12bc6b7f593a0cb9ae819d2257b176fc587801ea4b446f71a7dffe21f9ff2"
+    },
+    "assets/foot_sneaker_tile_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "d5c32760a339762a16993a3fe29704ebbdd6faed1dc1a0f6bba4e93ca3277af0"
+    },
+    "assets/foot_sneaker_tile_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "bc5b1d60337bebcfcbd354f93f25851a36dfc4170f623f9922f06ed95825ee98"
+    },
+    "assets/foot_sneaker_tile_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "f8247153992f46ee130ee1000fe3dcc6ac88addc8f1b4ff574b8c48d7bca174e"
+    },
+    "assets/foot_sneaker_tile_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "751eb3f6fc652ba769d68760c5594af80b16a03fad890991face5a84b1ea88db"
+    },
+    "assets/foot_sneaker_tile_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "5e3e276f984b7239c30e0f169e8ca14b33da6c07b9cee131d7675f5a5d050ec7"
+    },
+    "assets/foot_sneaker_tile_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "dfeba57e50c8d0bd344fa3f2393d4b02ee9f0307ce08956de3857566dca55e3b"
+    },
+    "assets/foot_sneaker_tile_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "72ac12cf4354e7a4d51959198a5a0d20055f028828b305f8b81119ccbfc7b1e3"
+    },
+    "assets/foot_sneaker_wet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "40aa596d550aa70684934d4fe7fc1dc4df3e127e2b19f0730222eee253b59731"
+    },
+    "assets/foot_sneaker_wet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "08ceb81c9158c253b89c1d9a7632daf469a9136a5718f7b408ceaacd5ca92e37"
+    },
+    "assets/foot_sneaker_wet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "d13186b1ac5644edf128253874a2e6622094a3089670d7cdb96a41a690d2a013"
+    },
+    "assets/foot_sneaker_wet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "a3a73ad8b5e0c89d19e4252b167d2ca762ecf30288d8b531bb57d80c187e8941"
+    },
+    "assets/foot_sneaker_wet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "7df8486be480e6a8a69e110231241eaf6819626aca773dc25518d5d1ed2aff07"
+    },
+    "assets/foot_sneaker_wet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "c98a50e5709596a2a3cf5426442e70ba9e62a37e4342cc5dde24592963281ace"
+    },
+    "assets/foot_sneaker_wet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "37275392d100164e5ec8eac57c9cbb56f44185faae5a29d00e55c22c0da96f0f"
+    },
+    "assets/foot_sneaker_wet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "151ec4407c88f6007bb3e4cdb132d7ed9b41734ad3bc6fba2e11e165cff5bf74"
     },
     "assets/gate/door-hole.png": {
       "bytes": 1868,
@@ -285,9 +881,61 @@
       "bytes": 190544,
       "sha256": "1706b0944952b3fff8ee469a98fdb37e8c7e70d2a4fa3037b644b342b733f1e5"
     },
+    "assets/rain_inside_B_01.wav": {
+      "bytes": 3456044,
+      "sha256": "cf516c675c5b5db9a54b09a553cb5354fe7a8496945829a7599786e748956345"
+    },
+    "assets/rain_leaf_A_01.wav": {
+      "bytes": 3456044,
+      "sha256": "2feccb88e4d1cb87d268c16d7eef4c7d17c58611264a23a2b6fed4b422b9908e"
+    },
+    "assets/rain_out_A_01.wav": {
+      "bytes": 3456044,
+      "sha256": "a2f8e4008c088e56510b1e55f4cb6dd59593824a92fa19ecf43bcb69e028f1aa"
+    },
+    "assets/rain_roof_B_01.wav": {
+      "bytes": 3456044,
+      "sha256": "0aaaa946b8e168dcf7f1c5bc972136632c238c05742ffd97297cd49e9a09758b"
+    },
+    "assets/rain_stone_B_01.wav": {
+      "bytes": 3456044,
+      "sha256": "3e60962ce88eb124fe31f0b38267efab6df11b65ed9d24bc4a5011c3df6ac6b6"
+    },
+    "assets/rain_window_A_01.wav": {
+      "bytes": 3456044,
+      "sha256": "64ac00ac828bb17efc94d7175280a90c24bd9237c9fffd430cd079cab7be59b9"
+    },
+    "assets/room_transition_C_01.wav": {
+      "bytes": 158444,
+      "sha256": "5e5f3fe0f9983dd99db43e7d655a47cc2319e85b79949904264a81196a76a025"
+    },
+    "assets/user-door_close.mp3": {
+      "bytes": 17179,
+      "sha256": "08cd14c4db4c804420c31616d7fb05a4b6a1114374b2bc79f3fae321b155cd75"
+    },
+    "assets/user-door_open.mp3": {
+      "bytes": 17179,
+      "sha256": "1ad9b06c878c947b0be7491eddaef47897a995489c382db84524515164bf45c2"
+    },
+    "assets/user-fireplace.mp3": {
+      "bytes": 97009,
+      "sha256": "ca9d1e6d0a9c4ff7c12a221c5a7524b579b75aa38c5dd2c72256b136b2a362c4"
+    },
+    "assets/user-storage_close.mp3": {
+      "bytes": 17179,
+      "sha256": "530dd5b92fac8c599a26abd734628f7a991a3f14118759fe13da147fb4cfb855"
+    },
+    "assets/user-storage_open.mp3": {
+      "bytes": 17179,
+      "sha256": "72dfd35f13f0d814e9aad201a691b68b510d55b9f9f6d68ecfbb4fa03a196383"
+    },
+    "assets/user-wood-sneaker.mp3": {
+      "bytes": 8820,
+      "sha256": "f33eda4de55b1a1d00d8e23aaa961fdaf1b02419a2c0472fd4cfa7df13bad7d3"
+    },
     "cache-check.html": {
       "bytes": 4194,
-      "sha256": "6f090ba99ff587ae92f928c3e56ad3614a6abc5490b3a517b078d6d908b14986"
+      "sha256": "1f1fd1a3dfd0034a88417c1d7ca1a8081c178231def0e4a9d0fd97e49fe3c520"
     },
     "character-catalog.json": {
       "bytes": 2051,
@@ -318,8 +966,8 @@
       "sha256": "045c376717c7180aa413d802935251ed2dca5bf9a0d0f1ab0ff30611d794dea4"
     },
     "entry-check.html": {
-      "bytes": 14745,
-      "sha256": "961a56f76830fc5ea927b564c7bd062a643e987f196eec55fe010520ddde06db"
+      "bytes": 14778,
+      "sha256": "4d94fa2df6ae20f1c1a57b58f30f0c6bb58fcb5fd41772ce00ac0b1049ec1885"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -332,6 +980,10 @@
     "function-panel.js": {
       "bytes": 5060,
       "sha256": "4d153d9683db95588f84a6096df066cf101c39f2a964435769420e094f44c80a"
+    },
+    "game-volume.js": {
+      "bytes": 4863,
+      "sha256": "9c9817b4e516c5fe5ee439b49900f8ac529a97c9bc34bf9f9140f57bc9dab3fd"
     },
     "gate-story.js": {
       "bytes": 7580,
@@ -362,8 +1014,12 @@
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "index.html": {
-      "bytes": 37292,
-      "sha256": "af1305995219c5052f9f840e9ae74ea77b6e5e9085a26bc3605397f1d516a91f"
+      "bytes": 37437,
+      "sha256": "4f812acf24f5a7f3d123d29f967fd469ab75a76251f725258507975af11f2ae9"
+    },
+    "indoor-rain.js": {
+      "bytes": 791,
+      "sha256": "faa35491d3c23384adbcbbbd7965f7967c082f387b752b6bd558342ae3b96df9"
     },
     "invite.js": {
       "bytes": 5367,
@@ -405,6 +1061,10 @@
       "bytes": 174,
       "sha256": "33843994b9b6afdd3bbb25859746a760b0a78c191d0081527e53348af2f5c284"
     },
+    "preview-session.js": {
+      "bytes": 2643,
+      "sha256": "1c75eca64f2ecc58d9ea6b83fade9d67280b927c3fdf315b7118a109da45c3cf"
+    },
     "README.md": {
       "bytes": 921,
       "sha256": "052a9a1d27d1d45a5eaf1ded45c518f44a50af63c18e24228442939c4a4c09ac"
@@ -429,6 +1089,10 @@
       "bytes": 435,
       "sha256": "eac8f1d51fa672dcfc394daca3d3dfed7397d1140793892495d223e77f26a3e0"
     },
+    "room-state.js": {
+      "bytes": 2317,
+      "sha256": "857798793a73f9a94090e133d33419953fe480445e5535845a4a1b4503e6babb"
+    },
     "sample-study.js": {
       "bytes": 20045,
       "sha256": "52ca9318db9550085632f05f3c5075abb761e1be627b98559863ffbf2a267233"
@@ -441,6 +1105,10 @@
       "bytes": 20279,
       "sha256": "a2671466af57bfd93af39fc92f968d139c6e91f65ed0ae3f3cf9b98fb08abb5a"
     },
+    "selected-sounds.json": {
+      "bytes": 23994,
+      "sha256": "edcf7267406668addd27498ec967983179db5e4a6d93be0af83e41426319cdbd"
+    },
     "selection-core.js": {
       "bytes": 1356,
       "sha256": "5b746ee12b75858e670095208271df9edc32c4a48831701b91ceaceaae262aff"
@@ -449,6 +1117,10 @@
       "bytes": 10825,
       "sha256": "682a6c207cd887a2bb9cdc187d892819a983b07d1188b822dadc9145bf74112f"
     },
+    "sound-surfaces.js": {
+      "bytes": 2314,
+      "sha256": "8f30f173411600e27343f1c0f1ef9bd8b8f3331cf72ef563d697bedcda788685"
+    },
     "stage.html": {
       "bytes": 7352,
       "sha256": "eb82cdd3267e10bb67ace80c0b007c6631d4dde9af9e83716a87a8be76bb078b"
@@ -456,6 +1128,602 @@
     "tavern/application.js": {
       "bytes": 3302,
       "sha256": "359f85dd922e2568aa991af95a5c356a0102042c8918252987bfbd37f2153eb2"
+    },
+    "tavern/assets/curtain_A_01.wav": {
+      "bytes": 122444,
+      "sha256": "1c73840b3a417446ccd8e41827de42babea772308d7e59f7b2bb1746fe414157"
+    },
+    "tavern/assets/curtain_A_02.wav": {
+      "bytes": 122444,
+      "sha256": "b45dea081ad213335a10e3c3c91abb237f25058b27c94e7200d243487ce1f251"
+    },
+    "tavern/assets/floor_transition_C_01.wav": {
+      "bytes": 158444,
+      "sha256": "5e9a3e17870a6b9f1e52b7345837dd5f21eebbd9dfcb291f671597ca0255f95f"
+    },
+    "tavern/assets/foot-v3-heels-wood.wav": {
+      "bytes": 25985,
+      "sha256": "4c4d313da5307a88634c25ddbb21ef1bcc1d9a6efee1639470cfaba99d35bb4b"
+    },
+    "tavern/assets/foot-v3-leather-wood.wav": {
+      "bytes": 35057,
+      "sha256": "9e5bf246d9ad4f9532585bd4fe74e4ff629ac3d5ca248c2b05b893d4b82b3c27"
+    },
+    "tavern/assets/foot_heels_carpet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "50a8ec69ca38bd553f987b0971621f40a07ca9c3f7bb14a0aea4dff203355526"
+    },
+    "tavern/assets/foot_heels_carpet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "f6ff3072b687b41da4a94aad98a35721aa0de071710630a7a70a0263f20d6bc8"
+    },
+    "tavern/assets/foot_heels_carpet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "ef3ba25c655ce7ddfbb8059d2c2b33d588cb0ad5b3beda9ec77dea1b027d5884"
+    },
+    "tavern/assets/foot_heels_carpet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "3456d2d05422eb83c3bd645eff4de8a944878ffbe496274f7a2c40bb64fae03a"
+    },
+    "tavern/assets/foot_heels_carpet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "519eef8006a2855c81bea2393fb438932a77d06fdc4b6226efcf4bc92d5dac05"
+    },
+    "tavern/assets/foot_heels_carpet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "e909e7449156620434eb08db0b48c6f644906931176935505ecf9be341e3fc58"
+    },
+    "tavern/assets/foot_heels_carpet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "4e179cd50b43fbf363dd09d75687a37741d43e98212699c88195332249bbbfea"
+    },
+    "tavern/assets/foot_heels_carpet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "aec8e25633b61985ce37a4ba8f3e00386686b4a0a191e19d04113179024ab703"
+    },
+    "tavern/assets/foot_heels_gravel_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "3732e489f12520d3eaff45c7463697f66189ade25bff189e87b6d7ccd7b9b3eb"
+    },
+    "tavern/assets/foot_heels_gravel_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "5d2b57f4e919f240fb0f6a0cba004ad221d8ead8fb54fbe2eec11711efcb37af"
+    },
+    "tavern/assets/foot_heels_gravel_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "806a979bcc0f2d6c311fb094e83d986e294a4b7ad71b0a6727594150b45568d5"
+    },
+    "tavern/assets/foot_heels_gravel_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "99f175b05b2809fc44477ec8575d316f6334c638e5dcaa0864667449d953edf9"
+    },
+    "tavern/assets/foot_heels_gravel_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "dc0dd71642a5f58acaccbfe9cb061e379e1016bebf465013fa3e7e5ca5128b36"
+    },
+    "tavern/assets/foot_heels_gravel_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "2cf07689dda4eb1411abfb7f09ee268da4df42d81a5389efdd27c2464e2b888e"
+    },
+    "tavern/assets/foot_heels_gravel_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "d7d9f1f360e77d46f35cda81c9ea725f48fff2edb19ab6b8fffa73fd265b6f52"
+    },
+    "tavern/assets/foot_heels_gravel_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "b1aa24b827fc9d61c97c003cc8b8456aaea1cf751da1f8e19aace25b07bd062a"
+    },
+    "tavern/assets/foot_heels_mat_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "224b5a61034b4f1d0fe8e7264cb08cd1dfd7c5c20a835b540944e29c1845d97b"
+    },
+    "tavern/assets/foot_heels_mat_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "cbb32910b9ff55bf08eb8c628491e9be373bb42dc454693485a9f5d2c744f4cf"
+    },
+    "tavern/assets/foot_heels_mat_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "b9ace548b418990b7de7eda84b66079d1e0cb1198a99e7e2551f6099c4834b30"
+    },
+    "tavern/assets/foot_heels_mat_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "b12c76827ac6317959f990e33ed19b52e81ce3daeea8cb011c1105bfa41a70b9"
+    },
+    "tavern/assets/foot_heels_mat_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "623ec9d3abe129de9fabe7d3cd3bdbd0d36a48ca7904af7e240476aa0306dc27"
+    },
+    "tavern/assets/foot_heels_mat_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "cd9dea2ea7118e02b57ede0b70d578f2c3e021cc1c6ad432b1dd091f948f280c"
+    },
+    "tavern/assets/foot_heels_mat_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "4d2adff02bd9cacba58bac1b3be5f1866444db11e2cd651469ba2bb778e88db6"
+    },
+    "tavern/assets/foot_heels_mat_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "b540de5069adc430aa1620068205fc830be3e739519b50083f9d050e73431c50"
+    },
+    "tavern/assets/foot_heels_stairs_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "037e4a85db2d67e43e0c8fc74eb9cf4513c763130916088b9efdba4c7a9b6478"
+    },
+    "tavern/assets/foot_heels_stairs_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "5d52103004795260f321ac2d3e2591015585d5e8b4406bd1744b6d832f0aaf0b"
+    },
+    "tavern/assets/foot_heels_stairs_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "6dea24a00bc529be078988e9279cafa04fa3d7435121f135d0fba9cf9c023331"
+    },
+    "tavern/assets/foot_heels_stairs_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "c6007b0e3b8acfe39cc61ac3e8bd373ad8dac4b257f06cf52a1f914630ae1cf0"
+    },
+    "tavern/assets/foot_heels_stairs_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "1a35bea8c0fc009a286aef599fa23b1fa5ee94e1fec0d7e8bf824fa1936bc9fd"
+    },
+    "tavern/assets/foot_heels_stairs_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "aa3cbe15b0ba2c60ae678f179f3f9e6349866e1e2b6d3236d8e686255a1caa17"
+    },
+    "tavern/assets/foot_heels_stairs_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "75b3e63beef619ef9a0336db97d1dce264a5c2ab585b8e0f50a9601d2bae4ec2"
+    },
+    "tavern/assets/foot_heels_stairs_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "e145447e0987a562ce9c1b0a3f6fa9f1fd7688fb8d8313921e564314be4d68b4"
+    },
+    "tavern/assets/foot_heels_stone_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "80f12d7abb178526e38b670361bc05ef38713422a2ed8dc1e8e159b58883c357"
+    },
+    "tavern/assets/foot_heels_stone_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "c31e22a16d4990dc96caef2c177b07955a8df98d3c4c1eeec206de684563e0f2"
+    },
+    "tavern/assets/foot_heels_stone_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "f3258daf8b38df2bbe88dd6ff6e686ce117cafe763c5d0b7a9288a646ab102bd"
+    },
+    "tavern/assets/foot_heels_stone_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "c733803a2d0f6287a130e08d0a04a25201d3e79b1e559af4845c82a369f7be05"
+    },
+    "tavern/assets/foot_heels_stone_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "ba644b0d89bfc0264693285a92df116a221021e737a54d0969050d53f911c56e"
+    },
+    "tavern/assets/foot_heels_stone_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "8e43ee6ed83e8f2a0a259c49af7444b442e513a51d611c235f9ad89c1d7fa742"
+    },
+    "tavern/assets/foot_heels_stone_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "f93eb23ea623bb8014da0ba0cf14a57449e8c042d51760396808fa4048273e4a"
+    },
+    "tavern/assets/foot_heels_stone_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "5545b0e4ef9dc57569e6e099a2118c0d77254b72a6a1d9507df6e447f38bc988"
+    },
+    "tavern/assets/foot_heels_tile_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "4aa4a27be857d2e9a1b778f9bd97a3754d3761dab1d1caeeb43e1585dbedf64d"
+    },
+    "tavern/assets/foot_heels_tile_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "8f3e9cbb7601d1b5e0aa38a1a5c8b29bfc14d7081640e5112e75a9c62fd9038d"
+    },
+    "tavern/assets/foot_heels_tile_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "78323d9c95dedbfeac48f993201b8eb5f8ec83f2aff31a10f0abde332554f350"
+    },
+    "tavern/assets/foot_heels_tile_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "a34730704fd10ef0cd0349e53d115df702ffa01ab0a7133f8f09fce24db465f4"
+    },
+    "tavern/assets/foot_heels_tile_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "a5c849426320e3ed43e84b1bdd73be2f845ab315e756772d299cfddfdb37ea41"
+    },
+    "tavern/assets/foot_heels_tile_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "07872f51eb580f8e45f341c8d17d035ba37b901d64e486de7d0603117b6749dd"
+    },
+    "tavern/assets/foot_heels_tile_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "92fbbc4839b9e69af4f706c2bf8318434a1da8c9a91ae37a962974d7e8014cf9"
+    },
+    "tavern/assets/foot_heels_tile_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "390c700a0f222a225861aa5af4c965de8321f4d6fabbad1aeb5fc74e92d35246"
+    },
+    "tavern/assets/foot_heels_wet_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "1314e039ba8477c6a4e7ff445f7261ec78f243e15bbec7b573a6523da3af1db1"
+    },
+    "tavern/assets/foot_heels_wet_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "1d390b2926d0427e81c4752899d8b9493062cbeb4450466bfcf8b8f91176699a"
+    },
+    "tavern/assets/foot_heels_wet_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "2c2aa044383079f0c4e6252b7b260d7fa3af73db4cdb8144dc8c4b05fd0e3ec6"
+    },
+    "tavern/assets/foot_heels_wet_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "376edbc7eee7a0f6603a3000ab0dd6f3702846361db228f04903a018d2bd9886"
+    },
+    "tavern/assets/foot_heels_wet_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "53b4b92cd2c52f0ea92045b44cb32ed547eaf9f812c9fb56aee76b4112848602"
+    },
+    "tavern/assets/foot_heels_wet_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "c0945973311049bd225d1347cc33dec28323ea340791a9f2a5564cc9476e8784"
+    },
+    "tavern/assets/foot_heels_wet_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "c50ec6e9878150916dacb516f45a2e2b14490ae754918fa6256f16dbcea3d87c"
+    },
+    "tavern/assets/foot_heels_wet_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "8870041f6d563940a00b4bfd14b108cc5c2100920a928adf07d4f92ad0bfb9ec"
+    },
+    "tavern/assets/foot_leather_carpet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "3f2a16e95d951f8ad37591a79139505d33ea3b0f8299fff67994115a0cfac726"
+    },
+    "tavern/assets/foot_leather_carpet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "3ba27a5bdec2c0c1cb12758327cf1292bd4a9db72b71e4d5b05feb4e16afa8d7"
+    },
+    "tavern/assets/foot_leather_carpet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "e1b911ca327cf356a7cde10e01bd01c49a70aa361b6652c03272724f5c15ab25"
+    },
+    "tavern/assets/foot_leather_carpet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "c3ad8eeb5b7e16ad2b953252264ae0a50cb32084f3cb0ed712b80802eceac06c"
+    },
+    "tavern/assets/foot_leather_carpet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "6f4908d13ef2c1640d282221634000d78159da9c19718eae0e32bf8d75df37c0"
+    },
+    "tavern/assets/foot_leather_carpet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "e10e4ae6aa1727561ed3f55a70fd9a7959f3a22dfa5340baf162de6b56e239b4"
+    },
+    "tavern/assets/foot_leather_carpet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "f2e8b9b62f99941d1c67232d5e45247354f8b94bf8936ab51bfdddbf9f894dee"
+    },
+    "tavern/assets/foot_leather_carpet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "1540e29e96e070092acf256241c33f3be139b570a07ff422b246f2d6cd7bbc7f"
+    },
+    "tavern/assets/foot_leather_mat_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "74db900f78b219fa57e7d8c9d3fb76efadb2482043f5c857bfb128049fc1dc1e"
+    },
+    "tavern/assets/foot_leather_mat_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "80aba659d5ca17bf35fe4f5acc9473ba5c1ddecaa27bdaeff794e889d8960a90"
+    },
+    "tavern/assets/foot_leather_mat_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "cd849c0a1d9fd71e394471e1f4cd84a35050c424e077ea6dae6adef705b71e38"
+    },
+    "tavern/assets/foot_leather_mat_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "dfd6b5bd784f3f34551fabdbc7134bb70209ba08b066eddbd5b4c29a41a34314"
+    },
+    "tavern/assets/foot_leather_mat_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "75bf857eb9ee3989478e8c9b5dafa25c69e18812ccbdac8744e698da01babb0e"
+    },
+    "tavern/assets/foot_leather_mat_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "341083465a3dead01df71ef6944f2f301f6afe61f54c165258ffb658b7a181eb"
+    },
+    "tavern/assets/foot_leather_mat_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "10ecb14569363b4eb06ba5af0ee3a5d4c258f4545f4610bf4953f888386e6fc9"
+    },
+    "tavern/assets/foot_leather_mat_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "20d08cfe46448d453e5de96753df36055e79dbb28d437852e20f4d2822e8659b"
+    },
+    "tavern/assets/foot_leather_stone_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "f7e6590e2cbe712861179ee015cd56e695972e2ae2e73484bed3f7f1367f0869"
+    },
+    "tavern/assets/foot_leather_stone_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "7e2d17498c1a54c27510d5444332edf68c77b2b7b2256e34632abb48dee25ccb"
+    },
+    "tavern/assets/foot_leather_stone_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "17c95e958c2dc52ffecd9f329f0c2940cf1eb3ff8a61dce37f5a5012b6d2c677"
+    },
+    "tavern/assets/foot_leather_stone_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "30da42b54487d9e27942f78dd2a81cad5bebe53487915bce8a8b8e446c747dc0"
+    },
+    "tavern/assets/foot_leather_stone_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "ea08e61727528db622e7ebdeb33a9fceb992145270b5e867ed645772040ed482"
+    },
+    "tavern/assets/foot_leather_stone_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "b35320d6cfaf39adae62ee7e1adee6a50e91ce2a265022e800e288db2e926e22"
+    },
+    "tavern/assets/foot_leather_stone_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "07bdd6982ad2b22b4afb8d20867e11afd09c622393c18ad57c6053527399b2f3"
+    },
+    "tavern/assets/foot_leather_stone_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "d410c444ed95e7a8eedb6cb6a231a848d18d498040e62f6b2eb73e043240752f"
+    },
+    "tavern/assets/foot_leather_tile_run_B_01.wav": {
+      "bytes": 50444,
+      "sha256": "af9da3491b4c55b058ce8b9a193aeef0563d637948ee63826cf5f152474afca6"
+    },
+    "tavern/assets/foot_leather_tile_run_B_02.wav": {
+      "bytes": 50444,
+      "sha256": "9b3f50d32d2d7a91fa8027a60c25d3535d2b3f7dc76ed0333688c042477e0c9d"
+    },
+    "tavern/assets/foot_leather_tile_run_B_03.wav": {
+      "bytes": 50444,
+      "sha256": "29c39ae2888c5c4df28e9252c4fcfe6734b8dbd9bd81dbea4cf804689220075c"
+    },
+    "tavern/assets/foot_leather_tile_run_B_04.wav": {
+      "bytes": 50444,
+      "sha256": "8900c515b7e020e043e595d73ab478e132c3948bc0831220e28ff001ecab289b"
+    },
+    "tavern/assets/foot_leather_tile_walk_B_01.wav": {
+      "bytes": 61964,
+      "sha256": "e40bfe16a9ca587218cebca0777aa05101249c104b294cfd19b056039869354d"
+    },
+    "tavern/assets/foot_leather_tile_walk_B_02.wav": {
+      "bytes": 61964,
+      "sha256": "f210122b12713a1034156d6fb48cdfa7e2c4f6795362c1f6aa12583342fd9211"
+    },
+    "tavern/assets/foot_leather_tile_walk_B_03.wav": {
+      "bytes": 61964,
+      "sha256": "0cde2088bb9eeb83e74cbcff8bb26125e6aa0a9c5615d00172a613206232bd9d"
+    },
+    "tavern/assets/foot_leather_tile_walk_B_04.wav": {
+      "bytes": 61964,
+      "sha256": "0f782bea9943c341ff3d0444c129b5382278aeb9d7328cd71655ece367267331"
+    },
+    "tavern/assets/foot_sneaker_carpet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "a672cbe4dce4e6321061ee86a40262c2ac0cb574cef26fa47e685dfeba1d7d65"
+    },
+    "tavern/assets/foot_sneaker_carpet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "4b68697c4d2fcae95be293010e4693647f12ae859bdaca4a2a559e70498dc5ff"
+    },
+    "tavern/assets/foot_sneaker_carpet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "a77c4edc90ea3807f1012f1608f091a8bbda3f03a6e75ec39c7507360d505395"
+    },
+    "tavern/assets/foot_sneaker_carpet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "443325958eed9e5de14a392fa723b8ee8a9c9a1a1df8658782a44fd42947df60"
+    },
+    "tavern/assets/foot_sneaker_carpet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "62163d6e76f0821e25f53b533dcb3799902d306ffe3d6c5ce83038ab613626a1"
+    },
+    "tavern/assets/foot_sneaker_carpet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "a48ada6886d6d7ec48147675e7d9c32dcaa66dda29c51d6d39c70bf80fa21aa7"
+    },
+    "tavern/assets/foot_sneaker_carpet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "7dfc2ca18c72179f173946b2bea1dd0eb8d46816b1f5efa58619ff4a70a30921"
+    },
+    "tavern/assets/foot_sneaker_carpet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "8990ff04b2a4b673b2bb892250e9bf22f1de6f814ef7bee4620ea1e5e5aa56b6"
+    },
+    "tavern/assets/foot_sneaker_gravel_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "bee630e179b8ef75436520eefaa08b4ce902732403e724ef84459db4821578bb"
+    },
+    "tavern/assets/foot_sneaker_gravel_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "a0c91d8c5604c6901885fd1ffbfdf55b5f9497e2360cc51848b568e9ab4a1383"
+    },
+    "tavern/assets/foot_sneaker_gravel_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "2961878d335e5fea2de903be4383afb5966e98da19abff2ecfec1fb2e9ec56e9"
+    },
+    "tavern/assets/foot_sneaker_gravel_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "eac8366f7f07305f5859b86b509963dfaca7217d619630c90b77bb3a3d08728e"
+    },
+    "tavern/assets/foot_sneaker_gravel_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "841fbf57cfadf8777f161064567be777f812a315646d4b278e033ef4dd3eab39"
+    },
+    "tavern/assets/foot_sneaker_gravel_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "f4c78cb4a97db7f97475223b5f4fec3fd797d6a682df0a182522bbf0d0ef21fe"
+    },
+    "tavern/assets/foot_sneaker_gravel_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "36680963a417c4929e0dbea9e284b37fdb266676ace51a35842586c9e4da2279"
+    },
+    "tavern/assets/foot_sneaker_gravel_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "52f92683d5396ff22d01850f93ab448aafb7e9e2fb184cb33f3ae3eca738f236"
+    },
+    "tavern/assets/foot_sneaker_mat_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "61eaa072024506702bff3927fc5d1f9c66990cc0b7772c8b7c45507e0047e285"
+    },
+    "tavern/assets/foot_sneaker_mat_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "43aa613a2ab7ed473f43eb7721709e104564d83e05434ea1d0d9dbde215ec9cf"
+    },
+    "tavern/assets/foot_sneaker_mat_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "003e0d855c55b51c3921a25e1f8c3a02f2291a033725084451736d8382acb60a"
+    },
+    "tavern/assets/foot_sneaker_mat_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "b3cdbf1656f56e288b568c372aa4ce562089acf9b6ae0ca61f6314300024df28"
+    },
+    "tavern/assets/foot_sneaker_mat_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "0d416b2049f077c9cb89053fdf3bd15663fd91a473497492fa33ee814e3d3dae"
+    },
+    "tavern/assets/foot_sneaker_mat_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "af553ed0fba94109cb156a23cb035c0a4577ad6b5eb000df16efdb2b981e324f"
+    },
+    "tavern/assets/foot_sneaker_mat_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "ff19629bc5b13a0d88440089f450a71b792298e299ba7185221e6e0eef988b19"
+    },
+    "tavern/assets/foot_sneaker_mat_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "4605720c1e3f6f3283ca01b7f02923440271766791bb396adb481e797237d17e"
+    },
+    "tavern/assets/foot_sneaker_stairs_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "94742716fed2ac2e857c70a354ccfb74b1bc4aa1c054847ff26bdd49271877b7"
+    },
+    "tavern/assets/foot_sneaker_stairs_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "beb6980948cbcfa2a623ee291760acf3a8467e56d317a623de071d8e36ca578a"
+    },
+    "tavern/assets/foot_sneaker_stairs_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "b52680357fa2ebe3f47b1557ab01a17b8052f9866463614a3a9743098cb45b9a"
+    },
+    "tavern/assets/foot_sneaker_stairs_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "d70cd5eb83405d99c54365f608a049ab1417ac40d668e17f3b5277f3f936667a"
+    },
+    "tavern/assets/foot_sneaker_stairs_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "d5134ad664b60b93505ac2a9b6d3b39c0008cf716bbedc53ead3a47ddc10a0fd"
+    },
+    "tavern/assets/foot_sneaker_stairs_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "c5f0e3bac5c581d331924d50bcc9d1ddd72d9d8c85670d7e575fb95a00338a11"
+    },
+    "tavern/assets/foot_sneaker_stairs_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "db68c8c25918300f52093b6cbe894994e2d1452bd1d83124db5c8fb9895c9ca5"
+    },
+    "tavern/assets/foot_sneaker_stairs_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "907515253f4fa5a5228d3bbbc93b1d82fae5310afd349276bb527a99fe51f1ab"
+    },
+    "tavern/assets/foot_sneaker_stone_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "7bac35ef609f7f509de8928e263eea9cb06649c769e39b9f77bd9afe88afd310"
+    },
+    "tavern/assets/foot_sneaker_stone_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "eb04c2387f743e203c15b94a3411817772166520e2e541c2593cb47884901307"
+    },
+    "tavern/assets/foot_sneaker_stone_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "cd51c13d2ce1123f822ac254d6ed5528abb8c0bb2739002193bd3d46979fd602"
+    },
+    "tavern/assets/foot_sneaker_stone_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "e925fd61ca9f5a3fdac42bea9fc54f089114dd2705b5be055d5b369fcd824445"
+    },
+    "tavern/assets/foot_sneaker_stone_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "5b7cf48107749d57bbd4e603f47584f8fb05d206b382c897b7620419f7becf2a"
+    },
+    "tavern/assets/foot_sneaker_stone_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "32322072a77f9ea9ea5756bbc1207a1ca8da07482cb2668020401cd2247c598d"
+    },
+    "tavern/assets/foot_sneaker_stone_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "b3cde1cb85c6d639d6327610670733bab13f672e3fca2018f58fa3e599b76942"
+    },
+    "tavern/assets/foot_sneaker_stone_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "648abf2cd3a32d6fcc8b4386102e0ede40e16f3ef87fad15e5b2f69b19f86bb1"
+    },
+    "tavern/assets/foot_sneaker_tile_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "26e12bc6b7f593a0cb9ae819d2257b176fc587801ea4b446f71a7dffe21f9ff2"
+    },
+    "tavern/assets/foot_sneaker_tile_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "d5c32760a339762a16993a3fe29704ebbdd6faed1dc1a0f6bba4e93ca3277af0"
+    },
+    "tavern/assets/foot_sneaker_tile_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "bc5b1d60337bebcfcbd354f93f25851a36dfc4170f623f9922f06ed95825ee98"
+    },
+    "tavern/assets/foot_sneaker_tile_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "f8247153992f46ee130ee1000fe3dcc6ac88addc8f1b4ff574b8c48d7bca174e"
+    },
+    "tavern/assets/foot_sneaker_tile_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "751eb3f6fc652ba769d68760c5594af80b16a03fad890991face5a84b1ea88db"
+    },
+    "tavern/assets/foot_sneaker_tile_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "5e3e276f984b7239c30e0f169e8ca14b33da6c07b9cee131d7675f5a5d050ec7"
+    },
+    "tavern/assets/foot_sneaker_tile_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "dfeba57e50c8d0bd344fa3f2393d4b02ee9f0307ce08956de3857566dca55e3b"
+    },
+    "tavern/assets/foot_sneaker_tile_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "72ac12cf4354e7a4d51959198a5a0d20055f028828b305f8b81119ccbfc7b1e3"
+    },
+    "tavern/assets/foot_sneaker_wet_run_A_01.wav": {
+      "bytes": 50444,
+      "sha256": "40aa596d550aa70684934d4fe7fc1dc4df3e127e2b19f0730222eee253b59731"
+    },
+    "tavern/assets/foot_sneaker_wet_run_A_02.wav": {
+      "bytes": 50444,
+      "sha256": "08ceb81c9158c253b89c1d9a7632daf469a9136a5718f7b408ceaacd5ca92e37"
+    },
+    "tavern/assets/foot_sneaker_wet_run_A_03.wav": {
+      "bytes": 50444,
+      "sha256": "d13186b1ac5644edf128253874a2e6622094a3089670d7cdb96a41a690d2a013"
+    },
+    "tavern/assets/foot_sneaker_wet_run_A_04.wav": {
+      "bytes": 50444,
+      "sha256": "a3a73ad8b5e0c89d19e4252b167d2ca762ecf30288d8b531bb57d80c187e8941"
+    },
+    "tavern/assets/foot_sneaker_wet_walk_A_01.wav": {
+      "bytes": 61964,
+      "sha256": "7df8486be480e6a8a69e110231241eaf6819626aca773dc25518d5d1ed2aff07"
+    },
+    "tavern/assets/foot_sneaker_wet_walk_A_02.wav": {
+      "bytes": 61964,
+      "sha256": "c98a50e5709596a2a3cf5426442e70ba9e62a37e4342cc5dde24592963281ace"
+    },
+    "tavern/assets/foot_sneaker_wet_walk_A_03.wav": {
+      "bytes": 61964,
+      "sha256": "37275392d100164e5ec8eac57c9cbb56f44185faae5a29d00e55c22c0da96f0f"
+    },
+    "tavern/assets/foot_sneaker_wet_walk_A_04.wav": {
+      "bytes": 61964,
+      "sha256": "151ec4407c88f6007bb3e4cdb132d7ed9b41734ad3bc6fba2e11e165cff5bf74"
     },
     "tavern/assets/internal/config.json": {
       "bytes": 2938,
@@ -486,8 +1754,32 @@
       "sha256": "c2eee4552a460ed97591f527e127b95c811d5f796b9448f3f705974af9beba9d"
     },
     "tavern/assets/main/index.js": {
-      "bytes": 157479,
-      "sha256": "752b6de2314f805a086b76f3984e55ab5971eb3592dcb0acf155bef7e8861729"
+      "bytes": 157749,
+      "sha256": "61e40f439fa8accd9493eedeaf10526440971f0c0e5a1fd64232fcdc26bfe838"
+    },
+    "tavern/assets/rain_inside_B_01.wav": {
+      "bytes": 3456044,
+      "sha256": "cf516c675c5b5db9a54b09a553cb5354fe7a8496945829a7599786e748956345"
+    },
+    "tavern/assets/rain_leaf_A_01.wav": {
+      "bytes": 3456044,
+      "sha256": "2feccb88e4d1cb87d268c16d7eef4c7d17c58611264a23a2b6fed4b422b9908e"
+    },
+    "tavern/assets/rain_out_A_01.wav": {
+      "bytes": 3456044,
+      "sha256": "a2f8e4008c088e56510b1e55f4cb6dd59593824a92fa19ecf43bcb69e028f1aa"
+    },
+    "tavern/assets/rain_roof_B_01.wav": {
+      "bytes": 3456044,
+      "sha256": "0aaaa946b8e168dcf7f1c5bc972136632c238c05742ffd97297cd49e9a09758b"
+    },
+    "tavern/assets/rain_stone_B_01.wav": {
+      "bytes": 3456044,
+      "sha256": "3e60962ce88eb124fe31f0b38267efab6df11b65ed9d24bc4a5011c3df6ac6b6"
+    },
+    "tavern/assets/rain_window_A_01.wav": {
+      "bytes": 3456044,
+      "sha256": "64ac00ac828bb17efc94d7175280a90c24bd9237c9fffd430cd079cab7be59b9"
     },
     "tavern/assets/resources/config.json": {
       "bytes": 451184,
@@ -8397,6 +9689,34 @@
       "bytes": 16680,
       "sha256": "20ea9e2a054dfc1cf7cde68e16d4eb06c98de23706f125126f13112e1f9240ed"
     },
+    "tavern/assets/room_transition_C_01.wav": {
+      "bytes": 158444,
+      "sha256": "5e5f3fe0f9983dd99db43e7d655a47cc2319e85b79949904264a81196a76a025"
+    },
+    "tavern/assets/user-door_close.mp3": {
+      "bytes": 17179,
+      "sha256": "08cd14c4db4c804420c31616d7fb05a4b6a1114374b2bc79f3fae321b155cd75"
+    },
+    "tavern/assets/user-door_open.mp3": {
+      "bytes": 17179,
+      "sha256": "1ad9b06c878c947b0be7491eddaef47897a995489c382db84524515164bf45c2"
+    },
+    "tavern/assets/user-fireplace.mp3": {
+      "bytes": 97009,
+      "sha256": "ca9d1e6d0a9c4ff7c12a221c5a7524b579b75aa38c5dd2c72256b136b2a362c4"
+    },
+    "tavern/assets/user-storage_close.mp3": {
+      "bytes": 17179,
+      "sha256": "530dd5b92fac8c599a26abd734628f7a991a3f14118759fe13da147fb4cfb855"
+    },
+    "tavern/assets/user-storage_open.mp3": {
+      "bytes": 17179,
+      "sha256": "72dfd35f13f0d814e9aad201a691b68b510d55b9f9f6d68ecfbb4fa03a196383"
+    },
+    "tavern/assets/user-wood-sneaker.mp3": {
+      "bytes": 8820,
+      "sha256": "f33eda4de55b1a1d00d8e23aaa961fdaf1b02419a2c0472fd4cfa7df13bad7d3"
+    },
     "tavern/character-catalog.json": {
       "bytes": 1995,
       "sha256": "fadc7e4c4e8b7f62494f8ea4f06fdac1c7e0fbf317d89f510d7829a306a3f2f1"
@@ -8553,6 +9873,10 @@
       "bytes": 5060,
       "sha256": "4d153d9683db95588f84a6096df066cf101c39f2a964435769420e094f44c80a"
     },
+    "tavern/game-volume.js": {
+      "bytes": 4863,
+      "sha256": "9c9817b4e516c5fe5ee439b49900f8ac529a97c9bc34bf9f9140f57bc9dab3fd"
+    },
     "tavern/Geist-100.ttf": {
       "bytes": 72824,
       "sha256": "fba01e51977c6a3807dc36e4322022c3aa3d6c06679f7954040aad50065dbf42"
@@ -8570,8 +9894,8 @@
       "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
     },
     "tavern/grimoire-room.js": {
-      "bytes": 5901,
-      "sha256": "da209e1e76f3050b2ff96805d4db71aa85ef6b19d95fd7f3d87eda89bbd139d3"
+      "bytes": 6058,
+      "sha256": "29f2c32aa3c38a7ee490c5a5fd483e500f1ae5194dee5d375d55db58717d316a"
     },
     "tavern/grimoire.css": {
       "bytes": 8618,
@@ -8586,12 +9910,16 @@
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 33436,
-      "sha256": "00795d8a42de32fb1b97563b61b03f98b424a2a334949a0c5c45f4806e55d81d"
+      "bytes": 33585,
+      "sha256": "ddb66b472536a99c43965b7e3c2929e04f976002c1f56999f5b79aa1334ae79d"
     },
     "tavern/index.js": {
       "bytes": 818,
       "sha256": "4317cb547b4d105f69346b925d961df7f951002fd5a4aaae807a361aa1ad49cd"
+    },
+    "tavern/indoor-rain.js": {
+      "bytes": 791,
+      "sha256": "faa35491d3c23384adbcbbbd7965f7967c082f387b752b6bd558342ae3b96df9"
     },
     "tavern/lossless-1ccb8b2e08f9706e.webp": {
       "bytes": 3227026,
@@ -8609,6 +9937,10 @@
       "bytes": 7852,
       "sha256": "f689d27d7b184a558a80422ebec03931be5039bd2de20dec8abded3a3be85f6e"
     },
+    "tavern/preview-session.js": {
+      "bytes": 2643,
+      "sha256": "1c75eca64f2ecc58d9ea6b83fade9d67280b927c3fdf315b7118a109da45c3cf"
+    },
     "tavern/reentry-panel.js": {
       "bytes": 3223,
       "sha256": "3b760640dbfd04bb9f1823fdad246835e8d17bf03b24e12d24d9fa39cbe2f27d"
@@ -8621,9 +9953,25 @@
       "bytes": 3563,
       "sha256": "95f2561028d558a0ea6eb640cd326d800124194193a071bd4c22bf51143b0409"
     },
+    "tavern/room-state.js": {
+      "bytes": 2317,
+      "sha256": "857798793a73f9a94090e133d33419953fe480445e5535845a4a1b4503e6babb"
+    },
+    "tavern/selected-sounds.js": {
+      "bytes": 8459,
+      "sha256": "73ea7948a5eba86ab744dc6eec55c1aa8d4a61f6cb6cc5436df5cb3bd6ba309c"
+    },
+    "tavern/selected-sounds.json": {
+      "bytes": 23994,
+      "sha256": "edcf7267406668addd27498ec967983179db5e4a6d93be0af83e41426319cdbd"
+    },
     "tavern/selection-core.js": {
       "bytes": 1356,
       "sha256": "5b746ee12b75858e670095208271df9edc32c4a48831701b91ceaceaae262aff"
+    },
+    "tavern/sound-surfaces.js": {
+      "bytes": 2314,
+      "sha256": "8f30f173411600e27343f1c0f1ef9bd8b8f3331cf72ef563d697bedcda788685"
     },
     "tavern/src/chunks/bundle.js": {
       "bytes": 10116,
@@ -8679,7 +10027,7 @@
     },
     "tavern-transition.js": {
       "bytes": 16832,
-      "sha256": "91ca6e02b0c44b01143ad6d9f1b5e275a6777a635fa630a0227e10e7cada612e"
+      "sha256": "ed4718c186644fef3986acbaa78d180fdc91e12c55e4f6d26b3b371489a11933"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,

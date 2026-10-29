@@ -1,0 +1,863 @@
+{
+  "version": "sound-candidates-20261029",
+  "status": "用户试听选择，未接入游戏",
+  "exportedAt": "2026-10-29T02:59:19.854Z",
+  "characters": {
+    "blue-a": "heels",
+    "gold-a": "sneaker",
+    "leather-reserve": "leather"
+  },
+  "choices": {
+    "foot_heels_carpet_walk": {
+      "title": "高跟鞋 · 织物地毯 · 走路",
+      "option": "A",
+      "files": [
+        "foot_heels_carpet_walk_A_01.wav",
+        "foot_heels_carpet_walk_A_02.wav",
+        "foot_heels_carpet_walk_A_03.wav",
+        "foot_heels_carpet_walk_A_04.wav"
+      ],
+      "gains": [
+        0.658497829727163,
+        0.5757866230035513,
+        0.5654615048275599,
+        0.6805651506334612
+      ]
+    },
+    "foot_heels_carpet_run": {
+      "title": "高跟鞋 · 织物地毯 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_heels_carpet_run_A_01.wav",
+        "foot_heels_carpet_run_A_02.wav",
+        "foot_heels_carpet_run_A_03.wav",
+        "foot_heels_carpet_run_A_04.wav"
+      ],
+      "gains": [
+        0.5436905526853776,
+        0.5386615284745325,
+        0.562890540899581,
+        0.5253720783421679
+      ]
+    },
+    "foot_heels_mat_walk": {
+      "title": "高跟鞋 · 门口地垫 · 走路",
+      "option": "A",
+      "files": [
+        "foot_heels_mat_walk_A_01.wav",
+        "foot_heels_mat_walk_A_02.wav",
+        "foot_heels_mat_walk_A_03.wav",
+        "foot_heels_mat_walk_A_04.wav"
+      ],
+      "gains": [
+        0.7014511335650501,
+        0.6705605825703892,
+        0.70349371061552,
+        0.6976302049797803
+      ]
+    },
+    "foot_heels_mat_run": {
+      "title": "高跟鞋 · 门口地垫 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_heels_mat_run_A_01.wav",
+        "foot_heels_mat_run_A_02.wav",
+        "foot_heels_mat_run_A_03.wav",
+        "foot_heels_mat_run_A_04.wav"
+      ],
+      "gains": [
+        0.5373612875177174,
+        0.5402876137580797,
+        0.5105966533256283,
+        0.554103745933547
+      ]
+    },
+    "foot_heels_wet_run": {
+      "title": "高跟鞋 · 湿石路／浅积水 · 跑步",
+      "option": "B",
+      "files": [
+        "foot_heels_wet_run_B_01.wav",
+        "foot_heels_wet_run_B_02.wav",
+        "foot_heels_wet_run_B_03.wav",
+        "foot_heels_wet_run_B_04.wav"
+      ],
+      "gains": [
+        0.18159828452595614,
+        0.18041310365797078,
+        0.19310671155237075,
+        0.19143667598845385
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_wet_walk": {
+      "title": "高跟鞋 · 湿石路／浅积水 · 走路",
+      "option": "B",
+      "files": [
+        "foot_heels_wet_walk_B_01.wav",
+        "foot_heels_wet_walk_B_02.wav",
+        "foot_heels_wet_walk_B_03.wav",
+        "foot_heels_wet_walk_B_04.wav"
+      ],
+      "gains": [
+        0.22859017954815472,
+        0.23693452321843872,
+        0.23647576842015702,
+        0.2392337194461923
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_stone_run": {
+      "title": "高跟鞋 · 干石路 · 跑步",
+      "option": "B",
+      "files": [
+        "foot_heels_stone_run_B_01.wav",
+        "foot_heels_stone_run_B_02.wav",
+        "foot_heels_stone_run_B_03.wav",
+        "foot_heels_stone_run_B_04.wav"
+      ],
+      "gains": [
+        0.19298525992417018,
+        0.1870193451305875,
+        0.1907554961864727,
+        0.19934300686034992
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_stone_walk": {
+      "title": "高跟鞋 · 干石路 · 走路",
+      "option": "B",
+      "files": [
+        "foot_heels_stone_walk_B_01.wav",
+        "foot_heels_stone_walk_B_02.wav",
+        "foot_heels_stone_walk_B_03.wav",
+        "foot_heels_stone_walk_B_04.wav"
+      ],
+      "gains": [
+        0.24372789543937204,
+        0.24653667501036497,
+        0.23015149153027456,
+        0.22642016544395166
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_stairs_walk": {
+      "title": "高跟鞋 · 木楼梯 · 走路",
+      "option": "A",
+      "files": [
+        "foot_heels_stairs_walk_A_01.wav",
+        "foot_heels_stairs_walk_A_02.wav",
+        "foot_heels_stairs_walk_A_03.wav",
+        "foot_heels_stairs_walk_A_04.wav"
+      ],
+      "gains": [
+        0.24792819983522635,
+        0.22411009134389576,
+        0.2445330643574812,
+        0.2369701760428692
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_stairs_run": {
+      "title": "高跟鞋 · 木楼梯 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_heels_stairs_run_A_01.wav",
+        "foot_heels_stairs_run_A_02.wav",
+        "foot_heels_stairs_run_A_03.wav",
+        "foot_heels_stairs_run_A_04.wav"
+      ],
+      "gains": [
+        0.1871890692044492,
+        0.19328126823101907,
+        0.1963140821332033,
+        0.19562494071106418
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_tile_walk": {
+      "title": "高跟鞋 · 硬瓷砖 · 走路",
+      "option": "B",
+      "files": [
+        "foot_heels_tile_walk_B_01.wav",
+        "foot_heels_tile_walk_B_02.wav",
+        "foot_heels_tile_walk_B_03.wav",
+        "foot_heels_tile_walk_B_04.wav"
+      ],
+      "gains": [
+        0.2454321823143696,
+        0.23613712844078583,
+        0.23272595620790004,
+        0.23075030025637255
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_tile_run": {
+      "title": "高跟鞋 · 硬瓷砖 · 跑步",
+      "option": "B",
+      "files": [
+        "foot_heels_tile_run_B_01.wav",
+        "foot_heels_tile_run_B_02.wav",
+        "foot_heels_tile_run_B_03.wav",
+        "foot_heels_tile_run_B_04.wav"
+      ],
+      "gains": [
+        0.1897208763388601,
+        0.19313678503385512,
+        0.19940096682257683,
+        0.19176686086303646
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_gravel_walk": {
+      "title": "高跟鞋 · 泥土碎石 · 走路",
+      "option": "B",
+      "files": [
+        "foot_heels_gravel_walk_B_01.wav",
+        "foot_heels_gravel_walk_B_02.wav",
+        "foot_heels_gravel_walk_B_03.wav",
+        "foot_heels_gravel_walk_B_04.wav"
+      ],
+      "gains": [
+        0.23275725925428017,
+        0.23344952790178564,
+        0.23129092795112796,
+        0.2508751609218693
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_heels_gravel_run": {
+      "title": "高跟鞋 · 泥土碎石 · 跑步",
+      "option": "B",
+      "files": [
+        "foot_heels_gravel_run_B_01.wav",
+        "foot_heels_gravel_run_B_02.wav",
+        "foot_heels_gravel_run_B_03.wav",
+        "foot_heels_gravel_run_B_04.wav"
+      ],
+      "gains": [
+        0.19942675247270036,
+        0.18492743578136722,
+        0.1908118720851082,
+        0.18390773908001876
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_leather_carpet_walk": {
+      "title": "小皮鞋 · 织物地毯 · 走路",
+      "option": "A",
+      "files": [
+        "foot_leather_carpet_walk_A_01.wav",
+        "foot_leather_carpet_walk_A_02.wav",
+        "foot_leather_carpet_walk_A_03.wav",
+        "foot_leather_carpet_walk_A_04.wav"
+      ],
+      "gains": [
+        0.7986086379637843,
+        0.884240958346272,
+        0.8110674480428709,
+        0.781090717294087
+      ]
+    },
+    "foot_leather_carpet_run": {
+      "title": "小皮鞋 · 织物地毯 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_leather_carpet_run_A_01.wav",
+        "foot_leather_carpet_run_A_02.wav",
+        "foot_leather_carpet_run_A_03.wav",
+        "foot_leather_carpet_run_A_04.wav"
+      ],
+      "gains": [
+        0.5049531906555205,
+        0.5768913952445487,
+        0.6846998931290278,
+        0.6798392070112662
+      ]
+    },
+    "foot_leather_mat_walk": {
+      "title": "小皮鞋 · 门口地垫 · 走路",
+      "option": "A",
+      "files": [
+        "foot_leather_mat_walk_A_01.wav",
+        "foot_leather_mat_walk_A_02.wav",
+        "foot_leather_mat_walk_A_03.wav",
+        "foot_leather_mat_walk_A_04.wav"
+      ],
+      "gains": [
+        0.8291127583135465,
+        0.8958744120637882,
+        0.7996642805528903,
+        0.8083887675404643
+      ]
+    },
+    "foot_leather_mat_run": {
+      "title": "小皮鞋 · 门口地垫 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_leather_mat_run_A_01.wav",
+        "foot_leather_mat_run_A_02.wav",
+        "foot_leather_mat_run_A_03.wav",
+        "foot_leather_mat_run_A_04.wav"
+      ],
+      "gains": [
+        0.6466449775207124,
+        0.7145251972565172,
+        0.6708129690244702,
+        0.6446966652656503
+      ]
+    },
+    "foot_leather_stone_walk": {
+      "title": "小皮鞋 · 干石路 · 走路",
+      "option": "B",
+      "files": [
+        "foot_leather_stone_walk_B_01.wav",
+        "foot_leather_stone_walk_B_02.wav",
+        "foot_leather_stone_walk_B_03.wav",
+        "foot_leather_stone_walk_B_04.wav"
+      ],
+      "gains": [
+        0.28418216546206343,
+        0.28625854868179507,
+        0.294207699148025,
+        0.29530319526861376
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_leather_stone_run": {
+      "title": "小皮鞋 · 干石路 · 跑步",
+      "option": "B",
+      "files": [
+        "foot_leather_stone_run_B_01.wav",
+        "foot_leather_stone_run_B_02.wav",
+        "foot_leather_stone_run_B_03.wav",
+        "foot_leather_stone_run_B_04.wav"
+      ],
+      "gains": [
+        0.2523857701786213,
+        0.22631497417274976,
+        0.2368323401974843,
+        0.23196129150513353
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_leather_tile_walk": {
+      "title": "小皮鞋 · 硬瓷砖 · 走路",
+      "option": "B",
+      "files": [
+        "foot_leather_tile_walk_B_01.wav",
+        "foot_leather_tile_walk_B_02.wav",
+        "foot_leather_tile_walk_B_03.wav",
+        "foot_leather_tile_walk_B_04.wav"
+      ],
+      "gains": [
+        0.3022956050432752,
+        0.3015257099443714,
+        0.31470452586739994,
+        0.3019447760496565
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_leather_tile_run": {
+      "title": "小皮鞋 · 硬瓷砖 · 跑步",
+      "option": "B",
+      "files": [
+        "foot_leather_tile_run_B_01.wav",
+        "foot_leather_tile_run_B_02.wav",
+        "foot_leather_tile_run_B_03.wav",
+        "foot_leather_tile_run_B_04.wav"
+      ],
+      "gains": [
+        0.252216385765192,
+        0.25142276272233205,
+        0.24437545756355186,
+        0.22471837899580704
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_carpet_walk": {
+      "title": "运动鞋 · 织物地毯 · 走路",
+      "option": "A",
+      "files": [
+        "foot_sneaker_carpet_walk_A_01.wav",
+        "foot_sneaker_carpet_walk_A_02.wav",
+        "foot_sneaker_carpet_walk_A_03.wav",
+        "foot_sneaker_carpet_walk_A_04.wav"
+      ],
+      "gains": [
+        1.2075091148409045,
+        1.1275613735746213,
+        1.0563165639374912,
+        1.2653914229245098
+      ]
+    },
+    "foot_sneaker_carpet_run": {
+      "title": "运动鞋 · 织物地毯 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_sneaker_carpet_run_A_01.wav",
+        "foot_sneaker_carpet_run_A_02.wav",
+        "foot_sneaker_carpet_run_A_03.wav",
+        "foot_sneaker_carpet_run_A_04.wav"
+      ],
+      "gains": [
+        0.9728959913941003,
+        0.9412907394339209,
+        0.8871031489608396,
+        0.9406306187664961
+      ]
+    },
+    "foot_sneaker_mat_walk": {
+      "title": "运动鞋 · 门口地垫 · 走路",
+      "option": "A",
+      "files": [
+        "foot_sneaker_mat_walk_A_01.wav",
+        "foot_sneaker_mat_walk_A_02.wav",
+        "foot_sneaker_mat_walk_A_03.wav",
+        "foot_sneaker_mat_walk_A_04.wav"
+      ],
+      "gains": [
+        1.183846134283634,
+        1.2242273224494022,
+        1.2494083028711989,
+        1.123094154500234
+      ]
+    },
+    "foot_sneaker_mat_run": {
+      "title": "运动鞋 · 门口地垫 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_sneaker_mat_run_A_01.wav",
+        "foot_sneaker_mat_run_A_02.wav",
+        "foot_sneaker_mat_run_A_03.wav",
+        "foot_sneaker_mat_run_A_04.wav"
+      ],
+      "gains": [
+        0.9019638278226266,
+        0.9267682684011872,
+        0.9095686030455198,
+        0.9190701920135015
+      ]
+    },
+    "foot_sneaker_stone_walk": {
+      "title": "运动鞋 · 干石路 · 走路",
+      "option": "A",
+      "files": [
+        "foot_sneaker_stone_walk_A_01.wav",
+        "foot_sneaker_stone_walk_A_02.wav",
+        "foot_sneaker_stone_walk_A_03.wav",
+        "foot_sneaker_stone_walk_A_04.wav"
+      ],
+      "gains": [
+        0.4272727375792612,
+        0.4090909689389888,
+        0.4409460779216455,
+        0.42809007632004237
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_stone_run": {
+      "title": "运动鞋 · 干石路 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_sneaker_stone_run_A_01.wav",
+        "foot_sneaker_stone_run_A_02.wav",
+        "foot_sneaker_stone_run_A_03.wav",
+        "foot_sneaker_stone_run_A_04.wav"
+      ],
+      "gains": [
+        0.3546306755128286,
+        0.33769163533541613,
+        0.3346345682343354,
+        0.3196896362000897
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_wet_walk": {
+      "title": "运动鞋 · 湿石路／浅积水 · 走路",
+      "option": "A",
+      "files": [
+        "foot_sneaker_wet_walk_A_01.wav",
+        "foot_sneaker_wet_walk_A_02.wav",
+        "foot_sneaker_wet_walk_A_03.wav",
+        "foot_sneaker_wet_walk_A_04.wav"
+      ],
+      "gains": [
+        0.41271002818038777,
+        0.41014457014631317,
+        0.4405616476608424,
+        0.42626856773814925
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_wet_run": {
+      "title": "运动鞋 · 湿石路／浅积水 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_sneaker_wet_run_A_01.wav",
+        "foot_sneaker_wet_run_A_02.wav",
+        "foot_sneaker_wet_run_A_03.wav",
+        "foot_sneaker_wet_run_A_04.wav"
+      ],
+      "gains": [
+        0.34489040915970465,
+        0.3255921023021335,
+        0.3495278511591722,
+        0.32374274479908344
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_stairs_walk": {
+      "title": "运动鞋 · 木楼梯 · 走路",
+      "option": "A",
+      "files": [
+        "foot_sneaker_stairs_walk_A_01.wav",
+        "foot_sneaker_stairs_walk_A_02.wav",
+        "foot_sneaker_stairs_walk_A_03.wav",
+        "foot_sneaker_stairs_walk_A_04.wav"
+      ],
+      "gains": [
+        0.4061939779586634,
+        0.41155215219789026,
+        0.4078442770116013,
+        0.40969800235543874
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_stairs_run": {
+      "title": "运动鞋 · 木楼梯 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_sneaker_stairs_run_A_01.wav",
+        "foot_sneaker_stairs_run_A_02.wav",
+        "foot_sneaker_stairs_run_A_03.wav",
+        "foot_sneaker_stairs_run_A_04.wav"
+      ],
+      "gains": [
+        0.33682339296361014,
+        0.35575946779722034,
+        0.3567072706043797,
+        0.33969381754259703
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_tile_walk": {
+      "title": "运动鞋 · 硬瓷砖 · 走路",
+      "option": "A",
+      "files": [
+        "foot_sneaker_tile_walk_A_01.wav",
+        "foot_sneaker_tile_walk_A_02.wav",
+        "foot_sneaker_tile_walk_A_03.wav",
+        "foot_sneaker_tile_walk_A_04.wav"
+      ],
+      "gains": [
+        0.4499599284983929,
+        0.4164478739503608,
+        0.42185572831177576,
+        0.4070711727790294
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_tile_run": {
+      "title": "运动鞋 · 硬瓷砖 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_sneaker_tile_run_A_01.wav",
+        "foot_sneaker_tile_run_A_02.wav",
+        "foot_sneaker_tile_run_A_03.wav",
+        "foot_sneaker_tile_run_A_04.wav"
+      ],
+      "gains": [
+        0.35434358430948193,
+        0.32874306901836076,
+        0.3503272040508197,
+        0.31679196920963376
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_gravel_walk": {
+      "title": "运动鞋 · 泥土碎石 · 走路",
+      "option": "A",
+      "files": [
+        "foot_sneaker_gravel_walk_A_01.wav",
+        "foot_sneaker_gravel_walk_A_02.wav",
+        "foot_sneaker_gravel_walk_A_03.wav",
+        "foot_sneaker_gravel_walk_A_04.wav"
+      ],
+      "gains": [
+        0.4256297357511945,
+        0.43151727951169033,
+        0.4108550953196663,
+        0.41741796280641486
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "foot_sneaker_gravel_run": {
+      "title": "运动鞋 · 泥土碎石 · 跑步",
+      "option": "A",
+      "files": [
+        "foot_sneaker_gravel_run_A_01.wav",
+        "foot_sneaker_gravel_run_A_02.wav",
+        "foot_sneaker_gravel_run_A_03.wav",
+        "foot_sneaker_gravel_run_A_04.wav"
+      ],
+      "gains": [
+        0.33215714634891397,
+        0.3252313456792723,
+        0.31639426264421205,
+        0.3373429606384971
+      ],
+      "targetActiveRmsDb": -40
+    },
+    "curtain": {
+      "title": "窗帘拉合",
+      "option": "A",
+      "files": [
+        "curtain_A_01.wav",
+        "curtain_A_02.wav"
+      ],
+      "gains": [
+        0.20783975291942777,
+        0.20264598279920476
+      ],
+      "targetActiveRmsDb": -42
+    },
+    "rain_window": {
+      "title": "屋内窗边 · 雨打玻璃",
+      "option": "A",
+      "files": [
+        "rain_window_A_01.wav"
+      ],
+      "gains": [
+        0.9999991633119676
+      ],
+      "targetActiveRmsDb": -32
+    },
+    "rain_roof": {
+      "title": "檐下 · 雨打瓦顶",
+      "option": "B",
+      "files": [
+        "rain_roof_B_01.wav"
+      ],
+      "gains": [
+        0.707934174916062
+      ],
+      "targetActiveRmsDb": -32
+    },
+    "rain_out": {
+      "title": "室外 · 连续雨幕",
+      "option": "A",
+      "files": [
+        "rain_out_A_01.wav"
+      ],
+      "gains": [
+        0.7079466545906397
+      ],
+      "targetActiveRmsDb": -32
+    },
+    "rain_stone": {
+      "title": "近地 · 雨落石路",
+      "option": "B",
+      "files": [
+        "rain_stone_B_01.wav"
+      ],
+      "gains": [
+        0.7079471085909309
+      ],
+      "targetActiveRmsDb": -32
+    },
+    "rain_leaf": {
+      "title": "树旁 · 雨打叶片",
+      "option": "A",
+      "files": [
+        "rain_leaf_A_01.wav"
+      ],
+      "gains": [
+        0.7079521873031623
+      ],
+      "targetActiveRmsDb": -32
+    },
+    "rain_inside": {
+      "title": "关窗屋内 · 听外面下雨",
+      "option": "B",
+      "files": [
+        "rain_inside_B_01.wav"
+      ],
+      "gains": [
+        1.9952635889393366
+      ],
+      "targetActiveRmsDb": -32
+    },
+    "room_transition": {
+      "title": "房间到房间",
+      "option": "C",
+      "files": [
+        "room_transition_C_01.wav"
+      ],
+      "gains": [
+        2.617015057310576
+      ],
+      "targetActiveRmsDb": -31
+    },
+    "floor_transition": {
+      "title": "上下楼换层",
+      "option": "C",
+      "files": [
+        "floor_transition_C_01.wav"
+      ],
+      "gains": [
+        2.924363017016065
+      ],
+      "targetActiveRmsDb": -31
+    },
+    "foot_heels_wood_walk": {
+      "title": "高跟鞋 · 木地板 · 走路",
+      "option": "原件去共鸣V3",
+      "files": [
+        "foot-v3-heels-wood.wav"
+      ],
+      "source": "C:\\Users\\25316\\Desktop\\文件\\开发\\代码\\血染钟楼游戏\\自建素材库\\木质脚步-高跟鞋-.mp3",
+      "gains": [
+        1
+      ],
+      "targetActiveRmsDb": -42,
+      "processing": "原件重剪/因果滤波。非录制新声音、非主观听检。高跟605Hz削减12dB；运动鞋移除首35ms重冲击，使用鞋底接触段。"
+    },
+    "foot_heels_wood_run": {
+      "title": "高跟鞋 · 木地板 · 跑步",
+      "option": "原件去共鸣V3",
+      "files": [
+        "foot-v3-heels-wood.wav"
+      ],
+      "source": "C:\\Users\\25316\\Desktop\\文件\\开发\\代码\\血染钟楼游戏\\自建素材库\\木质脚步-高跟鞋-.mp3",
+      "gains": [
+        1
+      ],
+      "targetActiveRmsDb": -42,
+      "processing": "原件重剪/因果滤波。非录制新声音、非主观听检。高跟605Hz削减12dB；运动鞋移除首35ms重冲击，使用鞋底接触段。"
+    },
+    "foot_leather_wood_walk": {
+      "title": "皮鞋 · 木地板 · 走路",
+      "option": "原件去共鸣V3",
+      "files": [
+        "foot-v3-leather-wood.wav"
+      ],
+      "source": "C:\\Users\\25316\\Desktop\\文件\\开发\\代码\\血染钟楼游戏\\自建素材库\\木质脚步-皮鞋-.mp3",
+      "gains": [
+        1
+      ],
+      "targetActiveRmsDb": -42,
+      "processing": "原件重剪/因果滤波。非录制新声音、非主观听检。高跟605Hz削减12dB；运动鞋移除首35ms重冲击，使用鞋底接触段。"
+    },
+    "foot_leather_wood_run": {
+      "title": "皮鞋 · 木地板 · 跑步",
+      "option": "原件去共鸣V3",
+      "files": [
+        "foot-v3-leather-wood.wav"
+      ],
+      "source": "C:\\Users\\25316\\Desktop\\文件\\开发\\代码\\血染钟楼游戏\\自建素材库\\木质脚步-皮鞋-.mp3",
+      "gains": [
+        1
+      ],
+      "targetActiveRmsDb": -42,
+      "processing": "原件重剪/因果滤波。非录制新声音、非主观听检。高跟605Hz削减12dB；运动鞋移除首35ms重冲击，使用鞋底接触段。"
+    },
+    "foot_sneaker_wood_walk": {
+      "title": "运动鞋 · 木地板 · 走路",
+      "option": "用户原始MP3，仅播放音量校准",
+      "files": [
+        "user-wood-sneaker.mp3"
+      ],
+      "source": "C:\\Users\\25316\\Desktop\\文件\\开发\\代码\\血染钟楼游戏\\自建素材库\\木质脚步-运动鞋-.mp3",
+      "gains": [
+        3.6015810099289403
+      ],
+      "targetActiveRmsDb": -43
+    },
+    "foot_sneaker_wood_run": {
+      "title": "运动鞋 · 木地板 · 跑步",
+      "option": "用户原始MP3，仅播放音量校准",
+      "files": [
+        "user-wood-sneaker.mp3"
+      ],
+      "source": "C:\\Users\\25316\\Desktop\\文件\\开发\\代码\\血染钟楼游戏\\自建素材库\\木质脚步-运动鞋-.mp3",
+      "gains": [
+        3.6015810099289403
+      ],
+      "targetActiveRmsDb": -43
+    },
+    "door_open": {
+      "title": "酒馆门-快速摆动",
+      "files": [
+        "user-door_open.mp3"
+      ],
+      "gains": [
+        0.08078315157480742
+      ],
+      "option": "用户原件"
+    },
+    "door_close": {
+      "title": "酒馆门-沉重吱呀",
+      "files": [
+        "user-door_close.mp3"
+      ],
+      "gains": [
+        0.07943282347242814
+      ],
+      "option": "用户原件"
+    },
+    "storage_open": {
+      "title": "老木门吱嘎声-高音",
+      "files": [
+        "user-storage_open.mp3"
+      ],
+      "gains": [
+        0.1988215729610985
+      ],
+      "option": "用户原件"
+    },
+    "storage_close": {
+      "title": "老木门吱嘎声-低沉共鸣",
+      "files": [
+        "user-storage_close.mp3"
+      ],
+      "gains": [
+        0.08301850162252966
+      ],
+      "option": "用户原件"
+    },
+    "fireplace": {
+      "title": "酒馆壁炉火",
+      "files": [
+        "user-fireplace.mp3"
+      ],
+      "gains": [
+        0.15069014919551546
+      ]
+    }
+  },
+  "floors": {
+    "upper": "upper",
+    "room-storage": "corridor-upper",
+    "room-201": "corridor-upper",
+    "room-202": "corridor-upper",
+    "room-203": "corridor-upper",
+    "room-210": "corridor-upper",
+    "room-204": "corridor-upper",
+    "room-205": "corridor-upper",
+    "room-206": "corridor-upper",
+    "room-bar": "corridor-upper",
+    "room-lady": "corridor-upper",
+    "room-story": "corridor-upper",
+    "room-207": "corridor-upper",
+    "room-208": "corridor-upper",
+    "room-209": "corridor-upper",
+    "lower": "lower",
+    "room-hall": "corridor-lower",
+    "corridor-upper": "upper",
+    "corridor-lower": "lower"
+  },
+  "disabledCues": [
+    "floor_transition"
+  ],
+  "revision": "sound-v8-120fps"
+}
