@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-ce7ef8752c13",
+  "version": "entry-load-9a65f76615fb",
   "files": {
     "approach-road.js": {
       "bytes": 21947,
@@ -15,7 +15,7 @@
     },
     "arrival-sw.js": {
       "bytes": 28090,
-      "sha256": "6349300864633adc9e3434a26eea74f93e0ced69e24d5473ab56abc5f6254801"
+      "sha256": "4a13b43d4060d7c6b65c6a65a600b007abfec4e11b5496ac435381dba9102eaf"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -935,11 +935,11 @@
     },
     "blood-council-manifest.json": {
       "bytes": 10633,
-      "sha256": "f12b62d940aaca5ec5a3ea4f56c60662153db88510566574a22ae10f9e6423b2"
+      "sha256": "0209c6a5a7b89268869fa030d8d385810b9578bc829e5751c15c0d97f51522d4"
     },
     "blood-council.html": {
-      "bytes": 779476,
-      "sha256": "5715a7d69e2b85e0045b6e647b71a07a7db0b8521bfacfee3472214ca960abd7"
+      "bytes": 779642,
+      "sha256": "0c176b03e64eb0736ea4afef64ac9a5eabaae03e9fa73d2748468d172f92d8a8"
     },
     "cache-check.html": {
       "bytes": 4194,
@@ -979,7 +979,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "0dc29cd1c14a5f82d8bc117e5b200b496c132cb1177efbaafbb1986601670313"
+      "sha256": "600956b16cc706ad30a5ba1387aff6ae7140f03f06d1dfdafbd7fc9ded47528a"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1027,7 +1027,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "f364036218f169687e97aa971e211e3988c5caac7c4053f5e44e93d65e37a95f"
+      "sha256": "b6735d36369b3301b57fb92c4c0b707c5bbf490988271c36440bd0e5886ca92c"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1115,7 +1115,7 @@
     },
     "sample.js": {
       "bytes": 20279,
-      "sha256": "696f15a48e25959ddabad071ee6428e52c65b08a6cf91c93321d2a436d87cf47"
+      "sha256": "c64d879f5062b8be44d499e4534b975ac044d74bf4f37a2ca9169f493b326cb3"
     },
     "selected-sounds.json": {
       "bytes": 23994,
@@ -9914,16 +9914,16 @@
       "sha256": "79a69d8ae612ebff9c0055e79967d5d101ed21f24b03b2e10b22b34866cbc5c5"
     },
     "tavern/grimoire.js": {
-      "bytes": 15059,
-      "sha256": "f44b380ed55ce88f48badd3db679ae259c3dfc694533b4d675de1a8e5fb29e2f"
+      "bytes": 15131,
+      "sha256": "36d309a86279866c8d8d5560a2bf911b1bfa2e33fd9908e0f159e5ca66e45cb4"
     },
     "tavern/hero-greeting.js": {
       "bytes": 10408,
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 33982,
-      "sha256": "078946b7fc67c7ef2b49703e5fd6895149563a12695aa8c373ec35a285c58648"
+      "bytes": 33985,
+      "sha256": "adcf9e97a9d2bdcbb931397504a40862146860218be2b4f6db1d59d42f32e613"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10039,7 +10039,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17466,
-      "sha256": "12b76b2ce1182feeea28c775ee1c5089f13cfa34008b081e24656357315097e5"
+      "sha256": "da6ff4c484454b91952291ccb86fafb280f380eaa092ff5510b87a346e7baae4"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
@@ -10062,8 +10062,8 @@
       "sha256": "7ed866410a67eb14875e3de5f828c12a2626226a68c1667cb2462790818aa73a"
     },
     "城堡议会-大圆座牌.html": {
-      "bytes": 779476,
-      "sha256": "5715a7d69e2b85e0045b6e647b71a07a7db0b8521bfacfee3472214ca960abd7"
+      "bytes": 779642,
+      "sha256": "0c176b03e64eb0736ea4afef64ac9a5eabaae03e9fa73d2748468d172f92d8a8"
     },
     "处决播报-1-失败.wav": {
       "bytes": 76788,
