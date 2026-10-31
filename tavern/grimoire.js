@@ -15,14 +15,19 @@ export async function openGrimoire(origin){
 async function show(origin){
  return new Promise(resolve=>{
   const overlay=document.createElement('section');overlay.setAttribute('role','dialog');overlay.setAttribute('aria-label','血染议会');overlay.setAttribute('aria-modal','true');
-  overlay.style.cssText='position:fixed;inset:0;z-index:2147483000;background:#111722';
+  overlay.tabIndex=-1;overlay.style.cssText='background:#111722;overflow:hidden;box-shadow:0 24px 80px #0008;clip-path:inset(50% round 28px)';
+  const shade=document.createElement('div');
   const frame=document.createElement('iframe');frame.title='血染议会';frame.allow='fullscreen';frame.style.cssText='width:100%;height:100%;border:0;display:block';
   frame.src=new URL('../blood-council.html?embedded=1',import.meta.url).href;
   const back=document.createElement('button');back.textContent='返回酒馆';back.setAttribute('aria-label','关闭血染，返回酒馆');back.style.cssText='position:absolute;bottom:max(12px,env(safe-area-inset-bottom));left:12px;z-index:2;border:1px solid #a58a58;border-radius:20px;padding:10px 16px;background:#191b27;color:#ead6aa;cursor:pointer';
-  const close=()=>{document.removeEventListener('keydown',escape);overlay.remove();resolve();};
+  let shell,closing=false;
+  const close=()=>{if(closing)return;closing=true;frame.style.pointerEvents='none';shell.close(performance.now()/1000);};
   const escape=e=>{if(e.key==='Escape')close();};document.addEventListener('keydown',escape);back.onclick=close;
   frame.onload=()=>{try{frame.contentWindow.document.addEventListener('keydown',escape);}catch{}};
-  overlay.append(frame,back);document.body.append(overlay);back.focus();
+  overlay.append(frame,back);document.body.append(shade,overlay);
+  shell=createFunctionPanel(overlay,{originElement:origin,shade});
+  function draw(){const state=shell.draw(performance.now()/1000);if(state.closed){document.removeEventListener('keydown',escape);shell.dispose();overlay.remove();shade.remove();resolve();return;}requestAnimationFrame(draw);}
+  draw();back.focus();
  });
 }
 async function showLegacy(origin){
