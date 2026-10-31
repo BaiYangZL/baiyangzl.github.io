@@ -1,7 +1,7 @@
 {
-  "version": "entry-load-156c51557c7b",
+  "version": "entry-load-cea78bfdb22b",
   "files": 2589,
-  "bytes": 673765461,
+  "bytes": 673773272,
   "verifiedModels": 1968,
   "reused": [],
   "invalidatedPaths": [
@@ -362,6 +362,7 @@
     "tavern/character-catalog.json",
     "tavern/character-select.css",
     "tavern/character-select.js",
+    "tavern/function-panel.js",
     "tavern/game-volume.js",
     "tavern/grimoire-room.js",
     "tavern/grimoire.js",

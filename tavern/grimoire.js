@@ -25,7 +25,7 @@ async function show(origin){
   const escape=e=>{if(e.key==='Escape')close();};document.addEventListener('keydown',escape);back.onclick=close;
   frame.onload=()=>{try{frame.contentWindow.document.addEventListener('keydown',escape);}catch{}};
   overlay.append(frame,back);document.body.append(shade,overlay);
-  shell=createFunctionPanel(overlay,{originElement:origin,shade});
+  shell=createFunctionPanel(overlay,{originElement:origin,shade,area:1});
   function draw(){const state=shell.draw(performance.now()/1000);if(state.closed){document.removeEventListener('keydown',escape);shell.dispose();overlay.remove();shade.remove();resolve();return;}requestAnimationFrame(draw);}
   draw();back.focus();
  });

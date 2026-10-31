@@ -432,4 +432,32 @@ const shadeSyncTargets=syncTargets;syncTargets=function(){shadeSyncTargets();upd
 
 new MutationObserver(mount).observe(by('board'),{childList:true});new MutationObserver(render).observe(by('hostSeat'),{attributes:true,attributeFilter:['class']});by('menu').addEventListener('click',render);document.addEventListener('visibilitychange',tick);function tick(){while(endAt&&seconds()===0){if(['nominator','nominee'].includes(phase))nextPhase(endAt);else{endAt=0;toast('讨论计时结束');}}render();}setInterval(tick,250);mount();
 })();
-</script></html>
+</script><script>(()=>{
+ const css=document.createElement('style');css.textContent=`
+ html,body,.app{width:100%;height:100dvh;overflow:hidden}
+ .top{--host-token:inherit!important;position:absolute!important;inset:0 0 auto;padding:14px!important;min-height:0!important;grid-template-columns:var(--host-token) 1fr 90px!important}
+ .host-face{width:var(--host-token)!important;min-width:var(--host-token)!important;height:var(--host-token)!important;flex-shrink:0;aspect-ratio:1}
+ .host-label{font-size:var(--label-font)!important;height:var(--label-height)!important}.host-symbol{font-size:calc(var(--host-token)*.48)!important}.host-name{font-size:var(--label-font)!important}
+ .stage{position:absolute!important;inset:24% 8px 24%!important;padding:0!important;overflow:visible!important;display:block!important}.board{margin:auto}.bottom{display:none!important}.test-perspective{top:auto!important;bottom:12px!important;left:auto!important;right:12px!important;transform:none!important}
+ .seat-label{font-size:var(--label-font)!important;height:var(--label-height)!important;padding:0 5px!important;gap:5px!important;top:-2px!important;left:-3px!important;right:-3px!important}
+ .seat-label b{font-size:var(--label-font)!important;flex-shrink:0;font-weight:750}.seat-label span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .role-title{font-size:var(--role-readable)!important}.role-face{padding-top:calc(var(--label-height)*.72)!important}.face.empty{font-size:calc(var(--token)*.65)!important}
+ @media(orientation:landscape){.stage{inset:16px max(72px,8vw) 16px max(108px,13vw)!important}.day-phase{position:fixed!important;left:14px!important;top:calc(var(--host-token) + 28px)!important;width:80px!important;transform:none!important}.day-phase small{font-size:10px}}
+ @media(min-width:1000px){.top{padding:24px!important}.stage{inset:30px max(96px,8vw) 30px max(155px,15vw)!important}.day-phase{left:28px!important;width:110px!important;top:calc(var(--host-token) + 44px)!important}}
+ `;document.head.append(css);
+ const prior=draw;let fitting=false;
+ function fit(){if(fitting)return;fitting=true;try{
+ const app=document.getElementById('app'),stage=document.getElementById('stage'),board=document.getElementById('board'),seats=[...board.querySelectorAll('.seat')],n=seats.length,w=stage.clientWidth,h=stage.clientHeight,short=Math.min(innerWidth,innerHeight);
+ // Reference: 5/8 seats ~18.3% width, 12 ~17%, 16 ~13.5%, 20 ~11.3%.
+ const ratio=n<=8?.183:n<=12?.183-(n-8)*.00325:n<=16?.17-(n-12)*.00875:Math.max(.09,.135-(n-16)*.0055);
+ const gap=Math.max(7,short*.018),wanted=short*ratio;
+ function points(s){return seats.map((_,i)=>{const a=i*2*Math.PI/Math.max(1,n)-Math.PI/2;return [w/2+Math.cos(a)*Math.max(0,(w-s-10)/2),h/2+Math.sin(a)*Math.max(0,(h-s-12)/2)]})}
+ let lo=1,hi=Math.min(wanted,w*.4,h*.4);for(let k=0;k<24;k++){const s=(lo+hi)/2,p=points(s);let ok=true;for(let i=0;i<n;i++)for(let j=i+1;j<n;j++)if(Math.hypot(p[i][0]-p[j][0],p[i][1]-p[j][1])<s+gap)ok=false;if(ok)lo=s;else hi=s}
+ const size=lo,p=points(size),font=Math.max(11,Math.min(26,size*.165)),host=Math.max(52,Math.min(short*.183,Math.max(size,short*.13)));
+ app.style.setProperty('--token',size+'px');app.style.setProperty('--host-token',host+'px');app.style.setProperty('--label-font',font+'px');app.style.setProperty('--label-height',Math.max(20,font*1.8)+'px');app.style.setProperty('--role-readable',Math.max(10,Math.min(24,size*.18))+'px');
+ board.style.width=w+'px';board.style.height=h+'px';p.forEach((xy,i)=>{seats[i].style.left=xy[0]+'px';seats[i].style.top=xy[1]+'px';seats[i].style.setProperty('--s',size+'px')});
+ window.councilLayout={count:n,seat:Math.round(size),number:Math.round(font),host:Math.round(host),width:w,height:h};
+ window.dispatchEvent(new Event('council-layout'));
+ }finally{fitting=false}}
+ draw=function(){prior();fit()};draw();new ResizeObserver(fit).observe(document.getElementById('stage'));window.addEventListener('resize',fit);
+})();</script></html>

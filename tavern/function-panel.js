@@ -4,7 +4,8 @@ import {Spring} from './selection-core.js?v=wardrobe-20261026';
 // The scene remains mounted; callers suspend their engine's input until dispose().
 export const PANEL_AREA = .85;
 const SIDE = Math.sqrt(PANEL_AREA);
-export function createFunctionPanel(root, {originElement, originRect, shade, onLayout=()=>{}}={}) {
+export function createFunctionPanel(root, {originElement, originRect, shade, area=PANEL_AREA, onLayout=()=>{}}={}) {
+ const side=Math.sqrt(Math.max(.1,Math.min(1,area)));
  const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
  const source=originRect||originElement?.getBoundingClientRect();
  const opened=performance.now()/1000,wide=new Spring(0,17),tall=new Spring(0,19);
@@ -33,7 +34,7 @@ export function createFunctionPanel(root, {originElement, originRect, shade, onL
  function point(x,y){return geometry.rotated?{x:y,y:innerWidth-x}:{x,y};}
  function resize(){
   geometry=viewport();const {width,height,rotateRoot}=geometry;
-  const w=width*SIDE,h=height*SIDE,left=(width-w)/2,top=(height-h)/2;
+  const w=width*side,h=height*side,left=(width-w)/2,top=(height-h)/2;
   Object.assign(root.style,{inset:'auto',left:(rotateRoot?innerWidth-top:left)+'px',top:(rotateRoot?left:top)+'px',width:w+'px',height:h+'px',transform:rotateRoot?'rotate(90deg)':'none',transformOrigin:'0 0',borderRadius:'28px'});
   Object.assign(geometry,{w,h,left,top});onLayout(w,h);
  }
