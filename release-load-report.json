@@ -1,7 +1,7 @@
 {
-  "version": "entry-load-46ec47c13b84",
+  "version": "entry-load-7521104ed6fc",
   "files": 2589,
-  "bytes": 673763642,
+  "bytes": 673764987,
   "verifiedModels": 1968,
   "reused": [],
   "invalidatedPaths": [
@@ -364,6 +364,7 @@
     "tavern/character-select.js",
     "tavern/game-volume.js",
     "tavern/grimoire-room.js",
+    "tavern/grimoire.js",
     "tavern/index.html",
     "tavern/indoor-rain.js",
     "tavern/mesh-integrity.json",
