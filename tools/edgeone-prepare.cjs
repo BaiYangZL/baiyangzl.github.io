@@ -12,7 +12,7 @@ async function prepare(root = process.cwd(), destination = path.join(root, '.edg
   const report = { version: 'lossless-bin-20261024', files: 0, originalBytes: 0, transferBytes: 0 };
   async function copy(relative = '') {
     for (const item of await fs.readdir(path.join(root, relative), { withFileTypes: true })) {
-      if (!relative && ['.git', '.github', 'node_modules', '.edgeone-dist', 'tools'].includes(item.name)) continue;
+      if (!relative && (item.name.startsWith('.edgeone') || ['.git', '.github', 'node_modules', 'tools'].includes(item.name))) continue;
       const name = path.join(relative, item.name), target = path.join(destination, name);
       assert(!item.isSymbolicLink(), 'Symlink not allowed: ' + name);
       if (item.isDirectory()) { await fs.mkdir(target); await copy(name); continue; }

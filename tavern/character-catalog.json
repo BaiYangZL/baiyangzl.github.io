@@ -6,7 +6,7 @@
     "secondary": "#7788b1",
     "hero": "characters/blue-a/hero.webp",
     "dialogue": "characters/blue-a/dialogue.webp",
-    "atlas": "assets/resources/native/31/31a6cb18-53b6-4785-a943-d35f3c446377.png",
+    "atlas": "characters/blue-a/atlas.webp",
     "atlasData": "characters/blue-a/atlas.json",
     "portraitCrop": {
       "x": 0.12,
@@ -32,41 +32,36 @@
     "visual": {
       "width": 1.24,
       "height": 1.9290975453069112
-    }
+    },
+    "selectionAtlas": "characters/blue-a/selection.webp",
+    "selectionAtlasData": "characters/blue-a/selection.json"
   },
   {
-    "id": "gold-a",
-    "name": "金发女孩",
-    "accent": "#c6a052",
-    "secondary": "#7f8a48",
-    "hero": "characters/gold-a/hero.webp",
-    "dialogue": "characters/gold-a/dialogue.webp",
-    "atlas": "characters/gold-a/atlas.png",
-    "atlasData": "characters/gold-a/atlas.json",
+    "id": "silver-a",
+    "name": "银红发礼服",
+    "accent": "#a84460",
+    "secondary": "#72647c",
+    "hero": "characters/silver-a/hero.webp",
+    "dialogue": "characters/silver-a/dialogue.webp",
+    "atlas": "characters/silver-a/atlas.webp",
+    "atlasData": "characters/silver-a/atlas.json",
     "portraitCrop": {
-      "x": 0.2,
-      "y": 0.05,
-      "width": 0.7,
-      "height": 0.3
+      "x": 0.25,
+      "y": 0.04,
+      "width": 0.5,
+      "height": 0.34
     },
-    "firstGreeting": "来啦，一起进去吧。",
+    "firstGreeting": "夜色正好，一起进去坐坐吧。",
     "greetings": [
-      "又见面啦。",
-      "来得正好，走吧。",
-      "今天也一起逛逛？",
-      "我就知道你还会来。",
-      "准备出发了吗？",
-      "别站太远，到这边来。",
-      "这次轮到你带路。",
-      "先进去，边走边聊。",
-      "看起来今天心情不错。",
-      "好啦，等的就是你。",
-      "又有新计划了？",
-      "走，去看看有什么新鲜事。"
+      "又见面了，今天也一起出发吧。",
+      "旅途辛苦了，先在这里歇一会儿。",
+      "准备好了吗？我会跟上你的脚步。"
     ],
     "visual": {
       "width": 1.24,
-      "height": 1.9290975453069112
-    }
+      "height": 1.9290975453
+    },
+    "selectionAtlas": "characters/silver-a/selection.webp",
+    "selectionAtlasData": "characters/silver-a/selection.json"
   }
 ]

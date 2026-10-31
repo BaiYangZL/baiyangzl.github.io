@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=entry-wardrobe-clean-20261029';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'entry-load-d1cea7696310';
+const VERSION = 'entry-load-0eff2fbd9c0b';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -248,7 +248,7 @@ export function createTavernTransition({pauseGate} = {}) {
       await whenReady();
       let saved;try{saved=JSON.parse(localStorage.getItem('belvedere-character-v1')||'null');}catch{}
       const state=frame.contentWindow.__tavern.state();
-      const id=['blue-a','gold-a'].includes(saved?.id)?saved.id:'blue-a';
+      const id=['blue-a','silver-a'].includes(saved?.id)?saved.id:'blue-a';
       await setCharacter({id,name:saved?.name||'旅人',direction:state.facing});
       if(!saved)try{localStorage.setItem('belvedere-character-v1',JSON.stringify({id,name:'旅人',direction:state.facing}));}catch{}
       enter();
@@ -270,7 +270,7 @@ export function createTavernTransition({pauseGate} = {}) {
     for(const key of [RETURN_KEY,'belvedere-tavern-ready-day'])try{localStorage.removeItem(key);}catch{}
     location.assign(url.href);
   }
-  async function setCharacter(selection) { await whenReady();const api=frame.contentWindow.__tavern;if(!api?.setCharacter)throw new Error('请刷新以载入新版角色');await api.setCharacter(selection.id,selection.name,selection.direction); }
+  async function setCharacter(selection) { await whenReady();const api=frame.contentWindow.__tavern;if(!api?.setCharacter)throw new Error('请刷新以载入新版角色');try{await api.setCharacter(selection.id,selection.name,selection.direction);}catch(error){if(cinema){cinema.style.display='none';cinemaCovered=false;}throw error;} }
   let cinema,cinemaCovered=false;
   const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
   async function animateCinema(keys,duration){const animation=cinema.animate(keys,{duration:reduced?140:duration,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});await animation.finished;Object.assign(cinema.style,keys[keys.length-1]);animation.cancel();}

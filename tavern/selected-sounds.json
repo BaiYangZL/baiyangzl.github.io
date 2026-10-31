@@ -1,11 +1,14 @@
 {
   "version": "sound-candidates-20261029",
-  "status": "用户试听选择，未接入游戏",
+  "status": "用户已确认并接入游戏；红衣成女高跟鞋",
   "exportedAt": "2026-10-29T02:59:19.854Z",
   "characters": {
     "blue-a": "heels",
     "gold-a": "sneaker",
-    "leather-reserve": "leather"
+    "leather-reserve": "leather",
+    "silver-a": "heels",
+    "white-a": "heels",
+    "red-a": "leather"
   },
   "choices": {
     "foot_heels_carpet_walk": {

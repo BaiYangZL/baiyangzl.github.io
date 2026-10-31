@@ -1,4 +1,4 @@
-import {createArrivalAudio} from './arrival-audio.js?v=entry-load-d1cea7696310';
+import {createArrivalAudio} from './arrival-audio.js?v=entry-load-0eff2fbd9c0b';
 import {openCharacterSelection,prepareCharacters} from './character-select.js?v=entry-fix-20261027b';
 const screenWidth=()=>window.__belvedereScreen?.width||window.innerWidth,screenHeight=()=>window.__belvedereScreen?.height||window.innerHeight;
 import {Journey,renderSize,clamp,smooth,walkingTrace} from './journey.js?v=entry-fix-20261027b';
@@ -10,7 +10,7 @@ import {verify} from './preview-api.js';
 import {Dialog} from './dialog.js';
 import {createFX} from './weather-fx.js?v=entry-recovery-20261027';
 import {GateStory} from './gate-story.js';
-import {createTavernTransition} from './tavern-transition.js?v=entry-load-d1cea7696310';
+import {createTavernTransition} from './tavern-transition.js?v=entry-load-0eff2fbd9c0b';
 const $=id=>document.getElementById(id);
 const query=new URLSearchParams(location.search);
 // Review aids only: ?at=秒 jumps the journey to that moment and holds it; ?seed= fixes the
@@ -162,7 +162,7 @@ async function meet(id){
 async function answer(r,id){
  const alive=()=>id===run;
  if(r.kind==='ok'){
-  if(!alive())return;const chosen=await openCharacterSelection({morphFrom:invitation.el.querySelector('.card'),onAttached:()=>{invitation.el.hidden=true;invitation.state='closed';document.body.classList.remove('reading');$('letter-reopen').hidden=true;},onConfirm:async selection=>{await tavernTransition.setCharacter(selection);await tavernTransition.coverCinema();}});if(!alive()||!chosen)return;arrivalAudio.selectionConfirmed();await tavernTransition.enterCinema();return;
+  if(!alive())return;const chosen=await openCharacterSelection({morphFrom:invitation.el.querySelector('.card'),onAttached:()=>{invitation.el.hidden=true;invitation.state='closed';document.body.classList.remove('reading');$('letter-reopen').hidden=true;},onConfirm:async selection=>{await tavernTransition.coverCinema();await tavernTransition.setCharacter(selection);}});if(!alive()||!chosen)return;arrivalAudio.selectionConfirmed();await tavernTransition.enterCinema();return;
  }
  await invitation.close(true);if(!alive())return;
  if(r.kind==='denied'){
