@@ -1,4 +1,4 @@
-import {createFunctionPanel} from './function-panel.js?v=wardrobe-20261026';
+import {createFunctionPanel} from './function-panel.js?v=panel-fullscreen-20261101';
 import {GrimoireRoom} from './grimoire-room.js?v=2';
 const roman=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX'];
 const book='<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 12C18 7 9 8 5 10v27c7-3 13-2 19 2 6-4 12-5 19-2V10c-4-2-13-3-19 2Z"/><path d="M24 12v27M11 17c4-1 7 0 9 1m-9 5c4-1 7 0 9 1m-9 5c4-1 7 0 9 1m8-12c2-1 5-2 9-1m-9 7c2-1 5-2 9-1m-9 7c2-1 5-2 9-1"/></svg>';

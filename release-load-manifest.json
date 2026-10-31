@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-9a65f76615fb",
+  "version": "entry-load-d1cea7696310",
   "files": {
     "approach-road.js": {
       "bytes": 21947,
@@ -15,7 +15,7 @@
     },
     "arrival-sw.js": {
       "bytes": 28090,
-      "sha256": "4a13b43d4060d7c6b65c6a65a600b007abfec4e11b5496ac435381dba9102eaf"
+      "sha256": "38769dc208e024aca01e824ce20a3549052044dc416c154825ff59cd93ffd2af"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -979,7 +979,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "600956b16cc706ad30a5ba1387aff6ae7140f03f06d1dfdafbd7fc9ded47528a"
+      "sha256": "be1c6af489a537f3a1a3b8d557330b81b569034609184be3b5eab036ab748425"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1027,7 +1027,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "b6735d36369b3301b57fb92c4c0b707c5bbf490988271c36440bd0e5886ca92c"
+      "sha256": "592e7636d8cff5a78a29a5260ec2611a22d3c2eefe5c2647fd6e2b6ed06c5221"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1115,7 +1115,7 @@
     },
     "sample.js": {
       "bytes": 20279,
-      "sha256": "c64d879f5062b8be44d499e4534b975ac044d74bf4f37a2ca9169f493b326cb3"
+      "sha256": "65eb391b2cd9ee6d15885597b4f3e79c629ee48e5807e28458a2d0ac2bf6bae7"
     },
     "selected-sounds.json": {
       "bytes": 23994,
@@ -9914,16 +9914,16 @@
       "sha256": "79a69d8ae612ebff9c0055e79967d5d101ed21f24b03b2e10b22b34866cbc5c5"
     },
     "tavern/grimoire.js": {
-      "bytes": 15131,
-      "sha256": "36d309a86279866c8d8d5560a2bf911b1bfa2e33fd9908e0f159e5ca66e45cb4"
+      "bytes": 15139,
+      "sha256": "1431a3eea819a596cdaede6c63a779fab47a7b905285122f284190b7d09a2bd7"
     },
     "tavern/hero-greeting.js": {
       "bytes": 10408,
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 33985,
-      "sha256": "adcf9e97a9d2bdcbb931397504a40862146860218be2b4f6db1d59d42f32e613"
+      "bytes": 33990,
+      "sha256": "46136eebb9c8c8fa069e97e91eaf5a5f162e9a6c2c3b55b7250c7d8d30f4b71f"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10039,7 +10039,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17466,
-      "sha256": "da6ff4c484454b91952291ccb86fafb280f380eaa092ff5510b87a346e7baae4"
+      "sha256": "ada9716cced2d7f5d41e2abe649cdb54e4deffc203ed9407f357acb136cccf88"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
