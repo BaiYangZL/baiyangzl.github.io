@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-7521104ed6fc",
+  "version": "entry-load-b90b50a571f1",
   "files": {
     "approach-road.js": {
       "bytes": 21947,
@@ -15,7 +15,7 @@
     },
     "arrival-sw.js": {
       "bytes": 28063,
-      "sha256": "837ea96ab777aea4822bd71f0640e277700af0547241389abc55f4650ae0f822"
+      "sha256": "d831fd28f962535c3f5412f645c7da9bed4ef65b403a7f86edfa7228c7f56f21"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -979,7 +979,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "403ffcf3d292ab50612f2bbcf537963a18330d656fa4eeddf2aa3690a105b394"
+      "sha256": "aab2c2946414dd0ad139591a38be572c95bf2f6f66cf61465b0b2a20e1d72ee9"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1027,7 +1027,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "1a42f86e2c250a72526358e4ac9625d6f938a54b37a6f2c60c3546731630bbe5"
+      "sha256": "3483d6096ddc6c8383a40619aca43847f3e89ad0963a56eaabb3ecc20ee2ad7e"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1115,7 +1115,7 @@
     },
     "sample.js": {
       "bytes": 20279,
-      "sha256": "b47c2d59a44b6fea074f9e3feaaf899bc8262966a696f866f7cbfca0eca7cdc8"
+      "sha256": "b74a832f5906c9306e31ee38cc174eb57938ace4fd951faf82f5288b266a892b"
     },
     "selected-sounds.json": {
       "bytes": 23994,
@@ -9922,8 +9922,8 @@
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 33972,
-      "sha256": "659ff3e1f1faad74e7ee3a76608dbd404e93d2064a2a90325766bd5391e465f0"
+      "bytes": 33978,
+      "sha256": "4d8beec1b1f9ea34e55602426a33017ff6330f5701822c6c2db78e9ba075ef21"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10039,7 +10039,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17466,
-      "sha256": "6d3765ba2720b667e05958a886d7c094f796bea3386626f3f52066d9f5ec6353"
+      "sha256": "93f8a08eb668ccfbaed0dbee0ae40c89eaedc159eac87d8807aa5398536fa09d"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
