@@ -1,5 +1,5 @@
 {
-  "baseCommit": "1b213afe11515df66a16212e33520d01a31a6f2c",
+  "baseCommit": "54baa10ba48ec6f8930698a3184564bebd2f29a0",
   "characters": [
     {
       "id": "blue-a",
@@ -37,12 +37,12 @@
     },
     {
       "id": "white-a",
-      "sourceVersion": "white-v16-crossing-side-run",
+      "sourceVersion": "white-v17-red-pose-side-run",
       "size": {
         "height": 1.1019685039370084,
         "width": 1.1019685039370084
       },
-      "atlasSha256": "5d833c127dbd6eb863102c877cbe3aca43c7955898397ed322e1b6bee404f3eb",
+      "atlasSha256": "7f8121f45242d7667180e312d1e86901f23d1f82d72c0e0240c3e21ec3f23e49",
       "motionRevision": "side-run-gentle-head-shoulder-v15"
     }
   ],
