@@ -1,5 +1,5 @@
 {
-  "baseCommit": "6aad781c875b7d24471653223e69db50d4215a2a",
+  "baseCommit": "2aa9cc401cb917446982831781ecaa2381a31919",
   "characters": [
     {
       "id": "blue-a",
@@ -42,7 +42,8 @@
         "height": 1.1019685039370084,
         "width": 1.1019685039370084
       },
-      "atlasSha256": "19c77dc0e255f5f9bab751e6377ead18ab300613b66a54d1ec741fece0558263"
+      "atlasSha256": "19c77dc0e255f5f9bab751e6377ead18ab300613b66a54d1ec741fece0558263",
+      "motionRevision": "side-run-gentle-head-shoulder-v15"
     }
   ],
   "loading": "display-before-selection; chosen-at-confirmation; others-after-entry; shared-background-budget-3"

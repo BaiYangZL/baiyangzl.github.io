@@ -1,3 +1,20 @@
+// Small gait-synchronous translation: head and shoulders travel together.
+// No head scaling/rotation; feet remain registered on the floor.
+window.createWhiteSideRunMotion=function(){
+ let x=0,y=0;
+ return {
+  reset(){x=0;y=0;},
+  update(dt,active,phase,clock,flip){
+   const t=(phase+clock/120)*Math.PI/4;
+   const targetX=active?(flip?1:-1)*(.002+.003*Math.sin(t)):0;
+   const targetY=active?.004*(Math.cos(2*t)-1):0;
+   const k=1-Math.exp(-Math.min(.05,Math.max(0,dt||0))/.055);
+   x+=(targetX-x)*k;y+=(targetY-y)*k;
+   return {x,y,offset(row){const k=Math.max(0,Math.min(1,(row-.25)/.35)),w=k*k*(3-2*k);return [x*w,y*w];}};
+  }
+ };
+};
+
 // Continuous, low-amplitude idle displacement. Feet fixed; rigid head translation, never scaling.
 window.createGentleIdle=function(){
  let weight=0,phase=0;
@@ -69,7 +86,7 @@ window.__installApprovedMotion=async function(actor){
  const originalDraw=actor.drawFrame.bind(actor),originalAnimate=actor.animateFigure.bind(actor),originalSet=actor.setCharacter.bind(actor),originalClip=actor.movementClip.bind(actor);
  const {Texture2D:Texture,ImageAsset}=await System.import('cc');await window.__installCharacterQueue(actor);
  const prepared=new Map(),pending=new Map(),owns=()=>['blue-a','silver-a','red-a','gold-a','white-a'].includes(actor.characterId);
- const idleBreath=window.createGentleIdle();
+ const idleBreath=window.createGentleIdle(),sideRunMotion=window.createWhiteSideRunMotion();
  let phase=2,clock=0,last=performance.now(),lastDistance=actor.distance,wasMoving=false,settling=false,lastMotionRunning=false,playbackRunOverride=null,selectRequest=0;
  async function prepare(id){
   if(prepared.has(id))return prepared.get(id);if(pending.has(id))return pending.get(id);
@@ -80,7 +97,7 @@ window.__installApprovedMotion=async function(actor){
  }
  actor.setCharacter=async function(id,name='',direction='S',request){
   if(request!==selectRequest)return;if(!this.atlas)await this.loadActor(id);if(['blue-a','silver-a','red-a','gold-a','white-a'].includes(id)){const entry=await prepare(id);if(request!==selectRequest)return;this.actorCache.set(id,entry)}
-  if(request!==selectRequest)return;phase=2;clock=0;settling=false;wasMoving=false;last=performance.now();lastDistance=this.distance;return originalSet(id,name,direction);
+  if(request!==selectRequest)return;phase=2;clock=0;settling=false;wasMoving=false;sideRunMotion.reset();last=performance.now();lastDistance=this.distance;return originalSet(id,name,direction);
  };
  const change=actor.setCharacter.bind(actor);
  actor.setCharacter=async function(id,name,direction){
@@ -171,12 +188,13 @@ window.__installApprovedMotion=async function(actor){
   if(this.characterId==='white-a'){
    const f=this.atlas.frames[this.frameName],scale=window.characterDisplaySizes?.getScale('white-a',1.12)??1.12,width=window.characterDisplaySizes?.getWidthScale('white-a',scale)??scale;
    const rootY=.5-176/192,off=f.presentation?.bodyOffsetX??0,sole=f.sole??{x:0,y:176/192,rootY:176/192},run=this.frameName.includes('/run/');
+   const sideMotion=sideRunMotion.update(dt,/^[WE]\/run\//.test(this.frameName)&&(wasMoving||settling),phase,clock,!!f.flipX);
    const base=sole.registrationY??(run?sole.rootY:sole.y),lift=(base-176/192)*scale-.012/this.figure.scale.y;
    updateSideContact();
    if(footShadow)footShadow.active=false;floorAmbient.active=true;soleContact.active=!run||base-sole.y<.025;
    floorAmbient.setPosition(0,-.015,.025);floorAmbient.setScale(.22,.001,.12);
    soleContact.setPosition(sole.x*width*this.figure.scale.x,-.014,.006);soleContact.setScale(.085,.001,.055);
-   for(let r=0;r<=16;r++)for(let c=0;c<=8;c++){const i=(r*9+c)*3,b=/^[WE]\/run\//.test(this.frameName)?[0,0]:breathing.offset(r/16);this.lifeVertices[i]=(c/8-.5+off)*width+b[0];this.lifeVertices[i+1]=rootY+(r/16-.5-rootY)*scale+b[1]+lift;this.lifeVertices[i+2]=0;}
+   for(let r=0;r<=16;r++)for(let c=0;c<=8;c++){const i=(r*9+c)*3,b=breathing.offset(r/16),follow=sideMotion.offset(r/16);this.lifeVertices[i]=(c/8-.5+off)*width+b[0]+follow[0];this.lifeVertices[i+1]=rootY+(r/16-.5-rootY)*scale+b[1]+follow[1]+lift;this.lifeVertices[i+2]=0;}
    this.bodyMesh.updateSubMesh(0,this.lifeGeometry);window.__whiteMotion={character:this.characterId,frame:this.frameName,scale,width,phase};return;
   }
   const scale=window.characterDisplaySizes?.getScale(this.characterId,this.characterId==='silver-a'?1.12:(this.characterId==='gold-a'?1.0929769069563948:1))??(this.characterId==='silver-a'?1.12:(this.characterId==='gold-a'?(window.characterDisplaySizes?.getScale(this.characterId,this.atlas.frames[this.frameName]?.presentation?.worldScale??1)??(this.atlas.frames[this.frameName]?.presentation?.worldScale??1)):(this.atlas.frames[this.frameName]?.presentation?.worldScale??1))),rootY=.5-176/192,y=updateSideContact();
