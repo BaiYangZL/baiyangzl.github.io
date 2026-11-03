@@ -4,8 +4,8 @@ window.createWhiteSideRunMotion=function(){
  let x=0,y=0;
  return {
   reset(){x=0;y=0;},
-  update(dt,active,phase,clock,flip){
-   const t=(phase+clock/120)*Math.PI/4;
+  update(dt,active,phase,clock,flip,frameMs=120){
+   const t=(phase+clock/frameMs)*Math.PI/4;
    const targetX=active?(flip?1:-1)*(.002+.003*Math.sin(t)):0;
    const targetY=active?.004*(Math.cos(2*t)-1):0;
    const k=1-Math.exp(-Math.min(.05,Math.max(0,dt||0))/.055);
@@ -115,9 +115,11 @@ window.__installApprovedMotion=async function(actor){
   const hasMoveIntent=Math.hypot(this.pad.x,this.pad.z)>.01||['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].some(k=>this.keys.has(k));
   if(actual&&hasMoveIntent)lastMotionRunning=this.running;
   const playbackRunning=(!hasMoveIntent&&(actual||wasMoving||settling)&&['gold-a','red-a','white-a'].includes(this.characterId))?lastMotionRunning:this.running;
-  const interval=playbackRunning?120:(['silver-a','gold-a','white-a'].includes(this.characterId)&&this.facing==='N'?180:140);
-  if(actual){if(!wasMoving)clock=0;settling=false;clock+=delta}else if(wasMoving){settling=![2,6].includes(phase%8);clock=0}else if(settling)clock+=delta;
-  while(clock>=interval){clock-=interval;phase=(phase+1)%8;if(!actual&&[2,6].includes(phase%8)){settling=false;clock=0;break}}
+  const whiteSideRun=this.characterId==='white-a'&&playbackRunning&&/^[WE]$/.test(this.facing);
+  const stopPhases=whiteSideRun?(this.atlas.sideRunStopAtFrames??[2,6]):[2,6];
+  const interval=playbackRunning?(whiteSideRun?(this.atlas.sideRunFrameMs??120):120):(['silver-a','gold-a','white-a'].includes(this.characterId)&&this.facing==='N'?180:140);
+  if(actual){if(!wasMoving){clock=0;if(whiteSideRun&&!settling)phase=stopPhases[0];}settling=false;clock+=delta}else if(wasMoving){settling=!stopPhases.includes(phase%8);clock=0}else if(settling)clock+=delta;
+  while(clock>=interval){clock-=interval;phase=(phase+1)%8;if(!actual&&stopPhases.includes(phase%8)){settling=false;clock=0;break}}
   wasMoving=actual;playbackRunOverride=playbackRunning;let result;try{result=originalDraw(phase%8,actual||settling)}finally{playbackRunOverride=null;}if(this.characterId==='gold-a'&&this.facing==='N'&&(actual||settling))this.frameName='N/'+(playbackRunning?'run':'walk')+'/'+phase;const f=this.atlas.frames[this.frameName];if(!f)return result;
   for(const name of ['hairGain','skinGain','clothGain']){const v=this.actorMat.getProperty(name);this.actorMat.setProperty(name,new v.constructor(1,1,1,1))}
   const[x,y,w,h]=f.frame,[sw,sh]=this.atlas.size,v=this.actorMat.getProperty('tilingOffset');this.actorMat.setProperty('tilingOffset',new v.constructor((f.flipX?-w:w)/sw,-h/sh,(f.flipX?x+w:x)/sw,(y+h)/sh));return result;
@@ -188,7 +190,7 @@ window.__installApprovedMotion=async function(actor){
   if(this.characterId==='white-a'){
    const f=this.atlas.frames[this.frameName],scale=window.characterDisplaySizes?.getScale('white-a',1.12)??1.12,width=window.characterDisplaySizes?.getWidthScale('white-a',scale)??scale;
    const rootY=.5-176/192,off=f.presentation?.bodyOffsetX??0,sole=f.sole??{x:0,y:176/192,rootY:176/192},run=this.frameName.includes('/run/');
-   const sideMotion=sideRunMotion.update(dt,/^[WE]\/run\//.test(this.frameName)&&(wasMoving||settling),phase,clock,!!f.flipX);
+   const sideMotion=sideRunMotion.update(dt,/^[WE]\/run\//.test(this.frameName)&&(wasMoving||settling),phase,clock,!!f.flipX,this.atlas.sideRunFrameMs??120);
    const base=sole.registrationY??(run?sole.rootY:sole.y),lift=(base-176/192)*scale-.012/this.figure.scale.y;
    updateSideContact();
    if(footShadow)footShadow.active=false;floorAmbient.active=true;soleContact.active=!run||base-sole.y<.025;

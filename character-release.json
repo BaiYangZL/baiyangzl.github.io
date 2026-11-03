@@ -1,5 +1,5 @@
 {
-  "baseCommit": "448844640e1d45596fac2b4c0544e79ba1784897",
+  "baseCommit": "940ced422bc8b6451a49e6395649ce1201cfe926",
   "characters": [
     {
       "id": "blue-a",
@@ -37,13 +37,13 @@
     },
     {
       "id": "white-a",
-      "sourceVersion": "white-v18-full-rear-push-run",
+      "sourceVersion": "white-v19-continuous-recovery",
       "size": {
         "height": 1.1019685039370084,
         "width": 1.1019685039370084
       },
-      "atlasSha256": "8f4972c5d1ff831fd80d6bc4b021cf6e963bbb430d16b8365e6a266bd99fe45f",
-      "motionRevision": "side-run-gentle-head-shoulder-v15"
+      "atlasSha256": "b62b693fafce6ce348a4977c8956e85353ce7b93157dd7a2c45661cee2f1edf4",
+      "motionRevision": "side-run-continuous-recovery-v19-90ms"
     }
   ],
   "loading": "display-before-selection; chosen-at-confirmation; others-after-entry; shared-background-budget-3"
