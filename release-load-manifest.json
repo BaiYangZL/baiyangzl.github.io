@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-6834d05297f6",
+  "version": "entry-load-59d4bfdf1444",
   "files": {
     "adult-template-current.html": {
       "bytes": 15699822,
@@ -19,7 +19,7 @@
     },
     "arrival-sw.js": {
       "bytes": 29471,
-      "sha256": "c823eea336871ae066e1b976beae8174643ea9de2496ac3343e935b41c9420ae"
+      "sha256": "386b65112acf55432d3631e197e55d24e38ebc6800e8e05d46b916be55ffe688"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -958,8 +958,8 @@
       "sha256": "fdce37a8ec8abbd9c2c08927a79887d40067b0992bb7c5da76c61f46d6b2587e"
     },
     "character-release.json": {
-      "bytes": 1468,
-      "sha256": "c6fdbcc5821792351c8d5d7646262bce1853859175771bade8e530a5310bf005"
+      "bytes": 1466,
+      "sha256": "0936a403fd6757111cdbba8570d7163a3d67ce5ac219bdd8856ade928f55505d"
     },
     "character-review.html": {
       "bytes": 1161,
@@ -987,7 +987,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "3d01dcb4a09d86e38e3ab6d2180724fb1fbc1d19781b3e623dcfccdf91accae7"
+      "sha256": "87a4f86a9fc9c2061d1639e23455f91e19d7d59d32060b9868ad62b038b01108"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1039,7 +1039,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "f51d0b84741f1674048103d4f6c862b259a3798e68cdc98358ca20e182860392"
+      "sha256": "eabc4510ee783cbe03f30691637f394952fa75a43acb73fee8d31aee33b59e71"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1127,7 +1127,7 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "09345cd2ec0dbe6b10a20d2ff66091209dc3314ed5605dad20212002ec963128"
+      "sha256": "a8e984fdb8f922d7f62cf6b76aff5c40cbee3cfb17e61a0cac4b2db32e73335b"
     },
     "selected-sounds.json": {
       "bytes": 24950,
@@ -9874,12 +9874,12 @@
       "sha256": "847097b90008d4229406b37a5f02a50134fdb4ce54f6b1e8bfd7813f24fcf5cf"
     },
     "tavern/characters/white-a/atlas.json": {
-      "bytes": 19110,
-      "sha256": "8ddd6918fc1938e21986eca4d351581b123d9a4a67be8c05e528fdd6e755f56b"
+      "bytes": 19125,
+      "sha256": "872d5211905ddbb6162b16ea5df435e42a0ead8daef92864281e10934ef60f87"
     },
     "tavern/characters/white-a/atlas.webp": {
-      "bytes": 9519022,
-      "sha256": "b62b693fafce6ce348a4977c8956e85353ce7b93157dd7a2c45661cee2f1edf4"
+      "bytes": 9551222,
+      "sha256": "a633eff57211a81eaa6c3600b2c20edc543eb16e4897ce898d0fc10ddfd45a9f"
     },
     "tavern/characters/white-a/dialogue.webp": {
       "bytes": 1492562,
@@ -10043,7 +10043,7 @@
     },
     "tavern/index.html": {
       "bytes": 34185,
-      "sha256": "0d8a27a7c3914c502e6ef713c2ddf98e23e91896b7640d18a33480b0db88250b"
+      "sha256": "8cf8f02fb1c84d6e8857003ef69a4e2d8364dcf76afdde98468170b51c538c55"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10159,7 +10159,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "b7f88640516084f62d29ccd6da8aa0bc3aa20eafd6f407e594108520a1769d8d"
+      "sha256": "d84f911bcb9e30afe64fdfa70f63edcd92f1419fa55fe693dfa6cc81c856aed3"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
