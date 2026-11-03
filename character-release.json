@@ -1,5 +1,5 @@
 {
-  "baseCommit": "ef21c806317b8bd929d62449bad7b22a90e1fdf4",
+  "baseCommit": "6aad781c875b7d24471653223e69db50d4215a2a",
   "characters": [
     {
       "id": "blue-a",
@@ -37,12 +37,12 @@
     },
     {
       "id": "white-a",
-      "sourceVersion": "white-v13-alternating-side-run",
+      "sourceVersion": "white-v14-relaxed-side-run",
       "size": {
         "height": 1.1019685039370084,
         "width": 1.1019685039370084
       },
-      "atlasSha256": "5a46e7cf767e636fd2e72c975bfd065bc610c37fa9c3be87f611aa98a6e86667"
+      "atlasSha256": "19c77dc0e255f5f9bab751e6377ead18ab300613b66a54d1ec741fece0558263"
     }
   ],
   "loading": "display-before-selection; chosen-at-confirmation; others-after-entry; shared-background-budget-3"
