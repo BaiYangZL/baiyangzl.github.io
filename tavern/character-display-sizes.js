@@ -1,0 +1,2 @@
+// Published, user-saved sizes. Read-only; no editor or localStorage override.
+window.characterDisplaySizes=(()=>{const sizes={"blue-a":{"height":1,"width":1},"silver-a":{"height":1.12,"width":1.12},"red-a":{"height":1.0929769069563948,"width":1.0929769069563973},"gold-a":{"height":1.058792650918632,"width":1.058792650918632},"white-a":{"height":1.1019685039370084,"width":1.1019685039370084}};return Object.freeze({getScale:(id,fallback)=>sizes[id]?.height??fallback,getWidthScale:(id,fallback)=>sizes[id]?.width??fallback});})();

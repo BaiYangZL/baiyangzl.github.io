@@ -1,0 +1,49 @@
+{
+  "baseCommit": "ef21c806317b8bd929d62449bad7b22a90e1fdf4",
+  "characters": [
+    {
+      "id": "blue-a",
+      "size": {
+        "height": 1,
+        "width": 1
+      },
+      "atlasSha256": "783f0c8040b041064a1a160a1f21e5aee7f26ce664719cd1bd3bbe5cd086c171"
+    },
+    {
+      "id": "silver-a",
+      "size": {
+        "height": 1.12,
+        "width": 1.12
+      },
+      "atlasSha256": "72a01433ba526354ff28a36cda8f0051e8db444b0fb554e49d2108d0c79027b3"
+    },
+    {
+      "id": "red-a",
+      "sourceVersion": "beret-side-body-v6",
+      "size": {
+        "height": 1.0929769069563948,
+        "width": 1.0929769069563973
+      },
+      "atlasSha256": "643b30b72747998089c83c8e1b8706ebc45b78f7a695527b0774b3077dcade6e"
+    },
+    {
+      "id": "gold-a",
+      "sourceVersion": "gold-v21-alternating-rear-push",
+      "size": {
+        "height": 1.058792650918632,
+        "width": 1.058792650918632
+      },
+      "atlasSha256": "d47859d66e18487a65ebcde329ea96e24e3cfbdd9a30b800fd1a05ae7d91332f"
+    },
+    {
+      "id": "white-a",
+      "sourceVersion": "white-v13-alternating-side-run",
+      "size": {
+        "height": 1.1019685039370084,
+        "width": 1.1019685039370084
+      },
+      "atlasSha256": "5a46e7cf767e636fd2e72c975bfd065bc610c37fa9c3be87f611aa98a6e86667"
+    }
+  ],
+  "loading": "display-before-selection; chosen-at-confirmation; others-after-entry; shared-background-budget-3"
+}

@@ -63,5 +63,116 @@
     },
     "selectionAtlas": "characters/silver-a/selection.webp",
     "selectionAtlasData": "characters/silver-a/selection.json"
+  },
+  {
+    "id": "red-a",
+    "name": "红发贝雷帽",
+    "accent": "#ce4778",
+    "secondary": "#405182",
+    "portraitCrop": {
+      "x": 0.25,
+      "y": 0.04,
+      "width": 0.5,
+      "height": 0.34
+    },
+    "firstGreeting": "终于等到你啦，今天先去哪里？",
+    "greetings": [
+      "又见面了，今天也一起出发吧。",
+      "旅途辛苦了，先在这里歇一会儿。",
+      "准备好了吗？我会跟上你的脚步。"
+    ],
+    "visual": {
+      "width": 1.24,
+      "height": 1.9290975453
+    },
+    "footwear": {
+      "type": "leather",
+      "name": "小皮鞋",
+      "confirmedBy": "白羊2026-10-30",
+      "appearance": "棕色小皮鞋，保留原鞋面横带、鞋底及鞋型"
+    },
+    "hero": "characters/red-a/hero.webp",
+    "dialogue": "characters/red-a/dialogue.webp",
+    "atlas": "characters/red-a/atlas.webp",
+    "atlasData": "characters/red-a/atlas.json",
+    "selectionAtlas": "characters/red-a/selection.webp",
+    "selectionAtlasData": "characters/red-a/selection.json"
+  },
+  {
+    "id": "gold-a",
+    "name": "金发女孩",
+    "accent": "#c6a052",
+    "secondary": "#7f8a48",
+    "hero": "characters/gold-a/hero.webp",
+    "dialogue": "characters/gold-a/dialogue.webp",
+    "atlas": "characters/gold-a/atlas.webp",
+    "atlasData": "characters/gold-a/atlas.json",
+    "portraitCrop": {
+      "x": 0.2,
+      "y": 0.05,
+      "width": 0.7,
+      "height": 0.3
+    },
+    "firstGreeting": "来啦，一起进去吧。",
+    "greetings": [
+      "又见面啦。",
+      "来得正好，走吧。",
+      "今天也一起逛逛？",
+      "我就知道你还会来。",
+      "准备出发了吗？",
+      "别站太远，到这边来。",
+      "这次轮到你带路。",
+      "先进去，边走边聊。",
+      "看起来今天心情不错。",
+      "好啦，等的就是你。",
+      "又有新计划了？",
+      "走，去看看有什么新鲜事。"
+    ],
+    "visual": {
+      "width": 1.24,
+      "height": 1.9290975453069112
+    },
+    "details": [
+      "蓝底白纹长方形胸牌在角色左胸",
+      "红色眼镜在头顶",
+      "金发橙色发尾",
+      "红耳饰和手环",
+      "绿工装裤白色印花",
+      "灰白运动鞋"
+    ],
+    "selectionAtlas": "characters/gold-a/selection.webp",
+    "selectionAtlasData": "characters/gold-a/selection.json"
+  },
+  {
+    "id": "white-a",
+    "name": "黑发白玫瑰",
+    "accent": "#79aeb7",
+    "secondary": "#d3deda",
+    "hero": "characters/white-a/hero.webp",
+    "dialogue": "characters/white-a/dialogue.webp",
+    "atlas": "characters/white-a/atlas.webp",
+    "atlasData": "characters/white-a/atlas.json",
+    "portraitCrop": {
+      "x": 0.25,
+      "y": 0.04,
+      "width": 0.5,
+      "height": 0.34
+    },
+    "firstGreeting": "这里很温暖，愿你今晚有个好心情。",
+    "greetings": [
+      "又见面了，今天也一起出发吧。",
+      "旅途辛苦了，先在这里歇一会儿。",
+      "准备好了吗？我会跟上你的脚步。"
+    ],
+    "visual": {
+      "width": 1.24,
+      "height": 1.9290975453
+    },
+    "selectionAtlas": "characters/white-a/selection.webp",
+    "selectionAtlasData": "characters/white-a/selection.json",
+    "footwear": {
+      "type": "heels",
+      "name": "白色尖头高跟鞋"
+    }
   }
 ]

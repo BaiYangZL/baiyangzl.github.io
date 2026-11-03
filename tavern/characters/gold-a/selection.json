@@ -1,0 +1,1 @@
+{"frames": {"S/idle/0": {"frame": [0, 0, 192, 192]}, "N/idle/0": {"frame": [192, 0, 192, 192]}, "W/idle/0": {"frame": [384, 0, 192, 192]}, "E/idle/0": {"frame": [576, 0, 192, 192]}}, "clips": {"idle-S": ["S/idle/0"], "idle-N": ["N/idle/0"], "idle-W": ["W/idle/0"], "idle-E": ["E/idle/0"]}}

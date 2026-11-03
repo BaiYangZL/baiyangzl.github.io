@@ -1,6 +1,6 @@
 import {openCharacterSelection} from './character-select.js?v=entry-wardrobe-clean-20261029';
 import {openReentryPanel} from './reentry-panel.js?v=reentry-20261026';
-const VERSION = 'entry-load-0eff2fbd9c0b';
+const VERSION = 'entry-load-cbee11223384';
 const ROOT = new URL('./', import.meta.url);
 const TAVERN = new URL(`tavern/?v=${VERSION}`, ROOT);
 // Normal entry always prepares the saved room (or upper for a new visitor).
@@ -248,7 +248,7 @@ export function createTavernTransition({pauseGate} = {}) {
       await whenReady();
       let saved;try{saved=JSON.parse(localStorage.getItem('belvedere-character-v1')||'null');}catch{}
       const state=frame.contentWindow.__tavern.state();
-      const id=['blue-a','silver-a'].includes(saved?.id)?saved.id:'blue-a';
+      const id=["blue-a","silver-a","red-a","gold-a","white-a"].includes(saved?.id)?saved.id:'blue-a';
       await setCharacter({id,name:saved?.name||'旅人',direction:state.facing});
       if(!saved)try{localStorage.setItem('belvedere-character-v1',JSON.stringify({id,name:'旅人',direction:state.facing}));}catch{}
       enter();
