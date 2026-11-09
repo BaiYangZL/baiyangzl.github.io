@@ -283,10 +283,6 @@
     "bytes": 264644,
     "sha256": "6585ee1567de7efb54099a165eea620659e6c9892c636a8ae07aa2d93214caf4"
   },
-  "座位方卡-空椅.png": {
-    "bytes": 2722998,
-    "sha256": "8cc7480c3185d7bd205ae9b39b869ce49aee683b0edee36b1a87323d1db1f9a6"
-  },
   "投票倒数1.wav": {
     "bytes": 44144,
     "sha256": "8a221bae40349c294d8e74ae217817f1a61c84c509fdb8db371285f6c97e430d"
@@ -432,11 +428,11 @@
     "sha256": "c5a4dd78c4f16337b6e51e40b612caa263c217eaa9d4a6ca97c11e0ff72efc73"
   },
   "blood-council.html": {
-    "bytes": 1119331,
-    "sha256": "3772ea244a354f79723cd98dfb146f36f9837aeef9bab6d261338ed4d9de6e23"
+    "bytes": 1114928,
+    "sha256": "8695e55275781929ecf821aedff450612d45ddc5f7784c70197f325ff197bf94"
   },
   "城堡议会-大圆座牌.html": {
-    "bytes": 1119331,
-    "sha256": "3772ea244a354f79723cd98dfb146f36f9837aeef9bab6d261338ed4d9de6e23"
+    "bytes": 1114928,
+    "sha256": "8695e55275781929ecf821aedff450612d45ddc5f7784c70197f325ff197bf94"
   }
 }

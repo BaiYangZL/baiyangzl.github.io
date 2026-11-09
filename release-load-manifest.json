@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-bb5478f43f74",
+  "version": "entry-load-0c99fbb930cd",
   "files": {
     "adult-template-current.html": {
       "bytes": 15699822,
@@ -19,7 +19,7 @@
     },
     "arrival-sw.js": {
       "bytes": 30751,
-      "sha256": "7870ce655bccfd2c52d5ffb08c3496bcc6cf54deffdc76cab23da8366dc7368f"
+      "sha256": "bf041f2930130a127763a6a6c49dceb057c1f2fd99a9ece494cb469c6ba6863e"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -938,12 +938,12 @@
       "sha256": "f33eda4de55b1a1d00d8e23aaa961fdaf1b02419a2c0472fd4cfa7df13bad7d3"
     },
     "blood-council-manifest.json": {
-      "bytes": 15461,
-      "sha256": "351bfdf78bad7f482c9189cd60807fb47ec3efbc64184cfe68355f379050cb4d"
+      "bytes": 15322,
+      "sha256": "bda71381046a28eb4ac37de5ec96544abb71293f530aa1266379c8812c62a5d9"
     },
     "blood-council.html": {
-      "bytes": 1119331,
-      "sha256": "3772ea244a354f79723cd98dfb146f36f9837aeef9bab6d261338ed4d9de6e23"
+      "bytes": 1114928,
+      "sha256": "8695e55275781929ecf821aedff450612d45ddc5f7784c70197f325ff197bf94"
     },
     "cache-check.html": {
       "bytes": 4194,
@@ -987,7 +987,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "8022469e5b0784146b8bd2ccc96f1bf33c44b89b6f3798e1e5fb3fe7b40264b0"
+      "sha256": "86bb4b1c4ab08d0fd70cf4ab96724f546ebf0c1ac2bc61967ae698503c725a19"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1039,7 +1039,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "e33cdfb2817d4b688f8aed68a8f61b1d6dce0be9da8960b0e94ca2c3d87ff841"
+      "sha256": "92c38a12c0df2d5cbf4d75ce5087f088930afcd72ca34742178f4995278ff454"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1127,7 +1127,7 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "d9454135168c1d43185bc149b3863a32b0688050fa8b71e8878c59c5de29008c"
+      "sha256": "d56480808a792b68e5bf59416a9b80c5175802388473622d77314050c3062494"
     },
     "selected-sounds.json": {
       "bytes": 24950,
@@ -10043,7 +10043,7 @@
     },
     "tavern/index.html": {
       "bytes": 34181,
-      "sha256": "928c17df1e751e3722179c336f08c3c24cf0efee6cea1b7c8419277089653687"
+      "sha256": "b1ccf1af053699a3c23c5e8b375cf1dce476c40328e9daebb78d1e010b6277f5"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10159,7 +10159,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "770a1d66a6c50a53529f56f1206e478309d6bdf6c598edf52ef86ad6ad7be47d"
+      "sha256": "500b87359591a792736846c653699b0e866e6f053afbeda4631bb3e227ef6fa4"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
@@ -10210,8 +10210,8 @@
       "sha256": "7ed866410a67eb14875e3de5f828c12a2626226a68c1667cb2462790818aa73a"
     },
     "城堡议会-大圆座牌.html": {
-      "bytes": 1119331,
-      "sha256": "3772ea244a354f79723cd98dfb146f36f9837aeef9bab6d261338ed4d9de6e23"
+      "bytes": 1114928,
+      "sha256": "8695e55275781929ecf821aedff450612d45ddc5f7784c70197f325ff197bf94"
     },
     "处决播报-1-失败.wav": {
       "bytes": 135084,

@@ -1584,33 +1584,6 @@ const file=team==='good'?'胜利演出-善良.wav':'胜利演出-邪恶.wav';sou
 };
 const button=document.createElement('button');button.id='previewVictory';button.className='menu-item';button.textContent='播放胜利演出';document.getElementById('settings').append(button);const picker=document.createElement('dialog');picker.className='workbench';picker.id='victoryChoice';picker.innerHTML='<div class="dialog-top"><h2>胜利演出</h2><button type="button">关闭</button></div><div class="trial-actions"><button data-team="good">善良阵营获胜</button><button data-team="evil">邪恶阵营获胜</button></div>';document.body.append(picker);picker.querySelector('.dialog-top button').onclick=()=>picker.close();const allowed=()=>!document.getElementById('hostSeat').classList.contains('empty-host')&&document.getElementById('testPerspective')?.value==='host';button.onclick=()=>{if(!allowed())return;document.getElementById('settings').hidden=true;picker.showModal()};for(const b of picker.querySelectorAll('[data-team]'))b.onclick=()=>{if(!allowed())return;picker.close();window.showCouncilVictory(b.dataset.team)};function sync(){button.hidden=!allowed()}document.getElementById('menu').addEventListener('click',sync);sync();
 })();
-</script><script>/* Reference trial: outer portrait cards and inward circular role medallions. */
-(()=>{
-const preference='council-seat-style-preview-v1';let mode='square';try{if(localStorage.getItem(preference)==='circle')mode='circle';}catch{}
-const style=document.createElement('style');style.textContent=`
-#app #stage{bottom:calc(1.765vmin + 26px)!important}
-#app #board .seat .face{width:90%!important;height:90%!important;margin:5%;border-radius:5px!important;overflow:visible!important;border:2px solid #91849e!important;background:linear-gradient(145deg,#343940,#191f28)!important;box-shadow:inset 0 0 0 2px #26212f,0 2px 6px #0008!important}
-#app #board .seat .face .portrait{inset:3px!important;width:calc(100% - 6px)!important;height:calc(100% - 6px)!important;border-radius:3px!important;transform:none!important;filter:none!important;opacity:1!important;z-index:0}
-#app #board .seat .face.empty{font-size:0!important;background: url('座位方卡-空椅.png') center/94% 94% no-repeat,linear-gradient(135deg,#34323f,#202932)!important}
-#app #board .seat.lower-name .seat-label{top:calc(100% - 3px)!important;bottom:auto!important}
-#app #board .face::before{content:'';position:absolute;inset:3px;border:1px solid #c6bca64d;border-radius:2px;pointer-events:none;z-index:1}
-#app #board .seat .face .role-portrait-veil{display:none!important}
-#app #board .reference-role-disc{position:absolute;left:50%;top:50%;width:75%;height:75%;box-sizing:border-box;border-radius:50%;border:2px solid #49463e;background:radial-gradient(ellipse at 30% 28%,#eee5c9,#cec4a3 72%,#92866e);box-shadow:inset 0 0 8px #625a4266,0 2px 5px #0008;transform:translate(calc(-50% + var(--disc-x)),calc(-50% + var(--disc-y)));z-index:3;overflow:hidden;pointer-events:none}
-#app #board .reference-role-disc::before{content:'';position:absolute;inset:5px;border:1px solid #8c805d45;border-radius:50%;background:radial-gradient(ellipse at 28% 33%,#fff9,transparent 60%);opacity:.35}
-#app #board .face.role-face .reference-role-disc .role-art{z-index:2;filter:drop-shadow(0 1px 1px #fff8)}
-#app #board .face.role-face .reference-role-disc .role-title{z-index:2}
-#app #board .seat::after{inset:5%;border-radius:5px;background:none;box-shadow:inset 0 0 0 2px #47b9ee,0 0 7px #47b9ee77}
-@media(max-width:600px) and (orientation:portrait){
- #app #board .seat .face{width:100%!important;height:100%!important;margin:0}
- #app #board .seat::after{inset:0}
-}
-`;document.head.append(style);style.disabled=mode!=='square';
-const control=document.createElement('label');control.className='menu-item';control.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:12px';control.append(document.createTextNode('座位样式预览'));
-const select=document.createElement('select');select.id='seatStylePreview';select.setAttribute('aria-label','座位样式预览');select.innerHTML='<option value="circle">上一版 · 圆形座位</option><option value="square">这一版 · 方卡＋圆牌</option>';select.value=mode;select.style.cssText='max-width:65%;padding:7px;border:1px solid #8c8d9666;border-radius:6px;background:#202b36;color:#eee5d5';control.append(select);document.getElementById('settings').prepend(control);
-select.onchange=()=>{mode=select.value;style.disabled=mode!=='square';try{localStorage.setItem(preference,mode);}catch{}draw();toast(mode==='circle'?'预览：上一版圆形座位':'预览：方卡＋圆牌');};
-function mount(){if(mode!=='square')return;const board=document.getElementById('board'),seats=[...board.querySelectorAll('.seat')],n=seats.length;seats.forEach((seat,i)=>{const face=seat.querySelector('.face');if(!face)return;let disc=face.querySelector('.reference-role-disc');if(!disc){disc=document.createElement('span');disc.className='reference-role-disc';disc.setAttribute('aria-hidden','true');for(const item of [...face.querySelectorAll('.role-art,.role-title')])disc.append(item);face.append(disc);}const a=Math.atan2(parseFloat(seat.style.top)-board.clientHeight/2,parseFloat(seat.style.left)-board.clientWidth/2),d=seat.getBoundingClientRect().width*.64;seat.classList.toggle('lower-name',Math.sin(a)>.1);disc.style.setProperty('--disc-x',-Math.cos(a)*d+'px');disc.style.setProperty('--disc-y',-Math.sin(a)*d+'px');});}
-const original=draw;draw=function(){original();mount()};window.addEventListener('council-layout',mount);draw();
-})();
 </script><script id="councilNightOrder" type="application/json">{
   "firstNight": [
     "dusk",
