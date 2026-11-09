@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-9c608694e59b",
+  "version": "entry-load-28dbebc6c993",
   "files": {
     "adult-template-current.html": {
       "bytes": 15699822,
@@ -18,8 +18,8 @@
       "sha256": "b3982e55635b630bdccdc6f532ce38b3070222acdfacb094fe95f06efc519080"
     },
     "arrival-sw.js": {
-      "bytes": 29471,
-      "sha256": "56a3b8c1bb92e0150fb55396c792006d6fb738f8ce69b4318567c0a24763ba5a"
+      "bytes": 30751,
+      "sha256": "3beec4fba038c8006cd39aa17be4493181892b358f5a52094f97bf56383828b8"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -938,12 +938,12 @@
       "sha256": "f33eda4de55b1a1d00d8e23aaa961fdaf1b02419a2c0472fd4cfa7df13bad7d3"
     },
     "blood-council-manifest.json": {
-      "bytes": 10633,
-      "sha256": "0209c6a5a7b89268869fa030d8d385810b9578bc829e5751c15c0d97f51522d4"
+      "bytes": 15461,
+      "sha256": "9226d7d9cb4691bcd37ad5f0fb65b0bc2e995c82450ed4e0e2889b18ff0d7384"
     },
     "blood-council.html": {
-      "bytes": 779642,
-      "sha256": "0c176b03e64eb0736ea4afef64ac9a5eabaae03e9fa73d2748468d172f92d8a8"
+      "bytes": 1116865,
+      "sha256": "937a63fa253c15dd2186d0c774d8c43641ad7dc6a055f4f8718b0a02a1c4136e"
     },
     "cache-check.html": {
       "bytes": 4194,
@@ -987,7 +987,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "6aab609ca873026ab019fc4876d9a422c5800a29dd0ce949a883a95a2a9602a0"
+      "sha256": "00ebf60662f3514cf3b450696d37059d90567c8a3b8a9aafac7687d31e3ef630"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1039,7 +1039,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "8f81f0728682fa4c6a94b50add4746200a016d5e667b0986c7d7b6dd96b98b84"
+      "sha256": "7abd2a8771d1f401b56b522d81b3088a6cdcd3fb7005e47a2be27d964fe31db4"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1127,7 +1127,7 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "c2f648115d57f01245d9cffe16eb3ded815d365283d01cfefe8440bc43741dd2"
+      "sha256": "0b2e1b151e60c56cd92483c66e91812791e6f64bae0520d26324f19015878d92"
     },
     "selected-sounds.json": {
       "bytes": 24950,
@@ -10034,16 +10034,16 @@
       "sha256": "79a69d8ae612ebff9c0055e79967d5d101ed21f24b03b2e10b22b34866cbc5c5"
     },
     "tavern/grimoire.js": {
-      "bytes": 15139,
-      "sha256": "1431a3eea819a596cdaede6c63a779fab47a7b905285122f284190b7d09a2bd7"
+      "bytes": 15183,
+      "sha256": "2b73919cffae3705c61887f06062c3f0acde723a7d50b230a0a0fcf3a671bb5b"
     },
     "tavern/hero-greeting.js": {
       "bytes": 10408,
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 34185,
-      "sha256": "9ce56608575c1e69303e9ef90fe44e392518ccccacd515320e1b24b87bf7d4aa"
+      "bytes": 34181,
+      "sha256": "ca3d3493656466a83553756f16064af60ba738605c0e414699674cca37b4e93c"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10159,7 +10159,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "9d18fe0a539faca804015984b263fbc8da9ee2027d244a9bfd9e3b7d70dc00da"
+      "sha256": "abf5bfc2567dbe329e41812876634ede02e86e14994da5496d9f3e7d750ab378"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
@@ -10177,253 +10177,305 @@
       "bytes": 16337,
       "sha256": "e8811eb3663b1de51c35046b99c472b82e4ac04e5aeb0acc475000fca8812eea"
     },
+    "众手落枷-A侧望.webp": {
+      "bytes": 48114,
+      "sha256": "e253e82375b853cc1bcd3c006056bb63b56bbdeeeddf9bb223b89efd785ae295"
+    },
+    "众手落枷-A侧身松肩.webp": {
+      "bytes": 39344,
+      "sha256": "3ed914c7a55b1056132cfc4108012e8ff34b916cdcc92d6a5aa614fbdb31cfe6"
+    },
+    "众手落枷-A侧身蓄力.webp": {
+      "bytes": 49448,
+      "sha256": "cafad052bf05335a1ba5b075f51559b99cbe7fba7a5322cced3cb78a504b5798"
+    },
+    "众手落枷-A正面垂首.webp": {
+      "bytes": 44368,
+      "sha256": "28361c33780f48dfc9d6c3d55a48739fcc0198ffbbf432e783d59db6721316fa"
+    },
+    "众手落枷-A正面惊退.webp": {
+      "bytes": 43066,
+      "sha256": "07fcd2f12fafbf3b97ec8e3674030b79c152e20937f00a3b4e05cdf52742b511"
+    },
+    "众手落枷-A正面难以置信.webp": {
+      "bytes": 42134,
+      "sha256": "c5a4dd78c4f16337b6e51e40b612caa263c217eaa9d4a6ca97c11e0ff72efc73"
+    },
+    "刑台木机声.wav": {
+      "bytes": 352844,
+      "sha256": "1cc3e39010c38e57e6f20a10fb8b4f948ac1f5009da19f708e45fc0c93562c8e"
+    },
     "参考钟表-扫针-1.wav": {
       "bytes": 40616,
       "sha256": "7ed866410a67eb14875e3de5f828c12a2626226a68c1667cb2462790818aa73a"
     },
     "城堡议会-大圆座牌.html": {
-      "bytes": 779642,
-      "sha256": "0c176b03e64eb0736ea4afef64ac9a5eabaae03e9fa73d2748468d172f92d8a8"
+      "bytes": 1116865,
+      "sha256": "937a63fa253c15dd2186d0c774d8c43641ad7dc6a055f4f8718b0a02a1c4136e"
     },
     "处决播报-1-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 135084,
+      "sha256": "77ec4196ddbf5a1cc595f56244ceea76e0e663668ac5afbd32802a3b11deb730"
     },
     "处决播报-1-宣布.wav": {
       "bytes": 125102,
       "sha256": "ab211cdda2c9bc03939958fc242fb55fc1de0d4956a46951a95ae2459ce9a578"
     },
     "处决播报-1-死亡.wav": {
-      "bytes": 115412,
-      "sha256": "92a7e850458b90538bb625ab6fb7f69701911ed3cb511d72a79d50120617653f"
+      "bytes": 122454,
+      "sha256": "b0e9b28e68200fae1413d4160af297e87254158410db51d5eea7972efc048a65"
     },
     "处决播报-10-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 137530,
+      "sha256": "d42aa343b4a06b1e1e4d4274fbd704ac2c0c0e12ada89a61c7edb91335336a0f"
     },
     "处决播报-10-宣布.wav": {
       "bytes": 131462,
       "sha256": "72bc2aedcf2bbe115617ced6caa16c372eb1a34a52a7845a2aa7a210684cb544"
     },
     "处决播报-10-死亡.wav": {
-      "bytes": 117578,
-      "sha256": "f50912a7fb8be2c79ebf9802aa676f1cb49265d3080699a32dbd88a9e58255d5"
+      "bytes": 124782,
+      "sha256": "842d3ba2fe8579b25a45365f3ab72c8db19af75992a4cdefe33cf9c4f6e67179"
     },
     "处决播报-11-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 143182,
+      "sha256": "c3cd8198df7fd4c134830af51e17a1c3220298a0c101930bccf4abcdc5828fb0"
     },
     "处决播报-11-宣布.wav": {
       "bytes": 137820,
       "sha256": "32fe8a9177c52ba705464ccd6c1472a10691d3c554b65a83298267cf9d359a1a"
     },
     "处决播报-11-死亡.wav": {
-      "bytes": 123766,
-      "sha256": "e1077e9f34cbb08453f7c99d166c068707f044cb4377fd3888b8fc0cd8e98c25"
+      "bytes": 130660,
+      "sha256": "a30c58a2fb75525bed30e7859549d22566c99599f757367876391f9d4e6d6a46"
     },
     "处决播报-12-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 143962,
+      "sha256": "83be2c301aeb57b7a596732406cfdf1b50239b8cafa09f70b4ac037686ace5da"
     },
     "处决播报-12-宣布.wav": {
       "bytes": 138384,
       "sha256": "a3b2fddf8bef8f900260309bd9efa02d6ecd43a5d12b8f1458afe9705c81fb92"
     },
     "处决播报-12-死亡.wav": {
-      "bytes": 124552,
-      "sha256": "6115ff67db9b399252a717e955f2414e5f466885ed6042057e4e24be1cd2d9fe"
+      "bytes": 131328,
+      "sha256": "0d2bd4e32ccf4b7a32dd105cccb6da2a175fd1752a0496aa281e1532ea3a06f6"
     },
     "处决播报-13-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 146180,
+      "sha256": "839718157dcee88815d744472505ad46dfb5a0c41b8a2f8ab2f9d2f221cc934e"
     },
     "处决播报-13-宣布.wav": {
       "bytes": 140554,
       "sha256": "46515998afc393e44b30ae5590d66a9a204a7206ca8e01fd0deb924aec9d8c2f"
     },
     "处决播报-13-死亡.wav": {
-      "bytes": 126510,
-      "sha256": "b63fd523aa2f7d1b0704908aed9b672484d89275b00bec49080f2fe5ddd28793"
+      "bytes": 133432,
+      "sha256": "e2a3196afeb0e2e8b3317dd5db346c909917f3829a812c7391b6da1301e6251e"
     },
     "处决播报-14-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 145184,
+      "sha256": "afb3ba3d026faa0fdb3d17463fbf95b00e4721f4c83516099bacf99c05094e1b"
     },
     "处决播报-14-宣布.wav": {
       "bytes": 139382,
       "sha256": "93068d39142f4957a0e78e97ffdb7c25e5d03bf2ad883fb9c111389795171116"
     },
     "处决播报-14-死亡.wav": {
-      "bytes": 125492,
-      "sha256": "c62751372aa53511b62a27be4ad94a9e4ca9902f3f26e4e26f1540a0702d4a70"
+      "bytes": 132432,
+      "sha256": "16498235fb77d30f7136eb05e514fa5e58308e2092989898c0db150b73c8aacf"
     },
     "处决播报-15-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 143070,
+      "sha256": "9f3b5704360843520851132ce27190341749bf0739394a9dd8a07a457c4b9651"
     },
     "处决播报-15-宣布.wav": {
       "bytes": 137816,
       "sha256": "98b2c1f7e7abd0bf9fcb8dc7c7ae50e895570ddb5dfa57b52415a7988ed3e579"
     },
     "处决播报-15-死亡.wav": {
-      "bytes": 123768,
-      "sha256": "f5ace8b7622c0582f2c19c59e7468a72f541763ffaa579cf5673061966d7dd47"
+      "bytes": 130434,
+      "sha256": "7574d33065993a651b598ffa0c72814c0eb4ac4ae1eb027ce4fceb353200fcb7"
     },
     "处决播报-16-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 144410,
+      "sha256": "bb2e975cf0217ae040b18d8eb0c25e1c626cfc0c9e1a2c08584c6b7fde802524"
     },
     "处决播报-16-宣布.wav": {
       "bytes": 138988,
       "sha256": "b81903c26a6fa1dce92e3e978aa5a2a3f99f3c27c9b2cba9a2272420284e8b2b"
     },
     "处决播报-16-死亡.wav": {
-      "bytes": 125102,
-      "sha256": "e91daed5dc0033b7b2da129590c414d9dac7d4b69a740baf8c8050c92534bdd0"
+      "bytes": 131654,
+      "sha256": "92edb6826e7c1c744bb4134eff5f16d83b01bbf609923e755ed751cece603a7f"
     },
     "处决播报-17-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 146394,
+      "sha256": "13a1b13d9aaacf79f39bbb43ac42806dfa68bf1d72915dcf6c05a457a21af092"
     },
     "处决播报-17-宣布.wav": {
       "bytes": 138988,
       "sha256": "fd1055434f5e8d6c7959ea0ed18fd88bd3802537bf1ccb716b829dee237d9770"
     },
     "处决播报-17-死亡.wav": {
-      "bytes": 125102,
-      "sha256": "b85a29a23cf5bca493aa761fb1e3601b65c9164f2b5aa6346494f221a67f9b0d"
+      "bytes": 133644,
+      "sha256": "3bfb605b8031da18ce2e5a8b0f678c0b9f21d808ea1c61176f8e1f90391419fd"
     },
     "处决播报-18-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 144298,
+      "sha256": "7a3f50a984b78e9d59b24d8f53896bd09d3556b5ce35e29292f2aa2c403daac5"
     },
     "处决播报-18-宣布.wav": {
       "bytes": 138780,
       "sha256": "d3d2c7b7ded7249049213aadf4609db2c0b2e791b7295f5ae4db7d86b4fba97a"
     },
     "处决播报-18-死亡.wav": {
-      "bytes": 124714,
-      "sha256": "ab795327907374f22a9c0ec25d649971e0a2b54f23ef089efe0cd86c0707e99e"
+      "bytes": 131662,
+      "sha256": "0f56246deb2c85ac4465bf3bfb84a105eaca38cb41b5f2e39ed34cf16b6e9175"
     },
     "处决播报-19-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 145728,
+      "sha256": "eefd98da4f728113f439f42a61b6195cf56ea8d9a48f48f0ea08d7d81477b61d"
     },
     "处决播报-19-宣布.wav": {
       "bytes": 138774,
       "sha256": "cefc728793ec6e08400314857199bb22d98dbc0abf996a1f642c6fe2b2df3a7c"
     },
     "处决播报-19-死亡.wav": {
-      "bytes": 124940,
-      "sha256": "7a26830ab92970f97e5978d362f60187b75c9d7d9daeae058fe933671048c3f3"
+      "bytes": 133100,
+      "sha256": "e775416c12310459735ed10175f8d66c23ae39df4e94995fe02801133feb9435"
     },
     "处决播报-2-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 135430,
+      "sha256": "d6e2a13081add033a511fb9e1a7a58e2e48bd846fc15d1501cfd61f9940f78d1"
     },
     "处决播报-2-宣布.wav": {
       "bytes": 130464,
       "sha256": "8b0fc8de7bd3ebe68f738f76f2801090e4884bf69910eddb74803ed8c696c303"
     },
     "处决播报-2-死亡.wav": {
-      "bytes": 116008,
-      "sha256": "f610fcb6f7ec1cb08434b2a4024b5393ab15cbf9bf39f31b3cffc78bcd933fa3"
+      "bytes": 122906,
+      "sha256": "f233145f3ef134322e8a4ec784d71ea76a841163fb56d3875684b14a19a70977"
     },
     "处决播报-20-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 143396,
+      "sha256": "394a2564500a6e41d5a39e2827fdaf2b4c232a0907e57dfb72033bcec41453b1"
     },
     "处决播报-20-宣布.wav": {
       "bytes": 136802,
       "sha256": "1846d89e47db6115c345f38e1c7916179eff2b507d9e0af165f5f2cbf50befd8"
     },
     "处决播报-20-死亡.wav": {
-      "bytes": 122138,
-      "sha256": "e39eeb41f96416e1b910665e87cc1739c62da7fc0c99163556fb2d2efdd174ac"
+      "bytes": 130766,
+      "sha256": "13f587f526b37ea698069f34365fbe61d965495734445bc95dad89d1d659a9e4"
     },
     "处决播报-3-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 138750,
+      "sha256": "df907bc7b12c3e2812b7d0c37fdc0c2d68f77491e2af5e819dcba91994f64beb"
     },
     "处决播报-3-宣布.wav": {
       "bytes": 131862,
       "sha256": "a71909aaf9ccdeacf1050c094531140a90e0939acb341136c6cd3cf678d669d7"
     },
     "处决播报-3-死亡.wav": {
-      "bytes": 118578,
-      "sha256": "50ba00dad6a7f37cd5266e683006f5eec20e5a415bb469e2ed83d54081a05050"
+      "bytes": 126224,
+      "sha256": "0187ee90e70979697c6bbf74d8554e29af324da393b0322c2f851369c24cca32"
     },
     "处决播报-4-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 137864,
+      "sha256": "318e557e875e1a54bc55bd596eff0cc6681726d37d969e221d5636e4899ed322"
     },
     "处决播报-4-宣布.wav": {
       "bytes": 127716,
       "sha256": "dda663c5f302a6f868fe93e1250e49c204d3a031cda378a548336b0b59d387cb"
     },
     "处决播报-4-死亡.wav": {
-      "bytes": 117186,
-      "sha256": "65d829498a715e7f07a1371ee12dadf7eed410a4d6f6d31d5602640ecda0d62c"
+      "bytes": 125334,
+      "sha256": "029ec9c9adfc0b9fd7f35ae3922a79f45adb218e5003cf01b3a767adf1e40a6b"
     },
     "处决播报-5-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 135090,
+      "sha256": "ea21933e39e8549b0aee7acbadcab5c39f1133addfe8bfd1a3a49b42e9161c7f"
     },
     "处决播报-5-宣布.wav": {
       "bytes": 125094,
       "sha256": "6965caa42677c8a1e3f6513872cadc15c59232445c85523422af702445bc4f5f"
     },
     "处决播报-5-死亡.wav": {
-      "bytes": 114616,
-      "sha256": "9b1c83feb828554be2489ad4fa48a4bf38b2ceb3484949668c886411bd11c2ca"
+      "bytes": 122456,
+      "sha256": "58a99691d7946aaee8815a3ed5b368de23150ae3234fe7d567bd43210003258e"
     },
     "处决播报-6-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 136096,
+      "sha256": "98267721124f0b66d96fa658ad079073fff32afd55a034ac9db859bbf855c200"
     },
     "处决播报-6-宣布.wav": {
       "bytes": 129896,
       "sha256": "4164746e486316c331cc163ec055349a1fd1472e6ff60842ab637efa382f4b2f"
     },
     "处决播报-6-死亡.wav": {
-      "bytes": 116794,
-      "sha256": "f5990fc686a1d34915b9a491ec97f00716ea0f6e374067ee16ae9ab7baae2af6"
+      "bytes": 123570,
+      "sha256": "b4b5b7e8cc8f47312f1e7898f13af09a21de56f1afb93ee32edf61074163fc60"
     },
     "处决播报-7-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 137734,
+      "sha256": "fdab7434042a3152446aefeb46a833849be67a7cdfd99d8127abc459158e9c20"
     },
     "处决播报-7-宣布.wav": {
       "bytes": 131062,
       "sha256": "48bee8c95d31f87c21337707fb26bc744b1cfb34cce6c47b61117ff74e3933af"
     },
     "处决播报-7-死亡.wav": {
-      "bytes": 117012,
-      "sha256": "3311be32c797e3f0e63ccd24a9257cd8a610a977350c4834fa10c7caa16e10eb"
+      "bytes": 125112,
+      "sha256": "a30ff870dc5a88842d80fbcd0da085bfa185104b7d252f8fcf5a029241165435"
     },
     "处决播报-8-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 135202,
+      "sha256": "a2e507d5c6fc2d9a5a4e31b1c5b6082978729fde079b44e304c4d3a3b6f36c03"
     },
     "处决播报-8-宣布.wav": {
       "bytes": 130668,
       "sha256": "2e41e907b8ff85fafc4c09b8e3aa23e5da662779b16a19acfc84dfdad58551d1"
     },
     "处决播报-8-死亡.wav": {
-      "bytes": 116232,
-      "sha256": "188a06b764fdd25ea892dc4d5474f287cf210bf1b951e0fb84aaf8935faeeda6"
+      "bytes": 122678,
+      "sha256": "f9652427c72a81e98d7a1e7cba2e38b682b66c5ec29f25d74378a2715de59ba6"
     },
     "处决播报-9-失败.wav": {
-      "bytes": 76788,
-      "sha256": "b036d968d6eda3f1786d4b6c0dc0bb87509562967871a1edad439a7b7865da71"
+      "bytes": 135970,
+      "sha256": "d17dfd07ab0eaf55e220b33a9596758bb5095a19147c021109592fef9f307feb"
     },
     "处决播报-9-宣布.wav": {
       "bytes": 130684,
       "sha256": "df890a1abec5f4ce9449935814d12f12f3020aadfc397a699d7d098a8c0937e2"
     },
     "处决播报-9-死亡.wav": {
-      "bytes": 117180,
-      "sha256": "74bddc4d570d7f5b20bf06fbb260dec318f8ed0b8164239c4e7fc171e36509a8"
+      "bytes": 123338,
+      "sha256": "7b9b46fbb4f1c4b4d51456e637c9d30477533343fada137a21be83438a0326a9"
+    },
+    "处决播报-结语-失败.wav": {
+      "bytes": 62896,
+      "sha256": "36ba5129b36fafb1f288e78eed2d92a84c33d472d2d895f3131fa8b7e96a197e"
+    },
+    "处决播报-结语-死亡.wav": {
+      "bytes": 50370,
+      "sha256": "710b8f91d42cf66c07f2221240994da8c493c492d306d3baf43d462bd2699861"
+    },
+    "处决试演-短木机尾.wav": {
+      "bytes": 207666,
+      "sha256": "249d5dc72ca19f1b78b17aed08ce1c574a744bb75cfeaf1f220ae500e4c56aaf"
+    },
+    "处决试演-短钟尾.wav": {
+      "bytes": 120524,
+      "sha256": "e588b53c49e13eacbd9d01a0934d88808fc717784632cd5ec612c92afd11c87c"
+    },
+    "处决镜头-墨封名册.webp": {
+      "bytes": 368372,
+      "sha256": "e1c24954298e43106d9f58c98bfe40b150cd7dd2a8212ce04710b3dbb84ddfc1"
+    },
+    "处决镜头-鸦落木牌.webp": {
+      "bytes": 303360,
+      "sha256": "bc458033dc3e71ccfe33929ed2d5a82697f9563c5eb5ccff723938471e67ff38"
     },
     "处决音效-失败.wav": {
       "bytes": 264644,
@@ -10436,6 +10488,10 @@
     "处决音效-死亡.wav": {
       "bytes": 264644,
       "sha256": "6585ee1567de7efb54099a165eea620659e6c9892c636a8ae07aa2d93214caf4"
+    },
+    "座位方卡-空椅.png": {
+      "bytes": 2722998,
+      "sha256": "8cc7480c3185d7bd205ae9b39b869ce49aee683b0edee36b1a87323d1db1f9a6"
     },
     "投票倒数1.wav": {
       "bytes": 44144,
@@ -10457,6 +10513,14 @@
       "bytes": 247002,
       "sha256": "59c341498d722422f013b090f353a171bc48f795684607076d1873e7cc53d3e4"
     },
+    "提名火焰-展开.wav": {
+      "bytes": 176444,
+      "sha256": "655a0fac88f95eb8257e651b5c3a6c56225c31838311a4c00e5ace4d39338b49"
+    },
+    "暗流涌动-中文图标.webp": {
+      "bytes": 71496,
+      "sha256": "01e30b3d12790468363a5662713e94622cec83dfbb7aa11e74804df7efebfdc5"
+    },
     "暗流涌动-官方标志.webp": {
       "bytes": 89634,
       "sha256": "e65feb06ba75ef9f48b02443ab9b9bbe073b41edb2cc9071fb7ffda70748e812"
@@ -10469,13 +10533,89 @@
       "bytes": 42380,
       "sha256": "b1bd57378c6d394015a17b3837a8412421f53084e4dd5325bee28f21d155cfd8"
     },
+    "胜利演出-善良.wav": {
+      "bytes": 230444,
+      "sha256": "eb4b511c19d99660da38e1ef7f3e8ce5d409ab511fb0c7317453f597dea8fd80"
+    },
+    "胜利演出-邪恶.wav": {
+      "bytes": 230444,
+      "sha256": "e96d9337f5295198214b75606c896502fc004a546ab7c86bf70c5c5b91b08bae"
+    },
     "血染大圆牌-城堡底图.png": {
       "bytes": 2479085,
       "sha256": "d2bb73ae0589f1232f9239d6dc6ae8379ef8c5baf3081cd54eaba1d5198b30d1"
     },
+    "血染完整钟盘-v3.png": {
+      "bytes": 1619958,
+      "sha256": "78eec4f635e251c46b19a6a32cb4518af452e3124e898295618e3100b34495b9"
+    },
     "血染社区创作标识.png": {
       "bytes": 712703,
       "sha256": "88c45c38d92b1c7cf1224ec30e70e7395375340a483624212c5d4f9f5b25f100"
+    },
+    "血染立体铜钟-v3.png": {
+      "bytes": 921422,
+      "sha256": "e1b7314340396b834190919354d7da76fd7c6146e0ee39b7e68a71376962113d"
+    },
+    "血染钟楼小镇-日景.png": {
+      "bytes": 3794640,
+      "sha256": "6eba1db182f4f41d8fe95e1cdb8d7beb42b99519310af36489d4459121e4e7d7"
+    },
+    "议会头像-庭院红狐.webp": {
+      "bytes": 27580,
+      "sha256": "e02d10985d6e6fc8ddf25851640cf066d727ab2c90945d330c383ab6c3970769"
+    },
+    "议会头像-旅人.webp": {
+      "bytes": 23780,
+      "sha256": "cc41b701db5412674a68606ef69a20eafa6d675f5d1c96a82725d4892a484088"
+    },
+    "议会头像-月下猎犬.webp": {
+      "bytes": 21416,
+      "sha256": "6a77b79e76bb8bb34d4d8ab9996ce2c2bac48cafd02a80422b2a546ca6dea0ea"
+    },
+    "议会头像-灰猫.webp": {
+      "bytes": 22652,
+      "sha256": "516c63f2677c285256f39d4485d02c0263a0efdc0697c9f4ee1e84f3fc528266"
+    },
+    "议会头像-访客.webp": {
+      "bytes": 20450,
+      "sha256": "271cdbb844ca2348d8f559e9dadf0834da3ce4cbafa54e55f33868a444889de9"
+    },
+    "议会头像-说书人-羽笔.webp": {
+      "bytes": 37122,
+      "sha256": "cdbae6f09263758acbef6f594e26f28a26cdf92290e3adcd43a34a6ecca53e38"
+    },
+    "议会头像-银发旅客.webp": {
+      "bytes": 38700,
+      "sha256": "1fddd0097216a441835b3f4ba39319a5753671fdb9d3a18e9124ad65f6e67307"
+    },
+    "议会头像-雨夜青年.webp": {
+      "bytes": 32114,
+      "sha256": "2eb0644d7c11b2366a38f52a5d248a1771bb650bd16c7be5086dfc6988eafafa"
+    },
+    "议会钟声-1.wav": {
+      "bytes": 396944,
+      "sha256": "b3f53a078d860b9d9c72746f5221e9d3e94dd8ec27ceba8af4721ded782deef0"
+    },
+    "议会钟声-2.wav": {
+      "bytes": 396944,
+      "sha256": "f0fed631a457e59b28406387aa588dfa44c4233779a7b1ed63ae8d0e3dc9d1ac"
+    },
+    "议会钟声-3.wav": {
+      "bytes": 396944,
+      "sha256": "aa71b75ab03c412770d662aa83a6ad9e9341ca6eedd102e4b7a34a23655ba8ac"
+    },
+    "议会钟声-4.wav": {
+      "bytes": 396944,
+      "sha256": "4838cdb4dd661af7cd23db2d14443b196822b337c07bdf1e4ac95a6bb889df41"
+    },
+    "钟楼天空-手绘太阳.png": {
+      "bytes": 1897646,
+      "sha256": "bf8a604ea52c199e22d042d8a588c2fbc4823cc582032fc0af4071b50c653637"
+    },
+    "钟楼天空-金色圆月.png": {
+      "bytes": 2216515,
+      "sha256": "13d796842f9c61444e13eacfba9d95cc4ba49bce82324b5c52ea4b6223b1c50f"
     }
   }
 }
