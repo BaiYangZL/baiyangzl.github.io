@@ -881,6 +881,13 @@ new MutationObserver(mount).observe(by('board'),{childList:true});new MutationOb
  #board .seat-label{left:-3%;right:-3%;height:21%;font-family:"Microsoft YaHei",system-ui,sans-serif;font-weight:700}
  #board .seat-label b{position:absolute;left:7%;color:#fff2ca}#board .seat-label span{max-width:72%;text-align:center}
  #board .seat-status.status-empty{top:50%;right:-9%;bottom:auto;width:19%;height:19%;transform:translateY(-50%)}
+ /* Phone reference: the table fills the width, with breathing room above and below. */
+ @media(max-width:600px) and (orientation:portrait){
+  html body #app#app #stage{inset:20% 8px 20%!important}
+  html body #app .host{width:var(--host-token);height:var(--host-token)}
+  html body #app .host-caption{max-width:calc(var(--host-token) + 32px);padding:3px 4px}
+  html body #app #board .seat.phone-lower-name .seat-label{top:calc(100% + var(--token)*.01875)!important;bottom:auto!important}
+ }
  `;document.head.append(css);
  const prior=draw;let fitting=false;
  function curveRoleName(seat,index){
@@ -896,43 +903,54 @@ new MutationObserver(mount).observe(by('board'),{childList:true});new MutationOb
   title.title=name;
  }
  function fit(){if(fitting)return;fitting=true;try{
- const app=document.getElementById('app'),stage=document.getElementById('stage'),board=document.getElementById('board'),seats=[...board.querySelectorAll('.seat')],n=seats.length,available=Math.max(1,Math.min(stage.clientWidth,stage.clientHeight)),short=Math.min(innerWidth,innerHeight);
+ const app=document.getElementById('app'),stage=document.getElementById('stage'),board=document.getElementById('board'),seats=[...board.querySelectorAll('.seat')],n=seats.length,available=Math.max(1,Math.min(stage.clientWidth,stage.clientHeight)),short=Math.min(innerWidth,innerHeight),phone=innerWidth<=600&&innerHeight>innerWidth;
+ // Match the user's 8/12/15/19-seat phone references; interpolate between counts.
+ const phoneRatio=n<=12?.184:n<=15?.184-(n-12)*(.039/3):Math.max(.115,.145-(n-15)*(.023/4));
  // Equal-size reference screenshots: 8/12/16 share one orbit and portrait diameter.
  const sine=Math.sin(Math.PI/Math.max(2,n)),wanted=short*(innerWidth>innerHeight?.132:.16);
  const minimumGap=Math.max(5,short*.012);
  // Reference target: 160px at a 1360px short edge; names do not shrink the portraits.
- const target=n>=16?short*(160/1360):n>=13?short*.132:wanted;
- const size=Math.max(1,Math.min(target,((available-12)*sine-5)/(1+sine)));
+ const target=phone?short*phoneRatio:n>=16?short*(160/1360):n>=13?short*.132:wanted;
+ let size=Math.max(1,Math.min(target,((available-12)*sine-5)/(1+sine)));
+ const phoneSquare=phone&&document.getElementById('seatStylePreview')?.value==='square';
+ // Square corners need more room than circular portraits. Fit the cards on the
+ // same circular orbit instead of letting their corners cover another player.
+ if(phoneSquare){
+  const fitsCards=s=>{const r=(available-s-short*.0088)/2;let a=-Math.PI/2;for(let i=0;i<n;i++){const prev=a;do{a+=.002}while(a-prev<Math.PI&&Math.abs(Math.cos(a)-Math.cos(prev))*r<s+2&&Math.abs(Math.sin(a)-Math.sin(prev))*r<s+2);}return a<=Math.PI*1.5;};
+  if(!fitsCards(size)){let low=size*.6,high=size;for(let k=0;k<16;k++){const mid=(low+high)/2;if(fitsCards(mid))low=mid;else high=mid;}size=low-.5;}
+ }
 
- const w=available,h=w,radius=n>1?(w-size-short*.0088)/2:0;
+ const w=available,h=w;let radius=n>1?(w-size-short*.0088)/2:0;
  // Pack equal-size seats on a true circle, checking external names and voice marks.
  app.classList.toggle('roomy-names',n<=15);
  const compact=Math.min(1,Math.max(0,(n-15)/4));
- const nameWidth=n<=12?1.1:n<=15?.9:({16:.8,17:.72,18:.66}[n]||.62),nameFont=size*(.15-.0375*compact),namePad=size*(.01875-.0125*compact);
- app.style.setProperty('--name-width',nameWidth*100+'%');app.style.setProperty('--name-font',nameFont+'px');app.style.setProperty('--name-pad',namePad+'px');
- const labelH=n<=18?nameFont*1.15+namePad*2:size*.13+2;
- function shape(a){const x=Math.cos(a)*radius,y=Math.sin(a)*radius;return {x,y,l:x-size*(n<=18?nameWidth/2:.25),r:x+size*(n<=18?nameWidth/2:.25),t:y-size/2-size*.01875-labelH,b:y-size/2-size*.01875};}
+ const nameWidth=phone?(n<=12?1.08:n<=15?1:.92):n<=12?1.1:n<=15?.9:({16:.8,17:.72,18:.66}[n]||.62);let nameFont=phone?Math.max(10,Math.min(13,size*.16)):size*(.15-.0375*compact),namePad=phone?1:size*(.01875-.0125*compact);
+ let labelH=phone||n<=18?nameFont*1.15+namePad*2:size*.13+2;
+ function shape(a){const x=Math.cos(a)*radius,y=Math.sin(a)*radius,below=phone&&Math.sin(a)>.1,t=below?y+size/2+size*.01875:y-size/2-size*.01875-labelH;return {x,y,l:x-size*(phone||n<=18?nameWidth/2:.25),r:x+size*(phone||n<=18?nameWidth/2:.25),t,b:t+labelH};}
  function conflict(a,b){
   const A=shape(a),B=shape(b),pad=size*.01875;
+  if(phoneSquare)return Math.abs(A.x-B.x)<size+2&&Math.abs(A.y-B.y)<size+2;
   if(Math.hypot(A.x-B.x,A.y-B.y)<size+pad)return true;
   const rectCircle=(q,c)=>Math.hypot(c.x-Math.max(q.l,Math.min(c.x,q.r)),c.y-Math.max(q.t,Math.min(c.y,q.b)))<size/2+(n<=18?-size*.03:pad);
   if(rectCircle(A,B)||rectCircle(B,A))return true;
   if(A.l<B.r+pad&&A.r>B.l-pad&&A.t<B.b+pad&&A.b>B.t-pad)return true;
+  if(phone)return false;
   // Sample the visible single-track arcs, not their empty surrounding box.
   for(const [q,c] of [[A,B],[B,A]])for(let t=0;t<=1;t+=.05){const x=c.x+size*(-.315+.63*t),y=c.y+size*(.49+.13*Math.sin(Math.PI*t));if(x>q.l-pad&&x<q.r+pad&&y>q.t-pad&&y<q.b+pad)return true;}
   return false;
  }
  function pack(extra){const arr=[-Math.PI/2];for(let i=1;i<=n;i++){let a=arr[i-1]+.001;while(a<arr[i-1]+Math.PI&&conflict(arr[i-1],a))a+=.002;arr.push(a+extra);}return arr;}
- let low=0,high=2*Math.PI/n;
- for(let k=0;k<20;k++){const mid=(low+high)/2;if(pack(mid)[n]>Math.PI*1.5)high=mid;else low=mid;}
- const packed=pack(low),fits=packed[n]<=Math.PI*1.5+.002;
+ function solve(){let low=0,high=2*Math.PI/n;for(let k=0;k<20;k++){const mid=(low+high)/2;if(pack(mid)[n]>Math.PI*1.5)high=mid;else low=mid;}const packed=pack(low);return{packed,fits:packed[n]<=Math.PI*1.5+.002};}
+ let {packed,fits}=solve();
+ while(phone&&!phoneSquare&&!fits&&size>target*.85){size-=.25;radius=(w-size-short*.0088)/2;nameFont=Math.max(10,Math.min(13,size*.16));labelH=nameFont*1.15+2;({packed,fits}=solve());}
+ app.style.setProperty('--name-width',nameWidth*100+'%');app.style.setProperty('--name-font',nameFont+'px');app.style.setProperty('--name-pad',namePad+'px');
  const angles= fits?packed.slice(0,n):seats.map((_,i)=>i*2*Math.PI/n-Math.PI/2);
  window.councilPackingFits=fits;
  const gapRatio=n>1?(2*radius*sine-size)/size:0;
  const p=seats.map((_,i)=>{const a=angles[i];return [w/2+Math.cos(a)*radius,h/2+Math.sin(a)*radius]});
- const font=Math.max(10,Math.min(24,size*.12)),host=Math.max(48,Math.min(180,short*.132));
+ const font=Math.max(10,Math.min(24,size*.12)),host=phone?short*phoneRatio:Math.max(48,Math.min(180,short*.132));
  app.style.setProperty('--token',size+'px');app.style.setProperty('--host-token',host+'px');app.style.setProperty('--label-font',font+'px');app.style.setProperty('--label-height',Math.max(17,font*1.65)+'px');app.style.setProperty('--role-readable',Math.max(10,Math.min(24,size*.18))+'px');
- board.style.width=w+'px';board.style.height=h+'px';board.style.marginTop=Math.max(0,(stage.clientHeight-h)/2)+'px';p.forEach((xy,i)=>{seats[i].style.left=xy[0]+'px';seats[i].style.top=xy[1]+'px';seats[i].style.setProperty('--s',size+'px');curveRoleName(seats[i],i);});
+ board.style.width=w+'px';board.style.height=h+'px';board.style.marginTop=Math.max(0,(stage.clientHeight-h)/2)+'px';p.forEach((xy,i)=>{seats[i].style.left=xy[0]+'px';seats[i].style.top=xy[1]+'px';seats[i].style.setProperty('--s',size+'px');seats[i].classList.toggle('phone-lower-name',phone&&Math.sin(angles[i])>.1);curveRoleName(seats[i],i);});
  window.councilLayout={count:n,seat:Math.round(size),number:Math.round(font),host:Math.round(host),width:w,height:h,gap:Math.round(size*gapRatio),gapRatio};
  window.dispatchEvent(new Event('council-layout'));
  }finally{fitting=false}}
@@ -1439,6 +1457,7 @@ const by=id=>document.getElementById(id),app=by('app');
 const panel=document.createElement('section');panel.id='storytellerQuick';panel.setAttribute('aria-label','说书人快捷操作');
 panel.innerHTML='<button id="quickHeader" aria-expanded="true" aria-controls="quickBody"><strong id="quickStage">准备中</strong><span aria-hidden="true">⌄</span></button><div id="quickBody"><div class="quick-inner"><div id="quickSetup"></div><button id="quickNextPhase" class="quick-primary" hidden></button><div id="quickSeats"><button id="quickMinus" aria-label="减少一个空座位">−</button><span id="quickSeatCount"></span><button id="quickPlus" aria-label="增加一个座位">＋</button></div></div></div>';
 app.append(panel);const previousPhase=document.createElement('button');previousPhase.id='quickPreviousPhase';previousPhase.type='button';previousPhase.hidden=true;by('quickNextPhase').after(previousPhase);const chip=document.createElement('div');chip.id='playerPhase';chip.setAttribute('role','status');app.append(chip);
+if(matchMedia('(max-width:600px) and (orientation:portrait)').matches){panel.classList.add('collapsed');by('quickHeader').setAttribute('aria-expanded','false');by('quickBody').inert=true;}
 for(const id of ['chooseScript','allocateRoles','deliverRoles'])by('quickSetup').append(by(id));
 const rightPage=document.createElement('div');rightPage.className='quick-right-page';by('quickSetup').append(rightPage);rightPage.append(by('deliverRoles'),by('allocateRoles'));
 const cap=document.createElement('div');cap.className='quick-cap';panel.prepend(cap);cap.append(by('quickHeader'),by('quickSeats'));
@@ -1581,11 +1600,15 @@ const style=document.createElement('style');style.textContent=`
 #app #board .face.role-face .reference-role-disc .role-art{z-index:2;filter:drop-shadow(0 1px 1px #fff8)}
 #app #board .face.role-face .reference-role-disc .role-title{z-index:2}
 #app #board .seat::after{inset:5%;border-radius:5px;background:none;box-shadow:inset 0 0 0 2px #47b9ee,0 0 7px #47b9ee77}
+@media(max-width:600px) and (orientation:portrait){
+ #app #board .seat .face{width:100%!important;height:100%!important;margin:0}
+ #app #board .seat::after{inset:0}
+}
 `;document.head.append(style);style.disabled=mode!=='square';
 const control=document.createElement('label');control.className='menu-item';control.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:12px';control.append(document.createTextNode('座位样式预览'));
 const select=document.createElement('select');select.id='seatStylePreview';select.setAttribute('aria-label','座位样式预览');select.innerHTML='<option value="circle">上一版 · 圆形座位</option><option value="square">这一版 · 方卡＋圆牌</option>';select.value=mode;select.style.cssText='max-width:65%;padding:7px;border:1px solid #8c8d9666;border-radius:6px;background:#202b36;color:#eee5d5';control.append(select);document.getElementById('settings').prepend(control);
 select.onchange=()=>{mode=select.value;style.disabled=mode!=='square';try{localStorage.setItem(preference,mode);}catch{}draw();toast(mode==='circle'?'预览：上一版圆形座位':'预览：方卡＋圆牌');};
-function mount(){if(mode!=='square')return;const board=document.getElementById('board'),seats=[...board.querySelectorAll('.seat')],n=seats.length;seats.forEach((seat,i)=>{const face=seat.querySelector('.face');if(!face)return;let disc=face.querySelector('.reference-role-disc');if(!disc){disc=document.createElement('span');disc.className='reference-role-disc';disc.setAttribute('aria-hidden','true');for(const item of [...face.querySelectorAll('.role-art,.role-title')])disc.append(item);face.append(disc);}const a=i*2*Math.PI/n-Math.PI/2,d=seat.getBoundingClientRect().width*.64;seat.classList.toggle('lower-name',Math.sin(a)>.1);disc.style.setProperty('--disc-x',-Math.cos(a)*d+'px');disc.style.setProperty('--disc-y',-Math.sin(a)*d+'px');});}
+function mount(){if(mode!=='square')return;const board=document.getElementById('board'),seats=[...board.querySelectorAll('.seat')],n=seats.length;seats.forEach((seat,i)=>{const face=seat.querySelector('.face');if(!face)return;let disc=face.querySelector('.reference-role-disc');if(!disc){disc=document.createElement('span');disc.className='reference-role-disc';disc.setAttribute('aria-hidden','true');for(const item of [...face.querySelectorAll('.role-art,.role-title')])disc.append(item);face.append(disc);}const a=Math.atan2(parseFloat(seat.style.top)-board.clientHeight/2,parseFloat(seat.style.left)-board.clientWidth/2),d=seat.getBoundingClientRect().width*.64;seat.classList.toggle('lower-name',Math.sin(a)>.1);disc.style.setProperty('--disc-x',-Math.cos(a)*d+'px');disc.style.setProperty('--disc-y',-Math.sin(a)*d+'px');});}
 const original=draw;draw=function(){original();mount()};window.addEventListener('council-layout',mount);draw();
 })();
 </script><script id="councilNightOrder" type="application/json">{
