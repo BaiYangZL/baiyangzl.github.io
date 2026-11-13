@@ -5783,6 +5783,20 @@ body:has(#executionCinema[open][data-film="stick"]) :is(#councilClock,#votePubli
 #councilPublic::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#05090f99;border:1px solid #0006;pointer-events:none;z-index:-1;opacity:0;transition:opacity 3s ease}
 
 #councilPublic.is-active::after{opacity:1;transition-duration:.4s}#councilPublic.palette-open::after{opacity:1;transition-duration:.2s}
+
+/* A readable message strip below the circular table on portrait phones. */
+#councilPublic.phone-public-chat{padding:8px 10px;border-radius:12px;text-shadow:0 1px 3px #000}
+#councilPublic.phone-public-chat::before{background:linear-gradient(110deg,#101722bd,#10172286);border:1px solid #cfbb9226}
+#councilPublic.phone-public-chat header{min-height:26px;flex-shrink:0}
+#councilPublic.phone-public-chat .public-color-toggle{min-height:26px;font-size:12px}
+#councilPublic.phone-public-chat .public-preview{padding:5px 0 7px;scrollbar-width:thin}
+#councilPublic.phone-public-chat .public-preview-list{gap:7px}
+#councilPublic.phone-public-chat .public-message{font-size:15px;line-height:22px;gap:7px}
+#councilPublic.phone-public-chat .public-avatar{width:22px;height:22px;flex:none;margin:0}
+#councilPublic.phone-public-chat .public-text{color:#fff9ed}
+#councilPublic.phone-public-chat .public-compact-compose{gap:8px;margin-top:2px}
+#councilPublic.phone-public-chat .public-compact-compose textarea{height:40px;padding:8px;font-size:16px;line-height:22px;background:#101722c9;border-color:#e8d6b83b}
+#councilPublic.phone-public-chat .public-compact-compose button{min-width:48px;min-height:40px;font-size:13px}
 </style><script>(()=>{
 const by=id=>document.getElementById(id),lib=window.castleScriptLibrary,app=by('app'),publicView=new URL(location.href).searchParams.get('view')==='player';
 let nominationFrom=null,targetingAsHost=false;
@@ -6639,6 +6653,13 @@ setInterval(()=>{
  dock.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.isComposing){e.stopPropagation();if(paletteOpen){paletteOpen=false;paintPalette();}}});
  function layout(){
   const r=app.getBoundingClientRect(),short=r.height<500,phone=r.width<600&&r.height>r.width;
+  if(phone&&!document.body.dataset.roleDock){
+   // Dedicated phone message area: full width, independent of host-only controls.
+   dock.classList.add('phone-public-chat');
+   Object.assign(dock.style,{left:(r.left+10)+'px',top:'auto',bottom:'calc(76px + env(safe-area-inset-bottom))',width:(r.width-20)+'px',height:'clamp(180px,27dvh,260px)'});
+   return;
+  }
+  dock.classList.remove('phone-public-chat');dock.style.removeProperty('bottom');
   const bluffRect=layoutAnchor.getBoundingClientRect(),bottom=bluffRect.top-(phone?5:10);
   const obstacles=[...document.querySelectorAll('#board .face,#board .seat-label,#hostSeat,.host-caption,#demonBluffSetup,.fire-preview-controls,.test-perspective,.council-comms,.actions')].filter(e=>e.getClientRects().length).map(e=>e.getBoundingClientRect()).filter(a=>a.width&&a.height&&a.top<bottom&&a.bottom>r.top+12);
   const desiredWidth=phone?300:320,desiredHeight=phone?180:short?190:340,clearance=phone?5:10;
@@ -6927,9 +6948,11 @@ const summaryStyle=document.createElement('style');summaryStyle.textContent=`
  body:not([data-role-dock]) #app .dc-caption{font-size:9px}
 }
 @media(max-width:600px) and (orientation:portrait) and (max-height:700px){
- body:not([data-role-dock]) #app .center>.table-script-title{height:44px!important}
+ body:not([data-role-dock]) #app .center>.table-script-title{height:24px!important}
  body:not([data-role-dock]) #app .council-summary{font-size:10px}
+ body:not([data-role-dock]) #app .council-summary-row{margin:1px 0}
  body:not([data-role-dock]) #app .dc-time{font-size:16px}
+ body:not([data-role-dock]) #app #dayDiscussionClock{width:50px}
 }
 `;document.head.append(summaryStyle);
 const summary=document.createElement('div');summary.className='council-summary';
@@ -7546,9 +7569,10 @@ setInterval(tick,250);mount();
  #board .seat-label b{position:absolute;left:7%;color:#fff2ca}#board .seat-label span{max-width:72%;text-align:center}
  /* Phone reference: the table fills the width, with breathing room above and below. */
  @media(max-width:600px) and (orientation:portrait){
-  html body:not([data-role-dock]) #app#app #stage{inset:calc(96px + env(safe-area-inset-top)) 8px calc(228px + env(safe-area-inset-bottom))!important}
-  body:not([data-role-dock]) #app .wake-bluff-entry{bottom:calc(64px + env(safe-area-inset-bottom));--bluff-size:36px;padding:5px;gap:3px}
-  body:not([data-role-dock]) #app .council-comms{bottom:calc(10px + env(safe-area-inset-bottom));right:12px;gap:8px}
+  html body:not([data-role-dock]) #app#app #stage{inset:calc(96px + env(safe-area-inset-top)) 8px calc(clamp(180px,27dvh,260px) + 92px + env(safe-area-inset-bottom))!important}
+  body:not([data-role-dock]) #app .wake-bluff-entry{bottom:calc(10px + env(safe-area-inset-bottom));--bluff-size:clamp(26px,8vw,32px);padding:4px;gap:2px}
+  body:not([data-role-dock]) #app .council-comms{bottom:calc(10px + env(safe-area-inset-bottom));right:10px;gap:4px}
+  body:not([data-role-dock]) #app .wake-bluff-slots{gap:3px}
   body:not([data-role-dock]) #app .council-comms button{width:44px;height:44px;border-radius:14px}
   body:not([data-role-dock]) #app .top{padding:12px!important}
   html body #app .host{width:var(--host-token);height:var(--host-token)}
@@ -7556,8 +7580,8 @@ setInterval(tick,250);mount();
   html body #app #board .seat.phone-lower-name .seat-label{top:calc(100% + var(--token)*.01875)!important;bottom:auto!important}
  }
  @media(max-width:600px) and (orientation:portrait) and (max-height:700px){
-  html body:not([data-role-dock]) #app#app #stage{top:calc(84px + env(safe-area-inset-top))!important;bottom:calc(252px + env(safe-area-inset-bottom))!important}
-  body:not([data-role-dock]) #app .wake-bluff-entry{--bluff-size:32px}
+  html body:not([data-role-dock]) #app#app #stage{top:calc(84px + env(safe-area-inset-top))!important;bottom:calc(272px + env(safe-area-inset-bottom))!important}
+  body:not([data-role-dock]) #app .wake-bluff-entry{--bluff-size:26px}
  }
  `;document.head.append(css);
  const prior=draw;let fitting=false;
@@ -9860,6 +9884,27 @@ setInterval(deskSync,250);deskSync();
  #app #settings #quickHeader{font-size:12px}#app #settings #quickSeatCount{font-size:12px}
  #app #settings #quickPreviousPhase{font-size:12px;min-height:40px;padding:8px}
  #app #settings #storytellerQuick{margin-bottom:6px}#app #settings .menu-separator{margin:6px 0}
+}
+
+@media(max-width:600px) and (orientation:portrait){
+ html body #app #settings{width:min(252px,calc(100% - 56px))!important;max-height:min(52dvh,450px)!important;padding:8px!important;border-radius:12px}
+ #app #settings .menu-heading{padding:5px 2px 8px;background-image:none;font-size:13px;line-height:20px;margin:0}
+ #app #settings .menu-heading::before{width:18px;height:18px}
+ #app #settings .story-menu-tabs{margin:5px 0 7px;padding:2px}
+ #app #settings .story-menu-tabs button{min-height:36px;font-size:12px;padding:5px 3px}
+ #app #settings #storytellerQuick .quick-cap{margin:0;padding:4px;min-height:30px;clip-path:none;border-radius:5px;box-shadow:none}
+ #app #settings #quickSetup{display:grid;grid-template-columns:1fr;grid-template-rows:40px 40px;gap:5px;padding:6px 0;margin:0;perspective:none}
+ #app #settings #quickSetup[hidden]{display:none}
+ #app #settings #chooseScript{grid-column:1;grid-row:1;flex-direction:row;justify-content:flex-start;gap:8px;min-height:40px;padding:6px 9px;transform:none;border:1px solid #bf9f6955;border-radius:5px;background:#682c3c66;box-shadow:none}
+ #app #settings #chooseScript::before{display:none}
+ #app #settings #chooseScript svg{width:20px;height:20px}
+ #app #settings .quick-right-page{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:40px;grid-column:1;grid-row:2;gap:5px;padding:0;transform:none;border:0;background:none;box-shadow:none}
+ #app #settings .quick-right-page::before{display:none}
+ #app #settings #deliverRoles,#app #settings #allocateRoles{min-height:40px;padding:5px 7px;gap:4px;transform:none;box-shadow:none;font-size:12px!important}
+ #app #settings #deliverRoles svg,#app #settings #allocateRoles svg{width:16px;height:16px}
+ #app #settings #deliverRoles::after,#app #settings #allocateRoles::after{display:none}
+ #app #settings .story-menu-page>.menu-item{padding-left:24px;min-height:42px;font-size:13px!important;line-height:20px!important}
+ #app #settings .story-menu-page>.menu-item::before{left:8px;width:4px;height:4px}
 }
 </style><script>// Artwork coordinates are normalized to the original image, never to stretched UI.
 (()=>{
