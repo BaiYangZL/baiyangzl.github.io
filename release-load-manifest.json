@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-0c99fbb930cd",
+  "version": "entry-load-37b2a67642f6",
   "files": {
     "adult-template-current.html": {
       "bytes": 15699822,
@@ -18,8 +18,8 @@
       "sha256": "b3982e55635b630bdccdc6f532ce38b3070222acdfacb094fe95f06efc519080"
     },
     "arrival-sw.js": {
-      "bytes": 30751,
-      "sha256": "bf041f2930130a127763a6a6c49dceb057c1f2fd99a9ece494cb469c6ba6863e"
+      "bytes": 53551,
+      "sha256": "5b6e8382521d9df4a9cacbbd6710e35002b244ce484acc597a2ade5df65063e3"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -938,12 +938,12 @@
       "sha256": "f33eda4de55b1a1d00d8e23aaa961fdaf1b02419a2c0472fd4cfa7df13bad7d3"
     },
     "blood-council-manifest.json": {
-      "bytes": 15322,
-      "sha256": "bda71381046a28eb4ac37de5ec96544abb71293f530aa1266379c8812c62a5d9"
+      "bytes": 104773,
+      "sha256": "fa3826ffe8b83624b3f97385a627740fb5e8bed891be85f56c16f578a0a0f539"
     },
     "blood-council.html": {
-      "bytes": 1114928,
-      "sha256": "8695e55275781929ecf821aedff450612d45ddc5f7784c70197f325ff197bf94"
+      "bytes": 2000810,
+      "sha256": "d9903330b0a138bee31d84e147abc6b74f139e76ec8c2976c3cb12323867c1c4"
     },
     "cache-check.html": {
       "bytes": 4194,
@@ -987,7 +987,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "86bb4b1c4ab08d0fd70cf4ab96724f546ebf0c1ac2bc61967ae698503c725a19"
+      "sha256": "10361ea9230a93148633747555154121a842a8e3a6704663cfaca690910c084e"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1039,7 +1039,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "92c38a12c0df2d5cbf4d75ce5087f088930afcd72ca34742178f4995278ff454"
+      "sha256": "ea445f52619b8515a2f8808b4eb1222ec57195922118dea8ce1c6bdf123bdc31"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1127,7 +1127,7 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "d56480808a792b68e5bf59416a9b80c5175802388473622d77314050c3062494"
+      "sha256": "e1148433eb2a6401822c977126fd896922559565e2b3ee4910182d6e36e0fe97"
     },
     "selected-sounds.json": {
       "bytes": 24950,
@@ -10002,8 +10002,8 @@
       "sha256": "7eee9d30b9044e5e59d84ffdeab5cc408cfd0c66d4fe6a71a5e0f6ce81ea8169"
     },
     "tavern/function-panel.js": {
-      "bytes": 5131,
-      "sha256": "ab77644f6d1ab41be6f090f13b353381984f459be7a6a0d7619710de6f5d38c2"
+      "bytes": 7631,
+      "sha256": "26c46edea00846326992b41eb317ead6ec8044a03214af1b0202d8e41234cc76"
     },
     "tavern/game-volume.js": {
       "bytes": 4863,
@@ -10043,7 +10043,7 @@
     },
     "tavern/index.html": {
       "bytes": 34181,
-      "sha256": "b1ccf1af053699a3c23c5e8b375cf1dce476c40328e9daebb78d1e010b6277f5"
+      "sha256": "e1271b57404d8b20eb8dca58073b3c11efa0c3f119f5f08db073b9385590f577"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10159,7 +10159,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "500b87359591a792736846c653699b0e866e6f053afbeda4631bb3e227ef6fa4"
+      "sha256": "b487edf161025b7427da7d191b119dc0b4d9df26cdecd9e9e6a9fb6acdf5e918"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
@@ -10201,17 +10201,337 @@
       "bytes": 42134,
       "sha256": "c5a4dd78c4f16337b6e51e40b612caa263c217eaa9d4a6ca97c11e0ff72efc73"
     },
+    "入夜播报-用户录音.wav": {
+      "bytes": 92204,
+      "sha256": "f6681834e317f3ae7af34bd87df29a24424ff0729c18fbab7dc80da73674f17a"
+    },
     "刑台木机声.wav": {
       "bytes": 352844,
       "sha256": "1cc3e39010c38e57e6f20a10fb8b4f948ac1f5009da19f708e45fc0c93562c8e"
+    },
+    "剧本参考-guixian-0-原图.webp": {
+      "bytes": 684954,
+      "sha256": "0d52cf8fa1ae775398493c9a2033645f7525f7e1d66249c9d325fa2f90af3876"
+    },
+    "剧本参考-guixian-1-原图.webp": {
+      "bytes": 538888,
+      "sha256": "ed0c2aa705119d2563e8304be2ac42ea9eea17f5a40f4251ecab7ed924e69379"
+    },
+    "剧本参考-guixian-2-原图.webp": {
+      "bytes": 541628,
+      "sha256": "5e4543594f516989ce4bc09c91ec519a5d3f3df90558b2fe4b7b28f47ac9b487"
+    },
+    "剧本参考-guixian-3-原图.webp": {
+      "bytes": 691128,
+      "sha256": "9623ef8ef14cfc04deecc21630887598c6bc3313c713345c4b1f07cba3e73be6"
+    },
+    "剧本参考-guixian-4-原图.webp": {
+      "bytes": 678698,
+      "sha256": "73e87fc6cbcea014f83030483640402ecb7917539dfa37c6f2e96a6c47bb29be"
+    },
+    "剧本参考-guixian-5-原图.webp": {
+      "bytes": 555334,
+      "sha256": "5a367fef58c90ce7c413a746bea0b63703c3e70fca28da12d7225c5783a358a0"
+    },
+    "剧本参考-guixian-6-原图.webp": {
+      "bytes": 771256,
+      "sha256": "2681acfc9c9663547a0dad1fd212ed3a342407297146351676e855404bf33d51"
+    },
+    "剧本参考-guixian-7-原图.webp": {
+      "bytes": 119992,
+      "sha256": "2a03e85d90700f9338ebb065d21fdace4fd4cd6baddbb65bbf5caab343314166"
+    },
+    "剧本参考-liyuan-0-原图.webp": {
+      "bytes": 188546,
+      "sha256": "687daaf423ff5697a562161338cea22dcb0d181158fbcd24e28035ed27ad6430"
+    },
+    "剧本参考-liyuan-1-原图.webp": {
+      "bytes": 198602,
+      "sha256": "8bd98c39b0756bb6bee5887d70ca95c589924e9010bf831640d7d560eb25377f"
+    },
+    "剧本参考-liyuan-2-原图.webp": {
+      "bytes": 200014,
+      "sha256": "088b679e47fe202640ccfcfdd54066889ea34d242376518591f4dca48d0f7bd4"
+    },
+    "剧本参考-liyuan-3-原图.webp": {
+      "bytes": 213514,
+      "sha256": "ad8a41fb40e93117b7a3bb3099a9350111abd11598576cca2284e46424a6f4ff"
+    },
+    "剧本参考-liyuan-4-原图.webp": {
+      "bytes": 187918,
+      "sha256": "15575332e2c9bb391b119569b31103d98e9a4b768a6e7b23c7b3df727debb443"
+    },
+    "剧本参考-liyuan-5-原图.webp": {
+      "bytes": 214956,
+      "sha256": "35184f9e435fc147fd14ca02d8057145392f64de840d08f0b6a89e2ad43420c4"
+    },
+    "剧本参考-liyuan-6-原图.webp": {
+      "bytes": 210606,
+      "sha256": "b05b67e733bb2bf42f519ccb9b2ff8afe1f56395440ce3dfd991721fb493e2a6"
+    },
+    "剧本参考-nightparty-0-原图.webp": {
+      "bytes": 104624,
+      "sha256": "cd002e8a799fb22fb3156f097e40c6fa9bddc112436ef2a16de5002fd6f48f45"
+    },
+    "剧本参考-nightparty-1-原图.webp": {
+      "bytes": 61246,
+      "sha256": "af020e1612aa18a821f1da796b5e775f27de500f25e485a4373f570940fec04b"
+    },
+    "剧本参考-nightparty-2-原图.webp": {
+      "bytes": 91704,
+      "sha256": "12bb74a0e518a934b38fa7894d6672599015bc8e4695a97f3843c7db746b35af"
+    },
+    "剧本参考-opera-假面-手册原图-清晰.webp": {
+      "bytes": 467036,
+      "sha256": "d6960a57a65336471c6f598c118d25914b74737bbf7546b27b3d9089c8d05764"
+    },
+    "剧本参考-opera-剧幕-手册原图-清晰.webp": {
+      "bytes": 541314,
+      "sha256": "c10bc8557bfcfb23318efe8b75230b5b56fca10bb4a5806e78569a91fbe0b4b5"
+    },
+    "剧本参考-tendays-巨钟-原册-清晰.webp": {
+      "bytes": 441944,
+      "sha256": "8d0d04b55bfa0600f37a87859640985b3a9ec027bc99d26cd129e4c826bde667"
+    },
+    "剧本参考-tendays-白羊天龙-原册-清晰.webp": {
+      "bytes": 647750,
+      "sha256": "8c3b67444927f4372a37452157c8a973386b72848769e0e1bdb3d0164b8db109"
+    },
+    "剧本参考-tf-0-原图.webp": {
+      "bytes": 168152,
+      "sha256": "c0afb34cf78893a2f49216a6053f9a6faa1833f35dfaef31e5dc21c810f23500"
+    },
+    "剧本标志-bmr.webp": {
+      "bytes": 76052,
+      "sha256": "e14bc1d23f42f54ebbf4515b7c366a042b1139134954c8e038062fc924e80327"
+    },
+    "剧本标志-catfishing-小图标.webp": {
+      "bytes": 708304,
+      "sha256": "21a8fd2d59e322610046268477f76e6f7aade37c106c31722616fec87ffccd53"
+    },
+    "剧本标志-guixian.webp": {
+      "bytes": 367658,
+      "sha256": "0a859f3e748e58ba934d501b5f0f749c678274eccbb0bb78d2b137320fa31721"
+    },
+    "剧本标志-jiangcheng-小图标.webp": {
+      "bytes": 139530,
+      "sha256": "1887e2c09e71f4b7bbd775ad12cdac4797bd7c387a2ca1a370a9441ff45b4112"
+    },
+    "剧本标志-liyuan.webp": {
+      "bytes": 161156,
+      "sha256": "50dbcc303fa8217e45125cd082806120346ec5eb5ca7b566f597ddd631573b6f"
+    },
+    "剧本标志-luf.webp": {
+      "bytes": 80152,
+      "sha256": "422859b5780065a5afcd2ec8252670618ba63a2f8c9d20bddad763fced8fdfa3"
+    },
+    "剧本标志-ngj.webp": {
+      "bytes": 76146,
+      "sha256": "d5969915c413d7a59fc1b007e41e4bc38abbe7bf3ca14d15592be53eb713dcfa"
+    },
+    "剧本标志-nightparty-小图标.webp": {
+      "bytes": 670110,
+      "sha256": "5e46b9711d1c08bdcd36e827c7f631ceec378a446bd2e192b6d53ea5bc25c519"
+    },
+    "剧本标志-opera-小图标.webp": {
+      "bytes": 92084,
+      "sha256": "e3988202109d538ce91194371c928fa44dc79d70658365fa5a1bba2c4fadf3e6"
+    },
+    "剧本标志-snv.webp": {
+      "bytes": 77890,
+      "sha256": "9e47bbc6d327e35aa7cd78076f002896150c39ec0ac9bec6328566df698e85cf"
+    },
+    "剧本标志-syyl.webp": {
+      "bytes": 133932,
+      "sha256": "575caf5a9baf18b253afcc8ac20b8eedc412134bf66701a66e9378a729b47fde"
+    },
+    "剧本标志-tendays-小图标.webp": {
+      "bytes": 217996,
+      "sha256": "f4c29c3fd05ef33e1172559fd01d5e79880993092f875bf02f3e4d59e01762a1"
+    },
+    "剧本标志-tf.webp": {
+      "bytes": 85756,
+      "sha256": "cb53000be5d111f9ab4a8647c94f8b6b90dac2a08f4d7854ded3211c9cf44986"
+    },
+    "加时卡-自用原录音.wav": {
+      "bytes": 165164,
+      "sha256": "72760aef249a90821f3a0489bc660d997c8256d137efdca12d1315b607ecbc2f"
+    },
+    "加时卡-赠送原录音.wav": {
+      "bytes": 207404,
+      "sha256": "523fe8f388dfe4b6994ead0000227410b9739acf0c44e656038a289c2a77d3c1"
+    },
+    "加时整句-giver-01-v4.wav": {
+      "bytes": 53804,
+      "sha256": "198572d1ab68df19854b0be034e96499971ec7ae6848e2d7afe86379fa306979"
+    },
+    "加时整句-giver-02-v4.wav": {
+      "bytes": 53804,
+      "sha256": "0e1c4f7406621ab572e193d8d26dea908df57818ae359495a9e9c7cdfb7bbba6"
+    },
+    "加时整句-giver-03-v4.wav": {
+      "bytes": 61484,
+      "sha256": "1ef8c92d7ff61af40c4c13e2e9343d91a30f8300fe64e3257fc25218dddfbd4d"
+    },
+    "加时整句-giver-04-v4.wav": {
+      "bytes": 61484,
+      "sha256": "3f26a466d4cb00573b1d941207207c57920a74d31a56397679a8a0c0cf49b0ed"
+    },
+    "加时整句-giver-05-v4.wav": {
+      "bytes": 61484,
+      "sha256": "6f47bce732edba491b02dc454ae2e6ca3bff6fcc28993c95b29fca792853445d"
+    },
+    "加时整句-giver-06-v4.wav": {
+      "bytes": 57644,
+      "sha256": "94a6a3f119596045e35779355c709bc25e9921dbd742f211e8131c6ddd784727"
+    },
+    "加时整句-giver-07-v4.wav": {
+      "bytes": 73004,
+      "sha256": "0362e0e8a7c3587bd45cd6dff086b6a7b78b34df715ea82084af38b1b4be0dd3"
+    },
+    "加时整句-giver-08-v4.wav": {
+      "bytes": 84524,
+      "sha256": "2bef42372c0e84931d3703b86ac94202f86784b090e9340d9a08c2d9ae801ad7"
+    },
+    "加时整句-giver-09-v4.wav": {
+      "bytes": 61484,
+      "sha256": "138f614c0cdcbe255a20fe0fd11ab75d4d8a2c0e88ff025445f2f3207c73f949"
+    },
+    "加时整句-giver-10-v4.wav": {
+      "bytes": 65324,
+      "sha256": "9e1751395b4813f6b86647976ff438d037da775fbf57b61257bda7c2af7c1d13"
+    },
+    "加时整句-giver-11-v4.wav": {
+      "bytes": 65324,
+      "sha256": "3dccc8b8cd27b24a26f418f9135f3516d092f721ac2f659228619452cf8e69b7"
+    },
+    "加时整句-giver-12-v4.wav": {
+      "bytes": 76844,
+      "sha256": "a6bb6a1636f852d7482be97eb5b926bbea0e80db1788f506672cf83817a11205"
+    },
+    "加时整句-giver-13-v4.wav": {
+      "bytes": 65324,
+      "sha256": "d365a23689a53877c71ebd087544c4a07084d2e9a0563711ca55762706883df1"
+    },
+    "加时整句-giver-14-v4.wav": {
+      "bytes": 92204,
+      "sha256": "514fc21d02276989a480bb69f1b2a6962247874a58139933cc0d1c17c87ee452"
+    },
+    "加时整句-giver-15-v4.wav": {
+      "bytes": 65324,
+      "sha256": "b752ef440ab4ba2e4c8f152d16a2f182c77266a57abd471d0aa362b1981b6ec3"
+    },
+    "加时整句-giver-16-v4.wav": {
+      "bytes": 92204,
+      "sha256": "e0a9a4b9af645e12b4f958a7f886ccca92ceff66d00bec59ea5c8ed66f69c973"
+    },
+    "加时整句-giver-17-v4.wav": {
+      "bytes": 73004,
+      "sha256": "f25afebb9e6c8a29ffc3e376017141717c18260406324d3408ff0a378ef0e597"
+    },
+    "加时整句-giver-18-v4.wav": {
+      "bytes": 76844,
+      "sha256": "af24b3393ac57fa3b9e28a69cd2d5251bb25035dcb1844affd67c83a959178b0"
+    },
+    "加时整句-giver-19-v4.wav": {
+      "bytes": 69164,
+      "sha256": "a96dc91adb9c9b1e3500e08eb0e3da837bcdf931725e924563620c18d15dc216"
+    },
+    "加时整句-giver-20-v4.wav": {
+      "bytes": 61484,
+      "sha256": "bb072d762ea1bae7443f4c9750ac080843b787ccbb456213c4bea0d7705cd988"
+    },
+    "加时整句-self-02-v4.wav": {
+      "bytes": 169004,
+      "sha256": "bd7bebc15925318696773093820d8821b675234fda1f18921a343822e2786165"
+    },
+    "加时整句-self-03-v4.wav": {
+      "bytes": 172844,
+      "sha256": "ad2b04c53870beb0442818e25047ccfa127118d0a9552ce56364c17e2703c38f"
+    },
+    "加时整句-self-04-v4.wav": {
+      "bytes": 180524,
+      "sha256": "c22b38d9958f9ac2b09a93d2da2160347aacf0c5fd90eed3d6bc7591d4d46d22"
+    },
+    "加时整句-self-05-少女-v5-915606.wav": {
+      "bytes": 184364,
+      "sha256": "067d09234511a2d1659b313438022983525206100cd2344374c123f6f0304a0f"
+    },
+    "加时整句-self-06-v4.wav": {
+      "bytes": 207404,
+      "sha256": "621fe8f9ce3137eff94ab7f02f40075a6efbb7fef3a3d597e979a4de0ffcbe0a"
+    },
+    "加时整句-self-07-v4.wav": {
+      "bytes": 172844,
+      "sha256": "713b57e9462e743469fc87a0319a78790ec215fce12e713f8a3ad094cace6a1f"
+    },
+    "加时整句-self-08-少女-v5-915805.wav": {
+      "bytes": 172844,
+      "sha256": "970336ac8430edae771075a63802068074bad6c9de584ab217f5048dc7945f71"
+    },
+    "加时整句-self-09-v4.wav": {
+      "bytes": 165164,
+      "sha256": "82fc8772a4233f0405ca3914d2af7f002175f7b9c3274f7911ded05fb788112e"
+    },
+    "加时整句-self-10-v4.wav": {
+      "bytes": 195884,
+      "sha256": "7d6070702ba981a4f2eec9024c351a5f2c46a38f724c1e3b2c21152de8846af2"
+    },
+    "加时整句-self-11-v4.wav": {
+      "bytes": 203564,
+      "sha256": "08838ebf988c297b95d6ff1abfd0e4c8820b8a75654f87c51424965d18f90447"
+    },
+    "加时整句-self-12-v4.wav": {
+      "bytes": 180524,
+      "sha256": "94b8b0638ae6d7296d2333dea7727e653ba357c227d8edd01d5b48c0795e7722"
+    },
+    "加时整句-self-13-v4.wav": {
+      "bytes": 184364,
+      "sha256": "7b005d316c1cb9d62f20c1eb2185f33d0140bd24d53c3f13e6f6309884ca2e90"
+    },
+    "加时整句-self-14-v4.wav": {
+      "bytes": 211244,
+      "sha256": "10ed2bf165e1d87bf696926bbc59df075f522267f772baeff83652f0a7adcd4e"
+    },
+    "加时整句-self-15-v4.wav": {
+      "bytes": 180524,
+      "sha256": "f936b6bbff7b670798edaa1253b28fe9dcd31bd1dd3c003117ece6b1185b3541"
+    },
+    "加时整句-self-16-v4.wav": {
+      "bytes": 169004,
+      "sha256": "cb1cda617e1b3e324b22e70eb87f3b0e5c3e0f510b6b0f1069493ad0c2812cbf"
+    },
+    "加时整句-self-17-v4.wav": {
+      "bytes": 176684,
+      "sha256": "d33702d8e6ee6e427682d3581849b19a06f2d4209a9608e0b39efbe49303b228"
+    },
+    "加时整句-self-18-v4.wav": {
+      "bytes": 184364,
+      "sha256": "1daf7361b05fb967c91b4bf1d3e4f2918e36dd839d47c5d6fd213706d451b214"
+    },
+    "加时整句-self-19-v4.wav": {
+      "bytes": 203564,
+      "sha256": "02eb8f35a148c43fd6ecd6d8d65e2fcc4a98b56ff8ef8e5885f4c3fbeccbdfe0"
+    },
+    "加时整句-self-20-v4.wav": {
+      "bytes": 180524,
+      "sha256": "0842b57d73d6699b44a86639b16fc4ffc528cc3020a442200ebde4f98ad83894"
+    },
+    "卡牌快速洗牌.mp3": {
+      "bytes": 33061,
+      "sha256": "f3981a50029b2367c85417687110d4288f4dffaf5737a5a21d73c1c8df3d732e"
     },
     "参考钟表-扫针-1.wav": {
       "bytes": 40616,
       "sha256": "7ed866410a67eb14875e3de5f828c12a2626226a68c1667cb2462790818aa73a"
     },
+    "双方发言结束-投票提示原音.wav": {
+      "bytes": 192044,
+      "sha256": "c05b2d882fde3219891fc9a5ada16666a349b1d458c95f79bdefa4c229109136"
+    },
     "城堡议会-大圆座牌.html": {
-      "bytes": 1114928,
-      "sha256": "8695e55275781929ecf821aedff450612d45ddc5f7784c70197f325ff197bf94"
+      "bytes": 2000810,
+      "sha256": "d9903330b0a138bee31d84e147abc6b74f139e76ec8c2976c3cb12323867c1c4"
     },
     "处决播报-1-失败.wav": {
       "bytes": 135084,
@@ -10489,9 +10809,237 @@
       "bytes": 264644,
       "sha256": "6585ee1567de7efb54099a165eea620659e6c9892c636a8ae07aa2d93214caf4"
     },
+    "夜报-平安夜-用户录音.wav": {
+      "bytes": 84524,
+      "sha256": "6dc6ab5e06357c8ebe0f871373281486f02c23be54f86f1e2ff17af4e6690b71"
+    },
+    "夜报-昨夜-慢速.wav": {
+      "bytes": 44820,
+      "sha256": "376f9ff75a67a46a945b40aba1ef486b189b5aa9b40e7bf3440c26f4dde4592b"
+    },
+    "夜报-昨夜.wav": {
+      "bytes": 29804,
+      "sha256": "79c296c0a6af45815a5fd6c634a249c43329c8a3d7f7fdbf721a9591ffc86eb1"
+    },
+    "夜报尾句-01-短停顿-v6.wav": {
+      "bytes": 94108,
+      "sha256": "488a6b5eb6484513602be5f4a1a107a258bd4d3cb454d1d00f1dc33901248bdd"
+    },
+    "夜报尾句-02-短停顿-v6.wav": {
+      "bytes": 96642,
+      "sha256": "8434b9ced27b0e12223a037569a57b1cd1d42826ecfae8e16c2974f8574fc51b"
+    },
+    "夜报尾句-03-短停顿-v6.wav": {
+      "bytes": 104076,
+      "sha256": "04308ec8b1526468c0c6561edc5d4c4946290b481155e95cfa449074f6b388ac"
+    },
+    "夜报尾句-04-短停顿-v6.wav": {
+      "bytes": 99896,
+      "sha256": "43440216a13a3669d4992fbf352a82b144e39dcd6d05e1c010e1aa0773afb9fe"
+    },
+    "夜报尾句-05-短停顿-v6.wav": {
+      "bytes": 94252,
+      "sha256": "88130acb0350ced86ed985c318739c44a7fae6120f5818412b6d5cfe956ef2ef"
+    },
+    "夜报尾句-06-短停顿-v6.wav": {
+      "bytes": 98286,
+      "sha256": "6f54c347a47681883eff69d0649d9a6e341657b32196661f4d057ed39d01e366"
+    },
+    "夜报尾句-07-短停顿-v6.wav": {
+      "bytes": 91540,
+      "sha256": "db07c0443092cc6a7ade72ba6c902b79399713014931ca1145663e9a4815828f"
+    },
+    "夜报尾句-08-短停顿-v6.wav": {
+      "bytes": 93868,
+      "sha256": "fe911c6bd6f5baf68130962b536b9c333bacbfa085e61adb53d618399325c1fa"
+    },
+    "夜报尾句-09-短停顿-v6.wav": {
+      "bytes": 97806,
+      "sha256": "0a8415cd7df59fef623f40a9b013bd1bcc0ad0821adff71f432eeba3c4d77ae3"
+    },
+    "夜报尾句-10-短停顿-v6.wav": {
+      "bytes": 105480,
+      "sha256": "46bb4ec2c2127826905d6f99c0eb52480e138fbdf9e0d8832ff945e06534329f"
+    },
+    "夜报尾句-11-短停顿-v6.wav": {
+      "bytes": 113118,
+      "sha256": "ce0e575da3d86fa446d2902d0fb3c6377cd2449fc2bcfbff81cf28c157cf8574"
+    },
+    "夜报尾句-12-短停顿-v6.wav": {
+      "bytes": 112674,
+      "sha256": "942bf119442f00ef48e79475dcbcfbaecbb87570ff9f09e5022e90c1d233afe6"
+    },
+    "夜报尾句-13-短停顿-v6.wav": {
+      "bytes": 111508,
+      "sha256": "688961064e257e3466e4a64ca78e46a693827b9251e1c2ecbee884021d8de8f8"
+    },
+    "夜报尾句-14-短停顿-v6.wav": {
+      "bytes": 110584,
+      "sha256": "e6aa6393fe1594d31692384a0d19207f3bae82fa2c9f802c1017b91aa006836d"
+    },
+    "夜报尾句-15-短停顿-v6.wav": {
+      "bytes": 110344,
+      "sha256": "3d9ce1b8228bb891ea2849c7ae5b32efbab6c4f3dc0fc93c64742377c575e970"
+    },
+    "夜报尾句-16-短停顿-v6.wav": {
+      "bytes": 108940,
+      "sha256": "5d0fe7b36543a115f947e8efd687522cc1c5c0cb89c0b85a97058126e7a8958b"
+    },
+    "夜报尾句-17-短停顿-v6.wav": {
+      "bytes": 111028,
+      "sha256": "e853075bbee63cd9903fd88f49ba7458dc30c18ac0ebfede1598f6c6c8bc4a19"
+    },
+    "夜报尾句-18-短停顿-v6.wav": {
+      "bytes": 109180,
+      "sha256": "a783bb238fe9eff091b751c1167170cb4d71f54e744a858ebd359e7254aa31c0"
+    },
+    "夜报尾句-19-短停顿-v6.wav": {
+      "bytes": 112434,
+      "sha256": "f887ef2f84afab3816b23bbe48342122c6c363616a8d2d1b3c5b770a965887d5"
+    },
+    "夜报尾句-20-短停顿-v6.wav": {
+      "bytes": 107090,
+      "sha256": "7f36140700f543675b06f28c6e136238c244a5c46340aeb74541b43f92a7b77b"
+    },
+    "夜报座号-01-慢速.wav": {
+      "bytes": 50850,
+      "sha256": "1eb5064695f50158bc54777a8d484a982ff90d944cbbb67a26c2ca880fa7a483"
+    },
+    "夜报座号-02-慢速.wav": {
+      "bytes": 70100,
+      "sha256": "5760a10c8f283b8f981efb0770e7b49992c4773c8dd249be4c527b70ac584bf1"
+    },
+    "夜报座号-03-慢速.wav": {
+      "bytes": 55714,
+      "sha256": "1da176e8f8cbd31322be7f7a1c036a5eacef0ef140a5b99ab720ba2a44935a58"
+    },
+    "夜报座号-04-慢速.wav": {
+      "bytes": 55714,
+      "sha256": "aec7f1733b31e37231d5566a76daa16ae161d778f91b400fa28ade95c3e80fb0"
+    },
+    "夜报座号-05-慢速.wav": {
+      "bytes": 41326,
+      "sha256": "82c1917b388c20d033bee49942924d3b9d1ab3cb14c9dda7a396139205a6651f"
+    },
+    "夜报座号-06-慢速.wav": {
+      "bytes": 50850,
+      "sha256": "4dc188ce8fa87735f3c5e52da7173d45a0a19c0af5ff4e2345cec8396732275e"
+    },
+    "夜报座号-07-慢速.wav": {
+      "bytes": 50850,
+      "sha256": "2f6b139fa8968a2fd196813946bffb95074151b5cf52e4eb10fd36b1cd71a33e"
+    },
+    "夜报座号-08-慢速.wav": {
+      "bytes": 60372,
+      "sha256": "fd2d8e3f0faa8bd25b1bec32a49a6f2fba9876880437003f4beb2a7267817ebc"
+    },
+    "夜报座号-09-慢速.wav": {
+      "bytes": 45986,
+      "sha256": "f669e17541efc77a8fee17de98514e1373fc2b76153b0822139417a55b4f63c9"
+    },
+    "夜报座号-10-慢速.wav": {
+      "bytes": 55714,
+      "sha256": "1ba3a77e02c4c54403b52be58925e3706c1b482e03a9cf321551c01aee6f7585"
+    },
+    "夜报座号-11-慢速.wav": {
+      "bytes": 65236,
+      "sha256": "a85d851ee33f1679de6d05bfd17fb8adefa7c723348545896fbfa084d7efd7d5"
+    },
+    "夜报座号-12-慢速.wav": {
+      "bytes": 65236,
+      "sha256": "5abce105b643614d855bfc612ac36e879d1841b061d3110a5fd233f1a6e6ed54"
+    },
+    "夜报座号-13-慢速.wav": {
+      "bytes": 60372,
+      "sha256": "f6182146590d8b7173dc827fa87a40f2a0bc0c50790dfdeec76c838f2f737129"
+    },
+    "夜报座号-14-慢速.wav": {
+      "bytes": 65236,
+      "sha256": "a5ee8ddee2d79fc05ffd341d2b32f5b11fb36b058a6833b01830bc8f1dff52fc"
+    },
+    "夜报座号-15-慢速.wav": {
+      "bytes": 70100,
+      "sha256": "2329095cdf4605f6e5ad3c4aeec619d0a3f3dcf1c649968c8936ea4ec292ec14"
+    },
+    "夜报座号-16-慢速.wav": {
+      "bytes": 60372,
+      "sha256": "3dd041add2aa3b64ea79cbd6236e40f6983b8f6dd55ce51c41fd7f64656f1d01"
+    },
+    "夜报座号-17-慢速.wav": {
+      "bytes": 74760,
+      "sha256": "14afd598cbf753c92042957ff4df42b4297d3f4122eabcdffc7037067a8e0ced"
+    },
+    "夜报座号-18-慢速.wav": {
+      "bytes": 60372,
+      "sha256": "4c1e5e7c4590929b3ce222e26fca3522e325f006062d3d4b11f938818443b02a"
+    },
+    "夜报座号-19-慢速.wav": {
+      "bytes": 74760,
+      "sha256": "00cfb3173909ecca6014fc836d8a9ed6783ac25dee2775008f87c4ec870afa72"
+    },
+    "夜报座号-20-慢速.wav": {
+      "bytes": 60372,
+      "sha256": "9d510f39a7dd6a4947ca11c72e1d64a09b0862f010fe111d3cb6d115e6d6e365"
+    },
+    "夜间唤醒-手绘符号-v1.png": {
+      "bytes": 1444373,
+      "sha256": "62b41eb1bac4dd745cbd4e31511eea8acbbc6190ccea40a8dcb776cd886a80f0"
+    },
+    "夜间死亡-A倒伏-v2.webp": {
+      "bytes": 198042,
+      "sha256": "a80b550489a092add1e9092d03c426d3c66832e0a9082d78cea3b44fc7b4511c"
+    },
+    "天亮播报-用户录音.wav": {
+      "bytes": 138284,
+      "sha256": "e713119e4b1e1ac458be3322f6f6126233afafd3d60093fb36a6319228c8c3c2"
+    },
+    "女生-我昨天没有醒啊别烦我.wav": {
+      "bytes": 92204,
+      "sha256": "4d9b8a5a8c95508167ea0ddcbda65ada3629a15fa94708c39d9f5cd59882788b"
+    },
+    "平安夜-五人庭院-v3.png": {
+      "bytes": 3175893,
+      "sha256": "0b861a160969dcdd97753e61b62cc8f30dd1e0fdcef988d9770546e154bb82e8"
+    },
+    "平安夜-女孩动作-v3.png": {
+      "bytes": 1111862,
+      "sha256": "bac00c1a0aeec4bfbd7661c4cf4439a84b330ac74b82b590730c40adf8d37f28"
+    },
+    "平安夜-女生动作-v3.png": {
+      "bytes": 996466,
+      "sha256": "2d6f11c2bcbc3e2e907f3e4ddcd7d97c4b11e5909835db5d75f014f31b8e8a3d"
+    },
+    "平安夜-清柔拨弦-v2.wav": {
+      "bytes": 870444,
+      "sha256": "6105fc3d8c1778d2ccbf9b7318b158d8acbfb3fa385c63c7a8a0d71b138c4957"
+    },
+    "平安夜-爷爷动作-v3.png": {
+      "bytes": 1074091,
+      "sha256": "81d19f5cc555ff089bd25138e2719aef529d5fc97e60bfd64b77a340aa1e7012"
+    },
+    "平安夜-男孩动作-v3.png": {
+      "bytes": 1021043,
+      "sha256": "bf157a047055c26c78dbfe0494312af3b11f2b4f05ba521335920fce4387257d"
+    },
+    "平安夜-男生迎朝阳-动作-v2.png": {
+      "bytes": 1245233,
+      "sha256": "725372a9b70c97cfef12506e4a8036da49eff38577fbd93b9c34fd896e3b52b9"
+    },
+    "平安日-五人祈祷动作-v1.png": {
+      "bytes": 993715,
+      "sha256": "64210397ddd62f77cd97a96035285e09755994f6bd81011bb55198b3365cbe9a"
+    },
+    "平安日-少女播报-v1.wav": {
+      "bytes": 61484,
+      "sha256": "41118731de0f31212b487c9f179718d1e78f7d3ba7927d39e0ac1dbfcb17fd2d"
+    },
     "座位方卡-空椅.png": {
       "bytes": 2722998,
       "sha256": "8cc7480c3185d7bd205ae9b39b869ce49aee683b0edee36b1a87323d1db1f9a6"
+    },
+    "快速发牌.mp3": {
+      "bytes": 33061,
+      "sha256": "80af6c05b4500320996c7f611d5c0308c0b30ba5161aacf0dfbacf666d39cc50"
     },
     "投票倒数1.wav": {
       "bytes": 44144,
@@ -10501,6 +11049,94 @@
       "bytes": 44144,
       "sha256": "599aacd2ec1d50749c04625d8adf2a289ebf8fa06a29e20ca9300c272d6f9c74"
     },
+    "投票处决-少女宣告-01-v1.wav": {
+      "bytes": 99884,
+      "sha256": "daa8e5b97381669608d161d25dba3cf37a038adae4488157c2eae6867f1ad819"
+    },
+    "投票处决-少女宣告-02-v1.wav": {
+      "bytes": 96044,
+      "sha256": "4f62ea9ac6bc1c19bd142bb4d6a44c70937ff22436183da7e86ce4b186cb1981"
+    },
+    "投票处决-少女宣告-03-v1.wav": {
+      "bytes": 99884,
+      "sha256": "99a931c3fbcb8bb7690841ad76e99895c47f39e6161ff40612486a44ca525d35"
+    },
+    "投票处决-少女宣告-04-v1.wav": {
+      "bytes": 99884,
+      "sha256": "a07cf5e3a662543a02312becd763598766f5b5494585a3b266060628acfae51f"
+    },
+    "投票处决-少女宣告-05-v1.wav": {
+      "bytes": 103724,
+      "sha256": "46af61eb2c733f720d10a64a15e19614619fe90bc0e49a4b1c76261b103db4b5"
+    },
+    "投票处决-少女宣告-06-v1.wav": {
+      "bytes": 122924,
+      "sha256": "286af5f2c515bbf67835d0ecb8bb6fe7ee19f15413e0075752c97b8ac4d79d8b"
+    },
+    "投票处决-少女宣告-07-v1.wav": {
+      "bytes": 103724,
+      "sha256": "5bdc4885e16474e835b3e3a4ac8dc9a0255f255bc4f647f890864740fcb9ab8d"
+    },
+    "投票处决-少女宣告-08-v1.wav": {
+      "bytes": 107564,
+      "sha256": "e0a59bcca7fa67c65814111d495ea08acc2490db9cd8a61c55dbbc32b0d69207"
+    },
+    "投票处决-少女宣告-09-v1.wav": {
+      "bytes": 122924,
+      "sha256": "e6c8c98447d8b907fdc6292fcee843323cb90f8da63e1bdce0f14ee4dc82ac49"
+    },
+    "投票处决-少女宣告-10-v1.wav": {
+      "bytes": 115244,
+      "sha256": "dcef4df9343c52551e7f26df205326ab6d4a2182bb02815e142d42cceedb5631"
+    },
+    "投票处决-少女宣告-11-v1.wav": {
+      "bytes": 111404,
+      "sha256": "998c28defec457a3b05262b452dd6adf5a7e5ea9cb82f9c34f4b38296d6135d1"
+    },
+    "投票处决-少女宣告-12-v1.wav": {
+      "bytes": 126764,
+      "sha256": "4aec8e0a7e894d85b886ef36f9847d5d597541cdcefa89bbed9367e2999265ef"
+    },
+    "投票处决-少女宣告-13-v1.wav": {
+      "bytes": 111404,
+      "sha256": "14adb17f6328db6adea9c8940d26d1b27ab040cf922bf722d0458cfeb962ee02"
+    },
+    "投票处决-少女宣告-14-v1.wav": {
+      "bytes": 115244,
+      "sha256": "c35673bc0bdc6f5709c5adaeccad3d0918ec3007869c6669fccb37620dbb3eb6"
+    },
+    "投票处决-少女宣告-15-v1.wav": {
+      "bytes": 134444,
+      "sha256": "517e602899893935626ca6f054ddb64ddb05c9be278b68a75e7d2aa68041b446"
+    },
+    "投票处决-少女宣告-16-v1.wav": {
+      "bytes": 138284,
+      "sha256": "15707429b4252ecd6b4b7e13541f55e3a4532b2a0ff2e039a8c9e52256e12467"
+    },
+    "投票处决-少女宣告-17-v1.wav": {
+      "bytes": 111404,
+      "sha256": "c076b5ed06f124e2bc9a5826d027ba9dcd0a890055c6a22564da1936de9e712c"
+    },
+    "投票处决-少女宣告-18-v1.wav": {
+      "bytes": 115244,
+      "sha256": "3e75f2f43f61817f0d77121bd8e57fbe73851cc4d9c609acba07e9184647de98"
+    },
+    "投票处决-少女宣告-19-v1.wav": {
+      "bytes": 126764,
+      "sha256": "d4d88446bb4d853e7966f813770c20d5ebc4ab55f96125538cc055b9fe7fdc1a"
+    },
+    "投票处决-少女宣告-20-v2.wav": {
+      "bytes": 119084,
+      "sha256": "1ce6e47b929938811cd68f42b793ffc80a85248b532b39d0452544587ead3e86"
+    },
+    "投票处决-少女结语-未死亡-v1.wav": {
+      "bytes": 53804,
+      "sha256": "a61247eff82d3c73557baee90a7193fae0504a98a252b055e2b23df4e266de49"
+    },
+    "投票处决-少女结语-死亡-v3.wav": {
+      "bytes": 65324,
+      "sha256": "5dc2c7cd04d5dd78fcb921f3d333b4e8cb3f84af1f75d16f0c66af5f05205116"
+    },
     "投票完整倒数.wav": {
       "bytes": 277874,
       "sha256": "eca50a7e5475b517af934bb0b50196dfb3b374e70911e03aa8ecaaf200129255"
@@ -10509,6 +11145,10 @@
       "bytes": 58256,
       "sha256": "b6175be6f69ddf49083088f1754c010651e881d6bdb057a6c93f5982d49bfced"
     },
+    "提名开启-用户录音.wav": {
+      "bytes": 69164,
+      "sha256": "9792b02828bd07404f936c298e72a5124c242b398c17159c857f8730f5836a00"
+    },
     "提名指向提示.wav": {
       "bytes": 247002,
       "sha256": "59c341498d722422f013b090f353a171bc48f795684607076d1873e7cc53d3e4"
@@ -10516,6 +11156,354 @@
     "提名火焰-展开.wav": {
       "bytes": 176444,
       "sha256": "655a0fac88f95eb8257e651b5c3a6c56225c31838311a4c00e5ace4d39338b49"
+    },
+    "旧站角色册-10-缩略.webp": {
+      "bytes": 58702,
+      "sha256": "7fcd1c7e578277a39d2ce5fff00b57e0e408d4366e29d31167791bf907283ef5"
+    },
+    "旧站角色册-10.webp": {
+      "bytes": 1126644,
+      "sha256": "6cec231dec665ddb10983d8fc73d2af82ffefa8f915dce0a9a2f10b6ed964ff2"
+    },
+    "旧站角色册-15-缩略.webp": {
+      "bytes": 37460,
+      "sha256": "775d3b2b91c14ceb2c58fbd138b4d9397a50e37c243fe6a389d2130f4b1e3237"
+    },
+    "旧站角色册-15.webp": {
+      "bytes": 1405276,
+      "sha256": "1b9bd0043bf66844f226fab79d89ba726833d721384a7d1fd8461fa217d4bf27"
+    },
+    "旧站角色册-16-缩略.webp": {
+      "bytes": 75392,
+      "sha256": "ae3030299d1090012e2cb8e7f5bb553c2e19c0dd4e3b209910f1f465f90fae7f"
+    },
+    "旧站角色册-16.webp": {
+      "bytes": 2058618,
+      "sha256": "5626156c2b913c9d852a366046fbd23940def6365538fc99159aa4717de8aa10"
+    },
+    "旧站角色册-17-缩略.webp": {
+      "bytes": 59724,
+      "sha256": "64d77654699ead3cf0345dd2d146e1c4ebc83da31a37e379a3aa90a72fe5c87c"
+    },
+    "旧站角色册-17.webp": {
+      "bytes": 2292560,
+      "sha256": "5f050ac48a7d569293c09acddbf7a67c982b2d5b755378c36817611d7fb9b401"
+    },
+    "旧站角色册-18-缩略.webp": {
+      "bytes": 68314,
+      "sha256": "71326aaf0923a2eb92b063de0a52cc4f4b8b95703608f94e174b41182df44967"
+    },
+    "旧站角色册-18.webp": {
+      "bytes": 2259698,
+      "sha256": "17997af390675d1dc4c7bda5c0509a1abfb2756188c635f1a0d174b1cc107fd9"
+    },
+    "旧站角色册-19-缩略.webp": {
+      "bytes": 71366,
+      "sha256": "ca425085903e61a4c7e0fda9e8e1f9225f7823b76575cc3a9dc9edbe5a015745"
+    },
+    "旧站角色册-19.webp": {
+      "bytes": 2031210,
+      "sha256": "8dbebb331473cab6bcb6619765f4de779eccf005e14cea121689fba08b7672a6"
+    },
+    "旧站角色册-20-缩略.webp": {
+      "bytes": 71208,
+      "sha256": "fe90155d4110f3633c4b8daaef2cf17bfeb0416376d84ea890fad3e931b4453a"
+    },
+    "旧站角色册-20.webp": {
+      "bytes": 1912672,
+      "sha256": "596c95dda50dea39f70011c1149eaa2dae387528323d63903bafc7b5b8f6f94e"
+    },
+    "旧站角色册-21-缩略.webp": {
+      "bytes": 49678,
+      "sha256": "2aa7e5a6a4e100fbd3abbdc23576f2dafa95660534b7417d36908c8fa590884d"
+    },
+    "旧站角色册-21.webp": {
+      "bytes": 1868524,
+      "sha256": "a951e2054f5e24d0673266f1459a4634ceed022a0cd6916043c5ecddb92b1b66"
+    },
+    "旧站角色册-22-缩略.webp": {
+      "bytes": 67566,
+      "sha256": "a2230ccd1d9ebafcc50cbcc448d9673402a22aecb68981d682ffd22e489804e4"
+    },
+    "旧站角色册-22.webp": {
+      "bytes": 1841472,
+      "sha256": "6fb65b0f965c1729da83399c51fd77ebc21178156d0d4e29502ebd19e281dc92"
+    },
+    "旧站角色册-23-缩略.webp": {
+      "bytes": 90594,
+      "sha256": "7f1a2c14a0b5687b42e025038963a33f4bc9e71770137ac6a296e3386f49d9af"
+    },
+    "旧站角色册-23.webp": {
+      "bytes": 2738186,
+      "sha256": "007da935dab76badee4341cf08b7ee73d712dbf98ce0305e1a8fd0749387c04a"
+    },
+    "旧站角色册-24-缩略.webp": {
+      "bytes": 63048,
+      "sha256": "bf7b167b9c148d3912e24f92c1506af66d640653fe0f8404385890f118dd02ba"
+    },
+    "旧站角色册-24.webp": {
+      "bytes": 1858818,
+      "sha256": "0d71c9a231302c689e3fcbd7a53e167cc59efc6f1d13f6266450eee1f857aea3"
+    },
+    "旧站角色册-25-缩略.webp": {
+      "bytes": 53958,
+      "sha256": "02ffd747c3909ab88181cb74d72c6b866eb28c34b481923d45ff9a466f658eb4"
+    },
+    "旧站角色册-25.webp": {
+      "bytes": 1716082,
+      "sha256": "308cde38baa4569a73552eefc785e3a7c8e1b60fe361d0bc02733d71b6040187"
+    },
+    "旧站角色册-26-缩略.webp": {
+      "bytes": 89474,
+      "sha256": "8a81763a1b9447b4f37b5d3726d078fbf6c4a9409f81bc8fa86c26c62cda1384"
+    },
+    "旧站角色册-26.webp": {
+      "bytes": 2533400,
+      "sha256": "1355500a84ff45ce4487b1b495dc9d3014d9eaa8ff35e332a154c3173e394734"
+    },
+    "旧站角色册-27-缩略.webp": {
+      "bytes": 80916,
+      "sha256": "ce7d514a120972e8f5980afc76ec2e73507e26d3bbf0a31810dde898e532cf10"
+    },
+    "旧站角色册-27.webp": {
+      "bytes": 1736928,
+      "sha256": "b2defa017784f2b06dc6966b01b3a456f247e781754182198622f45ffd6e4cba"
+    },
+    "旧站角色册-28-缩略.webp": {
+      "bytes": 100204,
+      "sha256": "e20f6316020e6206eee5632ea4a48f411c7a42d4e5b5162745e47484a693066a"
+    },
+    "旧站角色册-28.webp": {
+      "bytes": 3314546,
+      "sha256": "617ff8a95cc1216ec0f2548d77017186db1b645eac4a4ae0130f533d0a1aa8c4"
+    },
+    "旧站角色册-29-缩略.webp": {
+      "bytes": 77540,
+      "sha256": "021d2a913f9734b0c3c451d01eb43f734a4b53abc55be098eb1b1ee871089dbc"
+    },
+    "旧站角色册-29.webp": {
+      "bytes": 2382410,
+      "sha256": "85c8c692c6593c2ced7e8a98c06570a6e4ca8c25767cb7b5c0a1c43e273a212f"
+    },
+    "旧站角色册-30-缩略.webp": {
+      "bytes": 74532,
+      "sha256": "954f675f275e06cf8fcba599f8c608bd7320ddc30995177c4cae1c940d669c32"
+    },
+    "旧站角色册-30.webp": {
+      "bytes": 2295698,
+      "sha256": "f34745c1efd7d1c3cc911466616feeb8ebc73ba993d26f1788796664fed5a8d9"
+    },
+    "旧站角色册-7-缩略.webp": {
+      "bytes": 46716,
+      "sha256": "dabd1e794778713a6e687027598ceb911321fa27b9c5909d4e800a44b4b55d1e"
+    },
+    "旧站角色册-7.webp": {
+      "bytes": 1805506,
+      "sha256": "7789c0865fdf55b92fcd604517203eb21fb73bb947d0011fce6cf6802899375c"
+    },
+    "旧站角色册-8-缩略.webp": {
+      "bytes": 61584,
+      "sha256": "4fce7a21027962604afd37682600e49f588e07cdd9bff1c7d5a9bd989fe3ae03"
+    },
+    "旧站角色册-8.webp": {
+      "bytes": 1134184,
+      "sha256": "e698c811970c229b8e16f677aaa8eeb4fc01e571be735044fd86a0e9af09d4c1"
+    },
+    "旧站角色册-9-缩略.webp": {
+      "bytes": 35154,
+      "sha256": "a5f5a3913b82cb86ad706026335159f149517e3d704c7c75890bf6a58dde8a5d"
+    },
+    "旧站角色册-9.webp": {
+      "bytes": 1344550,
+      "sha256": "9d4c9d79670d06e3c73786a918bcf92c9be0bd0701345655d9e2a8d7aa3e8070"
+    },
+    "旧站角色册-new-01-缩略.webp": {
+      "bytes": 57970,
+      "sha256": "7e78f588d87a135d0c9da8f0e5656f3acef7401a0be730053ded2479d1d49ebb"
+    },
+    "旧站角色册-new-01.webp": {
+      "bytes": 2362702,
+      "sha256": "cfe6df7b59c965df8bdff2a9b8cf4b764ed9f2d4719d0830452d7b78f5682f14"
+    },
+    "旧站角色册-new-02-缩略.webp": {
+      "bytes": 62054,
+      "sha256": "bd3cbe3eefd8ff0046299ed90037691819f7ee5a4a4694bda4fb96a063516716"
+    },
+    "旧站角色册-new-02.webp": {
+      "bytes": 1213538,
+      "sha256": "7e7ffeab36fce59536340875f271d35f0328cc2d2551c9b1d389c1c467a6b7b1"
+    },
+    "旧站角色册-new-03-缩略.webp": {
+      "bytes": 63994,
+      "sha256": "f8fb1324b4aec9052ceef8ab6894a1363592aad7a145acedced6248dcd4cb668"
+    },
+    "旧站角色册-new-03.webp": {
+      "bytes": 1987854,
+      "sha256": "253eeac977e63527cfb084cde397e5a1b7e129daa91f7d032db595e6dd85f4d0"
+    },
+    "旧站角色册-new-04-缩略.webp": {
+      "bytes": 76440,
+      "sha256": "be6e02683b863edaff9136cf74e3cd99e45752b43a2744092bf3ac5d26abc382"
+    },
+    "旧站角色册-new-04.webp": {
+      "bytes": 1520380,
+      "sha256": "5d2f16a977948d025306b6e34d2fe7732855208410d37d04f45f199445fafb35"
+    },
+    "旧站角色册-new-05-缩略.webp": {
+      "bytes": 55682,
+      "sha256": "3dad506a6c81fbd241d977950b837578d5dceb452906ab940315ffb3d76430b9"
+    },
+    "旧站角色册-new-05.webp": {
+      "bytes": 1806824,
+      "sha256": "3fde1a989f74a51bc1af458751e3a7bfcd2f51183fd01ae59f8887e40569ca28"
+    },
+    "旧站角色册-new-06-缩略.webp": {
+      "bytes": 73416,
+      "sha256": "54268ff08e6e90a2f8dfff606468374b2171b83f00581805f91e3f134da964d0"
+    },
+    "旧站角色册-new-06.webp": {
+      "bytes": 1422542,
+      "sha256": "4c9f5b70021bc32377f42552e7ae79f04a9269dfd76ec71d21c541e37351dcc6"
+    },
+    "旧站角色册-night-01-缩略.webp": {
+      "bytes": 49538,
+      "sha256": "2c89e685a280ea1b8c228d1cf66b7b349e9a51843e9dc4d8ce798a071da87a6f"
+    },
+    "旧站角色册-night-01.webp": {
+      "bytes": 1499354,
+      "sha256": "33693b87963cf404cab8b6dc2270bc17f5b74f7e9325530c01a243c4d9cdaa78"
+    },
+    "旧站角色册-night-02-缩略.webp": {
+      "bytes": 66596,
+      "sha256": "45590431b62cdd45f738d52513375bb3af84b106d4ccd4e9b7894284a6e81e88"
+    },
+    "旧站角色册-night-02.webp": {
+      "bytes": 1526390,
+      "sha256": "0668d86e3c6b8b65eb9607f69f78decd1f22c5f47c38d644d8ab530a6ec40360"
+    },
+    "昼夜播报-第02天-白天.wav": {
+      "bytes": 126764,
+      "sha256": "9fa67ba1fdd61d6ee0e84c17a48e2304ffa3a8a938ecbb321ed59395c8855c1d"
+    },
+    "昼夜播报-第02天-黑夜.wav": {
+      "bytes": 99884,
+      "sha256": "5f24138b81bf30ab34e3a36ccec8e78c01f3d2d8a602f6e2e606af34e7b91a93"
+    },
+    "昼夜播报-第03天-白天.wav": {
+      "bytes": 142124,
+      "sha256": "326854dad9ecdaa3bda31e8005fe115381e11bde2dd3834868ed3c091bb9b1b2"
+    },
+    "昼夜播报-第03天-黑夜.wav": {
+      "bytes": 103724,
+      "sha256": "857bdcd5aef81adfa88e5a6c69b9356b64303fd72326c4769e0ad461bceec06e"
+    },
+    "昼夜播报-第04天-白天.wav": {
+      "bytes": 134444,
+      "sha256": "d6f77b376f146557c40548232d6630600be8cd24f58131ed904527a8fbedb44a"
+    },
+    "昼夜播报-第04天-黑夜.wav": {
+      "bytes": 99884,
+      "sha256": "bd09e53c9a5966aca379c37a5e4e6c8c3335bee7266230d629fef8c55f5f28f5"
+    },
+    "昼夜播报-第05天-白天.wav": {
+      "bytes": 130604,
+      "sha256": "81ca90bca670cdc27b4a95b3c8a554978100ef74eeebdff9efc23a1b4f990a1e"
+    },
+    "昼夜播报-第05天-黑夜.wav": {
+      "bytes": 99884,
+      "sha256": "1b4c13f680e9a9bb7946a65311046578696c0943848c0366409b5f863e739b78"
+    },
+    "昼夜播报-第06天-白天.wav": {
+      "bytes": 130604,
+      "sha256": "00bace0563f652949b374ef844847cc2ea8d90fd1f459e35b5475cfac7c856b7"
+    },
+    "昼夜播报-第06天-黑夜.wav": {
+      "bytes": 92204,
+      "sha256": "831b4a010cde596f5dd316cc233eb9fb6c23c24b4b4021f399c48f97bb551604"
+    },
+    "昼夜播报-第07天-白天-v2.wav": {
+      "bytes": 130604,
+      "sha256": "079eb496fbcbc790fc215ae93ecbab2be31952a1d1f5bf929cd97a5565639450"
+    },
+    "昼夜播报-第07天-白天.wav": {
+      "bytes": 138284,
+      "sha256": "c89c550d4249ef9df77ff57066f6eb1f70956f2ceff61c0b2bea2c174f88cd86"
+    },
+    "昼夜播报-第07天-黑夜.wav": {
+      "bytes": 115244,
+      "sha256": "7885388657a3c99bb4fc32c102516c38e7eb312a1c5c29a4cd29bc1259545cb3"
+    },
+    "昼夜播报-第08天-白天.wav": {
+      "bytes": 138284,
+      "sha256": "ccb65e973313d19064527cce8f7205f5f1d2185f7992f33e48884ce8d708bbc9"
+    },
+    "昼夜播报-第08天-黑夜.wav": {
+      "bytes": 88364,
+      "sha256": "8a2ea941cd01e1108e10b29784985423cbc840f5585a43c1ca49f1d0a0e901df"
+    },
+    "昼夜播报-第09天-白天.wav": {
+      "bytes": 180524,
+      "sha256": "cb2bf89a89e7796de9f946e429fe35afd8695d07aa55e04d4ee0d8fe7985031e"
+    },
+    "昼夜播报-第09天-黑夜.wav": {
+      "bytes": 99884,
+      "sha256": "a7870f550c216109ff8c8bebc92ea8d4ba3e65afd63288efffb7918f4e56de83"
+    },
+    "昼夜播报-第10天-白天.wav": {
+      "bytes": 134444,
+      "sha256": "28e88e509bcfe552bd7bde69c2d13bdd056cc28d6d24f0c918a74193515618cf"
+    },
+    "昼夜播报-第10天-黑夜.wav": {
+      "bytes": 92204,
+      "sha256": "a45f6d589f8cea64945dcc8d4ae662f4ca5ac54e9c113b83ca76f8e5923101ab"
+    },
+    "昼夜播报-第11天-白天.wav": {
+      "bytes": 145964,
+      "sha256": "b8346be12d58c6f49c3078053e9867c857ff4a09d5bd00f2c969d7e146223b65"
+    },
+    "昼夜播报-第11天-黑夜.wav": {
+      "bytes": 103724,
+      "sha256": "5fcd4743b0e202a938fbfb73809875f1c4d0592ae837dda560918a1fbe66bd1f"
+    },
+    "昼夜播报-第12天-白天.wav": {
+      "bytes": 126764,
+      "sha256": "4c47fa9eaa2295ba69435821745d64716f0ae108fc49e48a6d9afc67d173f020"
+    },
+    "昼夜播报-第12天-黑夜.wav": {
+      "bytes": 96044,
+      "sha256": "b06bdae5abbc82184fc994458d67547664b3bdc1500f23f6ab1931cfde6e1e78"
+    },
+    "昼夜播报-第13天-白天.wav": {
+      "bytes": 122924,
+      "sha256": "0605684040139b80cc971b25c7019725b93f8b4b831d415c7966435c42ca7583"
+    },
+    "昼夜播报-第13天-黑夜.wav": {
+      "bytes": 115244,
+      "sha256": "e634a7e46b4a9599bb858483c8fd2bcd60675ca32f590c05b70299917aa40a08"
+    },
+    "昼夜播报-第14天-白天.wav": {
+      "bytes": 145964,
+      "sha256": "1194b4015076d97e17beafcfb3290d7adea416899e57e13b8747b4d7c891763e"
+    },
+    "昼夜播报-第14天-黑夜.wav": {
+      "bytes": 103724,
+      "sha256": "a2fe2afb8076b088b4d2143e32a407b594690ff603e0ef33964dea4c15d16fe3"
+    },
+    "昼夜播报-第15天-白天.wav": {
+      "bytes": 142124,
+      "sha256": "f2625e60fd3d757dda03c8a93c87da54bbf75dc47729dbde3cf2ddf175cf1822"
+    },
+    "昼夜播报-第15天-黑夜.wav": {
+      "bytes": 103724,
+      "sha256": "a267fcd53493f7fab13c64e213ad94c039ebb087e20b355ff9f23977cf7b37fe"
+    },
+    "昼夜过场-晨光升起.wav": {
+      "bytes": 670364,
+      "sha256": "2123f98f2cabe703122ec23d7806490cc5d372f2b1a287c8da1cd8ed209ba7cd"
+    },
+    "昼夜过场-蝉鸣入夜.wav": {
+      "bytes": 670364,
+      "sha256": "d55e21085fdc402af070eb7c75c352037c377b98fc2b2f8c830e8c320772e653"
     },
     "暗流涌动-中文图标.webp": {
       "bytes": 71496,
@@ -10529,17 +11517,1421 @@
       "bytes": 2886032,
       "sha256": "b11e5d25456ba2063b5eadaa47b50f632afe7160e6b6f60b0cb58a53fef0797f"
     },
+    "机械转轮-黄铜棘轮声.mp3": {
+      "bytes": 33061,
+      "sha256": "61d2f4bf5d955ea4319d8a55bb2a4a024a4f63b02e6b4eceb5b05e6d77c931ce"
+    },
+    "法槌敲击-共鸣.mp3": {
+      "bytes": 17179,
+      "sha256": "95c3f32ae36646c171e84c3ded848efa8a133ece9b4d7b879b82cbe9cb66eb63"
+    },
+    "海边猫咪-背景-横版-v1.png": {
+      "bytes": 2671936,
+      "sha256": "8469736ac1c91c4c22b38d8949484387fcea94a710cdcfee11300b15e4e94c75"
+    },
+    "海边猫咪-背景-竖版-v1.png": {
+      "bytes": 2670827,
+      "sha256": "b2f90615dfe17cda7180923b9dcf9785b67369b0275b25cb8160bfb770eb4bb4"
+    },
+    "清亮铜钟-剩余五秒-一秒.wav": {
+      "bytes": 44144,
+      "sha256": "4bf74de4b040011165324aea18fcd149c396ebcc08bae3296f3d82fa45175153"
+    },
+    "清亮铜钟-发言开始-一秒.wav": {
+      "bytes": 44144,
+      "sha256": "4bf74de4b040011165324aea18fcd149c396ebcc08bae3296f3d82fa45175153"
+    },
     "清脆计票铃-1.wav": {
       "bytes": 42380,
       "sha256": "b1bd57378c6d394015a17b3837a8412421f53084e4dd5325bee28f21d155cfd8"
+    },
+    "游玩规则-liyuan.json": {
+      "bytes": 20413,
+      "sha256": "9db3b511b21168263b3577d6c99cc69808f10c8899f28f6a73a653b7969662a7"
+    },
+    "游玩规则-opera-01.webp": {
+      "bytes": 207906,
+      "sha256": "1a7eac49b4a38d95341b87207f9d33673c7ce0c1e5c0308dddaf7d19d4d2fbce"
+    },
+    "游玩规则-opera-02.webp": {
+      "bytes": 143058,
+      "sha256": "2ba893e35ea9aba638004387c56f8f4546af143a3d5ea68f27985321f4ec2d40"
+    },
+    "游玩规则-opera-03.webp": {
+      "bytes": 82566,
+      "sha256": "88fd9c860d480ad4e9700966f85a225dc8f818ead6de184d00fc83e63b97e01f"
+    },
+    "游玩规则-opera-04.webp": {
+      "bytes": 175120,
+      "sha256": "a88691f1bace4b82cc18002ee45f52fa87fd9e285084408fe592dce74e92e3fd"
+    },
+    "游玩规则-opera-05.webp": {
+      "bytes": 32716,
+      "sha256": "3ae170143caefb5fd9d1a90b478ba7effccb37039303a52ca37167b5f4982123"
+    },
+    "游玩规则-opera-06.webp": {
+      "bytes": 120032,
+      "sha256": "23bd45328807e37c0f8378c0d1c8a31bb78b75e57c0fafb476d492b1b3b93144"
+    },
+    "游玩规则-opera-07.webp": {
+      "bytes": 136332,
+      "sha256": "ac3001f3a45724f84c51dcc5f2594156ec1012bbad9b71ee0aeb894141cc69be"
+    },
+    "游玩规则-opera-08.webp": {
+      "bytes": 103484,
+      "sha256": "76afd2036f56083317e1e1c4bd1fb586fa0cf9d36b5c9a1a8e9d087878788e45"
+    },
+    "游玩规则-opera-09.webp": {
+      "bytes": 164352,
+      "sha256": "0df59fe69e45693c9e90f5d6911ad070ae31663842d9947e0a27b9d84897de75"
+    },
+    "游玩规则-opera-10.webp": {
+      "bytes": 129860,
+      "sha256": "92c6e5473c2f773a599bb44166d0ad06cc537b89cf63da879520592e32be5bc3"
+    },
+    "游玩规则-opera-11.webp": {
+      "bytes": 127098,
+      "sha256": "e27c2e4933df1dfdb8ec72b072e76842b5a64969bd72bec477af07ecc79b55c3"
+    },
+    "游玩规则-opera-12.webp": {
+      "bytes": 141736,
+      "sha256": "4ef97f3d0da19f5f79cf5df9506c261053853f849a321598818cd045c08e0404"
+    },
+    "游玩规则-opera-13.webp": {
+      "bytes": 191464,
+      "sha256": "145aa2e982a6ed24f81390f9ac8071760f5782b3386fe12cbfd6bdeac6ebf967"
+    },
+    "游玩规则-opera-14.webp": {
+      "bytes": 121052,
+      "sha256": "797bdb90202aac2ebe92a0f4ad75f37761501b1db082d71d3cd5585e10b7f79f"
+    },
+    "游玩规则-opera-15.webp": {
+      "bytes": 117642,
+      "sha256": "2037498d4d320b2b0bc4822d8c62b4c4634ac15b34b873bbb107afe34b5ba0e5"
+    },
+    "游玩规则-opera-16.webp": {
+      "bytes": 109416,
+      "sha256": "94a83f5e0ba5be81d1e4084bfd7cfb966b727ab328a6d82d274fb98eeaffdfce"
+    },
+    "游玩规则-opera-17.webp": {
+      "bytes": 185452,
+      "sha256": "fb34e4a89c0a746e98258e79c5126105258488d4662c09fcc3b68119be568c7a"
+    },
+    "游玩规则-opera-18.webp": {
+      "bytes": 114302,
+      "sha256": "bbffe519ef7ff865b889253409647ea6911e0cda3a2a20706a3c917af26a27e5"
+    },
+    "游玩规则-opera-19.webp": {
+      "bytes": 150306,
+      "sha256": "2919d6066ac8d47cfde3aece81b4a4908aea6d6943da0b7d657ddac7b457d72d"
+    },
+    "游玩规则-opera-20.webp": {
+      "bytes": 170638,
+      "sha256": "d0b219f433a8e9196bd71b81024e4e531111bdb8b755e2d9f6fe96165db59ea8"
+    },
+    "游玩规则-opera-21.webp": {
+      "bytes": 165590,
+      "sha256": "646ab6e13dc96ae592d8aea536dcc2010911f7a087496b1d4fe861386de636b0"
+    },
+    "游玩规则-opera-22.webp": {
+      "bytes": 138900,
+      "sha256": "ad33b6a88f1f4a6c26c7ffdab6ba555ff353fb39199271072843e20550b74633"
+    },
+    "游玩规则-opera-23.webp": {
+      "bytes": 127020,
+      "sha256": "fa18fc4a8c6478454b8f68dc5fec3436d38be73578302d3397b4add8a3301db2"
+    },
+    "游玩规则-opera-24.webp": {
+      "bytes": 144140,
+      "sha256": "e48b568fbee32769591ecb1422ed0a38d1d6fdec7e8397a76ad8891f164fb562"
+    },
+    "游玩规则-opera-25.webp": {
+      "bytes": 153142,
+      "sha256": "0b912d7a90294ceb1b2fcd3542915cbe83741848509ce27848fbacadaeb78d62"
+    },
+    "游玩规则-opera-26.webp": {
+      "bytes": 123522,
+      "sha256": "f5cf9dd7d6c66d3ff2de2351ab41a06e388c31259e76f6b10aaf33e8912f57b3"
+    },
+    "游玩规则-opera-27.webp": {
+      "bytes": 118564,
+      "sha256": "14de9a1e104370f129ba4ceabb662f4cd80ce6ebb35b31c7b2633546af6e4ba6"
+    },
+    "游玩规则-opera-28.webp": {
+      "bytes": 112894,
+      "sha256": "6b4e3d29b7fa11e5dbb806aee9fb41f5ea50f655b7729c1a7ac027bf9d16353a"
+    },
+    "游玩规则-opera-29.webp": {
+      "bytes": 161584,
+      "sha256": "1a750d94578628dd2352b3e9a88a28d8dba57982d03efe3cef030b9163d29435"
+    },
+    "游玩规则-opera-30.webp": {
+      "bytes": 110458,
+      "sha256": "2692020bbab416265302f5e75930bb314eb424de48327a6d7efa05f5f44dba86"
+    },
+    "游玩规则-opera-31.webp": {
+      "bytes": 136618,
+      "sha256": "d73f50ec29e63a07f585fe0744916ed723cf0464a754062dd24bde1d35f3b6d4"
+    },
+    "游玩规则-opera-32.webp": {
+      "bytes": 163412,
+      "sha256": "c5c0f1a7c46c2549385b8b81214745b090741391a3331f23fc6bf74934346e97"
+    },
+    "游玩规则-opera-33.webp": {
+      "bytes": 121958,
+      "sha256": "c0e6fad0dfc9f7e0b22aa1c45dfac9c9c73f7eaf5c4802d96fa3d284f97a8904"
+    },
+    "游玩规则-opera-34.webp": {
+      "bytes": 156310,
+      "sha256": "62390b7042a4d42ce669b97a4173773b856250d1dd89501ae0d2033b96327303"
+    },
+    "游玩规则-opera-35.webp": {
+      "bytes": 177336,
+      "sha256": "b4c6446b163983b9be92fe62e6e642fd36a4f8be11d8c90c38798db88985c3e4"
+    },
+    "游玩规则-opera.json": {
+      "bytes": 6603,
+      "sha256": "9bee02d43340939d8e801e7ec60bb094d01e26d87dd674c5affa1059e9a328b0"
+    },
+    "游玩规则-tendays-01.webp": {
+      "bytes": 341602,
+      "sha256": "392e56f8801d190acbf2056c18f9beb34b28cf261be6af31f0c2766c31c1a0cb"
+    },
+    "游玩规则-tendays-02.webp": {
+      "bytes": 380626,
+      "sha256": "8ef53171cdcd01e7fe721fdec0b16731427f28ecf6c19d588acfc8e184e41cd4"
+    },
+    "游玩规则-tendays-03.webp": {
+      "bytes": 360520,
+      "sha256": "028fa6f30a72c3d658730dc524700fe27afbe0404b271d60bebc647a54998a1f"
+    },
+    "游玩规则-tendays-04.webp": {
+      "bytes": 388892,
+      "sha256": "4742e015f402c1c14c4ed8ae9f48d0b2cead8bfff7b03123c9f7f93e6fb0990b"
+    },
+    "游玩规则-tendays-05.webp": {
+      "bytes": 398940,
+      "sha256": "582286cfd2b0997065a66d62900bfc305fd99072f9256474747a58e24b417e7d"
+    },
+    "游玩规则-tendays-06.webp": {
+      "bytes": 354542,
+      "sha256": "1716069691991c8c1b449501d7dce7792960337c67be09370802814895a89bf0"
+    },
+    "游玩规则-tendays-07.webp": {
+      "bytes": 384384,
+      "sha256": "7a8635094f06e744a398e9ea38ce2f0b94d52369f882475474483e785541f00f"
+    },
+    "游玩规则-tendays-08.webp": {
+      "bytes": 392542,
+      "sha256": "461e1669595c0cb51134e0e245861e0761a75ff09eaca9b2083fcccaf07095f3"
+    },
+    "游玩规则-tendays-09.webp": {
+      "bytes": 385684,
+      "sha256": "3644b90881ff576b5694599380b03252002feffb85c1afefd48ae6f1cecee691"
+    },
+    "游玩规则-tendays-10.webp": {
+      "bytes": 375196,
+      "sha256": "53aeb26173b65d741a919e199d1af5ad67c53d6b23cac498474eb8f6a07a3ee1"
+    },
+    "游玩规则-tendays-11.webp": {
+      "bytes": 357350,
+      "sha256": "8f0ec572afe827d3a9ea0d1efb580d4295e4ecccba0338946a9c5a231e615d64"
+    },
+    "游玩规则-tendays-12.webp": {
+      "bytes": 345626,
+      "sha256": "fa2103016d0150c1d6f0d96532e38952157922dbd3a520ce083fbbab389f85a4"
+    },
+    "游玩规则-tendays-13.webp": {
+      "bytes": 331792,
+      "sha256": "811c1cbeb0571170172909b4ac161115564a57a19b485437291d0103b5c20b80"
+    },
+    "游玩规则-tendays.json": {
+      "bytes": 2296,
+      "sha256": "de384acc6373cf91f61fe64b664c32cbf744783f3b1634895b065d0fbc8f9fda"
+    },
+    "游玩规则-【歌剧魅影】说书人手册-25年6月新修.pdf": {
+      "bytes": 639141,
+      "sha256": "d5fabe61ae8302c044ba44a0554cd791f55629ff8f5d4814811b13a9d9bc7c69"
+    },
+    "游玩规则-十日终焉赌命手册V1.4.0.pdf": {
+      "bytes": 627888,
+      "sha256": "11124a1b5299ab6e3eca75246b7edfbe2969730067c5b6612746cd87263d3f00"
+    },
+    "游玩规则-梨园残梦注意事项(1).docx": {
+      "bytes": 44532,
+      "sha256": "041b097a2190597c49ed4b5c6d76122248d6da210edee55cef0c52e1cb0063dd"
+    },
+    "社团时光-背景-横版-v1.png": {
+      "bytes": 2037250,
+      "sha256": "e1e012b7fedec418eb12f3c06cdd4b86971b34203fecaf6e3074a8a3e1685255"
+    },
+    "社团时光-背景-竖版-v1.png": {
+      "bytes": 2135436,
+      "sha256": "f600dd82d3c6eae49e357780fcaca971eec1b697824dc84303cf991bb2c27828"
+    },
+    "社团时光-背景-竖版-v2.png": {
+      "bytes": 2096275,
+      "sha256": "b3f93ffc365c49d806cb21e08729a2a5bc6d8c4e01b71fddadd79b7c21484c78"
+    },
+    "突然处决-大叔动作-v1.png": {
+      "bytes": 1078030,
+      "sha256": "c182f9522b52ad33886d9682fe263caaebf2e7b986ebdf0c4cb8a3033aec0447"
+    },
+    "突然处决-少女播报-01-v2.wav": {
+      "bytes": 121814,
+      "sha256": "c7ea8e0f215d9da81d906101deb17ec2f5212eb638604c185bce268f590bb26d"
+    },
+    "突然处决-少女播报-02-v2.wav": {
+      "bytes": 124288,
+      "sha256": "f216203092426d9fc55c6bb4c33b449c6c890d8c53e5c08ffd4e16ff46c8c718"
+    },
+    "突然处决-少女播报-03-v2.wav": {
+      "bytes": 131192,
+      "sha256": "90d4866c1a46fdc99b0919b6a4bd1b438fe95f825019e0eddbfccfb16628c264"
+    },
+    "突然处决-少女播报-04-v2.wav": {
+      "bytes": 130148,
+      "sha256": "471c709a47fa59f25b01694d860ee87d528b4f02cf7f7c389c6b7f6badb7ba89"
+    },
+    "突然处决-少女播报-05-v2.wav": {
+      "bytes": 120384,
+      "sha256": "e4c1198b387f337ceedb2088e14c75eef3cc3d6b9a5d54b7a9c3f0377550054f"
+    },
+    "突然处决-少女播报-06-v2.wav": {
+      "bytes": 125200,
+      "sha256": "a674e7e1ad705998a2c091a941312b6e72fda7630fb7b1c0ccee90fdf1352a11"
+    },
+    "突然处决-少女播报-07-v2.wav": {
+      "bytes": 123996,
+      "sha256": "aecd4f8aef77738035f1df7df3ad72faec65582750100dd9fa64a6a2d2eb8a05"
+    },
+    "突然处决-少女播报-08-v2.wav": {
+      "bytes": 120264,
+      "sha256": "1ef41a54189f3ea0756b4728668d694ec84d1e0c565afa23d39ad4779fb1d273"
+    },
+    "突然处决-少女播报-09-v2.wav": {
+      "bytes": 125430,
+      "sha256": "5c55aa7c022714cae23e92345af0a125066bd421aece4acd2ab3abe103b50542"
+    },
+    "突然处决-少女播报-10-v2.wav": {
+      "bytes": 133382,
+      "sha256": "5aad98c4c82d60bdca5d7a8f8570c18189a1832dac59f8fe603670ffb71be0a9"
+    },
+    "突然处决-少女播报-11-v2.wav": {
+      "bytes": 141044,
+      "sha256": "c1f8ba5558962645765a85fadbce6978832e9f8b2ef6b2a44a61538a8f446827"
+    },
+    "突然处决-少女播报-12-v2.wav": {
+      "bytes": 140192,
+      "sha256": "1b1b53da5e34dc60ebc23e2e16cbb9241ea86277d581fc6e7ea362c3b44d1611"
+    },
+    "突然处决-少女播报-13-v2.wav": {
+      "bytes": 139128,
+      "sha256": "dca905580262afdc66c217af31c38d5be7436581671de8d390bc8df350e7817c"
+    },
+    "突然处决-少女播报-14-v2.wav": {
+      "bytes": 138214,
+      "sha256": "68828d0e881e66b882a4d0b781224bcca8f479b662093070ba6ed1128b5c6088"
+    },
+    "突然处决-少女播报-15-v2.wav": {
+      "bytes": 138636,
+      "sha256": "46bee26e62367398999947f8493bde58f1745c16f42e206af885a90dcdc2cf1e"
+    },
+    "突然处决-少女播报-16-v2.wav": {
+      "bytes": 137124,
+      "sha256": "84b06bd028cb7cba42213d865882c99436015d8148377b1cf2775bb052c22b9d"
+    },
+    "突然处决-少女播报-17-v2.wav": {
+      "bytes": 139100,
+      "sha256": "fcb76a4b74779de781e8a791531fd8f2c87adb09fffdcb3a4688e5a44bb0e246"
+    },
+    "突然处决-少女播报-18-v2.wav": {
+      "bytes": 136066,
+      "sha256": "848b2bcde1c9238b8350ae82dc95e01e04986879df3f96431e0f163cdb752c25"
+    },
+    "突然处决-少女播报-19-v2.wav": {
+      "bytes": 140490,
+      "sha256": "0e18fc71519740b2f527831a88254c3d1de2bc73d1777254db00160b98fa2016"
+    },
+    "突然处决-少女播报-20-v2.wav": {
+      "bytes": 134036,
+      "sha256": "a22d590ac311c07e8537387ddf6b3c49aa766f1af7c72866bec2a71c7d68542f"
+    },
+    "突然处决-尖崖舞台-v1.png": {
+      "bytes": 1610485,
+      "sha256": "b2c41e3383e12933600c49972e2c5f299a8152a04b37dfa9f023f6b8c5af4962"
+    },
+    "突然处决-直接推落弦乐-v6.wav": {
+      "bytes": 616364,
+      "sha256": "2c1d8981fb44c64e16e4a52ca0b4dae22f363dabf1a3a2d384217f7b540561c0"
+    },
+    "突然死亡-同款弦乐-v5.wav": {
+      "bytes": 665644,
+      "sha256": "4347b1dcdda1672d8ba1aecb1a45497b5e627850e35ca568aa99adea8e9ac90d"
+    },
+    "突然死亡-少女播报-01-v2.wav": {
+      "bytes": 94108,
+      "sha256": "488a6b5eb6484513602be5f4a1a107a258bd4d3cb454d1d00f1dc33901248bdd"
+    },
+    "突然死亡-少女播报-02-v2.wav": {
+      "bytes": 96642,
+      "sha256": "8434b9ced27b0e12223a037569a57b1cd1d42826ecfae8e16c2974f8574fc51b"
+    },
+    "突然死亡-少女播报-03-v2.wav": {
+      "bytes": 104076,
+      "sha256": "04308ec8b1526468c0c6561edc5d4c4946290b481155e95cfa449074f6b388ac"
+    },
+    "突然死亡-少女播报-04-v2.wav": {
+      "bytes": 99896,
+      "sha256": "43440216a13a3669d4992fbf352a82b144e39dcd6d05e1c010e1aa0773afb9fe"
+    },
+    "突然死亡-少女播报-05-v2.wav": {
+      "bytes": 94252,
+      "sha256": "88130acb0350ced86ed985c318739c44a7fae6120f5818412b6d5cfe956ef2ef"
+    },
+    "突然死亡-少女播报-06-v2.wav": {
+      "bytes": 98286,
+      "sha256": "6f54c347a47681883eff69d0649d9a6e341657b32196661f4d057ed39d01e366"
+    },
+    "突然死亡-少女播报-07-v2.wav": {
+      "bytes": 91540,
+      "sha256": "db07c0443092cc6a7ade72ba6c902b79399713014931ca1145663e9a4815828f"
+    },
+    "突然死亡-少女播报-08-v2.wav": {
+      "bytes": 93868,
+      "sha256": "fe911c6bd6f5baf68130962b536b9c333bacbfa085e61adb53d618399325c1fa"
+    },
+    "突然死亡-少女播报-09-v2.wav": {
+      "bytes": 97806,
+      "sha256": "0a8415cd7df59fef623f40a9b013bd1bcc0ad0821adff71f432eeba3c4d77ae3"
+    },
+    "突然死亡-少女播报-10-v2.wav": {
+      "bytes": 105480,
+      "sha256": "46bb4ec2c2127826905d6f99c0eb52480e138fbdf9e0d8832ff945e06534329f"
+    },
+    "突然死亡-少女播报-11-v2.wav": {
+      "bytes": 113118,
+      "sha256": "ce0e575da3d86fa446d2902d0fb3c6377cd2449fc2bcfbff81cf28c157cf8574"
+    },
+    "突然死亡-少女播报-12-v2.wav": {
+      "bytes": 112674,
+      "sha256": "942bf119442f00ef48e79475dcbcfbaecbb87570ff9f09e5022e90c1d233afe6"
+    },
+    "突然死亡-少女播报-13-v2.wav": {
+      "bytes": 111508,
+      "sha256": "688961064e257e3466e4a64ca78e46a693827b9251e1c2ecbee884021d8de8f8"
+    },
+    "突然死亡-少女播报-14-v2.wav": {
+      "bytes": 110584,
+      "sha256": "e6aa6393fe1594d31692384a0d19207f3bae82fa2c9f802c1017b91aa006836d"
+    },
+    "突然死亡-少女播报-15-v2.wav": {
+      "bytes": 110344,
+      "sha256": "3d9ce1b8228bb891ea2849c7ae5b32efbab6c4f3dc0fc93c64742377c575e970"
+    },
+    "突然死亡-少女播报-16-v2.wav": {
+      "bytes": 108940,
+      "sha256": "5d0fe7b36543a115f947e8efd687522cc1c5c0cb89c0b85a97058126e7a8958b"
+    },
+    "突然死亡-少女播报-17-v2.wav": {
+      "bytes": 111028,
+      "sha256": "e853075bbee63cd9903fd88f49ba7458dc30c18ac0ebfede1598f6c6c8bc4a19"
+    },
+    "突然死亡-少女播报-18-v2.wav": {
+      "bytes": 109180,
+      "sha256": "a783bb238fe9eff091b751c1167170cb4d71f54e744a858ebd359e7254aa31c0"
+    },
+    "突然死亡-少女播报-19-v2.wav": {
+      "bytes": 112434,
+      "sha256": "f887ef2f84afab3816b23bbe48342122c6c363616a8d2d1b3c5b770a965887d5"
+    },
+    "突然死亡-少女播报-20-v2.wav": {
+      "bytes": 107090,
+      "sha256": "7f36140700f543675b06f28c6e136238c244a5c46340aeb74541b43f92a7b77b"
+    },
+    "突然死亡-手枪净音快版-v4.wav": {
+      "bytes": 665644,
+      "sha256": "c1ac23b26734745db2625fe6a21219f6d5949f7f7be7aadc82473c962a91125d"
+    },
+    "突然死亡-男生动作-v1.png": {
+      "bytes": 1656292,
+      "sha256": "4bc8071eeec7916535753f975df6fcdb0c9bfb3bd98ada268866f5befd085c72"
+    },
+    "突然死亡-荒庭舞台-v1.png": {
+      "bytes": 3034663,
+      "sha256": "41559f7df4939eed9196be388ebbe66b36a8c80e0d442b74afa9f34314baba78"
+    },
+    "羽翼回廊-背景-v2.png": {
+      "bytes": 2024010,
+      "sha256": "4d1408786e52503bf683583f296e0f30778f7c1f66cf5e7d24482d081f9c951a"
+    },
+    "胜利演出-善良-庆典-v2.wav": {
+      "bytes": 870444,
+      "sha256": "f48ad0595ea8d6788e5c7a776166fb7450a002e3662c3209d59f6388cf0a237d"
     },
     "胜利演出-善良.wav": {
       "bytes": 230444,
       "sha256": "eb4b511c19d99660da38e1ef7f3e8ce5d409ab511fb0c7317453f597dea8fd80"
     },
+    "胜利演出-邪恶-加冕-v2.wav": {
+      "bytes": 870444,
+      "sha256": "5b7553207c06a15b7bdefbbdd742775435eaf66754636f4240a9cfee880822af"
+    },
     "胜利演出-邪恶.wav": {
       "bytes": 230444,
       "sha256": "e96d9337f5295198214b75606c896502fc004a546ab7c86bf70c5c5b91b08bae"
+    },
+    "胜利电影-仪式道具-v3.png": {
+      "bytes": 1781565,
+      "sha256": "7933613c634affb159dffe6971b023dd63aca92b845dd002547c215de6326307"
+    },
+    "胜利电影-加冕动作-v3.png": {
+      "bytes": 2274193,
+      "sha256": "6d26d772255d10e03c0ca3b7b4bbc4b94ae614cf4da1e42db58b942eb39ed213"
+    },
+    "胜利电影-镇民动作-v3.png": {
+      "bytes": 1509287,
+      "sha256": "3cfd99b5538fb73c61913b35c75e332e68a2ace982adda9f7e832dd05ecd3403"
+    },
+    "胜利电影-雕花舞台-v3.png": {
+      "bytes": 1922168,
+      "sha256": "f689447de8f61e81c6f8bc948b571f1fde6cfd71bb6c33da45fd1d2312c0feee"
+    },
+    "花影静室-背景-横版-v1.png": {
+      "bytes": 2084927,
+      "sha256": "a7d9bc2e2aa8b69efa05541bf427c6ac070da91923c5ed3ea1e291309304015b"
+    },
+    "花影静室-背景-竖版-v1.png": {
+      "bytes": 2051795,
+      "sha256": "c2dcaea8babbc5eed059d09458604d12b0d7f6614b3eb147b1c4c74ce826115c"
+    },
+    "血染原版角色-20003110.webp": {
+      "bytes": 55794,
+      "sha256": "44cb5c9a6dc3efb6c1a3913d2947a43af5c54b29497e01eb66c4af51fb2c633e"
+    },
+    "血染原版角色-20003114.webp": {
+      "bytes": 54362,
+      "sha256": "3b0e8e1e8dffd4aa9f274fb57870d8f0958682f95a2cb61c9b3c33d5d0804b0c"
+    },
+    "血染原版角色-20003115.webp": {
+      "bytes": 49488,
+      "sha256": "8300c253bdf33452b766eb6af3009857f24eb447b9eb2e4a2a569a20fda4da61"
+    },
+    "血染原版角色-20003117.webp": {
+      "bytes": 42392,
+      "sha256": "63dee1ab3dc862305c228c94ea1bec3c8e9c2d795bf333bcbb6b25c40280a652"
+    },
+    "血染原版角色-20003122.webp": {
+      "bytes": 73562,
+      "sha256": "a9c829069deee287884809ce8696f202c05bdecd2d0740836622471a52eacb86"
+    },
+    "血染原版角色-20003124.webp": {
+      "bytes": 54684,
+      "sha256": "78d5beacee52bf6df8fc2f60e46b724a3075ab5646efb1a01d158aa8e3ce4ae6"
+    },
+    "血染原版角色-20003128.webp": {
+      "bytes": 61526,
+      "sha256": "fe15bfcf0a4081def1102ccdfa7e2764d99031926e4b690a80a64c6937813dd3"
+    },
+    "血染原版角色-20003136.webp": {
+      "bytes": 45686,
+      "sha256": "c3b011e4144eefc83e6a5d505269da299ac8c0dfe10dff5ae79b9679b375f868"
+    },
+    "血染原版角色-20003137.webp": {
+      "bytes": 31132,
+      "sha256": "67d1ae616420241f34d42ada78629fe86bd519f00526467237172c1c127d9bd0"
+    },
+    "血染原版角色-20003138.webp": {
+      "bytes": 39998,
+      "sha256": "81d654e1ded3f04b9c79ebb8d43077764f06b3a980a38635dcf6567522f2d16a"
+    },
+    "血染原版角色-amnesiac.webp": {
+      "bytes": 41624,
+      "sha256": "82446e7161950de6c146b98745443a1f15f2642dfc7216f56e2654ffec59aee3"
+    },
+    "血染原版角色-apprentice.webp": {
+      "bytes": 39630,
+      "sha256": "872c409220b0b4ffad0e67131eed3770a721ad1a50169a0aecd9335cf85f34bb"
+    },
+    "血染原版角色-artist.webp": {
+      "bytes": 44012,
+      "sha256": "6393ffc2f6119b8b5be6a40fa00e0d8b5e1e1b1e514f7a2315d19a8c1eb5ada7"
+    },
+    "血染原版角色-assassin.webp": {
+      "bytes": 28410,
+      "sha256": "75c0cd05e7568fde6ede8be7ddcbea4352f366d15e5e9a660a0831f26ede6e16"
+    },
+    "血染原版角色-balloonist.webp": {
+      "bytes": 34588,
+      "sha256": "49a143f1c59a23e6bb8ccb2ad1afc0a716ef029d5d4a75e0454d9d30d379516f"
+    },
+    "血染原版角色-banxian.webp": {
+      "bytes": 53380,
+      "sha256": "5726936ccbf91eba9e1534e83cce65b17578f75383e42870415d461e59e61327"
+    },
+    "血染原版角色-baojun.webp": {
+      "bytes": 41974,
+      "sha256": "efc21bdf811f07d3ae0719ee130a9f111a4e28bd1a04ac8f4fbfe067c3d4a8ac"
+    },
+    "血染原版角色-barber.webp": {
+      "bytes": 23306,
+      "sha256": "c9726a8518375e5b32cb65774ef2ce85734965f110ab337dcc59375ff91fb633"
+    },
+    "血染原版角色-barista.webp": {
+      "bytes": 40726,
+      "sha256": "77e14601a51d24105c294a7cc1548b9e96717d2f7b14ba385d0b3a52b341879d"
+    },
+    "血染原版角色-bianlianshi.webp": {
+      "bytes": 52362,
+      "sha256": "ac7120ac58f7a12834d4116f6412231701d45e14d3b82c03149f8f2d211e7feb"
+    },
+    "血染原版角色-bingbi.webp": {
+      "bytes": 27756,
+      "sha256": "9c374703e07fd70e8934625a1464d8be7a8cbf9ca62c60d124c6f1339efcfe25"
+    },
+    "血染原版角色-bishop.webp": {
+      "bytes": 25892,
+      "sha256": "a990cd8240e2e7694b44c9d81000fd7c89550b155a9973e410d62d9f1ebebcf3"
+    },
+    "血染原版角色-bonecollector.webp": {
+      "bytes": 50700,
+      "sha256": "483b0e98e6c9c79632bd40813e6710f8e6d927f9401c211be9f6224f471dc628"
+    },
+    "血染原版角色-butcher.webp": {
+      "bytes": 36334,
+      "sha256": "6748032241a65d574b2c89e98880b3f4b8c7edb326b74127812d63cf2bea4859"
+    },
+    "血染原版角色-cannibal.webp": {
+      "bytes": 43632,
+      "sha256": "a23793f73dc4e708b4c2b7b0cf2b27d2d4c667d8281ca876b6b57c5b405c51cf"
+    },
+    "血染原版角色-cerenovus.webp": {
+      "bytes": 40156,
+      "sha256": "86d2ec49afe83db5526b626dcacb6399f5a0f873a9cde7b6335f7421d7faaa14"
+    },
+    "血染原版角色-chambermaid.webp": {
+      "bytes": 36830,
+      "sha256": "a8c36cd1b1c9953598d0a72aee2eb2337f14d31caad8be44f761018c55923936"
+    },
+    "血染原版角色-chongfei.webp": {
+      "bytes": 55220,
+      "sha256": "a77c779c33727a8ca4749976ff1ba008bb2159aea32b4162f94a720ba533d1b3"
+    },
+    "血染原版角色-clockmaker.webp": {
+      "bytes": 42340,
+      "sha256": "fb16c44e436207f519d8f7b4d8b80218d47c57cd831130322242d75ab466d829"
+    },
+    "血染原版角色-courtier.webp": {
+      "bytes": 30898,
+      "sha256": "82e29caacec06ef994ae2c092a603ec90e206a70b9eb1ac1dac7224dbac92568"
+    },
+    "血染原版角色-dagengren.webp": {
+      "bytes": 38020,
+      "sha256": "c2f1309ad83165ee6a5e96209a96905eb22497f969de3e8f257562396a74956c"
+    },
+    "血染原版角色-damselbutton.webp": {
+      "bytes": 44046,
+      "sha256": "e4e0cc04f4a01de7b045a1e9030adfc455e1fae0b233a40e446c5367d79fc200"
+    },
+    "血染原版角色-daoshi.webp": {
+      "bytes": 40220,
+      "sha256": "b4b9fbff8420db3f2d71d85607cd9695c63e1743bde49cb60b22dc329634d723"
+    },
+    "血染原版角色-deviant.webp": {
+      "bytes": 42406,
+      "sha256": "de8bd4be7ab0123eaa82161e0ecd71a2de26a9e4a52203096369f3621807061f"
+    },
+    "血染原版角色-devilsadvocate.webp": {
+      "bytes": 42998,
+      "sha256": "e9656de16d1de41368397e5806365950e799e2fe443cfcbee7cdebe5c2f421ed"
+    },
+    "血染原版角色-dianxiaoer.webp": {
+      "bytes": 42304,
+      "sha256": "9e08621e6921339d6706b198696af07557411e2d96cb1d3ba6d11eafad10e782"
+    },
+    "血染原版角色-dianyuzhang.webp": {
+      "bytes": 56160,
+      "sha256": "10288887b7d87af5529abce35ab1f78db4ad5778fbd3a2833148f3218f13f58f"
+    },
+    "血染原版角色-dreamer.webp": {
+      "bytes": 57916,
+      "sha256": "0e6abd7d8b6ff53439e1bb863d05b8af1c23b71235c9b461946f104a8c09fc8d"
+    },
+    "血染原版角色-eviltwin.webp": {
+      "bytes": 59424,
+      "sha256": "8d8c4c72f8ab21dc642cdaf44b62618e2a8f4a3a3068cb241fc1373ebe194ac3"
+    },
+    "血染原版角色-exorcist.webp": {
+      "bytes": 47728,
+      "sha256": "386b13f0c36ac668fc5dd5be93b3e0a7816128c816db0f2f6c2f4b073f6753f0"
+    },
+    "血染原版角色-fanggu.webp": {
+      "bytes": 38924,
+      "sha256": "859aa51386395ed29f2486a5ed53fd54ac37ebbb239b5a3082c94feca6150c8e"
+    },
+    "血染原版角色-fangshi.webp": {
+      "bytes": 51680,
+      "sha256": "f79721dcc33f537100b5d633fa58698c43fcf2adbb25d34bf6bd1299ef37bb7f"
+    },
+    "血染原版角色-fisherman.webp": {
+      "bytes": 33426,
+      "sha256": "e319676aec824f20c8d6c82d34cb4b618b292cee194513a506068f6c2e305903"
+    },
+    "血染原版角色-flowergirl.webp": {
+      "bytes": 33970,
+      "sha256": "ec845bac5432d7e20dfbbcb6c0fa9643f5c777a8a18c00b7d4d5967e3034db12"
+    },
+    "血染原版角色-fool.webp": {
+      "bytes": 51242,
+      "sha256": "35f02d93d49262867885be65e97113f46553cc20078b92f8f85f9b6e55229d32"
+    },
+    "血染原版角色-gambler.webp": {
+      "bytes": 41358,
+      "sha256": "36457a906601ef5177dfc47b404f73c0ab79139a6131bfcd9ef7842c0d42a153"
+    },
+    "血染原版角色-ganshiren.webp": {
+      "bytes": 44410,
+      "sha256": "4324a9309682145c1c1120453abee654e91cf0c4bca1b4ecd115e4cfe7124e01"
+    },
+    "血染原版角色-geling.webp": {
+      "bytes": 44112,
+      "sha256": "da8f9978a031232de95b0017973e169eee095503ba01f3f3a29c0da4c9912c8c"
+    },
+    "血染原版角色-goblin.webp": {
+      "bytes": 27470,
+      "sha256": "088466c6309ff0c1672fb1fec944fddd165d238b9db9aef9c1ba256eba23c181"
+    },
+    "血染原版角色-godfather.webp": {
+      "bytes": 33784,
+      "sha256": "dab63f4cbbec607095868fcfc8097b3ed7616408154608ad82e65e9825203d8f"
+    },
+    "血染原版角色-goon.webp": {
+      "bytes": 41904,
+      "sha256": "c21e21f6db829d57ece70f811ddf4c9215d1f9bc92cfeb7d936ca16cbdbf3f47"
+    },
+    "血染原版角色-gossip.webp": {
+      "bytes": 32372,
+      "sha256": "84d4c0ecf7e41ce51c7c74326ebd0513fd116f6c5baa3fb9edf9eaa28c9e4985"
+    },
+    "血染原版角色-grandmother.webp": {
+      "bytes": 39692,
+      "sha256": "85b26740db0e51d6f098ff67b51c233c9324cf93af69e0c0065b4c9d934ed956"
+    },
+    "血染原版角色-gudiao.webp": {
+      "bytes": 52126,
+      "sha256": "81754de5a8acc5c033c53464d90b4a483656e19bf32d4bdbd89f4f3d4d2ccb61"
+    },
+    "血染原版角色-guhuoniao.webp": {
+      "bytes": 40066,
+      "sha256": "e6b5d3e83b019de5bee34779ab70fcb029fba72535aa18e2e0560dbb5ce33105"
+    },
+    "血染原版角色-guixian_0224d7423dcd78.webp": {
+      "bytes": 117332,
+      "sha256": "18830ac7b67a1c471cb85c12e7842c1a5fb68aa7d4e2bf7c5d6bad1512b86f21"
+    },
+    "血染原版角色-guixian_1008d81961e2a1.webp": {
+      "bytes": 219642,
+      "sha256": "bf3023cecb0f6c408e934f1e9953d87db86779270ca8b4be3af13f6aae8a7795"
+    },
+    "血染原版角色-guixian_148172e0e316aa.webp": {
+      "bytes": 120334,
+      "sha256": "6a3753a210295741fa2aaa746f9f56cd7c7749fc45b15758251cec1910434b85"
+    },
+    "血染原版角色-guixian_166f2987b7560d.webp": {
+      "bytes": 48150,
+      "sha256": "19d042eeb3197a0ffa4ca2e317d56e8a46773fd885df9df0561a7092605499e3"
+    },
+    "血染原版角色-guixian_22630e9af5668c.webp": {
+      "bytes": 184646,
+      "sha256": "4ead4ff969f5c31a76f48f95d56345d9f1e90ded046b225dacb9717fb9d9d6d7"
+    },
+    "血染原版角色-guixian_2acf51743ed46b.webp": {
+      "bytes": 193954,
+      "sha256": "3c25aa4bd422caa5fb894f10f00da2f1b598948b01b591620fbabd706f284ee2"
+    },
+    "血染原版角色-guixian_2c89790aba242a.webp": {
+      "bytes": 124786,
+      "sha256": "730e5e4d4263fff8dad0fb1c31fd5cd0112faf6aec6df964181dfb8ffc9d874d"
+    },
+    "血染原版角色-guixian_2ddae3c065fa73.webp": {
+      "bytes": 247184,
+      "sha256": "e296fbc9d8f0d62c114a3d79c71925c8bf126971b1e73c1998027abb8ce4154a"
+    },
+    "血染原版角色-guixian_39aca65db1221f.webp": {
+      "bytes": 119418,
+      "sha256": "244c16c438ee9eae9daf8b88a92a388d68b0f84cc20adbed9f224169d3087397"
+    },
+    "血染原版角色-guixian_3e32a2651d3b90.webp": {
+      "bytes": 211926,
+      "sha256": "59938b5d6c657d93a436f38176d8cafef092c2312e4500ad9d726b0e7c678fd7"
+    },
+    "血染原版角色-guixian_507840d71eb640.webp": {
+      "bytes": 66626,
+      "sha256": "719ad0ee743dbc460ce311061884b49cd6dcb0a526732b42c84b9095331834b7"
+    },
+    "血染原版角色-guixian_5c780ec19dcc81.webp": {
+      "bytes": 113266,
+      "sha256": "85351cb3e4a8eacb487db2b2cb727b8c72a529ea2d901fc4550b5ed9398e0c64"
+    },
+    "血染原版角色-guixian_7d81babc5c11f4.webp": {
+      "bytes": 134398,
+      "sha256": "a0c7e2b25641fc89c7ad2eac62ba2e47134460ec4e028bdfcd11a6c078322565"
+    },
+    "血染原版角色-guixian_88f8fb041fb053.webp": {
+      "bytes": 177226,
+      "sha256": "cfb55ad66f93dc1fdbd27c90bbe603117ed5392eb61ec9ea6d91c6e1cd2c5bc7"
+    },
+    "血染原版角色-guixian_8c3ebe0879d210.webp": {
+      "bytes": 95378,
+      "sha256": "257a60a414418ae1bf3cc0ba27d64b0c7403ab1cc46c13fbefc4a96736bf9490"
+    },
+    "血染原版角色-guixian_9e70ce033f49d3.webp": {
+      "bytes": 212084,
+      "sha256": "69c844263da28f4e7633d4e3c43abee26a2efeb46b956984a0dda747f6b000e6"
+    },
+    "血染原版角色-guixian_a4430037f0fa1c.webp": {
+      "bytes": 178412,
+      "sha256": "2fd1dee34647e01a9dd0d4ca5ec0107eaca6c5905b7d8878e0de8cae4ec127a8"
+    },
+    "血染原版角色-guixian_ab21238ab30ec5.webp": {
+      "bytes": 229666,
+      "sha256": "9f0c65916e68172f8f4867cc2d9d5a3e1ff9c4e19787989c8ce25017c1381ca5"
+    },
+    "血染原版角色-guixian_b91f2e2f150d65.webp": {
+      "bytes": 169128,
+      "sha256": "ae06917dfe496bf320c68f5c354d0ded664a1e72278c965bbd0571863c293244"
+    },
+    "血染原版角色-guixian_e504b6eef45099.webp": {
+      "bytes": 189256,
+      "sha256": "4dc77a6b0a6955b8d8449fd8329a7f6c524b300366ef6dc01f2bdb219698bd4c"
+    },
+    "血染原版角色-guixian_e98845f27dd328.webp": {
+      "bytes": 175740,
+      "sha256": "5b7e035cb9c991ca268545b98e7abc852550221b0bf27139015d7019171002f8"
+    },
+    "血染原版角色-guixian_f2578f291a5df1.webp": {
+      "bytes": 128938,
+      "sha256": "4ddf63f653d541e83f1fcc6d29adb02041474e40e2bf6c48859f471b94edaf59"
+    },
+    "血染原版角色-guixian_f55ecf65a51455.webp": {
+      "bytes": 163080,
+      "sha256": "a3ed42549e56abe25eea312488358befc021eb34b506a3a09d6ce90321839959"
+    },
+    "血染原版角色-guixian_f5e2c183c87519.webp": {
+      "bytes": 202174,
+      "sha256": "c32f40540d72743f2d27d451a7161a9483a2c8e0119d9c7b426730f06603ba62"
+    },
+    "血染原版角色-guixian_f67c780143e115.webp": {
+      "bytes": 190078,
+      "sha256": "854b1e7b044ae21441ee65294dddf35c56cceffca7f33fbf97d60f0da379a492"
+    },
+    "血染原版角色-guixian_f7a60275376373.webp": {
+      "bytes": 153986,
+      "sha256": "033617ca1656b0b0f555cdb772fd1062647defd57e6f040e7d0ba94c82f03525"
+    },
+    "血染原版角色-harlot.webp": {
+      "bytes": 40060,
+      "sha256": "96192dc6dd5338318da19852b988bb267038fa152ec33e2023f36128438afafd"
+    },
+    "血染原版角色-heshang.webp": {
+      "bytes": 43884,
+      "sha256": "7aaba38f3ad9fa494430d6f573a0cbe04b9e33c253b5ea8ed9cdcae0e75fa54b"
+    },
+    "血染原版角色-huapi.webp": {
+      "bytes": 48630,
+      "sha256": "443e0b7397a88e85cee009f2f399e61a6d8791688c5f81ef565101bbe1a38250"
+    },
+    "血染原版角色-humeiniang.webp": {
+      "bytes": 46434,
+      "sha256": "7c76f425257b4621443f521991ed233bbbdcec25437c9e59c1af83c5e3db70d8"
+    },
+    "血染原版角色-hundun.webp": {
+      "bytes": 78748,
+      "sha256": "2dcb6216695a413953e100725c495b1fbec62012681f92b05806a63c612f6baf"
+    },
+    "血染原版角色-innkeeper.webp": {
+      "bytes": 35874,
+      "sha256": "c2e97bac00b7665ca4c97af5e6c86d8ffc46152eb58352d52a2de893a949df49"
+    },
+    "血染原版角色-jianning.webp": {
+      "bytes": 57298,
+      "sha256": "63b23276f828f047d1ea90208a7102a70a7562a20ecbfa501214e085235f2198"
+    },
+    "血染原版角色-jiaohuazi.webp": {
+      "bytes": 57094,
+      "sha256": "1067e17e1ef4ad8f0c7aef411b894b7bba496255e1a27b9a9cdc901c0315eab3"
+    },
+    "血染原版角色-jinweijun.webp": {
+      "bytes": 50450,
+      "sha256": "7dc2e1df6e479f560b20b2012171e73d0983cde8ad2cacd9babdc54f6861fc1c"
+    },
+    "血染原版角色-jinweijun2.webp": {
+      "bytes": 46558,
+      "sha256": "e34f74d3ead9422fb23db4a4b8599dc6be28016e087f7904f3c81ea1b20aff93"
+    },
+    "血染原版角色-jinyiwei.webp": {
+      "bytes": 52848,
+      "sha256": "e76bbeca6d217e5021b6de0bb1282e10a461f52e28a3937b1d428aa446c9039c"
+    },
+    "血染原版角色-jiubao.webp": {
+      "bytes": 57202,
+      "sha256": "33b0e0f1ad0b858966164ef24181bf9bcc02abba3ec8656b56c099783fe46105"
+    },
+    "血染原版角色-judge.webp": {
+      "bytes": 37698,
+      "sha256": "c5891cdbd038d59ff877e2287206042e00bc4407488166c5d896f228c67edff7"
+    },
+    "血染原版角色-juggler.webp": {
+      "bytes": 42632,
+      "sha256": "0005bece9a2cfa8762da705f01d4a11d0c5c454bf3003683b1bdefe5af0bf476"
+    },
+    "血染原版角色-klutz.webp": {
+      "bytes": 36012,
+      "sha256": "9e786c71b877f4e9a1f1988071ab1cded30540dce9c93ee997990dbda4e48e0b"
+    },
+    "血染原版角色-langzhong.webp": {
+      "bytes": 48538,
+      "sha256": "5c8977b47f78ab043acb7b621564f4f612e03f2e5194f8a294b9ba6632ca0c62"
+    },
+    "血染原版角色-leviathan.webp": {
+      "bytes": 50732,
+      "sha256": "8fa710ba44e8965b37479d93626021849fc44082f5acee3dcdab2e975c9b5897"
+    },
+    "血染原版角色-limao.webp": {
+      "bytes": 41508,
+      "sha256": "80f824f0bbd2cc63eb13a1a268cc1b4d774d16443537fe58feef018b6f32e9a7"
+    },
+    "血染原版角色-liyuan_114381daf8bb9d.webp": {
+      "bytes": 266478,
+      "sha256": "a52a2e345e9ec7cc7656af5fda3162353698097e986831098363f3c5c23b5204"
+    },
+    "血染原版角色-liyuan_36918dab767f99.webp": {
+      "bytes": 330708,
+      "sha256": "9ae063df3eb2fa1f6d89f2e8ae578a9f65d721a82b576f7d220a3040394cafdf"
+    },
+    "血染原版角色-liyuan_3d3f5c4c911715.webp": {
+      "bytes": 185622,
+      "sha256": "9c315ea16871c0873262f670703d3d9526d133d2632216c81b613779b5cff787"
+    },
+    "血染原版角色-liyuan_3db716f64b20c5.webp": {
+      "bytes": 292950,
+      "sha256": "4698d3f5bfcec7b02439c3909a312a64a767aa53de4c1b06d144b8c252cdf016"
+    },
+    "血染原版角色-liyuan_409087197c8e87.webp": {
+      "bytes": 266864,
+      "sha256": "f0b7d27beb320aceaaeab80894e8b19d77ade831c6d435b44c16337f5281f44b"
+    },
+    "血染原版角色-liyuan_4e61a9e4400a50.webp": {
+      "bytes": 236094,
+      "sha256": "5f8c5455757c5bf33cf97751ff767c000706d4b916fba01954a01a5dc408da32"
+    },
+    "血染原版角色-liyuan_62d47a7dd15b46.webp": {
+      "bytes": 192018,
+      "sha256": "c70af54dea8c0d878fb5a2b345b85df7d743d25ee0bd724ba480cc6314e632ae"
+    },
+    "血染原版角色-liyuan_6bc09675af871b.webp": {
+      "bytes": 293464,
+      "sha256": "1ae7ec46ce282aa18d68605218f7f2787a9c63fc08ef899f366c95a131f39b04"
+    },
+    "血染原版角色-liyuan_797a60e4e55c3d.webp": {
+      "bytes": 219222,
+      "sha256": "bb4f2848c23a46bcdb59dd7b0898086c90c6efa6e5adae802ee45153099450bc"
+    },
+    "血染原版角色-liyuan_7b47260dd204a2.webp": {
+      "bytes": 220406,
+      "sha256": "41f3072bf9714e111616cc3867bb5722fd97352c09e9ace03347b8ed3b671905"
+    },
+    "血染原版角色-liyuan_7eae00591e0b5a.webp": {
+      "bytes": 334152,
+      "sha256": "da09c6642bcdac4f5e4b07acf444d9fa0d3a8957fe4a338471dc1e9e71cc4d8a"
+    },
+    "血染原版角色-liyuan_9e47e1b135bc23.webp": {
+      "bytes": 245924,
+      "sha256": "291d1e48592a0bae8ac935245fb51dc387222db743304ee75eec7a5b5e2aaaba"
+    },
+    "血染原版角色-liyuan_a4632c62702db8.webp": {
+      "bytes": 305470,
+      "sha256": "489d5e0b3a81a451aa4a0d63e0c0f1a19a78960cd125b4d527e5a678353ed887"
+    },
+    "血染原版角色-liyuan_bd99c126ec237d.webp": {
+      "bytes": 191796,
+      "sha256": "0ba3bdf6e64535a329f2a90999151dced430843527bb26d5768857ea493930ba"
+    },
+    "血染原版角色-liyuan_cf5ac533a96516.webp": {
+      "bytes": 199540,
+      "sha256": "c3163d4475ec31ed090491f7614bb71a3990d9d4191a25413ba6499951330bee"
+    },
+    "血染原版角色-liyuan_d41edd89baa58e.webp": {
+      "bytes": 271492,
+      "sha256": "2b3c0a80e046eddfae8ac56caa849592d8a846cf33b73f10d697fdc43e36cbeb"
+    },
+    "血染原版角色-liyuan_d7b9bd9e174904.webp": {
+      "bytes": 227776,
+      "sha256": "8e1806ca1daed2689e5bf55ef07f22e531d75ba886c99502b8f3d42020ae92e9"
+    },
+    "血染原版角色-liyuan_e0c30776030c9f.webp": {
+      "bytes": 196280,
+      "sha256": "859dd8586432b87a254cea262241899c31308413a1b6c3593927a184c8baa697"
+    },
+    "血染原版角色-liyuan_e89dce4e91c43c.webp": {
+      "bytes": 231534,
+      "sha256": "bbe01a53f82724c020a0d2c6e15803412324e5b71cc469eed1265fc70a91969f"
+    },
+    "血染原版角色-liyuan_ecb41a391a8204.webp": {
+      "bytes": 194168,
+      "sha256": "1338da0071908cec14e3faad191c1e26791c2cc24708265eb14850bb1bdb46d9"
+    },
+    "血染原版角色-liyuan_f0153961a1e68e.webp": {
+      "bytes": 159074,
+      "sha256": "e3268f2e1f99d94506d50d59478bb5c17543d691667097b5f1cebc8c69f2e2e7"
+    },
+    "血染原版角色-liyuan_f896212b408b69.webp": {
+      "bytes": 312154,
+      "sha256": "fd7049a51896c7fd8e59c7e76638955901619f01489ea2988ef48a5da46d6c9f"
+    },
+    "血染原版角色-liyuan_fcca3b781847b5.webp": {
+      "bytes": 369930,
+      "sha256": "8cf36b043dd479e9daa1a0a88aa73704fc5d680cc50456c9331830df852a35c0"
+    },
+    "血染原版角色-liyuan_fdad876268eb52.webp": {
+      "bytes": 283684,
+      "sha256": "a36af6ed13b90f5bdeb043acea48eb19ff166da7c7ef55350f943d023f57824c"
+    },
+    "血染原版角色-lunatic.webp": {
+      "bytes": 49932,
+      "sha256": "a72a4de982a2bd5cbeffdc5e5fee2edc2b9fc3b4bf2c78451a8aa1c49d387977"
+    },
+    "血染原版角色-mastermind.webp": {
+      "bytes": 32110,
+      "sha256": "040b6224d99369c443404b541ee4bd3a132911ff0ecfbd472b7569669e741410"
+    },
+    "血染原版角色-mathematician.webp": {
+      "bytes": 40688,
+      "sha256": "1fd66164b8a079ea76016a9c0735c7ef8fd9edab10b36d95e5644ec7813137c5"
+    },
+    "血染原版角色-matron.webp": {
+      "bytes": 29428,
+      "sha256": "ae973bc12b50106739601c56b783102001e812fda12e7290ae6ec714061790c0"
+    },
+    "血染原版角色-mengpo.webp": {
+      "bytes": 40208,
+      "sha256": "995bb043e1e13f684b003b336476971f8c3432934ea914021fbc954c0ead050a"
+    },
+    "血染原版角色-minstrel.webp": {
+      "bytes": 46046,
+      "sha256": "450d7d8ff1c5ed8c77b8e7c1b54bcda7d3ce44ddf405f0f50b2fe30c60113f6f"
+    },
+    "血染原版角色-moonchild.webp": {
+      "bytes": 36596,
+      "sha256": "f047c9a70783d738ede451d20ae6f72b4fcd56a87046e47b549abe45ca6f8607"
+    },
+    "血染原版角色-mutant.webp": {
+      "bytes": 46236,
+      "sha256": "40a2ba43b05cfc8c115483c94d4b6aca63629483566785aa9b727db927d6380d"
+    },
+    "血染原版角色-niangjiushi.webp": {
+      "bytes": 52890,
+      "sha256": "829266f2b50c555cc9fe9d97db6bf2c34d90efc658e99403939c0f2cae80b3b6"
+    },
+    "血染原版角色-nichen.webp": {
+      "bytes": 38048,
+      "sha256": "c8d457bf7868b8b7e2a01a9a645872ecd5bd7102f8675f00671709fcdeded0d5"
+    },
+    "血染原版角色-nodashii.webp": {
+      "bytes": 43224,
+      "sha256": "59b32364c12a9b2e9288c19b42bd480e53a81c5dbce8cd4708bcba8636c35004"
+    },
+    "血染原版角色-opera_1249d93484a174-核对原图.webp": {
+      "bytes": 61044,
+      "sha256": "571c670abeb36f49ccdb65610c2f97ffa83107d08eb68d151cd5f4d614606c6b"
+    },
+    "血染原版角色-opera_27e9d44134488e-剧本原图-清晰.webp": {
+      "bytes": 239932,
+      "sha256": "092d7c5fe619c881e58b7b503f05e90e99cacf58a46efd5c99cd56b82c1c07a0"
+    },
+    "血染原版角色-opera_2b597fa4943c5b-核对原图.webp": {
+      "bytes": 83792,
+      "sha256": "72c6f090b2f5f6c9e1b780d257a58057c17cb348b2ae60fc2e22b982837b5366"
+    },
+    "血染原版角色-opera_39ab090724cf76-核对原图.webp": {
+      "bytes": 65642,
+      "sha256": "4a2dc749ee242951e5aae3bbb97bb7dfae553d85a7e6c70b25e8aff25ac82c85"
+    },
+    "血染原版角色-opera_3e737093648795-剧本原图-清晰.webp": {
+      "bytes": 256432,
+      "sha256": "c61d64c45e258ee8a098cd07773f388868ba2cb350e69d44afefcec35aed07a9"
+    },
+    "血染原版角色-opera_46531c25fac200-核对原图.webp": {
+      "bytes": 98434,
+      "sha256": "030475711c2209cbed87f77d0edce3e7274218faca90f6fef894312a53920a86"
+    },
+    "血染原版角色-opera_4e383d406c7720-剧本原图-清晰.webp": {
+      "bytes": 287668,
+      "sha256": "1c9d77eea07a5b71897a3ae520fdd945fa0f7b845bed1ee37e41fc7ea3563a03"
+    },
+    "血染原版角色-opera_5bce73f9f9e516-核对原图.webp": {
+      "bytes": 57808,
+      "sha256": "fc5f1e73b1a3585f64b85fbfa18516ca13da02768a6481b83f1ddded271221b9"
+    },
+    "血染原版角色-opera_6562d3b147464c-高清.webp": {
+      "bytes": 62752,
+      "sha256": "784750bea4819bfcdefd870905c522737baa32f65cfa15ba07cc209b3df4219f"
+    },
+    "血染原版角色-opera_6900ef53c63f2e-核对原图.webp": {
+      "bytes": 73230,
+      "sha256": "87db6786b7130fd7c5790914f727c846e1de4e81d49f283e655db4a82858b5ec"
+    },
+    "血染原版角色-opera_81c887b3966dff-核对原图.webp": {
+      "bytes": 69016,
+      "sha256": "412c01f63f818b596da889a61738eded24d464d17d23946d09f90071d9b12f32"
+    },
+    "血染原版角色-opera_925e9ab2a06046-核对原图.webp": {
+      "bytes": 90032,
+      "sha256": "abfbed97ddf3dfc2821fe9b7dca930fb897a8a6ad1d00ce7f87148d8cf0f2eda"
+    },
+    "血染原版角色-opera_928f9bff1c8421-剧本原图-清晰.webp": {
+      "bytes": 360394,
+      "sha256": "3b820fab6213548e3c31826688f5f6f18708d9e4030fe160b65e9bf4fd333cf3"
+    },
+    "血染原版角色-opera_962c65ac1083b2-剧本原图-清晰.webp": {
+      "bytes": 364652,
+      "sha256": "5803b33e0e91772768d11132109da124b75dede9bbc7ed36048dd8c88085d3e7"
+    },
+    "血染原版角色-opera_9f13c9b3fe4137-核对原图.webp": {
+      "bytes": 81666,
+      "sha256": "274bccb81fb752233cf077b976ba22ae0b714c819981928c18b1de3b0168c62f"
+    },
+    "血染原版角色-opera_a175a6537dd79e-核对原图.webp": {
+      "bytes": 74020,
+      "sha256": "e8c258096bd09a18c61b64ad3165ab0abe850062e9e3d39253e4626c05440ee8"
+    },
+    "血染原版角色-opera_a1dda27741d692-剧本原图-清晰.webp": {
+      "bytes": 437010,
+      "sha256": "d0f0e27fd5a59f48c5d40607ba6bc6623d5b2578217a2027e2a91fd99bcecb8f"
+    },
+    "血染原版角色-opera_a668d2e9fe8f1d-剧本原图-清晰.webp": {
+      "bytes": 318990,
+      "sha256": "92f2d5580a391e0eec61a2b4e82d05f6dd6b53b87147c267de992d95be30ce98"
+    },
+    "血染原版角色-opera_b1e3d70f33bc5b-核对原图.webp": {
+      "bytes": 49866,
+      "sha256": "3679920057350791bdb773af105be700a80eec6e1230dd12e79e7979c7264dde"
+    },
+    "血染原版角色-opera_b3b069c601cea5-核对原图.webp": {
+      "bytes": 58322,
+      "sha256": "3e0862a543dedd5aa9d8ea1ac325b3d730aded6fb6467320911bcc9092da275f"
+    },
+    "血染原版角色-opera_bb40517d49d219-剧本原图-清晰.webp": {
+      "bytes": 212642,
+      "sha256": "e0c59e406c1bdee3f4598b8f6bf748286a4cd132c936f6b04ebd6aff1de01a5f"
+    },
+    "血染原版角色-opera_c98f407b216f36-核对原图.webp": {
+      "bytes": 61640,
+      "sha256": "0d1b187d2e3a52b335997ad00e77ba671f91c6dc24a1fde11970a53edb3e9a76"
+    },
+    "血染原版角色-opera_ce33c06ab4ca30-高清.webp": {
+      "bytes": 55418,
+      "sha256": "9a25f67bf585791fe676177e417780d747034803d27f08e31e8bd361226959ca"
+    },
+    "血染原版角色-opera_d63a511ec8e253-高清.webp": {
+      "bytes": 57254,
+      "sha256": "8ff1d3799dda28c5c033dc99887dc21ac957f7bbb5f667e2b77e517a2db060d1"
+    },
+    "血染原版角色-opera_dc297e5bd654ee-核对原图.webp": {
+      "bytes": 66218,
+      "sha256": "858b98131b544e30414d08c42094f63e78f1f2f0ad9737fa2514b6da16da0e53"
+    },
+    "血染原版角色-opera_dcbe2bd5d84b3d-核对原图.webp": {
+      "bytes": 71648,
+      "sha256": "98523cc7a2f4b4287039bcb30e6bae578b0e6ce89004f84f5c59e3e3383f4641"
+    },
+    "血染原版角色-opera_e520ef14898dcb-核对原图.webp": {
+      "bytes": 57780,
+      "sha256": "b84f7a9754cd0299855b6da9a1dedd025f2b86fe20fcf2107d1d971eed8dc999"
+    },
+    "血染原版角色-opera_e98e95a1b2d0ad-核对原图.webp": {
+      "bytes": 45682,
+      "sha256": "eb40eaff0c3bce2838e65c175e60c8c73d66c79257807b2fac28617a936d974c"
+    },
+    "血染原版角色-opera_f6f59e1bf526af-剧本原图-清晰.webp": {
+      "bytes": 288516,
+      "sha256": "7035a7724765e91408ef0dc2cd476b25ffbd40a09bf41a1e30c856c568930034"
+    },
+    "血染原版角色-oracle.webp": {
+      "bytes": 48132,
+      "sha256": "29237075ddda4a7255525639dac2ab6d103d7247920de1203e560fc087d50300"
+    },
+    "血染原版角色-pacifist.webp": {
+      "bytes": 46994,
+      "sha256": "6440b14d35dd582bc024c4b1a4ae45199d333678f59e389575039bdddcfe5d1e"
+    },
+    "血染原版角色-philosopher.webp": {
+      "bytes": 26060,
+      "sha256": "80846156a03c17421499010145579d54a581a210d1afb02cfeb48f5a9ddea2e6"
+    },
+    "血染原版角色-pithag.webp": {
+      "bytes": 44808,
+      "sha256": "bb7930184d7085074d71fbfb096d3ecd939919fae01f1323a14af5b5636196a6"
+    },
+    "血染原版角色-po.webp": {
+      "bytes": 27358,
+      "sha256": "f6b514706db6dbce1f98cea32738428b227c1a7526cc350e4d79bbfd9a87372c"
+    },
+    "血染原版角色-professor.webp": {
+      "bytes": 54814,
+      "sha256": "c9294a6efd81a21fbe31fd9fef0110e0500f82bdd1e00ea514b95404459e5c2a"
+    },
+    "血染原版角色-pukka.webp": {
+      "bytes": 37042,
+      "sha256": "793ab7b463e86056f83854b6203f02e4ff04978ce87252f894f8c39a7aafc45f"
+    },
+    "血染原版角色-qianke.webp": {
+      "bytes": 55480,
+      "sha256": "60c8239aa0096cc0c24c05e4e862504002faef6e91fcdcfe8691d9e821038464"
+    },
+    "血染原版角色-qintianjian.webp": {
+      "bytes": 48302,
+      "sha256": "78b639cfb4ac7ddf38f20d1fd5bc21e8a2ad507721ccc27adcfbfa4a9c81d9c7"
+    },
+    "血染原版角色-qiongqi.webp": {
+      "bytes": 73764,
+      "sha256": "82333f044fbd51d58c46de34848fbb83453e29ab1eaeb25a071846d4dfd61642"
+    },
+    "血染原版角色-rulianshi.webp": {
+      "bytes": 55054,
+      "sha256": "1fb1252c14fe868be00efefc1fc645c3b201cff9e77b66a9032cb6b4a9595524"
+    },
+    "血染原版角色-sage.webp": {
+      "bytes": 31836,
+      "sha256": "d923f11fa41be4625757f897f3ed6907f29ad5341d16185d67b05e4d5beebe23"
+    },
+    "血染原版角色-sailor.webp": {
+      "bytes": 43784,
+      "sha256": "0543751da44812a605904dd317450232f339ed8bc744b145d0afedd4aa661aba"
+    },
+    "血染原版角色-savant.webp": {
+      "bytes": 49166,
+      "sha256": "b862552cf5e3c40228b110601c3976cf9e7ba39b1a4e16a7ec405ef007ff9d10"
+    },
+    "血染原版角色-seamstress.webp": {
+      "bytes": 49940,
+      "sha256": "d58c75a7d8f414f7dd3f7f67e418c217f20be914cbab1044b0826370d2773dec"
+    },
+    "血染原版角色-shabaloth.webp": {
+      "bytes": 42930,
+      "sha256": "104d2801a623d25e93d8bcddfb6e8b8d1cbe8b33a7e5e764f69c327b7e4da7e2"
+    },
+    "血染原版角色-shaxing.webp": {
+      "bytes": 48048,
+      "sha256": "7a2f3197e4b49df2f02c1710c338ae1e249f95c725a71c23383981409ee0c02d"
+    },
+    "血染原版角色-shijie.webp": {
+      "bytes": 64648,
+      "sha256": "540cc74c65e3514c40b3f831927d08ac8d8c939fd7e7eb49b9b4c1915729b2e3"
+    },
+    "血染原版角色-shusheng.webp": {
+      "bytes": 56618,
+      "sha256": "32bc79248817cd9c0147b01e0aa07dcdba99628e5c26b7536a004c025d1cd36f"
+    },
+    "血染原版角色-snakecharmer.webp": {
+      "bytes": 40196,
+      "sha256": "afce232cc37f70d453aa15f9d3610cf176b8a92de8e139123b130acd8d9f5528"
+    },
+    "血染原版角色-sweetheart.webp": {
+      "bytes": 46402,
+      "sha256": "4b1a16bbba7154e60169b18420990a7cdb36c4242d8ab432110edbef4df257b6"
+    },
+    "血染原版角色-taotie.webp": {
+      "bytes": 52998,
+      "sha256": "11b9341ee2ae04e1ece1e5c20b52a0d7d94f1e0c88d698828d15d2e0f3e69461"
+    },
+    "血染原版角色-taowu.webp": {
+      "bytes": 69508,
+      "sha256": "e7f1216a678856336d816eb747986e3ce75f8f1a3f77d9dc911fa3c4eb27d12a"
+    },
+    "血染原版角色-tealady.webp": {
+      "bytes": 52286,
+      "sha256": "151592e3e848a578ccf848fe1414f5b5fdd9f105ec9c0c48f65fda2ef443ad6e"
+    },
+    "血染原版角色-tendays_02716a95244101-透明-清晰.webp": {
+      "bytes": 462102,
+      "sha256": "ee5fa7fea70d992263c4a6a200699dd2ca05dde303b6bb840c341ec983545fad"
+    },
+    "血染原版角色-tendays_05468c757ae023-透明-清晰.webp": {
+      "bytes": 430154,
+      "sha256": "2d97df671b8c8757342e1230cdf6b8afd3f9ed565c0c231376745d356299da9f"
+    },
+    "血染原版角色-tendays_13e28c5e448c5c-透明-清晰.webp": {
+      "bytes": 244732,
+      "sha256": "6f99c8e6619b8f6b811eb1d96d9edf9ba886875bbd94bf2988d4a2db58a41dcb"
+    },
+    "血染原版角色-tendays_158ec7caebbfa1-透明-清晰.webp": {
+      "bytes": 354218,
+      "sha256": "6378d83bfac28f446fd9802c91f24d70b230d1cd81caab6d489ef83dd01bef8e"
+    },
+    "血染原版角色-tendays_23a08d866824f0-透明-清晰.webp": {
+      "bytes": 485914,
+      "sha256": "cb3e7f6ae0146551e7f0a4aaa06ec57d0d120ae8a34eea26392cd1124868990d"
+    },
+    "血染原版角色-tendays_285cc35e17bbc1-透明-清晰.webp": {
+      "bytes": 145598,
+      "sha256": "1937343b8ed3b712eab55da0b999e0329db40a290c0901fa3f5f500c4fd55656"
+    },
+    "血染原版角色-tendays_32fb87d944cf1d-透明-清晰.webp": {
+      "bytes": 276632,
+      "sha256": "c3137c690a74afd896212e2117c142aa17bba0b6c185d58a204ae946f5b2d328"
+    },
+    "血染原版角色-tendays_3bda5050a1b60b-透明-清晰.webp": {
+      "bytes": 410566,
+      "sha256": "ba6ccf75ffc8fa70fa3ea35df00d299201420bc46288b7113fa884cf71c686f7"
+    },
+    "血染原版角色-tendays_4d32ca34d5e690-透明-清晰.webp": {
+      "bytes": 428750,
+      "sha256": "f9163a00d3bfa63dd0d9bfc29d23c9f5be9f980142e191750db2e1b8f75930fb"
+    },
+    "血染原版角色-tendays_5f844bb7e36a21-透明-清晰.webp": {
+      "bytes": 508316,
+      "sha256": "3ae5e11352abe24149c278bbb408322abc77a7a9056cdf8370756d84b8d50e2a"
+    },
+    "血染原版角色-tendays_60e230a27d6a0a-透明-清晰.webp": {
+      "bytes": 370860,
+      "sha256": "4085111f1dd6ae0dedda5b4bb117e1b7f5759f5429c568c20aa808d0ad66cea1"
+    },
+    "血染原版角色-tendays_665022534ce4d4-透明-清晰.webp": {
+      "bytes": 462856,
+      "sha256": "2aaca3505a111d457cd27f25221e9e5933350be1766f53481c17c5f25796c6e4"
+    },
+    "血染原版角色-tendays_7786ef4da37343-透明-清晰.webp": {
+      "bytes": 329186,
+      "sha256": "4a4aef0927051c7b8909c871957a764d577ac09dc78352412e6eb56c90a1c067"
+    },
+    "血染原版角色-tendays_7abe5df0e6b8ae-透明-清晰.webp": {
+      "bytes": 412324,
+      "sha256": "f8eea071897080c4eea47ac331638040f22ae06d179083526a80c1ea1785bd98"
+    },
+    "血染原版角色-tendays_8e31d2f84fa7ae-透明-清晰.webp": {
+      "bytes": 170270,
+      "sha256": "9618bdcf60083ed31a1d7e9105de6eea77cb28b249f30997f3179f9b09907f84"
+    },
+    "血染原版角色-tendays_9b28147551d25c-透明-清晰.webp": {
+      "bytes": 376684,
+      "sha256": "e3f91d7f4a6e05e3ce58437333ca8556b6ab1a9289ace5207f3d08c387e5dc97"
+    },
+    "血染原版角色-tendays_9de70c8a2866d1-透明-清晰.webp": {
+      "bytes": 322822,
+      "sha256": "d8de8d1bbe371643dd3701c65b31dde8c1dd12ac76d319d7b7e77fd23fe22a0d"
+    },
+    "血染原版角色-tendays_bf64603fec03fd-透明-清晰.webp": {
+      "bytes": 276654,
+      "sha256": "0176a0d8cb06a992b36e7139e9860c0a893c15f076abb3593a5d9458b4229234"
+    },
+    "血染原版角色-tendays_c92db3fe6da9ac-透明-清晰.webp": {
+      "bytes": 309508,
+      "sha256": "e745bb705a2d55af7e3d8558dd72f4d9dda092814d1239c140d0785be2542139"
+    },
+    "血染原版角色-tendays_ce7ca08ae7e189-透明-清晰.webp": {
+      "bytes": 492682,
+      "sha256": "d83274105ab13a9ab6227b241b0eaf0743a1538e8858f41a2d53cea0c68d5e5a"
+    },
+    "血染原版角色-tendays_de234622123d1c-透明-清晰.webp": {
+      "bytes": 532328,
+      "sha256": "3547db127773463f63f554fbc3034948af085eb401bf7fd23605d26c024427e0"
+    },
+    "血染原版角色-tendays_e2bd6e9bcab577-透明-清晰.webp": {
+      "bytes": 291024,
+      "sha256": "90ee2412b48fa162a249e1abba98c0a7c883ce2fa28348013c997ff922cf4c02"
+    },
+    "血染原版角色-tendays_f675267e959a0a-透明-清晰.webp": {
+      "bytes": 350972,
+      "sha256": "43d0b4c7cdf4fae7e7db685bd2cda502c7171a1360176d96064b4f40560e3552"
+    },
+    "血染原版角色-tendays_fa423d5df33a47-透明-清晰.webp": {
+      "bytes": 414012,
+      "sha256": "5343347e32211dec1afc73d78ceb79c6c95a58881f0d10df66a6f17c265f9871"
+    },
+    "血染原版角色-tendays_fa7540613b19bf-透明-清晰.webp": {
+      "bytes": 412138,
+      "sha256": "e9b6de11894e9eb122d1816a61b162cb586fca23f143f05d82cfafb18ad9bd73"
+    },
+    "血染原版角色-tinker.webp": {
+      "bytes": 31854,
+      "sha256": "bd1e345c0c85e227f390491783c1ddee883ac3c91db86a5bf4013a8fab6609e6"
+    },
+    "血染原版角色-tixingguan.webp": {
+      "bytes": 24008,
+      "sha256": "2a981c75a8249a062a01ca0f866897bb796dd639be843688318a095f2ab06a43"
+    },
+    "血染原版角色-towncrier.webp": {
+      "bytes": 37696,
+      "sha256": "b94fe7e244ccff2243d5274cd3edc4a6fcd6e5f8503bea91e572f7265c6733df"
+    },
+    "血染原版角色-vigormortis.webp": {
+      "bytes": 34142,
+      "sha256": "91348ba5917f3076f61194911888b0750acd76487d1fd5fb5bf93732e49bafb4"
+    },
+    "血染原版角色-vortox.webp": {
+      "bytes": 40206,
+      "sha256": "68793d71dd93fd8e51d89bce7f7089c4124892a5d77718de4e78386220afa488"
+    },
+    "血染原版角色-voudon.webp": {
+      "bytes": 41270,
+      "sha256": "b2585ebcc8493f2ff07e2c7ecacb586cfb58b38d0a0bbe666c3694c05a70a14b"
+    },
+    "血染原版角色-widow.webp": {
+      "bytes": 43722,
+      "sha256": "63eac473ac238f6b53c4ed6cdb96ce377a003760377bfe791caf0473284086f6"
+    },
+    "血染原版角色-witch.webp": {
+      "bytes": 36624,
+      "sha256": "d9360b0576154d0d64818ebff7b5990850b116f0ae80e5bc9ef4d588a4bd7257"
+    },
+    "血染原版角色-wudaozhe.webp": {
+      "bytes": 43150,
+      "sha256": "246dfe706cf9bc7fc6dd995be1676c19ca2a0ed9e1146e13e7f94b66d202233c"
+    },
+    "血染原版角色-xionghaizi.webp": {
+      "bytes": 46614,
+      "sha256": "4297f0658c0845b5269c6daacd8a5d88ffda929909603fefedb85744da566124"
+    },
+    "血染原版角色-xizi.webp": {
+      "bytes": 52028,
+      "sha256": "d32d741e294c537b2db0389c8c0012bf72f25548486f65690c9efedcc3f151e0"
+    },
+    "血染原版角色-xizirevised.webp": {
+      "bytes": 52028,
+      "sha256": "d32d741e294c537b2db0389c8c0012bf72f25548486f65690c9efedcc3f151e0"
+    },
+    "血染原版角色-xuncha.webp": {
+      "bytes": 30684,
+      "sha256": "af1cef54d9445ecfc41ac5fcb4269b15db6628636f45a27fb9a15e6c2d435619"
+    },
+    "血染原版角色-yangguren.webp": {
+      "bytes": 75716,
+      "sha256": "e853e94eb82a61161471b4d67d53091bc6f20fa9c5ad7e8e9abb8c4d4c79d260"
+    },
+    "血染原版角色-yinluren.webp": {
+      "bytes": 43164,
+      "sha256": "657962c805c89919b4e93e6a64736bbc541b3e2cb1fbac12d459482e080f133b"
+    },
+    "血染原版角色-yinyangshi.webp": {
+      "bytes": 48796,
+      "sha256": "d342ce2d3150c60451000921265968b52f2b073de33c2279975d4c466fed960b"
+    },
+    "血染原版角色-yishi.webp": {
+      "bytes": 40418,
+      "sha256": "0cd2709da3d61802754143a12bd380a6c556e09cd6344618257faa659ddb125c"
+    },
+    "血染原版角色-zhen.webp": {
+      "bytes": 37690,
+      "sha256": "f73cc6761a86253018ff23de6750ff567f6161bf5d940978262e71683b7e3733"
+    },
+    "血染原版角色-zhifu.webp": {
+      "bytes": 50544,
+      "sha256": "a00b5a27967f0b5a9639e2e2aae40c6f141658029afbbb1e43b5bdb331867f96"
+    },
+    "血染原版角色-zombuul.webp": {
+      "bytes": 43960,
+      "sha256": "edb39700a1e65352c0fb265e7c8d9ac453c7810e814b17c35ce69743fbe75bb5"
     },
     "血染大圆牌-城堡底图.png": {
       "bytes": 2479085,
@@ -10609,6 +13001,10 @@
       "bytes": 396944,
       "sha256": "4838cdb4dd661af7cd23db2d14443b196822b337c07bdf1e4ac95a6bb889df41"
     },
+    "轮到你发言-用户原音.wav": {
+      "bytes": 96044,
+      "sha256": "94f9c087399989d897c335e4f19121b19b0a71769dacc4c6688362b351eb4dc3"
+    },
     "钟楼天空-手绘太阳.png": {
       "bytes": 1897646,
       "sha256": "bf8a604ea52c199e22d042d8a588c2fbc4823cc582032fc0af4071b50c653637"
@@ -10616,6 +13012,22 @@
     "钟楼天空-金色圆月.png": {
       "bytes": 2216515,
       "sha256": "13d796842f9c61444e13eacfba9d95cc4ba49bce82324b5c52ea4b6223b1c50f"
+    },
+    "钟楼百科角色用法.json": {
+      "bytes": 4103765,
+      "sha256": "5bd24ad7333839580e70ee3f0e508b062d07bd07d882a6098511cc055d4a590d"
+    },
+    "雾林月影-背景-横版-v1.png": {
+      "bytes": 2524599,
+      "sha256": "81fccac44226e0abca2907b2c2faea762966b0e856f3ec5fb099031f8dd86461"
+    },
+    "雾林月影-背景-竖版-v1.png": {
+      "bytes": 2444464,
+      "sha256": "eb8c9914658d1439f873ee591c3d73595a69a67148c81a620f3a4886a1edd60a"
+    },
+    "魔法袋-微光升起.wav": {
+      "bytes": 1067264,
+      "sha256": "415ade7cf1821eb8a08c06c8a9ac43b2eb0191ae20d8ab0dcfca02f11db1af03"
     }
   }
 }
