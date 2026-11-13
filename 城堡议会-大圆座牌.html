@@ -6917,6 +6917,20 @@ const summaryStyle=document.createElement('style');summaryStyle.textContent=`
 .council-summary-stat svg{width:1.12em;height:1.12em;overflow:visible;filter:drop-shadow(0 1px 1px #0008)}
 .council-summary-stat b{font:inherit;color:#f0ece3}
 #app.nom-panel-active .council-summary{visibility:hidden}
+@media(max-width:600px) and (orientation:portrait){
+ body:not([data-role-dock]) #app .center>.table-script-title{height:clamp(64px,20vw,86px)!important;margin:0!important}
+ body:not([data-role-dock]) #app .council-summary{font-size:11px;line-height:1.2}
+ body:not([data-role-dock]) #app .council-summary-row{margin:3px 0;gap:.4em}
+ body:not([data-role-dock]) #app #dayDiscussionClock{position:relative;top:auto;left:auto;transform:none;order:-2;--dc-height:32px;height:32px;width:58px}
+ body:not([data-role-dock]) #app .dc-content{inset:0}
+ body:not([data-role-dock]) #app .dc-time{font-size:18px;line-height:20px;height:20px}
+ body:not([data-role-dock]) #app .dc-caption{font-size:9px}
+}
+@media(max-width:600px) and (orientation:portrait) and (max-height:700px){
+ body:not([data-role-dock]) #app .center>.table-script-title{height:44px!important}
+ body:not([data-role-dock]) #app .council-summary{font-size:10px}
+ body:not([data-role-dock]) #app .dc-time{font-size:16px}
+}
 `;document.head.append(summaryStyle);
 const summary=document.createElement('div');summary.className='council-summary';
 const figures=[
@@ -6953,7 +6967,7 @@ const dayStyle=document.createElement('style');dayStyle.textContent=`
 #dayDiscussionClock[hidden]{display:none!important}#dayDiscussionClock:disabled{opacity:1;cursor:default}#dayDiscussionClock:focus-visible{outline:1px solid #ecd398;outline-offset:4px;border-radius:45%}#dayDiscussionClock:enabled:hover .dc-time{color:#fff8e8}
 .dc-content{position:absolute;inset:14px 40px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;border:0;border-radius:0;background:transparent;text-shadow:0 1px 3px #000b;gap:3px}.dc-caption{font:10px/1.2 'Microsoft YaHei';letter-spacing:.12em;color:#d0c8b8}.dc-time{display:inline-flex;flex-shrink:0;align-items:center;height:32px;font:400 25px/32px Consolas,'Courier New',monospace;font-variant-numeric:lining-nums tabular-nums;letter-spacing:0;white-space:nowrap;font-feature-settings:'lnum','tnum';transform:none;animation:none;transition:none}.dc-digit{display:block;flex:0 0 .62em;width:.62em;height:100%;text-align:center;line-height:inherit}.dc-digit.dc-colon{flex-basis:.38em;width:.38em}.dc-state{display:none}#dayDiscussionClock[data-status=running] .dc-state{color:#d8c699}#dayDiscussionClock[data-status=ended] .dc-time{color:#e7ab88}
 #dayDiscussionControls label{display:block;margin:14px 0 5px}#dayDiscussionControls select,#dayDiscussionControls input{width:100%;box-sizing:border-box;min-height:44px;border:1px solid #c8bba2;border-radius:7px;background:#fffdf8;padding:8px;color:#463c2d;font:inherit}#dayDiscussionControls .dc-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}#dayDiscussionControls .dc-actions button:first-child{background:#5d503d;color:#fff4d8;border-color:#5d503d}#dayClockStatus{font-variant-numeric:tabular-nums;color:#7a6543}
-@media(max-width:650px),(max-height:500px){#dayDiscussionClock{--dc-height:40px;--dc-lift:1px;width:min(118px,100%)}.dc-content{inset:1px 12px 2px;gap:1px}.dc-time{font-size:20px;height:23px;line-height:23px}.dc-caption{font-size:10px}.dc-state{display:none}}
+@media(max-width:650px),(max-height:500px){#dayDiscussionClock{--dc-height:40px;--dc-lift:1px;width:min(96px,100%)}.dc-content{inset:1px 12px 2px;gap:1px}.dc-time{font-size:20px;height:23px;line-height:23px}.dc-caption{font-size:10px}.dc-state{display:none}}
 `;document.head.append(dayStyle);
 let dayMode='public',dayDuration=300,dayRemaining=300,dayDeadline=0,dayStatus='idle',dayWasNight=false;
 const daySeconds=()=>dayDeadline?Math.max(0,Math.ceil((dayDeadline-performance.now())/1000)):dayRemaining;
@@ -7532,10 +7546,18 @@ setInterval(tick,250);mount();
  #board .seat-label b{position:absolute;left:7%;color:#fff2ca}#board .seat-label span{max-width:72%;text-align:center}
  /* Phone reference: the table fills the width, with breathing room above and below. */
  @media(max-width:600px) and (orientation:portrait){
-  html body #app#app #stage{inset:20% 8px 20%!important}
+  html body:not([data-role-dock]) #app#app #stage{inset:calc(96px + env(safe-area-inset-top)) 8px calc(228px + env(safe-area-inset-bottom))!important}
+  body:not([data-role-dock]) #app .wake-bluff-entry{bottom:calc(64px + env(safe-area-inset-bottom));--bluff-size:36px;padding:5px;gap:3px}
+  body:not([data-role-dock]) #app .council-comms{bottom:calc(10px + env(safe-area-inset-bottom));right:12px;gap:8px}
+  body:not([data-role-dock]) #app .council-comms button{width:44px;height:44px;border-radius:14px}
+  body:not([data-role-dock]) #app .top{padding:12px!important}
   html body #app .host{width:var(--host-token);height:var(--host-token)}
   html body #app .host-caption{max-width:calc(var(--host-token) + 32px);padding:3px 4px}
   html body #app #board .seat.phone-lower-name .seat-label{top:calc(100% + var(--token)*.01875)!important;bottom:auto!important}
+ }
+ @media(max-width:600px) and (orientation:portrait) and (max-height:700px){
+  html body:not([data-role-dock]) #app#app #stage{top:calc(84px + env(safe-area-inset-top))!important;bottom:calc(252px + env(safe-area-inset-bottom))!important}
+  body:not([data-role-dock]) #app .wake-bluff-entry{--bluff-size:32px}
  }
  `;document.head.append(css);
  const prior=draw;let fitting=false;
@@ -9825,6 +9847,20 @@ setInterval(deskSync,250);deskSync();
 @media(max-width:500px){.council-utility header{padding:14px 16px}.utility-body{padding:12px 16px 20px}}
 .speech-voice-name{font-size:22px;margin:0 0 10px;color:#40553c}.speech-enabled{display:flex;gap:8px;align-items:center}.speech-label{display:block;margin:18px 0 12px}.speech-text{display:block;box-sizing:border-box;width:100%;margin-top:6px;resize:vertical;border:1px solid #cbd3c4;border-radius:8px;background:#fff;color:#29352f;padding:10px;font:inherit}.council-utility button:disabled{opacity:.45;cursor:default}
 #victoryChoice{background:#faf9f6;color:#29352f;border-color:#d9ddd4}#victoryChoice .dialog-top{flex-wrap:wrap}#victoryChoice .dialog-top p{order:3;flex-basis:100%;font:13px/1.8 'Microsoft YaHei',sans-serif;color:#717a6d}#victoryChoice .trial-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}#victoryChoice .trial-actions button{background:#eef2e9;color:#38573b;border-color:#cfdac6}#victoryChoice .trial-actions button[data-team=evil]{background:#f4e9e6;color:#944e49;border-color:#dfc9c3}
+
+/* Phone menus keep the table visible and scroll within a compact anchored panel. */
+@media(max-width:600px),(max-height:500px){
+ html body #app #settings{position:absolute;top:calc(64px + env(safe-area-inset-top))!important;right:10px!important;left:auto!important;bottom:auto!important;width:min(276px,calc(100% - 48px))!important;max-width:calc(100% - 32px)!important;max-height:min(62dvh,540px,calc(100dvh - 86px))!important;padding:10px!important;overflow-y:auto;overscroll-behavior:contain;border-radius:14px}
+ #app #settings .menu-heading{font-size:14px;line-height:22px;padding:23px 2px 8px;margin-bottom:6px;background-size:190px 22px;letter-spacing:.06em}
+ #app #settings .menu-heading::before{width:22px;height:22px}
+ #app #settings .story-menu-tabs{gap:3px;padding:3px;margin:6px 0 8px}
+ #app #settings .story-menu-tabs button{font-size:12px;min-height:40px;padding:7px 4px}
+ #app #settings .menu-item,#app #settings #quickNextPhase{font-size:13px!important;line-height:20px!important;min-height:44px;padding-top:8px;padding-bottom:8px}
+ #app #settings #chooseScript,#app #settings #deliverRoles,#app #settings #allocateRoles{font-size:13px!important;line-height:20px!important}
+ #app #settings #quickHeader{font-size:12px}#app #settings #quickSeatCount{font-size:12px}
+ #app #settings #quickPreviousPhase{font-size:12px;min-height:40px;padding:8px}
+ #app #settings #storytellerQuick{margin-bottom:6px}#app #settings .menu-separator{margin:6px 0}
+}
 </style><script>// Artwork coordinates are normalized to the original image, never to stretched UI.
 (()=>{
  const landscape=(file,sky)=>({file,width:1536,height:1024,sky});
