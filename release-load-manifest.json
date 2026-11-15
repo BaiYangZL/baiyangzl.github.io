@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-66fc67090e1e",
+  "version": "entry-load-11d4c43d65a2",
   "files": {
     "action-art/少女-场景动作-v1-拿取放下.png": {
       "bytes": 1866045,
@@ -143,7 +143,7 @@
     },
     "arrival-sw.js": {
       "bytes": 59533,
-      "sha256": "0e319e05551760d880410fcd08ebe46592b1257e2dd65c4212a3201ab65d8eeb"
+      "sha256": "4a7a7fdc7abad2d03b69f702036b730bb3285137fde8ae161724566d1daf5e74"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -1119,7 +1119,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "9f59b388b92b4ce1171577b5d27eefb7cdf536756da10b27b8696c47040e4f3d"
+      "sha256": "5658e77062dd3c335781ff12237d273a0faeaecacc2344c24e1b3a076cac10c9"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1171,7 +1171,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "4bcf81965838ee5afbd6ff51703f76c607588914128d08f01ef0bd393abe689b"
+      "sha256": "3f63cc473374aa5b924d2b0084c36b5030058549bfe643b9117440371a954d82"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1519,11 +1519,11 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "1c3a10f811554c7a45248f95c19b67ba3418764d2256a22f818d620818deae63"
+      "sha256": "d87e9c8e10d73e17b3fffd01e286f34c65d3b7baa8e9c7e8bc7b52e8e78afe53"
     },
     "scene-extras.js": {
-      "bytes": 121009,
-      "sha256": "be95b506d0a4c1a7e47e8d93bf698e924788eb2021197cf94d3b2c0378bda37d"
+      "bytes": 122062,
+      "sha256": "1749a37270823fd30d0fa4e6f1adc39e726069014217ceda0021d58f38b2548b"
     },
     "scene-world.json": {
       "bytes": 10949,
@@ -10459,7 +10459,7 @@
     },
     "tavern/index.html": {
       "bytes": 34249,
-      "sha256": "cacf2d3b41d4795731baa803a7a82b099c820f22ad1b073e6cacbaed6c24613e"
+      "sha256": "aec0a5e842cf0344632057f9b1db1825318d9ce7514e31e0befce5819ca6a164"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10575,7 +10575,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "0555325ea4a747122d1f3086ee973367e54161b0b65550d96734be56fdc2dc71"
+      "sha256": "f3ddffcdd6b53cc0ef29c6073298c22729f7205e189e8244a0eb50bbae3e3cec"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,

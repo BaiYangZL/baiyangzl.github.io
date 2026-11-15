@@ -1961,7 +1961,7 @@ globalThis.StaticSeatPose={
  // Keep existing feature handlers and lazy loaders; only collect their buttons.
  views.addEventListener('click',e=>{if(e.target.closest('button'))menu.open=false;});
  const panelOpen=()=>!!document.querySelector('[data-function-panel],.cs-root,.reentry-panel');
- const outside=e=>{if(!panelOpen()&&!e.target.closest('#game-menu,#tavern-quick-actions,#tavern-menu-branches,#tavern-menu-panels,#zoom-panel'))menu.open=false;};document.addEventListener('pointerdown',outside);
+ const outside=e=>{if(!panelOpen()&&!e.target.closest('#game-menu,#tavern-quick-actions,#tavern-screen-actions,#tavern-menu-branches,#tavern-menu-panels,#zoom-panel'))menu.open=false;};document.addEventListener('pointerdown',outside);
  const escape=e=>{if(e.key==='Escape'&&menu.open&&!panelOpen()){menu.open=false;menu.querySelector('summary').focus();}};document.addEventListener('keydown',escape);
  hud.querySelector('[data-map="hide"]')?.click();
  const toast=document.createElement('div');toast.id='interaction-toast';toast.hidden=true;toast.setAttribute('role','status');hud.append(toast);let toastTimer;
@@ -2004,32 +2004,34 @@ globalThis.StaticSeatPose={
  // Move the real controls, preserving fullscreen handlers and panel animation origins.
  while(['inventory-entry','wardrobe','grimoire-entry','game-volume-button','reentry'].some(id=>!hud.querySelector('#'+id)))await new Promise(r=>setTimeout(r,100));
  const quick=document.createElement('nav');quick.id='tavern-quick-actions';quick.setAttribute('aria-label','常用功能');hud.append(quick);
+ const screenActions=document.createElement('nav');screenActions.id='tavern-screen-actions';screenActions.setAttribute('aria-label','屏幕显示');hud.append(screenActions);
  const icons={
+  landscape:'<rect x="3" y="7" width="22" height="14" rx="3"/><path d="M21 12v4M8 3l-3 3 3 3M5 6h8"/>',
   fullscreen:'<path d="M10 5H7a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M5 18v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3"/><path d="M10 10l-4-4m12 4 4-4M10 18l-4 4m12-4 4 4"/>',
   'gait-mode':'<circle cx="16" cy="5" r="2.5"/><path d="m10 24 3-7-2-5m2 5 5 3 1 4M7 13l4-5 5 1 2 6 4 1M16 9l-3 8"/>',
   wardrobe:'<path d="M5 24V7c0-5 18-5 18 0v17H5Zm9-20v20M7 24v2m14-2v2"/><path d="M11 13v3m6-3v3M8 8h3m6 0h3"/>',
   'inventory-entry':'<path d="M10 7V5a4 4 0 0 1 8 0v2M5 12a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v10a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V12Z"/><path d="M5 13c5 4 13 4 18 0M10 20h8M14 14v4"/>'
  };
- for(const id of ['fullscreen','gait-mode','wardrobe','inventory-entry']){const b=hud.querySelector('#'+id);b.classList.add('quick-action');const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" stroke="#745027" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+icons[id]+'</svg>';b.style.setProperty('--quick-icon','url("data:image/svg+xml,'+encodeURIComponent(svg)+'")');quick.append(b);}
+ for(const id of ['landscape','fullscreen','gait-mode','wardrobe','inventory-entry']){const b=hud.querySelector('#'+id);b.classList.add('quick-action');const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" stroke="#745027" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+icons[id]+'</svg>';b.style.setProperty('--quick-icon','url("data:image/svg+xml,'+encodeURIComponent(svg)+'")');(['landscape','fullscreen'].includes(id)?screenActions:quick).append(b);}
  const quickStyle=document.createElement('style');quickStyle.textContent=`
- #tavern-ui #tavern-quick-actions{position:absolute;top:10px;right:12px;display:flex;gap:6px;z-index:8;pointer-events:auto}
- #tavern-ui #tavern-quick-actions .quick-action{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:44px;height:48px;min-height:0;padding:4px 0 3px;margin:0;border:1px solid #fff1c8;border-radius:14px;background:linear-gradient(160deg,#fff4ce 0%,#f2d78d 58%,#d9ad58 100%);box-shadow:inset 0 2px 1px #fffbea,inset 0 -3px 1px #b983354f,0 3px 0 #765026,0 5px 9px #26170c38;color:#664820;font-size:0;cursor:pointer;transition:transform .12s,filter .12s;touch-action:manipulation}
- #tavern-ui #tavern-quick-actions .quick-action::before{content:'';display:block;width:23px;height:23px;background:var(--quick-icon) center/contain no-repeat}
- #tavern-ui #tavern-quick-actions .quick-action::after{content:attr(data-caption);font:600 10px/1.2 system-ui;letter-spacing:.04em;color:#674820}
- #tavern-ui #tavern-quick-actions .quick-action>svg{display:none}
- #tavern-ui #tavern-quick-actions .quick-action:active{transform:translateY(2px);box-shadow:inset 0 2px 3px #a5713544,0 1px 0 #765026}
- #tavern-ui #tavern-quick-actions .quick-action[aria-pressed=true],#tavern-ui #tavern-quick-actions .quick-action[aria-checked=true]{background:linear-gradient(155deg,#ffe7a8,#e9b958);border-color:#ffedb8}
- #tavern-ui #tavern-quick-actions .quick-action:focus-visible{outline:2px solid #fff3ce;outline-offset:4px}
- #tavern-ui #tavern-quick-actions .quick-action:disabled{opacity:.65;cursor:wait}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions){position:absolute;top:10px;right:12px;display:flex;gap:6px;z-index:8;pointer-events:auto}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:44px;height:48px;min-height:0;padding:4px 0 3px;margin:0;border:1px solid #fff1c8;border-radius:14px;background:linear-gradient(160deg,#fff4ce 0%,#f2d78d 58%,#d9ad58 100%);box-shadow:inset 0 2px 1px #fffbea,inset 0 -3px 1px #b983354f,0 3px 0 #765026,0 5px 9px #26170c38;color:#664820;font-size:0;cursor:pointer;transition:transform .12s,filter .12s;touch-action:manipulation}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action::before{content:'';display:block;width:23px;height:23px;background:var(--quick-icon) center/contain no-repeat}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action::after{content:attr(data-caption);font:600 10px/1.2 system-ui;letter-spacing:.04em;color:#674820}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action>svg{display:none}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action:active{transform:translateY(2px);box-shadow:inset 0 2px 3px #a5713544,0 1px 0 #765026}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action[aria-pressed=true],#tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action[aria-checked=true]{background:linear-gradient(155deg,#ffe7a8,#e9b958);border-color:#ffedb8}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action:focus-visible{outline:2px solid #fff3ce;outline-offset:4px}
+ #tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action:disabled{opacity:.65;cursor:wait}
  #tavern-ui #game-menu>summary{border:1px solid #fff0c18c;border-radius:13px;background:linear-gradient(#f5df9bea,#d9b56ae8);color:#684820;box-shadow:inset 0 1px #fff5d0,0 2px 0 #765026;font-weight:600}
  #tavern-ui .top{max-width:calc(100% - 224px)!important}#tavern-ui h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
  #tavern-ui #game-menu{top:70px!important;right:12px!important}#tavern-ui #world-clock{top:48px!important;left:16px!important;right:auto!important;text-align:left;place-content:start}
- #tavern-ui.loading #tavern-quick-actions{visibility:hidden}
- @media(hover:hover){#tavern-ui #tavern-quick-actions .quick-action:hover{filter:brightness(1.06);transform:translateY(-1px)}}
- @media(prefers-reduced-motion:reduce){#tavern-ui #tavern-quick-actions .quick-action{transition:none}}
+ #tavern-ui.loading :is(#tavern-quick-actions,#tavern-screen-actions){visibility:hidden}
+ @media(hover:hover){#tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action:hover{filter:brightness(1.06);transform:translateY(-1px)}}
+ @media(prefers-reduced-motion:reduce){#tavern-ui :is(#tavern-quick-actions,#tavern-screen-actions) .quick-action{transition:none}}
  `;hud.append(quickStyle);
- function captions(){for(const b of quick.children){let caption=b.id==='fullscreen'?(b.getAttribute('aria-checked')==='true'||b.getAttribute('aria-pressed')==='true'?'退出全屏':'全屏'):b.id==='gait-mode'?(b.getAttribute('aria-pressed')==='true'?'奔跑':'走路'):b.id==='wardrobe'?'衣橱':b.textContent.replace(/\s/g,'').replace(/·(\d+)$/,(_,n)=>Number(n)?'·'+(Number(n)>99?'99+':n):'');b.dataset.caption=caption;b.setAttribute('aria-label',caption);}}
- const observer=new MutationObserver(captions);observer.observe(quick,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-pressed','aria-checked']});captions();actor.cleanups.push(()=>observer.disconnect());
+ function captions(){for(const b of [...screenActions.children,...quick.children]){let caption=b.id==='landscape'?(b.getAttribute('aria-pressed')==='true'?'自动方向':'横屏'):b.id==='fullscreen'?(b.getAttribute('aria-checked')==='true'||b.getAttribute('aria-pressed')==='true'?'退出全屏':'全屏'):b.id==='gait-mode'?(b.getAttribute('aria-pressed')==='true'?'奔跑':'走路'):b.id==='wardrobe'?'衣橱':b.textContent.replace(/\s/g,'').replace(/·(\d+)$/,(_,n)=>Number(n)?'·'+(Number(n)>99?'99+':n):'');b.dataset.caption=caption;b.setAttribute('aria-label',caption);}}
+ const observer=new MutationObserver(captions);observer.observe(quick,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-pressed','aria-checked']});observer.observe(screenActions,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-pressed','aria-checked']});captions();actor.cleanups.push(()=>observer.disconnect());
  const branches=document.createElement('nav');branches.id='tavern-menu-branches';branches.setAttribute('aria-label','小游戏、传送与设置');
  const gear='<path d="m10 3 1-2h4l1 2 3 2 2-.2 2 3.5-1.3 1.8v3.8L23 16l-2 3.5-2-.2-3 2-1 2h-4l-1-2-3-2-2 .2L3 16l1.3-2.1v-3.8L3 8.3l2-3.5 2 .2 3-2Z"/><circle cx="13" cy="12" r="4"/>';
  const controller='<path d="M8 7h12c3 0 5 14 2 15-2 1-5-4-6-4h-4c-1 0-4 5-6 4C3 21 5 7 8 7Z"/><path d="M8 11v6m-3-3h6"/><circle cx="18" cy="12" r=".7"/><circle cx="21" cy="15" r=".7"/>';
@@ -2054,7 +2056,8 @@ globalThis.StaticSeatPose={
  #tavern-ui #game-menu{top:10px!important;right:12px!important;width:44px;z-index:12}
  #tavern-ui #game-menu>summary{box-sizing:border-box;display:grid;place-items:center;width:44px;height:48px;padding:0;font-size:12px;border-radius:14px}
  #tavern-ui #game-menu .views{display:none!important}
- #tavern-ui #tavern-quick-actions{top:10px;right:66px;opacity:0;visibility:hidden;transform:translateX(30px);clip-path:inset(-8px -8px -12px 100%);transition:transform .26s cubic-bezier(.2,.8,.2,1),clip-path .26s cubic-bezier(.2,.8,.2,1),opacity .18s,visibility 0s .26s}
+ #tavern-ui #tavern-screen-actions{top:10px;right:66px}
+ #tavern-ui #tavern-quick-actions{top:10px;right:166px;opacity:0;visibility:hidden;transform:translateX(30px);clip-path:inset(-8px -8px -12px 100%);transition:transform .26s cubic-bezier(.2,.8,.2,1),clip-path .26s cubic-bezier(.2,.8,.2,1),opacity .18s,visibility 0s .26s}
  #tavern-ui.menu-expanded #tavern-quick-actions{opacity:1;visibility:visible;transform:translateX(0);clip-path:inset(-8px -8px -12px -8px);transition-delay:0s}
  #tavern-ui #tavern-menu-branches{position:absolute;right:12px;top:68px;display:flex;flex-direction:column;gap:10px;z-index:11;pointer-events:auto;opacity:0;visibility:hidden;transform:translateY(-18px);transition:transform .26s cubic-bezier(.2,.8,.2,1),opacity .18s,visibility 0s .26s}
  #tavern-ui.menu-expanded #tavern-menu-branches{opacity:1;visibility:visible;transform:translateY(0);transition-delay:0s}
@@ -2066,7 +2069,7 @@ globalThis.StaticSeatPose={
  #tavern-ui #tavern-menu-panels>#menu-settings-panel{top:184px}
  #tavern-ui #tavern-menu-panels button{min-height:42px;box-sizing:border-box;width:100%;margin:0;padding:8px 12px;border:1px solid #b78e4a50;border-radius:9px;background:#fff9e173;color:#674820;font:14px/1.4 system-ui;text-align:left;cursor:pointer}
  #tavern-ui #tavern-menu-panels button:hover{background:#fff7de}#tavern-ui #tavern-menu-branches button:focus-visible,#tavern-ui #tavern-menu-panels button:focus-visible{outline:2px solid #fff7dd;outline-offset:3px}
- #tavern-ui .top{max-width:calc(100% - 85px)!important;transition:opacity .15s}#tavern-ui.menu-expanded .top{opacity:0;pointer-events:none}
+ #tavern-ui .top{max-width:calc(100% - 185px)!important;transition:opacity .15s}#tavern-ui.menu-expanded .top{opacity:0;pointer-events:none}
  #tavern-ui #world-clock{top:48px!important;left:16px!important;right:auto!important;text-align:left;place-content:start}#tavern-ui.menu-expanded #world-clock{visibility:hidden}
  #tavern-ui .zoom-panel{top:clamp(66px,calc(100% - 190px),200px)!important;right:12px}
  @media(prefers-reduced-motion:reduce){#tavern-ui #tavern-quick-actions,#tavern-ui #tavern-menu-branches,#tavern-ui #tavern-menu-panels>nav,#tavern-ui .top{transition:none}}
