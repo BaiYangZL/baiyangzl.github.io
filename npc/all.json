@@ -1,0 +1,1029 @@
+{
+  "characterId": "innkeeper-fat",
+  "category": "胖男性·说书人专属",
+  "status": "four-direction-candidate",
+  "cell": 192,
+  "pixelCell": 672,
+  "root": [
+    96,
+    176
+  ],
+  "soleY": 616,
+  "size": [
+    4032,
+    3360
+  ],
+  "image": "说书人-四向-v11-图集.png",
+  "frameMs": 180,
+  "frames": {
+    "W/idle/0": {
+      "frame": [
+        0,
+        0,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/idle/0": {
+      "frame": [
+        672,
+        0,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/idle/0": {
+      "frame": [
+        1344,
+        0,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "E/idle/0": {
+      "frame": [
+        2016,
+        0,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/0": {
+      "frame": [
+        2688,
+        0,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/1": {
+      "frame": [
+        3360,
+        0,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/2": {
+      "frame": [
+        0,
+        672,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/3": {
+      "frame": [
+        672,
+        672,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/4": {
+      "frame": [
+        1344,
+        672,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/5": {
+      "frame": [
+        2016,
+        672,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/6": {
+      "frame": [
+        2688,
+        672,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "S/walk/7": {
+      "frame": [
+        3360,
+        672,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/0": {
+      "frame": [
+        0,
+        1344,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/1": {
+      "frame": [
+        672,
+        1344,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/2": {
+      "frame": [
+        1344,
+        1344,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/3": {
+      "frame": [
+        2016,
+        1344,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/4": {
+      "frame": [
+        2688,
+        1344,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/5": {
+      "frame": [
+        3360,
+        1344,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/6": {
+      "frame": [
+        0,
+        2016,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "N/walk/7": {
+      "frame": [
+        672,
+        2016,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/0": {
+      "frame": [
+        1344,
+        2016,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 0,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/1": {
+      "frame": [
+        2016,
+        2016,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 45,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/2": {
+      "frame": [
+        2688,
+        2016,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 2,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/3": {
+      "frame": [
+        3360,
+        2016,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 49,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/4": {
+      "frame": [
+        0,
+        2688,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": -4,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/5": {
+      "frame": [
+        672,
+        2688,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 37,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/6": {
+      "frame": [
+        1344,
+        2688,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": -2,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "W/walk/7": {
+      "frame": [
+        2016,
+        2688,
+        672,
+        672
+      ],
+      "root": [
+        96,
+        176
+      ],
+      "durationMs": 180,
+      "registrationX": 40,
+      "material": {
+        "hairGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "skinGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ],
+        "clothGain": [
+          0.94,
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    }
+  },
+  "clips": {
+    "idle-W": [
+      "W/idle/0"
+    ],
+    "idle-E": [
+      "E/idle/0"
+    ],
+    "idle-S": [
+      "S/idle/0"
+    ],
+    "idle-N": [
+      "N/idle/0"
+    ],
+    "walk-W": [
+      "W/walk/0",
+      "W/walk/1",
+      "W/walk/2",
+      "W/walk/3",
+      "W/walk/4",
+      "W/walk/5",
+      "W/walk/6",
+      "W/walk/7"
+    ],
+    "walk-S": [
+      "S/walk/0",
+      "S/walk/1",
+      "S/walk/2",
+      "S/walk/3",
+      "S/walk/4",
+      "S/walk/5",
+      "S/walk/6",
+      "S/walk/7"
+    ],
+    "walk-N": [
+      "N/walk/0",
+      "N/walk/1",
+      "N/walk/2",
+      "N/walk/3",
+      "N/walk/4",
+      "N/walk/5",
+      "N/walk/6",
+      "N/walk/7"
+    ],
+    "walk-E": [
+      "W/walk/0",
+      "W/walk/1",
+      "W/walk/2",
+      "W/walk/3",
+      "W/walk/4",
+      "W/walk/5",
+      "W/walk/6",
+      "W/walk/7"
+    ]
+  },
+  "mirrors": {
+    "walk-E": true
+  }
+}

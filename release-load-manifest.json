@@ -1,6 +1,130 @@
 {
-  "version": "entry-load-115b93636e04",
+  "version": "entry-load-5924ca13ccac",
   "files": {
+    "action-art/少女-场景动作-v1-拿取放下.png": {
+      "bytes": 1866045,
+      "sha256": "5c89d906aafccd2adaf03e7970b8a8981d0ed6cff761277f9edc661070388896"
+    },
+    "action-art/白玫瑰-场景动作-v1-坐姿斜向.png": {
+      "bytes": 1633109,
+      "sha256": "5b0475f871f6af215b7e32f39210913da7876748a0618167f84f2838cef75edf"
+    },
+    "action-art/白玫瑰-场景动作-v1-坐姿正背左.png": {
+      "bytes": 2403322,
+      "sha256": "a73bb2370b59e04d89f306c0ae7ea0a17c955fcc5890425d992e5b9b74288c04"
+    },
+    "action-art/白玫瑰-场景动作-v1-坐起过渡斜向.png": {
+      "bytes": 2567098,
+      "sha256": "216aba44c385dea2adfb15479b004010291519b6650bbc3e628a910d161cedc9"
+    },
+    "action-art/白玫瑰-场景动作-v1-坐起过渡正背左.png": {
+      "bytes": 2645777,
+      "sha256": "1933d75afe04dab1682d3bed903e16b3ffe5e7e7a1d211998a3b79566dd79038"
+    },
+    "action-art/白玫瑰-场景动作-v1-拿取放下.png": {
+      "bytes": 2461151,
+      "sha256": "eb24d316de57361be2577e85f270b6b218b875cdd30a765884ee9f44e329164a"
+    },
+    "action-art/白玫瑰-场景动作-v1-躺卧侧面.png": {
+      "bytes": 1474414,
+      "sha256": "73103fa7093fe75d283ce67c0aad66db9a7d0320143259093e75ff8db5ec70e0"
+    },
+    "action-art/白玫瑰-场景动作-v1-躺卧脚端.png": {
+      "bytes": 2300638,
+      "sha256": "9e98d2fc99a529dbab1a83f897ccef004868640e33462dd1726351bfc35754d9"
+    },
+    "action-art/贝雷帽-场景动作-v1-坐姿斜向.png": {
+      "bytes": 975965,
+      "sha256": "a173803c902fbf2de36da55387d453efd4e9cecf11885c98c486925c8c9c65ab"
+    },
+    "action-art/贝雷帽-场景动作-v1-坐姿正背左.png": {
+      "bytes": 1985051,
+      "sha256": "477d2ecb88b18cd0d72b54d08754c9181795b8466e60720be17b19c992f7afe0"
+    },
+    "action-art/贝雷帽-场景动作-v1-坐起过渡斜向.png": {
+      "bytes": 1988155,
+      "sha256": "f456061543a5178b3ce109258c7d81d1459ca25f4d1b0d0772c21001055f51b1"
+    },
+    "action-art/贝雷帽-场景动作-v1-坐起过渡正背左.png": {
+      "bytes": 2370833,
+      "sha256": "19164659c8fa35c16cf9ddc1e7b5220c861f810bed579a0fb2c161b6d640b3e1"
+    },
+    "action-art/贝雷帽-场景动作-v1-拿取放下.png": {
+      "bytes": 2071657,
+      "sha256": "ea23d7d868b5974a5237cd77a92da24cd9bcf888403610f8995703fd5197475b"
+    },
+    "action-art/贝雷帽-场景动作-v1-躺卧侧面.png": {
+      "bytes": 1001897,
+      "sha256": "f89b38e2a742ee0bdf124e43f98fb35c169982531e5d3601508bc034ff47cf8c"
+    },
+    "action-art/贝雷帽-场景动作-v1-躺卧脚端.png": {
+      "bytes": 1830263,
+      "sha256": "f4d78c95c5191d0a13b3bdd3af5dfaeec309b3cb27510f8b7c38fed1ac17a807"
+    },
+    "action-art/金发-场景动作-v1-坐姿左侧补全.png": {
+      "bytes": 1885285,
+      "sha256": "db17709f82c5c556c1ae92508641e62f62448cbdadd0ee884de227b87cfaa859"
+    },
+    "action-art/金发-场景动作-v1-坐姿斜向.png": {
+      "bytes": 1406796,
+      "sha256": "2929b33f171c0c2675399e7b5ddab4615cd8fe73106d5a172395ff9b23cd9dfa"
+    },
+    "action-art/金发-场景动作-v1-坐姿正背左.png": {
+      "bytes": 2352138,
+      "sha256": "0cc06a4100f28577de5a0edbd130aa8e55a12be43b674bdbf570ecafd5876b7d"
+    },
+    "action-art/金发-场景动作-v1-坐姿背面补全.png": {
+      "bytes": 2023176,
+      "sha256": "366828d5907f1e11f5552a3efb7209448a1fe6ad9cb61434f22c3437178687ef"
+    },
+    "action-art/金发-场景动作-v1-坐起过渡斜向.png": {
+      "bytes": 2302282,
+      "sha256": "e9fbed6ee995d3e64783489f15e3a8379c7622e530e598b943ce30dfe1392f7e"
+    },
+    "action-art/金发-场景动作-v1-坐起过渡正背左.png": {
+      "bytes": 2459695,
+      "sha256": "dc31caec6c214d99d5c696414e75941b0de67a9b1d04d7ec9fddd7e90907248e"
+    },
+    "action-art/金发-场景动作-v1-拿取放下.png": {
+      "bytes": 2375909,
+      "sha256": "7f888e4398f6f85a826025ef64281ca75bdf0b68b7d18f662642bff78b208912"
+    },
+    "action-art/金发-场景动作-v1-躺卧侧面.png": {
+      "bytes": 1409958,
+      "sha256": "375019fa520937e1ff14537c8b418eb2f2f75333e40047e40f5d33e0ec719491"
+    },
+    "action-art/金发-场景动作-v1-躺卧脚端.png": {
+      "bytes": 2197905,
+      "sha256": "7359d2eee4847a784506be1c8914e5abbd6cf08818b5f455df6292f40a560da9"
+    },
+    "action-art/银红礼服-场景动作-v1-坐姿斜向.png": {
+      "bytes": 1511717,
+      "sha256": "2e787c7465992abd6fb1ef43c71ddd5df923acfe1af7f8d33fc074a3b4303f73"
+    },
+    "action-art/银红礼服-场景动作-v1-坐姿正背左.png": {
+      "bytes": 2374688,
+      "sha256": "89eb7e7f150ab1a3680355e4e1bedefaee3f03ffd01fc4c72b58c57fdc6be677"
+    },
+    "action-art/银红礼服-场景动作-v1-坐起过渡斜向.png": {
+      "bytes": 2392815,
+      "sha256": "de061d26d643e62c9889174bc880a2aac6e8fb2020c2278c5c155e13abe16f8d"
+    },
+    "action-art/银红礼服-场景动作-v1-坐起过渡正背左.png": {
+      "bytes": 2620465,
+      "sha256": "fb083e98d60869d61fc3d23715c8553b9bf9c2a9f3177a1acdbf47e6cdbabd13"
+    },
+    "action-art/银红礼服-场景动作-v1-拿取放下.png": {
+      "bytes": 2445910,
+      "sha256": "456d3a833f13f5b5e8a4099c3614e776c01fb0005336d0896fdf49362fd777c0"
+    },
+    "action-art/银红礼服-场景动作-v1-躺卧侧面.png": {
+      "bytes": 1462729,
+      "sha256": "61b16a28a916a991a1bf40f652082532e74dc901d034db1668c7acc480c3649f"
+    },
+    "action-art/银红礼服-场景动作-v1-躺卧脚端.png": {
+      "bytes": 2489870,
+      "sha256": "9736a60bda9fbb09f05e636c148ba893bbbc17488130f4b01156d338444938f9"
+    },
     "adult-template-current.html": {
       "bytes": 15699822,
       "sha256": "26f3ba2992477733ae69da1ab71aaeb7dcf3dd8b7f6b61b2daf4ddb686207e01"
@@ -18,8 +142,8 @@
       "sha256": "b3982e55635b630bdccdc6f532ce38b3070222acdfacb094fe95f06efc519080"
     },
     "arrival-sw.js": {
-      "bytes": 53551,
-      "sha256": "48dd85d0d91b5b718a7789104d3c1f4465401a2895ca062a27cfa362da2cd5b1"
+      "bytes": 57493,
+      "sha256": "2622c5f6687ab1f8394e65cb137dba415ad28f4cb4f195f5ea5add2d9ea8e816"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -947,7 +1071,7 @@
     },
     "cache-check.html": {
       "bytes": 4194,
-      "sha256": "232353f8fba65052dd2a8f2db46ee5eb9dcbca924c0e8bce716c9f520dc1d79b"
+      "sha256": "4dcade82ff17717e1714d3a192f15c43a9d7350b388dbb417d99a38105a8c6ce"
     },
     "cache-upgrade.html": {
       "bytes": 1173,
@@ -987,7 +1111,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "f04268e20747ef4308723b51a5c7a2566cbaa0e3391e279f19648b3baab28db1"
+      "sha256": "94e67c616306d7fd31a0a84bd8a455305d8bda2f15737b4317b37f210f5531d0"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1039,11 +1163,227 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "e0fcdd8ee458b4df6b107a07fe3e2c914d4a4404769aa09a4800456c53810e24"
+      "sha256": "f60480aea7636ad63286938072c2a5191dceb3715afe68d835993c2d3bbc838b"
     },
     "indoor-rain.js": {
       "bytes": 791,
       "sha256": "faa35491d3c23384adbcbbbd7965f7967c082f387b752b6bd558342ae3b96df9"
+    },
+    "inventory-icons/book-v7-0.png": {
+      "bytes": 23889,
+      "sha256": "95930797da46be2e8bf95ea380853ec48411c6746204afc1703962266cd7ef02"
+    },
+    "inventory-icons/book-v7-1.png": {
+      "bytes": 19801,
+      "sha256": "58bee93eebbe635562ce203aeef587d619ed4a94e2a75ebd9ad92b9c69e12f5f"
+    },
+    "inventory-icons/book-v7-2.png": {
+      "bytes": 25652,
+      "sha256": "211ca396b29ea7faa583239b924aff0d408ad4d016695c607dbce77b93e50325"
+    },
+    "inventory-icons/book-v7-3.png": {
+      "bytes": 15491,
+      "sha256": "db4877cb81392b5f003c779d5a92280ca8b013b4eadfa5b1a130f1ef1cff2200"
+    },
+    "inventory-icons/book-v7-4.png": {
+      "bytes": 6264,
+      "sha256": "6c7c7abda6344d7eaced03c2f3af14f8e609e06bd79055f686ee907018949a26"
+    },
+    "inventory-icons/book-v7-5.png": {
+      "bytes": 18489,
+      "sha256": "0cbbbab179e7221bc9b5ccc84122316d77b414ae76d98dad1380767bcaed7a25"
+    },
+    "inventory-icons/bottle-v7-0.png": {
+      "bytes": 7340,
+      "sha256": "cfb4166a1ee76d358cc588ebe4439eea932b309859c558f87aab6f533ab8abfe"
+    },
+    "inventory-icons/bottle-v7-1.png": {
+      "bytes": 10451,
+      "sha256": "e1d3a7258fb23c72dc78b4bb62594f8133e8facbbc4701ccad4a324960add642"
+    },
+    "inventory-icons/bottle-v7-2.png": {
+      "bytes": 31410,
+      "sha256": "03be321a740f4c9cc61e3f374317c925407b2e43ccaabde7e43ccf0f89bda3aa"
+    },
+    "inventory-icons/bottle-v7-3.png": {
+      "bytes": 13749,
+      "sha256": "8489b990d60832303b7e7cc65af255dab538271c8a194b6bff1f946264d24870"
+    },
+    "inventory-icons/bottle-v7-4.png": {
+      "bytes": 15487,
+      "sha256": "a01152c7154a101070d32fe8e9a62c709ad5e7e3b8f17f08f3ea6dcc3f8f14af"
+    },
+    "inventory-icons/bottle-v7-5.png": {
+      "bytes": 10744,
+      "sha256": "9c47c88baab28fed694726686d1756811d14f0b926ec696a35c7982ceb8d9591"
+    },
+    "inventory-icons/deskprop-v7-0.png": {
+      "bytes": 27383,
+      "sha256": "94c3141626fcd8b4ae663fb7057426085baffc4ba17da06942bb061b055be956"
+    },
+    "inventory-icons/deskprop-v7-1.png": {
+      "bytes": 28791,
+      "sha256": "d97eb7e4f2068688bfd91a847e5bfc7a51db572b7d942a9eb12b531ecff7037a"
+    },
+    "inventory-icons/deskprop-v7-2.png": {
+      "bytes": 14497,
+      "sha256": "717fc74254099baa8c2a5bab4501dd8091810c673b43f5351b709ddacdd6ab71"
+    },
+    "inventory-icons/deskprop-v7-3.png": {
+      "bytes": 16029,
+      "sha256": "74f0f98f2387ba1cb1df52c644d6d112e94a4470723e6fa609a8af51d77b4495"
+    },
+    "inventory-icons/deskprop-v7-4.png": {
+      "bytes": 32548,
+      "sha256": "ea6d6903ab91c523724b28af19eefa8f45ae8626c7aa6869798db9ce3f9b0dbc"
+    },
+    "inventory-icons/deskprop-v7-5.png": {
+      "bytes": 14682,
+      "sha256": "1aa56c2f9e50689c243ef4ea7192b11cb190f341baf3810da22ad05f00ecb721"
+    },
+    "inventory-icons/dish-v7-0.png": {
+      "bytes": 16515,
+      "sha256": "cfe3b4cbef2567a53cb0d843520af23fd4bfd0a74709954ec58943f863461d2f"
+    },
+    "inventory-icons/dish-v7-1.png": {
+      "bytes": 17036,
+      "sha256": "a99b69cb9c5f82cecf2728c1b3da049cc05617827938268edb7bc5fb28a5f066"
+    },
+    "inventory-icons/dish-v7-2.png": {
+      "bytes": 19836,
+      "sha256": "d35e17a6f45b7f7edf74535f4ca15586dcd517056423b195d9ffb18f781ea7ed"
+    },
+    "inventory-icons/dish-v7-3.png": {
+      "bytes": 18632,
+      "sha256": "0e587a4a0b79abd1ccec5c70ad995b16ca21cc64874d5f6562ed863f903fd45f"
+    },
+    "inventory-icons/dish-v7-4.png": {
+      "bytes": 21368,
+      "sha256": "431cc3c5d4caf149978c049ad92b0d1e5e9864226cc911a9649daf054856cf6e"
+    },
+    "inventory-icons/dish-v7-5.png": {
+      "bytes": 17649,
+      "sha256": "6987f7b1361cd03b317296ccc883b347b14ad71b6ddf7fb5bea0165eec53a49a"
+    },
+    "inventory-icons/food-v7-0.png": {
+      "bytes": 11818,
+      "sha256": "75a8d0cb18d26b1541b6ad2343870cd6105d6f698e97b8a7f93c9f67d9050a4c"
+    },
+    "inventory-icons/food-v7-1.png": {
+      "bytes": 4221,
+      "sha256": "5648552c20e19fd0c33a1a64accfd59203e82f318af25bba823cdee64b8e1c90"
+    },
+    "inventory-icons/food-v7-2.png": {
+      "bytes": 17404,
+      "sha256": "86a03e44bdd80370d428dac22c96044d04027df8361dc72b121a1cbe259387af"
+    },
+    "inventory-icons/food-v7-3.png": {
+      "bytes": 14879,
+      "sha256": "3a373b9e95065e03ef41c8ca1b037d41a428a4612408506c002700cbb78149df"
+    },
+    "inventory-icons/food-v7-4.png": {
+      "bytes": 12214,
+      "sha256": "4cbec4fe7a0d730293bed4e698429e3779d3d65845e70cc0e8259f6fd69adbab"
+    },
+    "inventory-icons/food-v7-5.png": {
+      "bytes": 14846,
+      "sha256": "c63a21e74c0c5eb68b405237e13f5bb1d7f224ee9041f91c1f632c6650749635"
+    },
+    "inventory-icons/pot-v7-0.png": {
+      "bytes": 13062,
+      "sha256": "b26cf6fd6322bf123ecce904a080893377440b4dfd6ea7bfa9098cf45b6131ae"
+    },
+    "inventory-icons/pot-v7-1.png": {
+      "bytes": 9870,
+      "sha256": "2226b4c113a2b06b9180cf507aa48ef567f4288720043ca24cd203280c029d08"
+    },
+    "inventory-icons/pot-v7-2.png": {
+      "bytes": 17421,
+      "sha256": "56cba1f7c6408df0fb33ae2c8e642620cbdfee293e53515019816369fbb7e92b"
+    },
+    "inventory-icons/pot-v7-3.png": {
+      "bytes": 16292,
+      "sha256": "169bbfe19da78835fa5322a3921ac1347890fc94028999f0bf67313dbde47ad3"
+    },
+    "inventory-icons/pot-v7-4.png": {
+      "bytes": 15816,
+      "sha256": "134e832312fd34807ba6139b80b65409b3fe1e653ffbdbd536a7f6ba1e604a51"
+    },
+    "inventory-icons/pot-v7-5.png": {
+      "bytes": 15272,
+      "sha256": "5071ab40cc53b598f8fc1253fc02ce4547d6f1afe1d5e2f4e2cbd915ec054b9c"
+    },
+    "inventory-icons/teacup-v7-0.png": {
+      "bytes": 15308,
+      "sha256": "ce6adcf81bc02d59d93503408a7a69b6284c5cd657594065e2e2d7d037a9f0ec"
+    },
+    "inventory-icons/teacup-v7-1.png": {
+      "bytes": 19943,
+      "sha256": "d5118250add75815d7b0bd855f68cfad730c7958f10f75c0d10a5dccd9a09835"
+    },
+    "inventory-icons/teacup-v7-2.png": {
+      "bytes": 12876,
+      "sha256": "2e130649f57909af266b0d66929e5a0f68aa2a2b759762ac08807f4e389aa1bd"
+    },
+    "inventory-icons/teacup-v7-3.png": {
+      "bytes": 12424,
+      "sha256": "6cf66732de7cf755fe008637e999d145555b3aeb83c7ac78a98e7b0ce6151f40"
+    },
+    "inventory-icons/teacup-v7-4.png": {
+      "bytes": 16601,
+      "sha256": "1ab7596c48c8461b4482bb444ac91ebac57aa284400e242de37d657e52f39b8b"
+    },
+    "inventory-icons/teacup-v7-5.png": {
+      "bytes": 18796,
+      "sha256": "d2904fc07d974a89e8b35974a8f1ca5fc2f943917c9f0b82f225d97ff5897411"
+    },
+    "inventory-icons/tray-v7-0.png": {
+      "bytes": 9848,
+      "sha256": "a11c1a37ee9cad24f1ca03c4ef266b5eb84de65538697f7730a700f620c056ae"
+    },
+    "inventory-icons/tray-v7-1.png": {
+      "bytes": 11364,
+      "sha256": "114fe3a97c8542b239f93072689ce1f8b9a7cd99f8cf9f398f48733335977db7"
+    },
+    "inventory-icons/tray-v7-2.png": {
+      "bytes": 19118,
+      "sha256": "87e5eb0d427e8c00f34f08e15d1e21d41cdf263d2976b249c58f9858d9831904"
+    },
+    "inventory-icons/tray-v7-3.png": {
+      "bytes": 39529,
+      "sha256": "ce4467e7a79a15eb16bf853aab303891ec3fdae5d2cfde629ed3cee00f91dd73"
+    },
+    "inventory-icons/tray-v7-4.png": {
+      "bytes": 20307,
+      "sha256": "062b119327b9c2290d6820ba9c11a0ea6107b1c760e749e960fee41ced0c5197"
+    },
+    "inventory-icons/tray-v7-5.png": {
+      "bytes": 7913,
+      "sha256": "0fecc15204a3033b252ad359adf99a681beefc2d898c2691c1ff13913e359528"
+    },
+    "inventory-icons/winecup-v7-0.png": {
+      "bytes": 18050,
+      "sha256": "5a72383bf00eb88eccbd1deee08cd720957a1bed9b12cc2f966d97df5716f72b"
+    },
+    "inventory-icons/winecup-v7-1.png": {
+      "bytes": 16987,
+      "sha256": "ac60db957afaede95634caa73062351581accc2abb7f4fe6405c0928282ecb28"
+    },
+    "inventory-icons/winecup-v7-2.png": {
+      "bytes": 16082,
+      "sha256": "2037467df8766928a4120415efcb0d206e7d6c48c21faae462312b7ff89333da"
+    },
+    "inventory-icons/winecup-v7-3.png": {
+      "bytes": 11277,
+      "sha256": "de84241b1553a8e8ed0b9a5c4e5acf5598f8a7e070e6ec8157afc56be3ff716a"
+    },
+    "inventory-icons/winecup-v7-4.png": {
+      "bytes": 22439,
+      "sha256": "48dc27793ceeda78ccba13596fed5f990e8bf5ac9b4a6e9a19d234f003e1b3d5"
+    },
+    "inventory-icons/winecup-v7-5.png": {
+      "bytes": 19034,
+      "sha256": "19b9da0ab7f6e72f67334e3a8a8d3c37469bbc97ae0d5db6fddb79f3a62222bc"
     },
     "invite.js": {
       "bytes": 5367,
@@ -1052,6 +1392,18 @@
     "journey.js": {
       "bytes": 3235,
       "sha256": "3da8efa08da47a5acb8e01975594885b176046b487f8e112ed7b60f487f93073"
+    },
+    "lie-oblique-front.png": {
+      "bytes": 2051634,
+      "sha256": "465ef2b6f67f0fe262f1cc1c7dd51618c47b64a9958123e872beeadf5e2019ec"
+    },
+    "lie-oblique-side.png": {
+      "bytes": 1166147,
+      "sha256": "72a06ef5eeb12092a663be5634697f60b7b691c818ddc43f95a99f0d87961c83"
+    },
+    "lie-pose.png": {
+      "bytes": 1757733,
+      "sha256": "4f2a2837743dbb0b7a8b8a5aaab4788fb6c357a30008314486b1e83b4f25d1a5"
     },
     "map-art.js": {
       "bytes": 31509,
@@ -1064,6 +1416,38 @@
     "mobile-screen.js": {
       "bytes": 7852,
       "sha256": "f689d27d7b184a558a80422ebec03931be5039bd2de20dec8abded3a3be85f6e"
+    },
+    "npc/all.json": {
+      "bytes": 16752,
+      "sha256": "c0756bf293af799067a08ff69a2946f99f2a7474f41f4c479d71b007dac1ca96"
+    },
+    "npc/all.png": {
+      "bytes": 8140483,
+      "sha256": "7bbd9201f94b384f1cb35219e67cfe0e738fa7fdb38a7d1de2bc08ed7c051df7"
+    },
+    "npc/portrait.png": {
+      "bytes": 323808,
+      "sha256": "0b48747130ca7b1ad973689bd2e3e5d15613d0dcf06238f34a84f36a55562b33"
+    },
+    "npc/runtime.js": {
+      "bytes": 5946,
+      "sha256": "99575052af8b4833b9629079adde782402828bab60d70308dfd16dd43c0d20bc"
+    },
+    "npc/saved-size.json": {
+      "bytes": 162,
+      "sha256": "828472996e259d1b473822bcf13af712f0afed951156d65f480f1d754c08f6a4"
+    },
+    "npc-ui/bartender.js": {
+      "bytes": 14896,
+      "sha256": "d4421df352956d9949236e983d42a25d89028312b3f03d06bcff53228af4d842"
+    },
+    "npc-ui/function-panel.js": {
+      "bytes": 7631,
+      "sha256": "26c46edea00846326992b41eb317ead6ec8044a03214af1b0202d8e41234cc76"
+    },
+    "npc-ui/selection-core.js": {
+      "bytes": 1356,
+      "sha256": "5b746ee12b75858e670095208271df9edc32c4a48831701b91ceaceaae262aff"
     },
     "painted-flora.js": {
       "bytes": 10272,
@@ -1127,7 +1511,31 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "3193b52eb7ca25486a506661977085fe024ef11adf17c3b82578ce796721dc44"
+      "sha256": "4538df62a0daa17b417d6d3d51c0cf5831359d58b482213dbe00f766a37289c8"
+    },
+    "scene-extras.js": {
+      "bytes": 121009,
+      "sha256": "be95b506d0a4c1a7e47e8d93bf698e924788eb2021197cf94d3b2c0378bda37d"
+    },
+    "scene-world.json": {
+      "bytes": 10949,
+      "sha256": "8b2a9af252ef0509a3f546fde90d612b4bb567b645456431ec3395372e5cca17"
+    },
+    "seat-base.png": {
+      "bytes": 1828100,
+      "sha256": "557bd2d23e5ebc633921356b66d82fc4364a7dcce5b3630dfd4d6bf71eb33365"
+    },
+    "seat-diagonal.png": {
+      "bytes": 1117706,
+      "sha256": "0021540b08a1d526c686711144d10c5361233f0f19b7e246a6c9584c49a6d489"
+    },
+    "seat-transition-base.png": {
+      "bytes": 1499006,
+      "sha256": "26a340329010728f8e5290c1b8784a08d18033c01713e9a9b73d533856b12a4e"
+    },
+    "seat-transition-diagonal.png": {
+      "bytes": 1472713,
+      "sha256": "96e1665d62497202c814ebdce3bb8c2fa40fbe1187e52691f551029dd35d15d8"
     },
     "selected-sounds.json": {
       "bytes": 24950,
@@ -1782,8 +2190,8 @@
       "sha256": "c2eee4552a460ed97591f527e127b95c811d5f796b9448f3f705974af9beba9d"
     },
     "tavern/assets/main/index.js": {
-      "bytes": 158078,
-      "sha256": "9fb7cc1a3a977e093773f54e8bdb235d130fbb13405137c253a045adcd6e8837"
+      "bytes": 158198,
+      "sha256": "3583355313bc0d6d04cdca6c3559f7741d249e79ae4c450a8c034db6af5cb51c"
     },
     "tavern/assets/rain_inside_B_01.wav": {
       "bytes": 3456044,
@@ -10042,8 +10450,8 @@
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 34181,
-      "sha256": "cee1df07c2a444894c90533442dd4b4f4bb9a4fceb293b2580d72e06f4c4a234"
+      "bytes": 34240,
+      "sha256": "9a6154a630afe589e83cc11a7ca624e70b00c3b2bae1458dbc95a8c0d95ac05b"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10159,7 +10567,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "a9808304d0296cbcef598d2ffe6d84b3f227a3267fbcf708fbe44f5d4c9ab675"
+      "sha256": "b19fc4ed58eb831f1a6b2bfddd484347c41df3790568992ef401771cdaba19b6"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
