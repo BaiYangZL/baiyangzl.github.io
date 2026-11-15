@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="council-app.json"><meta name="apple-mobile-web-app-capable" content="yes"><title>白羊钟楼 · 尺寸预览</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#11151b;color:#e8ddca;font:13px system-ui}
+header{height:44px;display:flex;gap:16px;align-items:center;padding:0 16px;border-bottom:1px solid #ffffff16}header strong{font-weight:500;margin-right:auto}a,button{color:inherit;font:inherit}button{border:1px solid #a7977760;background:#262b31;padding:4px 10px;border-radius:6px;cursor:pointer}a{text-decoration:none}main{position:relative;width:100%;height:calc(100% - 44px);overflow:hidden}iframe{position:absolute;border:0;transform-origin:top left;background:#1b222c}body:fullscreen header{display:none}body:fullscreen main{height:100%}
+@media(max-width:900px) and (pointer:coarse){header{display:none}main{height:100dvh}}
+</style></head><body><header><strong id="label"></strong><a href="?view=portrait">竖屏</a><a href="?view=landscape">横屏</a><a href="?view=desktop">电脑</a><button id="actual" title="按1:1显示，空间不足时可滚动预览">原尺寸</button><button id="full">全屏</button></header><main><iframe title="钟楼游戏预览" allow="autoplay; fullscreen" allowfullscreen></iframe></main>
+<script>
+const params=new URLSearchParams(location.search),mode=params.get('view')||'portrait',player=params.get('perspective')==='player';
+const sizes={portrait:[390,844,'手机竖屏'],landscape:[844,390,'手机横屏'],desktop:[1440,900,'电脑全屏']};
+const [w,h,label]=sizes[mode]||sizes.portrait,frame=document.querySelector('iframe'),stage=document.querySelector('main');
+const caption=(player?'玩家视角 · ':'')+label;document.title=caption+' · 白羊钟楼';document.querySelector('#label').textContent=caption;
+const game=new URL('/blood-council.html',location.href);if(player)game.searchParams.set('view','player');if(params.has('room'))game.searchParams.set('room',params.get('room'));frame.src=game.href;
+for(const link of document.querySelectorAll('header a')){const target=new URL(link.href);if(player)target.searchParams.set('perspective','player');if(params.has('room'))target.searchParams.set('room',params.get('room'));link.href=target.href;}
+let actual=params.get('scale')==='actual';const actualButton=document.querySelector('#actual');
+function fit(){const W=stage.clientWidth,H=stage.clientHeight;const fill=matchMedia('(max-width:900px) and (pointer:coarse)').matches||(mode==='desktop'&&!!document.fullscreenElement);const fw=fill?W:w,fh=fill?H:h;const scale=actual&&!fill?1:Math.min(W/fw,H/fh,1);stage.style.overflow=actual&&!fill?'auto':'hidden';frame.style.width=fw+'px';frame.style.height=fh+'px';frame.style.transform='scale('+scale+')';frame.style.left=Math.max(0,(W-fw*scale)/2)+'px';frame.style.top=Math.max(0,(H-fh*scale)/2)+'px';actualButton.textContent=actual?'适应窗口':'原尺寸';actualButton.setAttribute('aria-pressed',String(actual));document.querySelector('#label').textContent=caption+' · '+Math.round(scale*100)+'%';}
+actualButton.onclick=()=>{actual=!actual;const url=new URL(location.href);if(actual)url.searchParams.set('scale','actual');else url.searchParams.delete('scale');history.replaceState(null,'',url);fit();};
+new ResizeObserver(fit).observe(stage);document.addEventListener('fullscreenchange',fit);document.querySelector('#full').onclick=()=>{if(frame.contentWindow.councilToggleFullscreen)frame.contentWindow.councilToggleFullscreen();else document.querySelector('#full').textContent='游戏加载中';};fit();
+</script></body></html>

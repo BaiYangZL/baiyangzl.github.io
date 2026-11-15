@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-5924ca13ccac",
+  "version": "entry-load-66fc67090e1e",
   "files": {
     "action-art/少女-场景动作-v1-拿取放下.png": {
       "bytes": 1866045,
@@ -142,8 +142,8 @@
       "sha256": "b3982e55635b630bdccdc6f532ce38b3070222acdfacb094fe95f06efc519080"
     },
     "arrival-sw.js": {
-      "bytes": 57493,
-      "sha256": "2622c5f6687ab1f8394e65cb137dba415ad28f4cb4f195f5ea5add2d9ea8e816"
+      "bytes": 59533,
+      "sha256": "0e319e05551760d880410fcd08ebe46592b1257e2dd65c4212a3201ab65d8eeb"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -1062,12 +1062,12 @@
       "sha256": "f33eda4de55b1a1d00d8e23aaa961fdaf1b02419a2c0472fd4cfa7df13bad7d3"
     },
     "blood-council-manifest.json": {
-      "bytes": 104773,
-      "sha256": "711f9c1c35d38e00fbb8498ee0957b7050e3532ccfab8051187ceb91476dfe3e"
+      "bytes": 113401,
+      "sha256": "586f9772331f8fe1a3d35910a788fbdaf2a1361b851f95d692febb2288a54315"
     },
     "blood-council.html": {
-      "bytes": 2008224,
-      "sha256": "74eed0b3ca366aa54dfd1c63ae2eb5d2df7c993c669802bfe64a3ef5fd2d4f55"
+      "bytes": 2113607,
+      "sha256": "44d557b7c3f6316c967727b65500723e8e690786a84ce84845301427ec984f01"
     },
     "cache-check.html": {
       "bytes": 4194,
@@ -1101,6 +1101,14 @@
       "bytes": 2449,
       "sha256": "ff72a23372c865c61895b8d02c45222fb878ea81a7ed054e9fc4c37777d98878"
     },
+    "council-app.json": {
+      "bytes": 256,
+      "sha256": "1a4208c27dcd1fa9d5b1945b505650cdac22c430f603e4e06825b45669c081d9"
+    },
+    "council-preview.html": {
+      "bytes": 3791,
+      "sha256": "dfb2062aaca425e4f248f8da142b8ecf28d44ede91d46163c403e10b28305d11"
+    },
     "dialog.js": {
       "bytes": 7777,
       "sha256": "1773246eee2c93ed0c1c3bb0cb3a918d6b968169d29943b64bbb52267283e8c0"
@@ -1111,7 +1119,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "94e67c616306d7fd31a0a84bd8a455305d8bda2f15737b4317b37f210f5531d0"
+      "sha256": "9f59b388b92b4ce1171577b5d27eefb7cdf536756da10b27b8696c47040e4f3d"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1163,7 +1171,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "f60480aea7636ad63286938072c2a5191dceb3715afe68d835993c2d3bbc838b"
+      "sha256": "4bcf81965838ee5afbd6ff51703f76c607588914128d08f01ef0bd393abe689b"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1511,7 +1519,7 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "4538df62a0daa17b417d6d3d51c0cf5831359d58b482213dbe00f766a37289c8"
+      "sha256": "1c3a10f811554c7a45248f95c19b67ba3418764d2256a22f818d620818deae63"
     },
     "scene-extras.js": {
       "bytes": 121009,
@@ -10442,16 +10450,16 @@
       "sha256": "79a69d8ae612ebff9c0055e79967d5d101ed21f24b03b2e10b22b34866cbc5c5"
     },
     "tavern/grimoire.js": {
-      "bytes": 15183,
-      "sha256": "2b73919cffae3705c61887f06062c3f0acde723a7d50b230a0a0fcf3a671bb5b"
+      "bytes": 15937,
+      "sha256": "474ad0dba706a73d1f7b766d1036c5315fba7cd2dc2b3470f89bac9c13488df2"
     },
     "tavern/hero-greeting.js": {
       "bytes": 10408,
       "sha256": "0de57c3ca139edd942f6f1a4a6093473a06fd4be6622731c2160ee3b315752c6"
     },
     "tavern/index.html": {
-      "bytes": 34240,
-      "sha256": "9a6154a630afe589e83cc11a7ca624e70b00c3b2bae1458dbc95a8c0d95ac05b"
+      "bytes": 34249,
+      "sha256": "cacf2d3b41d4795731baa803a7a82b099c820f22ad1b073e6cacbaed6c24613e"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10567,7 +10575,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "b19fc4ed58eb831f1a6b2bfddd484347c41df3790568992ef401771cdaba19b6"
+      "sha256": "0555325ea4a747122d1f3086ee973367e54161b0b65550d96734be56fdc2dc71"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
@@ -10938,8 +10946,8 @@
       "sha256": "c05b2d882fde3219891fc9a5ada16666a349b1d458c95f79bdefa4c229109136"
     },
     "城堡议会-大圆座牌.html": {
-      "bytes": 2008224,
-      "sha256": "74eed0b3ca366aa54dfd1c63ae2eb5d2df7c993c669802bfe64a3ef5fd2d4f55"
+      "bytes": 2113607,
+      "sha256": "44d557b7c3f6316c967727b65500723e8e690786a84ce84845301427ec984f01"
     },
     "处决播报-1-失败.wav": {
       "bytes": 135084,
@@ -13356,6 +13364,234 @@
     "血染立体铜钟-v3.png": {
       "bytes": 921422,
       "sha256": "e1b7314340396b834190919354d7da76fd7c6146e0ee39b7e68a71376962113d"
+    },
+    "血染通用传奇-1_4daystodie.png": {
+      "bytes": 135533,
+      "sha256": "3d0ace33434883b484a72917f860f3f2f954cf7ab6d9b8927d467507219ae07c"
+    },
+    "血染通用传奇-74.png": {
+      "bytes": 1656007,
+      "sha256": "951b28a7e56cf3b2d4d634b8b51b8a91c90a7248e040189c70a7d313b7e7bf3a"
+    },
+    "血染通用传奇-7_1122.png": {
+      "bytes": 33491,
+      "sha256": "a6ae6bd2ccd36dc8a486ecb8947a497e6d12682fa4eef710558cbc94e9428ff2"
+    },
+    "血染通用传奇-8_1122.png": {
+      "bytes": 45849,
+      "sha256": "fa5556ad85f30564b89c8499e65e9dc09f6c88795b5a0f7a0644341bf34094eb"
+    },
+    "血染通用传奇-9_1122.png": {
+      "bytes": 47443,
+      "sha256": "5fd7a992061bf35cdb01f109258872cad21becbc56459b6d2342196535f58331"
+    },
+    "血染通用传奇-angel.png": {
+      "bytes": 101809,
+      "sha256": "da379955270315ecbf2a059dffaa0610b964aa0529e063351893c31c0f110d92"
+    },
+    "血染通用传奇-ankotclubs.webp": {
+      "bytes": 16120,
+      "sha256": "eb8f94d2bab1ad3c0472401d50770e9fcdd2876d06247f538e93da09ee171fa8"
+    },
+    "血染通用传奇-ankotdiamonds.webp": {
+      "bytes": 13266,
+      "sha256": "8c4ec5c65084b61d30dd47cdc1cc767cfaa282d94b1561cc711eac205411f5f8"
+    },
+    "血染通用传奇-ankothearts.webp": {
+      "bytes": 17010,
+      "sha256": "8f22020b3bc43ec1d4fdebbdf011f00f5a86b144e3b877497d9257603765402c"
+    },
+    "血染通用传奇-ankotspades.webp": {
+      "bytes": 15050,
+      "sha256": "ce5f8af372632cae60e2a76486f88fb1848c67096b9ddb8c0dafbec6f4bfddd6"
+    },
+    "血染通用传奇-Baker.webp": {
+      "bytes": 31008,
+      "sha256": "2cf28095d3348cfe9768675fcd8b25ab1e0970f73488d8814bce11e60407b433"
+    },
+    "血染通用传奇-bigwig.png": {
+      "bytes": 265095,
+      "sha256": "ddc52f4d48ca622baf732c0d8f3c1adc0db38727576d8311ce5b93bf17aef213"
+    },
+    "血染通用传奇-bootlegger.png": {
+      "bytes": 255176,
+      "sha256": "f7aeffdbb6287ed10caa95f9af9b70ef80d78adcb6b6f83283986505a36cea75"
+    },
+    "血染通用传奇-buddhist.png": {
+      "bytes": 204911,
+      "sha256": "919a6732dfa1b71b0f9bc6a629cef1956173cd01843244fcc2dad64c92692dfa"
+    },
+    "血染通用传奇-DeusExFiasco.png": {
+      "bytes": 168290,
+      "sha256": "dff97f085dc101f3d86c1faebf5888f644a1705acedc2ff5fd369b1976a28f00"
+    },
+    "血染通用传奇-djinn.png": {
+      "bytes": 202927,
+      "sha256": "980dd5c0024860d40e1c666def929b7692df1ab2e977b73bbb7d997c11651881"
+    },
+    "血染通用传奇-doomsayer.png": {
+      "bytes": 98954,
+      "sha256": "faa15e653312e9719aad37ea214694a6ec97be841f2332a352a0621c717e4c53"
+    },
+    "血染通用传奇-duchess.png": {
+      "bytes": 200407,
+      "sha256": "48e8e252cf588566fec18ea10b369b2a06442353ef9bd4833c106b5256bd8cb2"
+    },
+    "血染通用传奇-duck.webp": {
+      "bytes": 12686,
+      "sha256": "ab7a356b34b0037b920d84951bafff2b2b5b8e8be4b14f0993de00d2d9f050bb"
+    },
+    "血染通用传奇-fableds.webp": {
+      "bytes": 10992,
+      "sha256": "04c8b91f25beeff643d6921377341295fdb3a74bc511cb00fb993e88bda9b800"
+    },
+    "血染通用传奇-ferryman.png": {
+      "bytes": 134744,
+      "sha256": "84ce6f3556c0283aa221b6ee91ae07b91331436de9f8da6204471d723afb35e6"
+    },
+    "血染通用传奇-fibbin.png": {
+      "bytes": 173403,
+      "sha256": "4321873edd122101ed46a2e95931f881bb80a96116070ed752bb781f2cfbce49"
+    },
+    "血染通用传奇-fiddler.png": {
+      "bytes": 202999,
+      "sha256": "ad289fbb22adb91ad2a536d68950ccb90f5f5ecb12fd977544f000e6c65fed11"
+    },
+    "血染通用传奇-FirstConsul.png": {
+      "bytes": 180026,
+      "sha256": "27cddd08649619231575e94bdd75b0a5ec3ebc1b5d6f84004772e66b8664eb38"
+    },
+    "血染通用传奇-gardener.png": {
+      "bytes": 151455,
+      "sha256": "29630ef3adaa8d790b4bda9ae64238c6f7cb921eeceb468b7c105305e8a71b3f"
+    },
+    "血染通用传奇-god_of_ug.png": {
+      "bytes": 251152,
+      "sha256": "1ab621487e53ca4addf86b2ddf7c0fb596a19b075aba3fb949e73aaedfa90f89"
+    },
+    "血染通用传奇-hells_librarian.png": {
+      "bytes": 206689,
+      "sha256": "9af0a86688106f0de93c4fdf5f2055c1ca740ddac9a11e6044f25b0b07f0ead9"
+    },
+    "血染通用传奇-hindu.png": {
+      "bytes": 185906,
+      "sha256": "25a16489ee133d87d4cc3cdd49c9c1d349ff34cbf7b6568539b4cd01039c6383"
+    },
+    "血染通用传奇-jiebashenshi.png": {
+      "bytes": 157209,
+      "sha256": "c40b83e645863d0dffccc58b4ffb69fb8d0815cf43a724915f7d14658ec15a45"
+    },
+    "血染通用传奇-KE.png": {
+      "bytes": 336067,
+      "sha256": "873030a75266769abf4ed3f52878ee9260983c529ce2674aadb27e02a74f4768"
+    },
+    "血染通用传奇-knaves.png": {
+      "bytes": 177824,
+      "sha256": "8ef644f0fdc58be9341ab314275f45ccf15395835f9e2d6e6d70eaa55c551715"
+    },
+    "血染通用传奇-LadyOfSorrows.png": {
+      "bytes": 123137,
+      "sha256": "b72a4078d4138b3d798245757155029e80dceaae95e9e149295383aafefc0199"
+    },
+    "血染通用传奇-Maskmaker.png": {
+      "bytes": 392262,
+      "sha256": "17a9bfe99f3cd3e53f93f4b1137cbeaef7748bb7855e4029e29258acfb75b4ec"
+    },
+    "血染通用传奇-Mistletoe.png": {
+      "bytes": 379221,
+      "sha256": "f912c9ddb072069c812843f0c153559e00a2cf75268de04f0359d14311686c58"
+    },
+    "血染通用传奇-Mixologist.png": {
+      "bytes": 132843,
+      "sha256": "44534e3c359c4bd67ca0eb396433dedd8723596148ff8441feb07788c6a1f514"
+    },
+    "血染通用传奇-mujiang.png": {
+      "bytes": 113228,
+      "sha256": "b4b57d36ea3fd780dbd53f6ee9118c6d44635698a71ebd0d0307194e8b510677"
+    },
+    "血染通用传奇-newcharacter1777211500211.png": {
+      "bytes": 69346,
+      "sha256": "23175a39b55266ae881053cbb89ea75a31d095dbb528f77f6e6b3a15c69fc3a3"
+    },
+    "血染通用传奇-PeanutGallery.png": {
+      "bytes": 149814,
+      "sha256": "1a1fd96e3b976ca5dd34f985004c9fa2ba008b8dbbe9f814dc84fdf1a7ca70a4"
+    },
+    "血染通用传奇-pope.png": {
+      "bytes": 237577,
+      "sha256": "7dad062d3f28a21aaec0b21083c77bdf575f9b18037a54562c8d7929c39cd17e"
+    },
+    "血染通用传奇-qilin.png": {
+      "bytes": 260171,
+      "sha256": "2c561902cd512a1c93666aea13fbc735242a2c0813029c80c26e24ca8f428b0d"
+    },
+    "血染通用传奇-revolutionary.png": {
+      "bytes": 110449,
+      "sha256": "2fde8a72ce967e20caadafb76db74e521a708d9016767ad5095926f568d4a383"
+    },
+    "血染通用传奇-ruhuotianqi.png": {
+      "bytes": 169966,
+      "sha256": "de5cdb5a387bb8afb170ce0e69b43810f113ede6d5ef05199b315a9ed71c9844"
+    },
+    "血染通用传奇-sentinel.png": {
+      "bytes": 169007,
+      "sha256": "d9627a791f6e4c951a6f0fb8e0d554e0b76f6a471cd51664d48110bb8547b3cf"
+    },
+    "血染通用传奇-shelingchengzhi.webp": {
+      "bytes": 11386,
+      "sha256": "b3ce3dca4cc7c6fbc2c8b004bbcc371da746e7d25529daa596b127a473b4b5bc"
+    },
+    "血染通用传奇-shqd.png": {
+      "bytes": 19904,
+      "sha256": "748479b30d785908c3ee32d7c8615fd6d2d99748b387d9833bdd66b50496b63b"
+    },
+    "血染通用传奇-Soloist.png": {
+      "bytes": 65686,
+      "sha256": "f8f26cffe857643bb023b9dba59935ac3455f920ff7c87917c11835b53eac34e"
+    },
+    "血染通用传奇-spirit_of_ivory.png": {
+      "bytes": 146295,
+      "sha256": "19e3e8668cfb73ef4e06cf3dfde2cf838b328018bb6fcf8a515afadabe3b935b"
+    },
+    "血染通用传奇-stormcatcher.png": {
+      "bytes": 233145,
+      "sha256": "66e44388db820890e7172ed8c0edb56f342a5b6db7fede770cf722d1f4ef88bc"
+    },
+    "血染通用传奇-tongling.png": {
+      "bytes": 147774,
+      "sha256": "a9db186d3010fc4fb23c0d80895107900764955453cd3dbb3b70a053cb9a5af1"
+    },
+    "血染通用传奇-tor.png": {
+      "bytes": 198826,
+      "sha256": "f6363853a6afd44a55ab8b535cc291ac94f0327e2d7b7298b4b383b615069274"
+    },
+    "血染通用传奇-toymaker.png": {
+      "bytes": 121804,
+      "sha256": "47cfae065e50e126e146f27f242658d5246c3c0438f983ed10be5c3d917614e1"
+    },
+    "血染通用传奇-ventriloquist.png": {
+      "bytes": 205083,
+      "sha256": "e183881931a67e758ea3c344d4b6977284e57c9869b81c5c95738fa05c32832f"
+    },
+    "血染通用传奇-XCard.png": {
+      "bytes": 534437,
+      "sha256": "fc969c228114747ade345b3a6d1550a3c41d8f3a74ffabcf14d7400346338a37"
+    },
+    "血染通用传奇-xiaozhenzuotijia.png": {
+      "bytes": 44233,
+      "sha256": "ef3194dd327cdff3711be40257f6f62805a181fa2b3476ec398ff1e2a5de8dd2"
+    },
+    "血染通用传奇-zenomancer.png": {
+      "bytes": 216473,
+      "sha256": "978a6823133fdfa446de797053b42f9362bd4cb64abba6ecc86f1f2f3bd132d0"
+    },
+    "血染通用传奇-zhengyizhinv.png": {
+      "bytes": 170340,
+      "sha256": "67de678b4e43e836eb359a1ce230c407b826e5aeaff129ce7f188cb29dfea952"
+    },
+    "血染通用传奇-zookeeper.png": {
+      "bytes": 212994,
+      "sha256": "1d1c13a0d58bd37b636604544313aa58c88c3190e3da6cb3ecf43c4e0d955603"
     },
     "血染钟楼小镇-日景.png": {
       "bytes": 3794640,

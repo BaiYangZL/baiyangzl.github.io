@@ -1,0 +1,11 @@
+{
+  "id": "./blood-council.html",
+  "name": "白羊钟楼",
+  "short_name": "白羊钟楼",
+  "start_url": "./blood-council.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#161923",
+  "theme_color": "#161923",
+  "lang": "zh-CN"
+}

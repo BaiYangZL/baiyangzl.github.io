@@ -8,9 +8,18 @@ let opened=false;
 export async function openGrimoire(origin){
  if(opened)return;const api=window.__tavern,current=api?.state();if(!current?.entered||current.transitioning||current.contextLost)return;
  opened=true;let engine,wasPaused=false;
+ // Request during the entry click, before imports/iframe loading consume activation.
+ // Fullscreen belongs to the containing document so the animated panel stays visible.
+ let entryFullscreen=Promise.resolve(false);
+ if(!document.fullscreenElement&&!document.webkitFullscreenElement){
+  const root=document.documentElement,request=root.requestFullscreen||root.webkitRequestFullscreen;
+  if(request)try{entryFullscreen=Promise.resolve(request.call(root,{navigationUI:'hide'})).then(()=>true,()=>false);}catch{}
+ }
+
  try{engine=await window.System.import('cc');wasPaused=engine.game.isPaused();window.dispatchEvent(new Event('blur'));api.place(current.x,current.z);engine.game.pause();await show(origin);}
  catch(e){const note=document.querySelector('#tavern-ui .note');if(note)note.textContent='议会界面暂未打开，请重试。';console.warn('Grimoire unavailable',e);}
- finally{window.dispatchEvent(new Event('blur'));const s=api.state();api.place(s.x,s.z);if(engine&&!wasPaused&&!s.contextLost)engine.game.resume();opened=false;origin?.focus({preventScroll:true});}
+ finally{if(await entryFullscreen){try{if((document.fullscreenElement||document.webkitFullscreenElement)===document.documentElement){const exit=document.exitFullscreen||document.webkitExitFullscreen;await exit.call(document);}}catch{}}
+  window.dispatchEvent(new Event('blur'));const s=api.state();api.place(s.x,s.z);if(engine&&!wasPaused&&!s.contextLost)engine.game.resume();opened=false;origin?.focus({preventScroll:true});}
 }
 async function show(origin){
  return new Promise(resolve=>{
