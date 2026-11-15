@@ -7399,9 +7399,10 @@ setInterval(()=>{
   const lowLandscape=!phone&&r.width>r.height&&r.height<=600;
   const boardBox=by('board').getBoundingClientRect();
   const left=phone?Math.max(h.right,caption?.right||0)+14:r.left+14;
-  const top=phone?h.top:Math.max(h.bottom,caption?.bottom||0)+16;
-  const width=phone?Math.max(80,Math.min(r.right-left-12,tools.left-left-8)):Math.max(80,Math.min(360,boardBox.left-left-12));
-  const height=phone?Math.max(112,h.height+12):Math.min(180,Math.max(80,r.bottom-top-78));
+  const belowTools=phone&&tools.left-left-8<80;
+  const top=phone?(belowTools?Math.max(h.top,tools.bottom+8):h.top):Math.max(h.bottom,caption?.bottom||0)+16;
+  const width=phone?Math.max(80,belowTools?r.right-left-12:Math.min(r.right-left-12,tools.left-left-8)):Math.max(80,Math.min(360,boardBox.left-left-12));
+  const height=phone?Math.max(56,Math.max(112,h.height+12)-(top-h.top)):Math.min(180,Math.max(80,r.bottom-top-78));
   app.style.setProperty('--public-feed-height',height+'px');
   arrivals.style.cssText=`left:${left}px;top:${top}px;width:${width}px;height:${height}px;max-height:${height}px`;
   arrivals.classList.remove('single-message','compact-message');arrivals.classList.toggle('phone-feed',phone);arrivals.classList.toggle('compact-feed',phone&&height<94);arrivals.classList.toggle('short-feed',phone&&height<75);
@@ -11318,8 +11319,28 @@ setInterval(deskSync,250);deskSync();
  const quick=doc.createElement('button');quick.id='councilFullscreenQuick';quick.type='button';quick.title='全屏显示';quick.setAttribute('aria-label','进入全屏');
  quick.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg>';
  doc.getElementById('menu').before(quick);
+ const landscape=doc.createElement('button');landscape.id='councilLandscapeQuick';landscape.type='button';landscape.title='切换横屏';landscape.setAttribute('aria-label','切换横屏');landscape.setAttribute('aria-pressed','false');
+ landscape.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M17.5 10v4"/></svg><span>横屏</span>';
+ quick.before(landscape);
+ let landscapeLocked=false;
+ function releaseLandscape(){if(landscapeLocked){try{screen.orientation.unlock();}catch{}landscapeLocked=false;}landscape.setAttribute('aria-pressed','false');landscape.title='切换横屏';landscape.setAttribute('aria-label','切换横屏');}
+ function landscapeGuidance(origin){window.openCouncilUtility({id:'councilLandscapeHelp',title:'横屏游玩',origin,maxWidth:320,maxHeight:220,render:body=>{
+  const p=doc.createElement('p');p.textContent='当前浏览器未允许自动横屏。请关闭手机的竖屏方向锁定，再将手机横过来，游戏会自动适配横屏布局。';body.append(p);
+ }});}
+ landscape.onclick=async()=>{
+  if(landscape.disabled)return;
+  if(landscapeLocked){releaseLandscape();toast('已恢复自动旋转');return;}
+  if(innerWidth>innerHeight){toast('当前已是横屏布局');return;}
+  const origin=landscape.getBoundingClientRect();landscape.disabled=true;
+  try{
+   if(typeof screen.orientation?.lock!=='function')throw new Error('unsupported');
+   if(!active()&&!standalone()){const request=root.requestFullscreen||root.webkitRequestFullscreen;if(!request)throw new Error('unsupported');await request.call(root);}
+   await screen.orientation.lock('landscape');landscapeLocked=true;
+   landscape.setAttribute('aria-pressed','true');landscape.title='解除横屏锁定';landscape.setAttribute('aria-label','解除横屏锁定');
+  }catch{landscapeGuidance(origin);}finally{landscape.disabled=false;sync();}
+ };
 
- function sync(){quick.hidden=!!active()||standalone();button.textContent=active()?'退出全屏':standalone()?'已独立全屏打开':'全屏显示';button.setAttribute('aria-pressed',String(!!active()||standalone()));window.dispatchEvent(new Event('resize'));}
+ function sync(){if(!active()&&!standalone())releaseLandscape();quick.hidden=!!active()||standalone();button.textContent=active()?'退出全屏':standalone()?'已独立全屏打开':'全屏显示';button.setAttribute('aria-pressed',String(!!active()||standalone()));window.dispatchEvent(new Event('resize'));}
  function guidance(origin){window.openCouncilUtility({id:'councilFullscreenHelp',title:'全屏打开',origin,maxWidth:360,maxHeight:300,render:body=>{
   const p=doc.createElement('p'),note=doc.createElement('p');
   p.textContent=/MicroMessenger/i.test(navigator.userAgent)?'当前微信窗口不支持网页全屏时，请用右上角“…”选择在浏览器中打开。':'当前浏览器未允许网页全屏，请在系统浏览器中打开后重试。';
@@ -11336,7 +11357,7 @@ setInterval(deskSync,250);deskSync();
  button.onclick=()=>window.councilToggleFullscreen();
  quick.onclick=()=>window.councilToggleFullscreen(quick.getBoundingClientRect());
  for(const d of fullscreenDocuments){d.addEventListener('fullscreenchange',sync);d.addEventListener('webkitfullscreenchange',sync);}
- window.addEventListener('pagehide',()=>{for(const d of fullscreenDocuments){d.removeEventListener('fullscreenchange',sync);d.removeEventListener('webkitfullscreenchange',sync);}},{once:true});
+ window.addEventListener('pagehide',()=>{releaseLandscape();for(const d of fullscreenDocuments){d.removeEventListener('fullscreenchange',sync);d.removeEventListener('webkitfullscreenchange',sync);}},{once:true});
  const css=doc.createElement('style');css.textContent=`
  html:fullscreen,html:fullscreen body{width:100%;height:100dvh;background:#161923}
  #app .top .actions #councilFullscreenQuick{flex:none;display:grid;place-items:center;padding:0;border:1.5px solid transparent;border-radius:50%;color:#f4d790;background:linear-gradient(145deg,#39312ee8,#201f2aeb) padding-box,linear-gradient(135deg,#fff0bc,#c49a49 38%,#8e6529 58%,#e8ca7b 83%,#fff1c5) border-box;box-shadow:0 2px 8px #0005,inset 0 0 0 1px #f9df9520;cursor:pointer}
@@ -11344,6 +11365,12 @@ setInterval(deskSync,250);deskSync();
  #app .top .actions #councilFullscreenQuick svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
  #app .top .actions #councilFullscreenQuick:hover{color:#fff0c4;filter:brightness(1.12)}
  #app .top .actions #councilFullscreenQuick:focus-visible{outline:2px solid #f5d487;outline-offset:3px}
+ #app .top .actions #councilLandscapeQuick{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:3px;border:1px solid #e4c78370;border-radius:50%;background:#292936d9;color:#f4d790;cursor:pointer;line-height:1}
+ #app .top .actions #councilLandscapeQuick svg{width:21px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+ #app .top .actions #councilLandscapeQuick span{font-size:10px;letter-spacing:1px}
+ #app .top .actions #councilLandscapeQuick[aria-pressed="true"]{background:#50422de8;border-color:#f4d790}
+ #app .top .actions #councilLandscapeQuick:focus-visible{outline:2px solid #f5d487;outline-offset:3px}
+ #app .top .actions #councilLandscapeQuick:disabled{opacity:.65;cursor:wait}
 
  @media(max-width:900px) and (orientation:portrait){
   body:not([data-role-dock]) #app#app .top{padding-top:max(12px,env(safe-area-inset-top))!important}

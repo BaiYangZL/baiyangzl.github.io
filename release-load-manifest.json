@@ -1,5 +1,5 @@
 {
-  "version": "entry-load-11d4c43d65a2",
+  "version": "entry-load-0b23776c9e2d",
   "files": {
     "action-art/少女-场景动作-v1-拿取放下.png": {
       "bytes": 1866045,
@@ -143,7 +143,7 @@
     },
     "arrival-sw.js": {
       "bytes": 59533,
-      "sha256": "4a7a7fdc7abad2d03b69f702036b730bb3285137fde8ae161724566d1daf5e74"
+      "sha256": "d1f6bc5f113219e29a2438a3f9cf2a8bc28822c1df6ed708b679902846792d51"
     },
     "assets/arrival-insects.mp3": {
       "bytes": 81127,
@@ -1063,11 +1063,11 @@
     },
     "blood-council-manifest.json": {
       "bytes": 113401,
-      "sha256": "586f9772331f8fe1a3d35910a788fbdaf2a1361b851f95d692febb2288a54315"
+      "sha256": "9269e67881bb352fabedfc8565540e5d3327f97076b8e41253b8a42501ec5cf5"
     },
     "blood-council.html": {
-      "bytes": 2113607,
-      "sha256": "44d557b7c3f6316c967727b65500723e8e690786a84ce84845301427ec984f01"
+      "bytes": 2116548,
+      "sha256": "d3db3e3f258bcecde29e1a71ece123602f7a510435295026a80fd5639052441e"
     },
     "cache-check.html": {
       "bytes": 4194,
@@ -1119,7 +1119,7 @@
     },
     "entry-check.html": {
       "bytes": 14778,
-      "sha256": "5658e77062dd3c335781ff12237d273a0faeaecacc2344c24e1b3a076cac10c9"
+      "sha256": "6e9f4a5f371c1e0fb8db048d058190cb255fbce4ed5cba6b6fa53320aeeda9b3"
     },
     "entry-diagnostic-20261025.html": {
       "bytes": 7291,
@@ -1171,7 +1171,7 @@
     },
     "index.html": {
       "bytes": 37821,
-      "sha256": "3f63cc473374aa5b924d2b0084c36b5030058549bfe643b9117440371a954d82"
+      "sha256": "131313ddcf1a20eda7d3ac6553d6654a3b8536bc0f365f3ccca463345d507551"
     },
     "indoor-rain.js": {
       "bytes": 791,
@@ -1519,7 +1519,7 @@
     },
     "sample.js": {
       "bytes": 20605,
-      "sha256": "d87e9c8e10d73e17b3fffd01e286f34c65d3b7baa8e9c7e8bc7b52e8e78afe53"
+      "sha256": "ce73a7806f740759c8fb389f37d73758dd67c0a1af9189b54dd0d60707806663"
     },
     "scene-extras.js": {
       "bytes": 122062,
@@ -10459,7 +10459,7 @@
     },
     "tavern/index.html": {
       "bytes": 34249,
-      "sha256": "aec0a5e842cf0344632057f9b1db1825318d9ce7514e31e0befce5819ca6a164"
+      "sha256": "11a5025ec300fd716b923bce81d0fb508672066e04870b85005f24bdbfd0af2c"
     },
     "tavern/index.js": {
       "bytes": 818,
@@ -10575,7 +10575,7 @@
     },
     "tavern-transition.js": {
       "bytes": 17866,
-      "sha256": "f3ddffcdd6b53cc0ef29c6073298c22729f7205e189e8244a0eb50bbae3e3cec"
+      "sha256": "e301a7386898faa10d91eda27824953bb141138a30f4f6b0de3e6134aeb03edd"
     },
     "vendor/PHASER-LICENSE.md": {
       "bytes": 1120,
@@ -10946,8 +10946,8 @@
       "sha256": "c05b2d882fde3219891fc9a5ada16666a349b1d458c95f79bdefa4c229109136"
     },
     "城堡议会-大圆座牌.html": {
-      "bytes": 2113607,
-      "sha256": "44d557b7c3f6316c967727b65500723e8e690786a84ce84845301427ec984f01"
+      "bytes": 2116548,
+      "sha256": "d3db3e3f258bcecde29e1a71ece123602f7a510435295026a80fd5639052441e"
     },
     "处决播报-1-失败.wav": {
       "bytes": 135084,

@@ -189,4 +189,4 @@ function normalFetch(event){
   })().catch(() => fetch(networkRequest(request))));
 }
 
-// Prepared release: entry-load-11d4c43d65a2
+// Prepared release: entry-load-0b23776c9e2d
