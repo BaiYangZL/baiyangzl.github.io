@@ -11322,25 +11322,41 @@ setInterval(deskSync,250);deskSync();
  const landscape=doc.createElement('button');landscape.id='councilLandscapeQuick';landscape.type='button';landscape.title='切换横屏';landscape.setAttribute('aria-label','切换横屏');landscape.setAttribute('aria-pressed','false');
  landscape.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M17.5 10v4"/></svg><span>横屏</span>';
  quick.before(landscape);
- let landscapeLocked=false;
- function releaseLandscape(){if(landscapeLocked){try{screen.orientation.unlock();}catch{}landscapeLocked=false;}landscape.setAttribute('aria-pressed','false');landscape.title='切换横屏';landscape.setAttribute('aria-label','切换横屏');}
+ let landscapeLocked=false,compatFrame=null,originalFrameStyle='',compatParent=null;
+ function fitCompat(){
+  if(!compatFrame)return;
+  const w=compatParent.innerWidth,h=compatParent.innerHeight;
+  const rotated=h>w;
+  const style=`position:fixed;left:50%;top:50%;width:${rotated?h:w}px;height:${rotated?w:h}px;max-width:none;max-height:none;border:0;display:block;transform:translate(-50%,-50%)${rotated?' rotate(90deg)':''};transform-origin:center;`;
+  if(compatFrame.style.cssText!==style)compatFrame.style.cssText=style;
+ }
+ function startCompat(){
+  try{const frame=window.frameElement;if(!frame)return false;
+   compatFrame=frame;originalFrameStyle=frame.getAttribute('style')||'';compatParent=frame.ownerDocument.defaultView;
+   compatParent.addEventListener('resize',fitCompat);fitCompat();
+   landscape.setAttribute('aria-pressed','true');landscape.title='恢复自动方向';landscape.setAttribute('aria-label','恢复自动方向');landscape.querySelector('span').textContent='自动';return true;
+  }catch{return false;}
+ }
+ function stopCompat(){if(!compatFrame)return;compatParent.removeEventListener('resize',fitCompat);compatFrame.setAttribute('style',originalFrameStyle);compatFrame=null;compatParent=null;}
+
+ function releaseLandscape(){stopCompat();landscape.querySelector('span').textContent='横屏';if(landscapeLocked){try{screen.orientation.unlock();}catch{}landscapeLocked=false;}landscape.setAttribute('aria-pressed','false');landscape.title='切换横屏';landscape.setAttribute('aria-label','切换横屏');}
  function landscapeGuidance(origin){window.openCouncilUtility({id:'councilLandscapeHelp',title:'横屏游玩',origin,maxWidth:320,maxHeight:220,render:body=>{
-  const p=doc.createElement('p');p.textContent='当前浏览器未允许自动横屏。请关闭手机的竖屏方向锁定，再将手机横过来，游戏会自动适配横屏布局。';body.append(p);
+  const p=doc.createElement('p');p.textContent='此独立页面的浏览器未允许系统旋转。请从酒馆入口打开血染，那里支持游戏内横屏；这不是检测到你的手机方向锁未关闭。';body.append(p);
  }});}
  landscape.onclick=async()=>{
   if(landscape.disabled)return;
-  if(landscapeLocked){releaseLandscape();toast('已恢复自动旋转');return;}
+  if(landscapeLocked||compatFrame){releaseLandscape();toast('已恢复自动旋转');return;}
   if(innerWidth>innerHeight){toast('当前已是横屏布局');return;}
   const origin=landscape.getBoundingClientRect();landscape.disabled=true;
   try{
    if(typeof screen.orientation?.lock!=='function')throw new Error('unsupported');
-   if(!active()&&!standalone()){const request=root.requestFullscreen||root.webkitRequestFullscreen;if(!request)throw new Error('unsupported');await request.call(root);}
+   if(!active()&&!standalone()){const target=window.frameElement?.ownerDocument.documentElement||root;const request=target.requestFullscreen||target.webkitRequestFullscreen;if(!request)throw new Error('unsupported');await request.call(target);}
    await screen.orientation.lock('landscape');landscapeLocked=true;
    landscape.setAttribute('aria-pressed','true');landscape.title='解除横屏锁定';landscape.setAttribute('aria-label','解除横屏锁定');
-  }catch{landscapeGuidance(origin);}finally{landscape.disabled=false;sync();}
+  }catch{if(!startCompat())landscapeGuidance(origin);}finally{landscape.disabled=false;sync();}
  };
 
- function sync(){if(!active()&&!standalone())releaseLandscape();quick.hidden=!!active()||standalone();button.textContent=active()?'退出全屏':standalone()?'已独立全屏打开':'全屏显示';button.setAttribute('aria-pressed',String(!!active()||standalone()));window.dispatchEvent(new Event('resize'));}
+ function sync(){if(landscapeLocked&&!active()&&!standalone())releaseLandscape();quick.hidden=!!active()||standalone();button.textContent=active()?'退出全屏':standalone()?'已独立全屏打开':'全屏显示';button.setAttribute('aria-pressed',String(!!active()||standalone()));window.dispatchEvent(new Event('resize'));}
  function guidance(origin){window.openCouncilUtility({id:'councilFullscreenHelp',title:'全屏打开',origin,maxWidth:360,maxHeight:300,render:body=>{
   const p=doc.createElement('p'),note=doc.createElement('p');
   p.textContent=/MicroMessenger/i.test(navigator.userAgent)?'当前微信窗口不支持网页全屏时，请用右上角“…”选择在浏览器中打开。':'当前浏览器未允许网页全屏，请在系统浏览器中打开后重试。';
@@ -11351,7 +11367,7 @@ setInterval(deskSync,250);deskSync();
   if(standalone()&&!active()){toast('已在独立窗口中打开');return;}
   try{
    if(active()){const d=fullscreenDocument(),exit=d.exitFullscreen||d.webkitExitFullscreen;await exit.call(d);}
-   else{const request=root.requestFullscreen||root.webkitRequestFullscreen;if(!request)throw new Error('unsupported');await request.call(root);}
+   else{const target=window.frameElement?.ownerDocument.documentElement||root;const request=target.requestFullscreen||target.webkitRequestFullscreen;if(!request)throw new Error('unsupported');await request.call(target);}
   }catch{guidance(origin);}sync();
  };
  button.onclick=()=>window.councilToggleFullscreen();
